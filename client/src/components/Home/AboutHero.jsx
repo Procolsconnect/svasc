@@ -5,11 +5,11 @@ const AboutHero = () => {
     return (
         <section className="section-hero">
             <div className="hero">
+                <h1 className="heading-primary">
+                    <span className="welcome">Welcome to</span>
+                    <span className="college-name">SVASC</span>
+                </h1>
                 <div className="hero-text-box">
-                    <h1 className="heading-primary">
-                        <span className="welcome">Welcome to</span>
-                        <span className="college-name">SVASC</span>
-                    </h1>
                     <p className="hero-description">
                         Shree Venkateshwara Arts and Science (Co-Education) College is an institution
                         for achievers, located in a serene atmosphere at Othakuthirai, near

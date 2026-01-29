@@ -17,7 +17,7 @@ import SvascEvents from '../components/Home/SvascEvents';
 const Home = () => {
   return (
     <div>
-      <div className="home-components-wrapper">
+      <div className="home-components-wrapper" style={{ overflowX: 'hidden', width: '100%', position: 'relative' }}>
         <HeroSlider />
         <Marquee />
         <Accreditation />

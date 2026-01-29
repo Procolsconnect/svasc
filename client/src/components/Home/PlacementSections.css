@@ -475,9 +475,37 @@
 }
 
 /* Responsive Styles */
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 768px) {
+    .placement-banner-section {
+        height: 60vh;
+        min-height: 400px;
+        background-attachment: scroll;
+        background-position: center center;
+    }
+
+    .placement-banner-info h1 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 475px) {
     .placement-sl-header-wrapper {
         padding: 0 18px;
+    }
+
+    .placement-about-text {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: url(https://i.ibb.co/hKGcDGh/shape.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 10rem;
+        height: 10rem;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
     }
 
     .placement-sl-header-wrapper h3 {

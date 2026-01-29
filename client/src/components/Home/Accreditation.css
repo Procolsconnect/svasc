@@ -1,4 +1,3 @@
-/* ================= ACCREDITATION SECTION ================= */
 .accreditation {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
@@ -8,6 +7,8 @@
     margin-inline: auto;
     position: relative;
     z-index: 0;
+    overflow: hidden;
+    /* Contains the large SVASC watermark */
 }
 
 .accreditation span,
