@@ -1,0 +1,742 @@
+/* AboutSVASC.module.css */
+
+.aboutSvascContainer {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+
+}
+
+/* ================= HERO SECTION STYLES ================= */
+.heroContainer {
+    position: relative;
+    z-index: 10;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    padding-left: 5rem;
+}
+
+.heroBlob {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;
+    width: 70rem;
+    height: 80rem;
+    background: linear-gradient(135deg, #FFF1DA 0%, #F1A501 100%);
+    opacity: 0.3;
+    filter: blur(80px);
+    border-bottom-left-radius: 20rem;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heroSubtitle {
+    color: #181E4B;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    color: #000000;
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    font-family: 'Volkhov', serif;
+}
+
+.heroTitleSpan {
+    position: relative;
+    display: inline-block;
+}
+
+.heroTitleUnderline {
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+}
+
+.heroDescription {
+    color: #5E6282;
+    font-size: 1.4rem;
+    margin-bottom: 3.5rem;
+    max-width: 48rem;
+    line-height: 1.7;
+}
+
+.heroButton {
+    background-color: #F1A501;
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: 1.4rem;
+    border: none;
+    box-shadow: 0 1rem 3rem rgba(241, 165, 1, 0.3);
+    font-size: 1.6rem;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.heroButtondepartment {
+    display: flex;
+    position: relative;
+    top: 10rem;
+    margin-top: 10rem;
+}
+
+.heroButton:hover {
+    background-color: #fcae04;
+    transform: translateY(-3px);
+    box-shadow: 0 1.5rem 4rem rgba(241, 165, 1, 0.4);
+}
+
+.heroImageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.heroImageWrapper img {
+    width: 25vw;
+    height: auto;
+    object-fit: contain;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    /* ARCH SHAPE */
+    position: relative;
+    z-index: 10;
+}
+
+.heroImageGradient {
+    position: absolute;
+    top: 15%;
+    width: 90%;
+    height: 90%;
+    background: rgba(254, 203, 162, 0.35);
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 5;
+}
+
+/* ================= EMPOWERING LEADERS SECTION ================= */
+.empoweringHeader {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 8rem;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-right: rem;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.empoweringBackgroundText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.empoweringBackgroundText h1 {
+    font-size: 20vw;
+    line-height: 1;
+    font-weight: 950;
+    color: rgba(0, 0, 0, 0.05);
+    letter-spacing: -0.05em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.empoweringMainContent {
+    position: relative;
+    z-index: 10;
+}
+
+.empoweringTitle {
+    font-size: 7rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 3rem;
+    font-family: 'Volkhov', serif;
+}
+
+.empoweringSubtitle {
+    color: #666;
+}
+
+.empoweringImageContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.empoweringImageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 45rem;
+    aspect-ratio: 4 / 5;
+    border-radius: 20rem 20rem 0 0;
+    /* ARCH SHAPE */
+    overflow: hidden;
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
+    box-shadow: 0 4rem 8rem -2rem rgba(0, 0, 0, 0.1);
+}
+
+.empoweringImageWrapper img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+
+
+.empoweringImageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #fff, transparent);
+    opacity: 0.7;
+}
+
+.empoweringDescription {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 3.5rem;
+    line-height: 1.7;
+}
+
+.empoweringCtaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    color: #fff;
+    padding: 1.2rem 1.4rem 1.2rem 3rem;
+    border-radius: 99rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1.5rem 3rem rgba(245, 158, 11, 0.25);
+}
+
+.empoweringCtaButton:hover {
+    transform: translateX(1rem);
+    box-shadow: 0 2rem 4rem rgba(245, 158, 11, 0.35);
+}
+
+.empoweringCtaButtonText {
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.empoweringCtaButtonIcon {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* ================= ABOUT SECTION STYLES ================= */
+
+.aboutSection {
+    padding: 5rem 2.5rem;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.aboutContentGrid {
+    display: grid;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+
+
+.aboutTitle {
+    color: #000000;
+    font-size: 5rem;
+    font-weight: 800;
+    padding-left: 0;
+    /* Reset internal padding if necessary, or keep as per design. Removing left pad for grid alignment */
+    line-height: 1.1;
+    font-family: 'Volkhov', serif;
+}
+
+.aboutSubtitle {
+    color: #6b7280;
+}
+
+.aboutGradientText {
+    background: linear-gradient(to right, #f59e0b, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.aboutRightColumn {
+    padding: 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.aboutStatsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+}
+
+.aboutStatItem {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aboutDivider {
+    height: 0.125rem;
+    width: 100%;
+    background-color: #e5e7eb;
+    margin-bottom: 2rem;
+}
+
+.aboutStatTitle {
+    color: #111827;
+    font-weight: 700;
+    font-size: 2.975rem;
+}
+
+.aboutStatValue {
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 1.875rem;
+}
+
+.aboutStatValueSmall {
+    font-size: 1.5rem;
+}
+
+/* ================= CAMPUS LIFE SECTION STYLES ================= */
+.campusLifeSection {
+    padding: 2rem 5rem 10rem;
+    overflow: hidden;
+    background-color: #f9f9f9;
+
+    position: relative;
+    width: 100%;
+}
+
+.campusLifeBackdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, rgba(241, 165, 1, 0.1), transparent);
+    z-index: 1;
+}
+
+.campusLifeTitle {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    font-family: 'Volkhov', serif;
+}
+
+.campusLifeDescription {
+    font-size: 1.6rem;
+    color: #555;
+    max-width: 70rem;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+}
+
+.campusLifeButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #F1A501;
+    color: white;
+    border-radius: 99rem;
+    padding: 1rem 2rem 1rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+    font-weight: 300;
+    box-shadow: 0 1rem 3rem rgba(241, 165, 1, 0.2);
+}
+
+.campusLifeButton:hover {
+    background-color: #fcae04;
+    transform: scale(1.05);
+}
+
+.campusLifeButtonIcon {
+    background: white;
+    color: #F1A501;
+    border-radius: 50%;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.campusLifeImagesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 6rem;
+    padding: 0 4rem;
+}
+
+.campusLifeImage {
+    width: 20rem;
+    height: 26rem;
+    border-radius: 3rem;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+    transition: all 0.5s ease;
+}
+
+.campusLifeImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.campusLifeImage:hover {
+    z-index: 100;
+    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
+}
+
+/* ================= TESTIMONIALS SECTION STYLES ================= */
+.testimonialsSection {
+    padding: 2rem 5rem 0;
+    background-color: #fff;
+}
+
+.testimonialsLabel {
+    font-size: 1.3rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.testimonialsTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #181E4B;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-family: 'Volkhov', serif;
+}
+
+.testimonialsDots {
+    display: flex;
+    gap: 2rem;
+}
+
+.dotButton {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dotButtonActive {
+    background-color: #333;
+}
+
+.dotButtonInactive {
+    background-color: #e0e0e0;
+}
+
+.testimonialsCardsWrapper {
+    position: relative;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+}
+
+.testimonialCard {
+    position: absolute;
+    width: 90%;
+    background: white;
+    padding: 1rem;
+    border-radius: 2rem;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.testimonialFrontCard {
+    top: 5rem;
+    left: 0;
+    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+.leftcontent {
+    position: relative;
+    top: 5rem;
+}
+
+.testimonialImage {
+    position: absolute;
+    top: 1rem;
+    left: -4rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.testimonialImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonialText {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    color: #5E6282;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.testimonialName {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    font-weight: 800;
+    color: #181E4B;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Volkhov', serif;
+}
+
+.testimonialRole {
+    margin-left: 3rem;
+    font-size: 1.3rem;
+    color: #888;
+    font-family: 'Volkhov', serif;
+}
+
+/* ================= AWARDS SECTION STYLES ================= */
+.awardsSection {
+    background-color: white;
+    padding: 4rem 5rem;
+}
+
+.awardsLogoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+}
+
+.awardsLogo {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    font-size: clamp(6rem, 15vw, 12rem);
+    font-weight: 950;
+    letter-spacing: 0.02em;
+    color: #111;
+}
+
+.awardsLogoTriangle {
+    width: 1em;
+    aspect-ratio: 1 / 0.866;
+    background-color: #111;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform: translateY(-0.05em);
+    background-image: url('https://images.unsplash.com/photo-1603739355965-e4106f83fe64?w=1400');
+    background-size: cover;
+    background-position: center;
+}
+
+.awardsTitle {
+    text-align: center;
+    margin-bottom: 5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #0b1c6c;
+}
+
+.awardsScrollContainer {
+    overflow: hidden;
+    width: 100%;
+}
+
+.awardsCardsScroll {
+    display: flex;
+    gap: 3rem;
+    padding: 1rem;
+    width: fit-content;
+    height: 26rem;
+    animation: scroll 40s linear infinite;
+
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.awardCard {
+    width: 25rem;
+    aspect-ratio: 4/3;
+    border-radius: 2rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #fdfdfd;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+}
+
+.awardCard img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+/* ================= TEACHER AWARDS SECTION STYLES ================= */
+.teacherAwardsSection {
+    background-color: white;
+    padding: 10rem 10rem;
+    font-family: 'Popins,serif';
+}
+
+.teacherAwardsTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2d3a8c;
+    margin-bottom: 4rem;
+}
+
+.yearTabsContainer {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.yearButton {
+
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    border-radius: 0.4rem;
+    border: 2px solid #f2c94c;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.yearButton:hover {
+    background-color: #fffdf5;
+}
+
+.yearButtonActive {
+    background-color: #353d8f !important;
+    color: white !important;
+    border-color: #f2c94c !important;
+}
+
+.tableContainer {
+    background-color: #f8f9fc;
+    padding: 2.5rem;
+
+    overflow-x: auto;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.awardsTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    overflow: hidden;
+}
+
+.tableHeaderCell {
+    background-color: #353d8f;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1.4rem;
+    text-align: left;
+}
+
+.tableHeaderSerial {
+    width: 100px;
+}
+
+.tableHeaderAward {
+    width: 60%;
+}
+
+.tableBodyCell {
+    padding: 1rem;
+    font-size: 1.3rem;
+    border: 1px solid #ebedf5;
+}
+
+.tableBodyRowEven {
+    background-color: #fbfcfe;
+}

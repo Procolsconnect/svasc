@@ -1,0 +1,60 @@
+
+import Exam from './pages/Exam';
+import Home from './pages/Home';
+import CampusLife from './pages/CampusLife';
+import Sports from './pages/Sports';
+import Alumni from './pages/Alumni';
+import UserLayout from './pages/UserLayout';
+import Blogs from './pages/Blogs';
+import Programms from './pages/Programms';
+import ProgramDetails from './pages/ProgramDetails';
+import Events from './pages/Events';
+import Activities from './pages/Activities';
+import Placement from './pages/Placement';
+import Statistics from './pages/Statistics';
+import AboutSVASC from './pages/AboutSVASC';
+import Vision from './pages/Vision';
+import Timeline from './pages/Timeline';
+import PrincipalMessage from './components/Leadership/PrincipalMessage';
+import SecretaryMessage from './components/Leadership/SecretaryMessage';
+import DirectorMessage from './components/Leadership/DirectorMessage';
+import AwardsGallery from './pages/AwardsGallery';
+import NewsLetter from './pages/NewsLetter';
+import AboutDetail from './pages/AboutDetail';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/Common/ScrollToTop';
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<UserLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/programms" element={<Programms />} />
+          <Route path="/program/:id" element={<ProgramDetails />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/sports" element={<Sports />} />
+          <Route path="/exam" element={<Exam />} />
+          <Route path="/campus-life" element={<CampusLife />} />
+          <Route path="/alumni" element={<Alumni />} />
+          <Route path="/placement" element={<Placement />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/about" element={<AboutSVASC />} />
+          <Route path="/vision-mission" element={<Vision />} />
+          <Route path="/milestones" element={<Timeline />} />
+          <Route path="/principal" element={<PrincipalMessage />} />
+          <Route path="/secretary" element={<SecretaryMessage />} />
+          <Route path="/director" element={<DirectorMessage />} />
+          <Route path="/awards" element={<AwardsGallery />} />
+          <Route path="/news" element={<NewsLetter />} />
+          <Route path="/why-svasc" element={<AboutDetail />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

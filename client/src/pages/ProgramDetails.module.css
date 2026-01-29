@@ -1,0 +1,416 @@
+.wrapper {
+    background-color: #f5f8fa;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 33, 75, 0.4), rgba(0, 33, 75, 0.6));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroContent {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.heroContent h1 {
+    font-size: clamp(3rem, 5vw, 6rem);
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    opacity: 0.9;
+}
+
+.breadcrumbs a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: #f5b400;
+}
+
+/* TICKER */
+.ticker {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #021f4b;
+    color: white;
+    padding: 1.2rem 0;
+    overflow: hidden;
+}
+
+.tickerContent {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: scrollTicker 30s linear infinite;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+@keyframes scrollTicker {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* ABOUT SECTION */
+.aboutWrapper {
+    margin-top: -5rem;
+    /* Overlap hero */
+    position: relative;
+    z-index: 5;
+    margin-bottom: 6rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.aboutCard {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 4rem;
+    box-shadow: 0 15px 50px rgba(0, 33, 75, 0.08);
+}
+
+.aboutGrid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.aboutText p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 2.5rem;
+}
+
+.distinctivenessBtn {
+    background: transparent;
+    border: none;
+    color: #021f4b;
+    font-weight: 700;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s;
+}
+
+.distinctivenessBtn:hover {
+    transform: translateX(5px);
+}
+
+.aboutImage img {
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* VISION & MISSION */
+.visionMissionSection {
+    margin-bottom: 8rem;
+}
+
+.gridTwo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.vmCard {
+    background: white;
+    padding: 4rem;
+    border-radius: 1.5rem;
+    border-top: 5px solid #021f4b;
+    transition: transform 0.3s;
+}
+
+.vmCard:hover {
+    transform: translateY(-5px);
+}
+
+.vmCard h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #021f4b;
+    margin-bottom: 2rem;
+}
+
+.vmCard p {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* FACILITIES SECTION */
+.facilitiesSection {
+    background: #021f4b;
+    color: white;
+    margin-bottom: 8rem;
+}
+
+.facilitiesFlex {
+    display: flex;
+    min-height: 50vh;
+}
+
+.facilitiesContent {
+    flex: 1;
+    padding: 8rem 4rem 8rem 15%;
+    /* Alignment with container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.facilitiesContent h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+
+.facilitiesList {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.facilitiesList li {
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 400;
+}
+
+.doubleArrow {
+    color: #f5b400;
+}
+
+.facilitiesImage {
+    flex: 1;
+}
+
+.facilitiesImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CAREER OPPORTUNITIES */
+.careerSection {
+    background: white;
+    padding: 8rem 0;
+    margin-bottom: 8rem;
+}
+
+.sectionTitle {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #021f4b;
+    margin-bottom: 6rem;
+}
+
+.careerGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+    gap: 2rem;
+}
+
+.careerBox {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: all 0.3s;
+}
+
+.careerBox:hover {
+    border-color: #021f4b;
+    background: white;
+    color: #021f4b;
+    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.08);
+    transform: translateY(-3px);
+}
+
+/* FAQ SECTION */
+.faqSection {
+    padding-bottom: 10rem;
+}
+
+.faqFlex {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+.faqLeftImage img {
+    width: 100%;
+    border-radius: 2rem;
+}
+
+.faqRight h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4rem;
+}
+
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faqItem {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.faqItem summary {
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1e293b;
+}
+
+.faqIcon {
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.faqItem[open] summary .faqIcon {
+    opacity: 1;
+    color: #021f4b;
+}
+
+.faqAnswer {
+    padding: 0 2.5rem 2.5rem 2.5rem;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+/* STICKY ENQUIRY */
+.admissionSticky {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-180deg);
+    writing-mode: vertical-rl;
+    background: #021f4b;
+    color: white;
+    padding: 2rem 1rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+    border-radius: 1rem 0 0 1rem;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: padding 0.3s;
+}
+
+.admissionSticky:hover {
+    padding-right: 2rem;
+}
+
+.admissionSticky span {
+    transform: rotate(90deg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .facilitiesFlex {
+        flex-direction: column;
+    }
+
+    .facilitiesContent {
+        padding: 6rem 2rem;
+    }
+
+    .aboutGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .gridTwo,
+    .faqFlex {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .tickerContent {
+        font-size: 1.2rem;
+    }
+
+    .facilitiesList {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,366 @@
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, ArrowRightCircle } from 'lucide-react';
+import styles from './AboutSVASC.module.css';
+import Hero from '../Common/Hero';
+
+// ================= HERO SECTION COMPONENT =================
+const HeroSection = () => (
+
+    <>
+    <Hero
+            title="About SVASC"
+            description="Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values."
+            image="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
+        />
+    <section className={`${styles.heroContainer} max-w-[170rem] mx-auto px-10 grid grid-cols-1 lg:grid-cols-2 gap-16  relative`}>
+   
+        <div className={styles.heroBlob}></div>
+
+        {/* Left Content */}
+        <div className={styles.heroContent}>
+            <h3 className={styles.heroSubtitle}>About SVASC</h3>
+
+            <h1 className={styles.heroTitle}>
+                Welcome to  &nbsp;
+                <span className={styles.heroTitleSpan}>
+                    SVASC
+                    <svg className={styles.heroTitleUnderline} viewBox="0 0 100 10" preserveAspectRatio="none" height="12">
+                        <path d="M0 5 Q 50 10 100 5" stroke="#181E4B" strokeWidth="4" fill="none"></path>
+                    </svg>
+                </span>
+            </h1>
+
+            <p className={styles.heroDescription}>
+                Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values. We empower students with career-oriented training, placements, certifications, internships, workshops, and co-curricular activities to meet global challenges with confidence and leadership.
+            </p>
+
+            <button className={styles.heroButton}>Find out more</button>
+        </div>
+
+        {/* Right Image */}
+        <div className={styles.heroImageWrapper}>
+            <img
+                src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
+                alt="Traveler"
+            />
+            <div className={styles.heroImageGradient}></div>
+        </div>
+    </section>
+    </>
+);
+
+// ================= EMPOWERING LEADERS SECTION COMPONENT =================
+const EmpoweringLeadersSection = () => (
+    <header className={styles.empoweringHeader}>
+        {/* Background Text */}
+        <div className={styles.empoweringBackgroundText}>
+            <h1>SVASC</h1>
+        </div>
+
+        {/* Main Content Grid */}
+        <div className={`${styles.empoweringMainContent} max-w-[120rem] mx-auto px-10 grid lg:grid-cols-12 gap-16 items-end`}>
+            {/* Left Column */}
+            <div className="lg:col-span-5 mb-10">
+                <h2 className={styles.empoweringTitle}>
+                    Empowering <br /> Future Leaders <br />
+                    <span className={styles.empoweringSubtitle}>Through Education</span>
+                </h2>
+            </div>
+
+            {/* Center/Right Column */}
+            <div className="lg:col-span-4 lg:mb-[-24rem] relative">
+                <div className={styles.empoweringImageContainer}>
+                    <div className={styles.empoweringImageWrapper}>
+                        <img
+                            src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
+                            alt="SVASC Campus"
+                        />
+                        <div className={styles.empoweringImageOverlay}></div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="lg:col-span-3 mb-24 flex flex-col items-start">
+                <p className={styles.empoweringDescription}>
+                    SVASC is dedicated to academic excellence, innovation, and holistic student development, empowering students through quality education, practical learning, and industry-oriented training.
+                </p>
+                <button className={styles.empoweringCtaButton}>
+                    <span className={styles.empoweringCtaButtonText}>Explore Programs</span>
+                    <span className={styles.empoweringCtaButtonIcon}>
+                        <ArrowRight className="w-6 h-6" />
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+);
+
+// ================= ABOUT SECTION COMPONENT =================
+const AboutSection = () => (
+    <section className={`${styles.aboutSection} py-[15rem] max-w-[120rem]  px-10`}>
+        <div className="grid lg:grid-cols-2 gap-3 items-start ">
+            <div>
+                <h2 className={`${styles.aboutTitle} lg:text-[7.5rem] `}>
+                    Shaping Bright <br />
+                    <span className="text-gray-500">Futures & Careers</span> <br />
+                    Through Knowledge <br />
+                    <span className={styles.aboutGradientText}>With Excellence</span>
+                </h2>
+            </div>
+
+            <div className="space-y-16 px-10">
+                <p className={styles.empoweringDescription}>
+                    SVASC provides a dynamic academic environment with experienced faculty, modern infrastructure, research-driven programs, and career-focused learning to prepare students for global opportunities.
+                </p>
+
+                <div className="grid grid-cols-2 gap-12">
+                    <div className="space-y-4">
+                        <div className="h-0.5 w-full bg-gray-200 mb-8"></div>
+                        <h4 className="text-gray-900 font-bold text-3xl">Academics</h4>
+                        <p className="text-gray-500 text-2xl font-medium">UG & PG Programs</p>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="h-0.5 w-full bg-gray-200 mb-8"></div>
+                        <h4 className="text-gray-900 font-bold text-3xl">Placements</h4>
+                        <p className="text-gray-500 text-2xl font-medium">Industry Partnerships</p>
+                    </div>
+                </div>
+
+                <div className=" flex justify-center items-center">
+                    <button className={`${styles.heroButton} flex gap-2`}>
+                        <ArrowRightCircle className="w-8 h-8" />
+                        View Departments
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
+// ================= CAMPUS LIFE SECTION COMPONENT =================
+const CampusLifeSection = () => {
+    const images = [
+        "https://images.unsplash.com/photo-1596495577886-d920f1f5b929",
+        "https://images.unsplash.com/photo-1559757175-5703e72d3e03",
+        "https://images.unsplash.com/photo-1596495577980-2b1f7c9a00c3",
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+        "https://images.unsplash.com/photo-1560264280-5856b2be19f6"
+    ];
+
+    return (
+        <section className={styles.campusLifeSection}>
+            <div className={styles.campusLifeBackdrop}></div>
+
+            <div className="max-w-[130rem] mx-auto px-10 text-center mb-24 relative z-10">
+                <h2 className={styles.campusLifeTitle}>Discover SVASC <br /> Campus Life</h2>
+                <p className={styles.campusLifeDescription}>Explore our programs, infrastructure, and student activities that nurture growth and talent.</p>
+
+                <button className={styles.campusLifeButton}>
+                    <span className={styles.campusLifeButtonIcon}>
+                        <ArrowRight className="w-4 h-4" />
+                    </span>
+                    <span>Apply Now</span>
+                </button>
+            </div>
+
+            {/* Fan Effect Images */}
+            <div className={styles.campusLifeImagesContainer}>
+                {images.map((id, i) => {
+                    const rotations = [-12, -6, 0, 6, 12];
+                    const translates = [48, 16, 0, 16, 48];
+                    return (
+                        <div key={i}
+                            className={styles.campusLifeImage}
+                            style={{ transform: `rotate(${rotations[i]}deg) translateY(${translates[i]}px)`, zIndex: i === 2 ? 30 : (i === 1 || i === 3 ? 20 : 10) }}
+                        >
+                            <img src={`${id}?auto=format&fit=crop&w=600&q=80`} alt="Campus" />
+                        </div>
+                    );
+                })}
+            </div>
+        </section>
+    );
+};
+
+// ================= TESTIMONIALS SECTION COMPONENT =================
+const TestimonialsSection = () => {
+    const testimonials = [
+        {
+            name: "Mike Taylor",
+            location: "Lahore, Pakistan",
+            text: "On the Windows talking painted pasture yet its express parties use.",
+            image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=200&q=80"
+        },
+        {
+            name: "Chris Thomas",
+            location: "CEO of Red Button",
+            text: "Fantastic experience and great customer support.",
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+        },
+        {
+            name: "Sarah Jenkins",
+            location: "Travel Blogger",
+            text: "Jadoo made my Europe trip unforgettable.",
+            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+        }
+    ];
+
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % testimonials.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [testimonials.length]);
+
+    const cur = testimonials[current];
+    const next = testimonials[(current + 1) % testimonials.length];
+
+    return (
+        <section className={`${styles.testimonialsSection} max-w-[120rem]  flex flex-col lg:flex-row gap-1 `}>
+            {/* Left */}
+            <div className={` w-full lg:w-1/2 ${styles.leftcontent}`}>
+                <h3 className={styles.testimonialsLabel}>Testimonials</h3>
+                <h2 className={styles.testimonialsTitle}>What People Say <br /> About Us.</h2>
+
+                <div className={styles.testimonialsDots}>
+                    {testimonials.map((_, i) => (
+                        <div
+                            key={i}
+                            onClick={() => setCurrent(i)}
+                            className={`${styles.dotButton} ${i === current ? styles.dotButtonActive : styles.dotButtonInactive}`}
+                        ></div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Right Cards */}
+            <div className="w-full lg:w-1/2 relative min-h-[20rem]">
+                {/* Back Card */}
+                {/* <div className={`${styles.testimonialCard} ${styles.testimonialBackCard}`}>
+                    <p className={styles.testimonialText}>"{next.text}"</p>
+                    <div className={styles.testimonialName}>{next.name}</div>
+                    <div className={styles.testimonialRole}>{next.location}</div>
+                </div> */}
+
+                {/* Front Card */}
+                <div className={`${styles.testimonialCard} ${styles.testimonialFrontCard}`}>
+                    <div className={styles.testimonialImage}>
+                        <img src={cur.image} alt={cur.name} />
+                    </div>
+                    <p className={styles.testimonialText}>"{cur.text}"</p>
+                    <h5 className={styles.testimonialName}>{cur.name}</h5>
+                    <p className={styles.testimonialRole}>{cur.location}</p>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+// ================= AWARDS SECTION COMPONENT =================
+const AwardsSection = () => (
+    <section className={styles.awardsSection}>
+        <div className={styles.awardsLogoContainer}>
+            <div className={styles.awardsLogo}>
+                <span>S</span>
+                <span>V</span>
+                <div className={styles.awardsLogoTriangle}></div>
+                <span>S</span>
+                <span>C</span>
+            </div>
+        </div>
+
+        <h2 className={styles.awardsTitle}>AWARDS AND CERTIFICATION</h2>
+        <div className={styles.awardsScrollContainer}>
+            <div className={styles.awardsCardsScroll}>
+                {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((num, i) => (
+                    <div key={i} className={styles.awardCard}>
+                        <img src={`https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${num}`} alt={`Certificate ${num}`} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+);
+
+// ================= TEACHER AWARDS COMPONENT =================
+const TeacherAwardsSection = () => {
+    const awardData = {
+        '2010': [
+            ["Sevai Kalappani Selvar Virudhu", "Dr. M. Jasmine Priya"],
+            ["Chithirai kavi", "Dr. M. Jasmine Priya"],
+            ["Dr. Sarvepalli Radhakrishnan Education Excellence", "Dr. V. Princy Metildah"],
+            ["Nari Ratna Award", "Mrs. A. Devika"]
+        ],
+        '2017': [["Best Librarian Award", "Dr. M. Sethuramasamy"]],
+        '2018': [["Best Educationist Award", "Dr. Ajeet Kumar Lal Mohan"]],
+        '2019': [
+            ["Kalvi Maamani Award", "Dr. Ajeet Kumar Lal Mohan"],
+            ["Kongu Thalaimagan Award", "Dr. Ajeet Kumar Lal Mohan"]
+        ],
+        '2020': [["Best NSS Programme Officer Award", "Dr. M. Jasmine Priya"]],
+        '2021': [["Azadi Ka Amrit Award", "Dr. M. Jasmine Priya"]]
+    };
+
+    const [selectedYear, setSelectedYear] = useState('2010');
+
+    return (
+        <section className={styles.teacherAwardsSection}>
+            <div className="max-w-[120rem] mx-auto px-10">
+                <h2 className={styles.teacherAwardsTitle}>Awards Received By Teachers</h2>
+
+                {/* Year Tabs */}
+                <div className={styles.yearTabsContainer}>
+                    {Object.keys(awardData).map((year) => (
+                        <button
+                            key={year}
+                            onClick={() => setSelectedYear(year)}
+                            className={`${styles.yearButton} ${selectedYear === year ? styles.yearButtonActive : ""}`}
+                        >
+                            {year} - {parseInt(year) + 1}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Table */}
+                <div className={styles.tableContainer}>
+                    <table className={styles.awardsTable}>
+                        <thead>
+                            <tr>
+                                <th className={`${styles.tableHeaderCell} ${styles.tableHeaderSerial}`}>S. No.</th>
+                                <th className={`${styles.tableHeaderCell} ${styles.tableHeaderAward}`}>Name of the Award</th>
+                                <th className={styles.tableHeaderCell}>Name of the Faculty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {awardData[selectedYear].map((row, index) => (
+                                <tr key={index} className={index % 2 === 1 ? styles.tableBodyRowEven : ''}>
+                                    <td className={styles.tableBodyCell}>{index + 1}</td>
+                                    <td className={styles.tableBodyCell}>{row[0]}</td>
+                                    <td className={styles.tableBodyCell}>{row[1]}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+// ================= MAIN APP COMPONENT =================
+export default function AboutSVASC() {
+    return (
+        <div className={styles.aboutSvascContainer}>
+            <HeroSection />
+            <EmpoweringLeadersSection />
+            <AboutSection />
+            <CampusLifeSection />
+            <TestimonialsSection />
+            <AwardsSection />
+            <TeacherAwardsSection />
+        </div>
+    );
+}

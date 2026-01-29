@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/* Animations replaced by Hero component */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.project {
+    float: left;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    margin: 10px 1%;
+    overflow: hidden;
+    transition: all 0.5s ease, opacity 0.1s;
+    width: 23%;
+}
+
+.project:nth-child(1),
+.project:nth-child(2) {
+    width: 48%;
+}
+
+.project.shrunk {
+    pointer-events: none;
+    height: 0 !important;
+    overflow: hidden;
+    width: 0 !important;
+    padding: 0;
+    transition: all 0.9s ease;
+}
+
+.project.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+.project.openedProject {
+    width: 40px !important;
+    height: 100vh !important;
+    min-height: 100%;
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+    z-index: 100;
+}
+
+.project.openedProject .backArrow {
+    display: block;
+    position: absolute;
+    font-size: 30pt;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    top: 45%;
+    transition: all 0.2s ease;
+}
+
+.project.openedProject:hover .backArrow {
+    transform: scale(1.2);
+}
+
+.project.openedProject .info {
+    background: rgba(236, 188, 46, 0.85) !important;
+}
+
+.project.openedProject:hover .info {
+    background: rgba(236, 188, 46, 0.85) !important;
+}
+
+.project.openedProject .beforeTitle,
+.project.openedProject h1,
+.project.openedProject hr {
+    display: none;
+}
+
+.beforeTitle {
+    float: left;
+    opacity: 1;
+    background: #fff;
+    padding: 10px 5px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    position: absolute;
+    width: 90%;
+    text-align: center;
+    top: 45%;
+    margin: 0 5%;
+}
+
+.project:hover .beforeTitle {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.info {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    float: left;
+    opacity: 0;
+    position: absolute;
+    background: rgba(1, 154, 109, 0.0);
+    overflow: hidden;
+    transition: all 0.2s ease, opacity 0.1s;
+    transition-delay: 0.1s;
+}
+
+.project:hover .info,
+.project.openedProject .info {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 0;
+    opacity: 1;
+    background: rgba(236, 188, 46, 0.85)
+}
+
+.fadeTitle {
+    float: left;
+    width: 100%;
+    color: #fff;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 12pt;
+    text-align: center;
+    letter-spacing: 5px;
+    position: absolute;
+    margin: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 0 10px 5px;
+    top: 45%;
+    transform: translate(0, -25px);
+    transition-delay: 0.4s;
+}
+
+.project:hover .fadeTitle {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.info hr {
+    outline: none;
+    height: 3px;
+    border: 0;
+    float: left;
+    background-color: #fff;
+    width: 2px;
+    left: 50%;
+    margin-left: -1px;
+    opacity: 0;
+    position: absolute;
+    top: 53%;
+    transition: all 0.4s ease;
+    transition-delay: 0.5s;
+}
+
+.project:hover hr {
+    width: 70%;
+    margin: 0 15%;
+    left: 0;
+    opacity: 1;
+}
+
+.backArrow {
+    display: none;
+}
+
+.selectedArea {
+    width: 100%;
+    height: 100vh;
+    float: left;
+    background: #fff;
+    position: fixed;
+    z-index: 10;
+    padding: 0 0 0 40px;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    transition: all 0s ease;
+}
+
+.selectedArea.opened {
+    opacity: 1;
+    pointer-events: all;
+
+}
+
+.selectedArea.opened .copyArea,
+.selectedArea.opened h1 span,
+.selectedArea.opened h1 {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.selectedArea::after {
+    content: '';
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, .6) 10%, rgba(255, 255, 255, 1) 90%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.selectedArea h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    padding: 80px 5px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font-size: 28pt;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 5px;
+    color: #1a1a1a;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.selectedArea h1 span {
+    background: #fff;
+    padding: 10px 80px;
+    text-align: center;
+    opacity: 0;
+    transform: translate(0, -100%);
+    transition: all 0.8s ease;
+}
+
+.copyArea {
+    width: 880px;
+    float: left;
+    position: relative;
+    left: 50%;
+    margin-left: -450px;
+    padding: 10px 25px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 0.8s ease;
+    transition-delay: 0.2s;
+}
+
+.copyArea p {
+    float: left;
+    width: 100%;
+    font-size: 12pt;
+    line-height: 24pt;
+    letter-spacing: 1px;
+    font-weight: 100;
+    color: #2a2a2a;
+}
+
+/* Card Grid Styles */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    width: 880px;
+    margin: 30px auto 85px;
+    padding: 0 25px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.game-card {
+    position: relative;
+    width: 100%;
+    padding-bottom: 150%;
+    perspective: 1000px;
+}
+
+.game-card__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    transform-origin: top center;
+    will-change: transform;
+    transform: skewX(.001deg);
+    transition: transform .35s ease-in-out;
+    border-radius: 8px;
+}
+
+.game-card__cover::after {
+    display: block;
+    content: '';
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(226deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 60%);
+    transform: translateY(-20%);
+    will-change: transform;
+    transition: transform .65s cubic-bezier(0.18, 0.9, 0.58, 1);
+}
+
+.game-card:hover .game-card__cover {
+    transform: rotateX(7deg) translateY(-6px);
+}
+
+.game-card:hover .game-card__cover::after {
+    transform: translateY(0%);
+}
+
+.game-card::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4);
+    will-change: opacity;
+    transform-origin: top center;
+    transform: skewX(.001deg);
+    transition: transform .35s ease-in-out, opacity .5s ease-in-out;
+}
+
+.game-card:hover::before {
+    opacity: 0.6;
+    transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+
+.card-title {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    z-index: 101;
+    padding: 5px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+@media screen and (max-width: 920px) {
+    .project {
+        width: 48%;
+    }
+
+    .project:nth-child(1),
+    .project:nth-child(2) {
+        width: 48%;
+    }
+
+    .copyArea,
+    .card-container {
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+        transform: none;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 15px;
+    }
+
+    .selectedArea h1 {
+        font-size: 20pt;
+    }
+
+    .selectedArea h1 span {
+        padding: 10px 25px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .project {
+        width: 98% !important;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+}

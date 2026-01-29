@@ -1,0 +1,490 @@
+/* ================= GLOBAL RESET ================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    overflow-x: hidden;
+    background: #ffffff;
+}
+
+/* ================= HERO SECTION ================= */
+#alumni-page-root .heroEffects {
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    /* Changed from -1 to 1 to be visible in React context if needed, but user had -1. Maintaining user's z-index hierarchy is risky if not careful. */
+    top: 0;
+    left: 0;
+}
+
+/* Wait, user had z-index: -1. In a single page app, this might put it behind the root div if root has background. */
+/* I will stick to USER'S code exactly. */
+
+#alumni-page-root .heroEffects {
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+#alumni-page-root .heroEffects .bg {
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/30256/jungleBG.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transform: scale(1);
+}
+
+#alumni-page-root .heroEffects .shade {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
+
+#alumni-page-root .heroEffects .title {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#alumni-page-root .heroEffects .title .text {
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 4em;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#alumni-page-root .centerV {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#alumni-page-root .centerV>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#alumni-page-root .heroEffects .arrow {
+    position: fixed;
+    left: 50%;
+    margin-left: -20px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+    z-index: 5;
+}
+
+#alumni-page-root .heroEffects h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 5em;
+    margin-bottom: 0.1em;
+    line-height: 1em;
+    color: #fff;
+}
+
+#alumni-page-root .heroEffects p {
+    width: 60vw;
+    margin: 0 auto;
+    line-height: 1.5em;
+    padding: 10px 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.015em;
+    color: #eee;
+}
+
+#alumni-page-root .bouncy {
+    animation: Weeeeeeeeeee 3s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes Weeeeeeeeeee {
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    11% {
+        transform: translate(0, -25px) scaleX(0.8);
+    }
+
+    20% {
+        transform: translate(0, 0px) scaleY(0.8);
+    }
+
+    28% {
+        transform: translate(0, -10px);
+    }
+
+    36% {
+        transform: translate(0, 0px);
+    }
+
+    100% {
+        transform: translate(0, 0px);
+    }
+}
+
+/* ================= CONTENT WRAPPER ================= */
+#alumni-page-root .content {
+    background: #ffffff;
+    position: relative;
+    z-index: 5;
+    padding-top: 10vh;
+}
+
+/* ================= RISING STARS SECTION ================= */
+#alumni-page-root .section-title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#alumni-page-root .section-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0a1264;
+}
+
+#alumni-page-root .l-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 30px 40px;
+    margin: auto;
+}
+
+@media (max-width: 900px) {
+    #alumni-page-root .l-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#alumni-page-root .b-game-card {
+    position: relative;
+    width: 100%;
+    padding-bottom: 150%;
+    perspective: 1000px;
+}
+
+#alumni-page-root .b-game-card__cover {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform-origin: top center;
+    transform: skewX(0.001deg);
+    transition: transform 0.35s ease-in-out;
+}
+
+#alumni-page-root .b-game-card__cover video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#alumni-page-root .play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+#alumni-page-root .b-game-card:hover .play-btn {
+    opacity: 1;
+}
+
+#alumni-page-root .b-game-card__cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 120%;
+    background: linear-gradient(226deg,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0.4) 35%,
+            rgba(255, 255, 255, 0.2) 42%,
+            rgba(255, 255, 255, 0) 60%);
+    transform: translateY(-20%);
+    transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+    pointer-events: none;
+}
+
+#alumni-page-root .b-game-card:hover .b-game-card__cover {
+    transform: rotateX(7deg) translateY(-6px);
+}
+
+#alumni-page-root .b-game-card:hover .b-game-card__cover::after {
+    transform: translateY(0%);
+}
+
+#alumni-page-root .b-game-card::before {
+    content: "";
+    position: absolute;
+    inset: 5%;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+#alumni-page-root .b-game-card:hover::before {
+    opacity: 0.6;
+    transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+
+#alumni-page-root .student-info {
+    text-align: center;
+    margin-top: 12px;
+}
+
+#alumni-page-root .student-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0b2c5d;
+}
+
+#alumni-page-root .student-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ================= SUCCESS STORY CAROUSEL SECTION ================= */
+#alumni-page-root .carousel-section {
+    margin: 40px 0 60px;
+    padding: 20px 0 100px;
+}
+
+#alumni-page-root .carousel-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#alumni-page-root .carousel-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0a1264;
+}
+
+#alumni-page-root .carousel-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
+#alumni-page-root .carousel {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+#alumni-page-root .carousel li {
+    width: 600px;
+    height: 337px;
+    background: #333;
+    display: inline-block;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+}
+
+#alumni-page-root .carousel li img,
+#alumni-page-root .carousel li iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#alumni-page-root .carousel li p {
+    color: white;
+    font-weight: bold;
+    font-size: 5em;
+    text-align: center;
+    margin-top: 1.15em;
+}
+
+#alumni-page-root .items {
+    position: absolute;
+}
+
+#alumni-page-root .main-pos {
+    margin-left: 50% !important;
+    transform: translateX(-50%);
+    z-index: 3000;
+}
+
+#alumni-page-root .left-pos {
+    opacity: .3;
+    margin-left: calc(50% - 500px) !important;
+    transform: translateX(-50%) scale(.75);
+    z-index: 1000;
+}
+
+#alumni-page-root .right-pos {
+    opacity: .3;
+    margin-left: calc(50% + 500px) !important;
+    transform: translateX(-50%) scale(.75);
+    z-index: 1000;
+}
+
+#alumni-page-root .back-pos {
+    margin-left: 50% !important;
+    transform: translateX(-50%) scale(.5);
+    opacity: .05;
+}
+
+#alumni-page-root .carousel-controls {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -80px;
+    display: flex;
+    gap: 10px;
+}
+
+#alumni-page-root .carousel-controls input {
+    padding: 20px 35px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    background: #0b2c5d;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+#alumni-page-root .carousel-controls input:hover {
+    background: #123d80;
+}
+
+/* ================= RANK HOLDERS SECTION ================= */
+#alumni-page-root .rank-holder-section {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 40px 80px;
+}
+
+#alumni-page-root .rank-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #0a1264;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+#alumni-page-root .year-tabs {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#alumni-page-root .year-tabs button {
+    width: 120px;
+    height: 58px;
+    border-radius: 10px;
+    border: 1.5px solid #facc15;
+    background: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#alumni-page-root .year-tabs button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#alumni-page-root .year-tabs button.active {
+    background: #060c3f;
+    color: #ffffff;
+    border: 1.5px solid #facc15;
+}
+
+#alumni-page-root .rank-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 26px;
+}
+
+#alumni-page-root .rank-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 32px 26px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#alumni-page-root .rank-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#alumni-page-root .rank-card h3 {
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: #0b2c5d;
+}
+
+#alumni-page-root .rank-card .degree {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #4b5563;
+}
+
+#alumni-page-root .rank-card .rank {
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+}
+
+@media (max-width: 1200px) {
+    #alumni-page-root .rank-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #alumni-page-root .rank-cards {
+        grid-template-columns: 1fr;
+    }
+
+    #alumni-page-root .rank-holder-section {
+        padding: 0 20px 60px;
+    }
+}

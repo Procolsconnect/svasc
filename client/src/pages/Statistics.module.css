@@ -1,0 +1,180 @@
+/* ===========================
+   Color Variables
+   =========================== */
+
+.statisticsApp {
+    --primary: #001F66;
+    --secondary: #FFB800;
+    --surface: #F8FAFC;
+    --slate-50: #f9fafb;
+    --slate-100: #f3f4f6;
+    --slate-200: #e5e7eb;
+    --slate-300: #d1d5db;
+    --slate-400: #9ca3af;
+    --slate-500: #6b7280;
+    --slate-600: #4b5563;
+    --white: #ffffff;
+    --table-header: #2b3990;
+
+    font-family: 'Manrope', 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #64748b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+/* ===========================
+   Typography
+   =========================== */
+
+.statisticsApp h1,
+.statisticsApp h2,
+.statisticsApp h3,
+.statisticsApp h4,
+.statisticsApp h5,
+.statisticsApp h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.statisticsApp p {
+    font-size: 1.6rem;
+}
+
+.statisticsApp a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+
+.section {
+    padding: 8rem 0;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.sectionTitle {
+    font-size: 3.2rem;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 4.8rem;
+    font-weight: 700;
+}
+
+.bgSurface {
+    background-color: var(--surface);
+}
+
+.bgPrimary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.impactText {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.impactText p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* ===========================
+   Table Styles
+   =========================== */
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3.2rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    min-width: 80rem;
+}
+
+.table th {
+    background-color: var(--table-header);
+    color: white;
+    padding: 1.6rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table td {
+    padding: 1.4rem;
+    text-align: center;
+    font-size: 1.4rem;
+    border: 1px solid var(--slate-100);
+    color: var(--slate-600);
+}
+
+.table tr:nth-child(even) {
+    background-color: var(--slate-50);
+}
+
+.table tr:hover {
+    background-color: rgba(245, 180, 0, 0.05);
+}
+
+/* ===========================
+   Recruiters Section
+   =========================== */
+
+.recruitersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2.4rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.recruiterCard {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid var(--slate-200);
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.recruiterCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 4.8rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.8rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+}
