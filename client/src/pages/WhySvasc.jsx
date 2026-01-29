@@ -8,10 +8,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import styles from './AboutDetail.module.css';
+import styles from './WhySvasc.module.css';
 import Hero from '../components/Common/Hero';
 
-const AboutDetail = () => {
+const WhySvasc = () => {
     const [prevEl, setPrevEl] = React.useState(null);
     const [nextEl, setNextEl] = React.useState(null);
 
@@ -330,4 +330,4 @@ const AboutDetail = () => {
     );
 };
 
-export default AboutDetail;
+export default WhySvasc;

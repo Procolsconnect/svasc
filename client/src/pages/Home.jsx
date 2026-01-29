@@ -13,7 +13,7 @@ import PlacementSections from '../components/Home/PlacementSections';
 import BlogSection from '../components/Home/BlogSection';
 import InfoCardSlider from '../components/Home/InfoCardSlider';
 import SvascEvents from '../components/Home/SvascEvents';
-import LogoSpinning from './LogoSpinning'
+
 const Home = () => {
   return (
     <div>
@@ -31,7 +31,7 @@ const Home = () => {
         <BlogSection />
         <InfoCardSlider />
         <SvascEvents />
-        <LogoSpinning/>
+
       </div>
 
     </div>

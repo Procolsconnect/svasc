@@ -20,7 +20,7 @@ import SecretaryMessage from './components/Leadership/SecretaryMessage';
 import DirectorMessage from './components/Leadership/DirectorMessage';
 import AwardsGallery from './pages/AwardsGallery';
 import NewsLetter from './pages/NewsLetter';
-import AboutDetail from './pages/AboutDetail';
+import WhySvasc from './pages/WhySvasc';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/Common/ScrollToTop';
 
@@ -50,7 +50,7 @@ function App() {
           <Route path="/director" element={<DirectorMessage />} />
           <Route path="/awards" element={<AwardsGallery />} />
           <Route path="/news" element={<NewsLetter />} />
-          <Route path="/why-svasc" element={<AboutDetail />} />
+          <Route path="/why-svasc" element={<WhySvasc />} />
         </Route>
       </Routes>
     </Router>

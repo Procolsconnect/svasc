@@ -325,11 +325,11 @@
     /* Space between text and images */
 }
 
-:global(.swiper-pagination) {
+.testimonialSwiper :global(.swiper-pagination) {
     bottom: 0px !important;
 }
 
-:global(.swiper-pagination-bullet) {
+.testimonialSwiper :global(.swiper-pagination-bullet) {
     width: 60px !important;
     height: 60px !important;
     border-radius: 50% !important;
@@ -341,7 +341,7 @@
     margin: 0 10px !important;
 }
 
-:global(.swiper-pagination-bullet-active) {
+.testimonialSwiper :global(.swiper-pagination-bullet-active) {
     width: 120px !important;
     height: 120px !important;
     opacity: 1 !important;

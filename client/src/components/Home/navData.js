@@ -15,6 +15,7 @@ export const navData = {
             path: '#',
             dropdown: [
                 { label: 'About Us', path: '/about' },
+                { label: 'Why SVASC', path: '/why-svasc' },
                 { label: 'Awards & Achievements', path: '/awards' },
                 { label: 'Vision & Mission', path: '/vision-mission' },
                 { label: 'NewsLetter', path: '/news' },
