@@ -80,7 +80,6 @@ const ProjectsPortfolio = () => {
 
   const [selectedProject, setSelectedProject] = useState(null);
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
-  const [projectHeights, setProjectHeights] = useState({});
   const scrollBackTo = useRef(0);
 
   const selectProject = (projectId) => {
@@ -101,40 +100,11 @@ const ProjectsPortfolio = () => {
     }
   };
 
-  const calculateHeights = () => {
-    const winWidth = window.innerWidth;
-    const midRange = winWidth < 920 && winWidth > 620;
-    const smallRange = winWidth < 720;
-
-    const heights = {};
-    projects.forEach((project, index) => {
-      const baseWidth = index < 2 ? (winWidth * 0.48 - 20) : (winWidth * 0.23 - 20);
-      let height;
-
-      if (index < 2) {
-        height = baseWidth;
-      } else {
-        if (midRange) {
-          height = baseWidth * 0.5;
-        } else if (smallRange) {
-          height = baseWidth;
-        } else {
-          height = baseWidth * 1.5;
-        }
-      }
-      heights[project.ID] = height;
-    });
-
-    setProjectHeights(heights);
-  };
-
   useEffect(() => {
-    calculateHeights();
-    window.addEventListener('resize', calculateHeights);
-    return () => window.removeEventListener('resize', calculateHeights);
+    // Basic setup if needed, but height logic is moved to CSS
   }, []);
 
-  const getProjectClass = (projectId) => {
+  const getProjectClass = (projectId, index) => {
     const classes = ['project'];
     if (selectedProject === projectId) {
       classes.push('openedProject');
@@ -142,11 +112,17 @@ const ProjectsPortfolio = () => {
     if (selectedProject && selectedProject !== projectId) {
       classes.push('hidden', 'shrunk');
     }
+    // Add sizing classes based on layout
+    if (index < 2) {
+      classes.push('large-hero');
+    } else {
+      classes.push('small-card');
+    }
     return classes.join(' ');
   };
 
   return (
-    <div style={{ fontFamily: "'Open Sans', sans-serif", margin: 0, padding: 0, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Open Sans', sans-serif", margin: 0, padding: 0, minHeight: '100vh', overflowX: 'hidden' }}>
       {/* Hero Section */}
       <Hero
         title="SVASC College Blogs"
@@ -154,26 +130,17 @@ const ProjectsPortfolio = () => {
         image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c"
       />
 
-      <h2 style={{
-        textTransform: 'uppercase',
-        fontWeight: 100,
-        letterSpacing: '50px',
-        float: 'left',
-        textAlign: 'center',
-        width: '100%',
-        margin: '20px 0'
-      }}>
+      <h2 className="blogs-main-title">
         College Blogs
       </h2>
 
-      <div style={{ width: '100%', float: 'left', clear: 'both' }}>
-        {projects.map((project) => (
+      <div className="blogs-grid-container">
+        {projects.map((project, index) => (
           <div
             key={project.ID}
-            className={getProjectClass(project.ID)}
+            className={getProjectClass(project.ID, index)}
             style={{
-              backgroundImage: `url(${project.bImage})`,
-              height: projectHeights[project.ID] || '50px'
+              backgroundImage: `url(${project.bImage})`
             }}
             onClick={() => selectProject(project.ID)}
           >

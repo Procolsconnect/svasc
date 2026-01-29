@@ -268,9 +268,9 @@
 
 .placement-choose-icon span {
     display: inline-block;
-    width: clamp(60px, 10vw, 80px);
-    height: clamp(60px, 10vw, 80px);
-    line-height: clamp(60px, 10vw, 80px);
+    width: clamp(50px, 10vw, 70px);
+    height: clamp(50px, 10vw, 70px);
+    line-height: clamp(50px, 10vw, 70px);
     background: #050e38;
     text-align: center;
     border-radius: 50%;
@@ -296,9 +296,9 @@
         position: relative;
         right: -400px;
         top: -129px;
-        width: 80px;
-        height: 80px;
-        line-height: 80px;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
         font-size: 40px;
     }
 }
