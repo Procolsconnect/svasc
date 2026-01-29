@@ -253,32 +253,71 @@
     position: relative;
 }
 
+.placement-choose-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(10%, 10%);
+    z-index: 5;
+}
+
+.placement-choose-icon a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .placement-choose-icon span {
     display: inline-block;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
+    width: clamp(60px, 10vw, 80px);
+    height: clamp(60px, 10vw, 80px);
+    line-height: clamp(60px, 10vw, 80px);
     background: #050e38;
     text-align: center;
     border-radius: 50%;
-    font-size: 40px;
+    font-size: clamp(30px, 5vw, 40px);
     color: white;
-    position: relative;
-    right: -300px;
-    bottom: 0px;
-    top: -129px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Restore desktop hanging position exactly from user's laptop design */
+@media only screen and (min-width: 992px) {
+    .placement-choose-icon {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        transform: none;
+    }
+
+    .placement-choose-icon span {
+        position: relative;
+        right: -400px;
+        top: -129px;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 40px;
+    }
+}
+
+.placement-choose-icon span:hover {
+    transform: scale(1.1);
 }
 
 .placement-choose-icon span::before {
     content: "";
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 80px;
-    height: 80px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background: #003366;
     animation: placement-humayun 4s ease-out infinite;
+    z-index: -1;
 }
 
 @keyframes placement-humayun {
@@ -448,21 +487,9 @@
         letter-spacing: -1.4px;
         margin: 10px 0;
     }
-.placement-choose-icon span {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    background: #050e38;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 40px;
-    color: white;
-    position: relative;
-    right: -228px;
-    bottom: 0px;
-    top: -100px;
-}
+
+    /* Responsive play button positioning is now handled by the absolute/relative logic in base styles */
+
     .placement-sl-header-wrapper h4 {
         font-weight: 500;
         text-transform: uppercase;
