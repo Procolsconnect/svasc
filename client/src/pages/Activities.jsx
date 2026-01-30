@@ -153,15 +153,7 @@ const ProjectsPortfolio = () => {
         image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400"
       />
 
-      <h2 style={{
-        textTransform: 'uppercase',
-        fontWeight: 100,
-        letterSpacing: '50px',
-        float: 'left',
-        textAlign: 'center',
-        width: '100%',
-        margin: '20px 0'
-      }}>
+      <h2 className="campus-life-title">
         Campus Life
       </h2>
 

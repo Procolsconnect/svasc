@@ -128,6 +128,14 @@ const SVASCSports = () => {
 
       {/* SPORTS CATEGORIES SECTION */}
       <section className="svasc-sports-categories">
+        <div className="svasc-sports-categories-bg">
+          <img
+            src="https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg"
+            alt="Sports Background"
+          />
+        </div>
+        <div className="svasc-sports-categories-overlay"></div>
+
         <div className="svasc-sports-categories-container">
           <div className="svasc-sports-categories-grid">
 

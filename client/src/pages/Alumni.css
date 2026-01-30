@@ -52,7 +52,7 @@
     position: relative;
     display: table;
     z-index: 1;
-    text-transform: uppercase   ;
+    text-transform: uppercase;
 }
 
 .alumni-page .heroEffects .title .text-wrapper {
@@ -517,5 +517,44 @@
         display: block !important;
         opacity: 1 !important;
         z-index: 10;
+    }
+
+    /* Hero Responsive Fixes - Mobile Only Centering */
+    .alumni-page .heroEffects .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .alumni-page .heroEffects .title .text-wrapper {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .alumni-page .heroEffects .title .text {
+        padding: 2rem 1.25rem;
+        width: 90%;
+        /* Changed from fit-content to prevent conflicts */
+        max-width: 400px;
+        /* Optional: limit width on larger mobile devices */
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        height: 12rem;
+    }
+
+    .alumni-page .heroEffects h1 {
+        font-size: 2.5rem;
+        /* Slightly reduced to prevent wide-word overflow */
+    }
+
+    .alumni-page .heroEffects p {
+        width: 100%;
+        /* Relative to the .text box now */
+        font-size: 1rem;
+        padding: 0.75rem 0.5rem 0;
     }
 }

@@ -9,7 +9,7 @@ const Alumni = () => {
         shadeOpacity: 0,
         zoom: 1,
         titleMove: 0
-    });
+    }); 
 
     useEffect(() => {
         const handleScroll = () => {
@@ -185,7 +185,7 @@ const Alumni = () => {
                                 className="text"
                                 style={{ marginTop: `-${scrollState.titleMove}px` }}
                             >
-                                <h1>Alimni</h1>
+                                <h1>Alumni</h1>
                                 <p>Invite alumni to share honest reflections, career advice, and lessons learned since graduation</p>
                             </div>
                         </div>

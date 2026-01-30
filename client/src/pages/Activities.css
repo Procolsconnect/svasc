@@ -11,6 +11,26 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+}
+
+.campus-life-title {
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 50px;
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin: 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .campus-life-title {
+        letter-spacing: 10px;
+        margin: 20px 0;
+        padding-left: 10px;
+        /* Offset to center properly with semi-wide spacing */
+    }
 }
 
 .project {
@@ -214,6 +234,10 @@ body {
 .selectedArea.opened h1 span,
 .selectedArea.opened h1 {
     opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.selectedArea.opened h1 span {
     transform: translate(0, 0);
 }
 
@@ -257,16 +281,17 @@ body {
 }
 
 .copyArea {
-    width: 880px;
+    width: 100%;
+    max-width: 880px;
     float: left;
     position: relative;
     left: 50%;
-    margin-left: -450px;
+    transform: translateX(-50%);
     padding: 10px 25px;
     margin-top: 15px;
     margin-bottom: 35px;
     opacity: 0;
-    transform: translate(0, 100%);
+    transform: translate(-50%, 100%);
     transition: all 0.8s ease;
     transition-delay: 0.2s;
 }
@@ -285,7 +310,8 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
-    width: 880px;
+    width: 100%;
+    max-width: 880px;
     margin: 30px auto 85px;
     padding: 0 25px;
     position: relative;
