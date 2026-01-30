@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './CampusLife.css';
+import styles from './CampusLife.module.css';
 import { useOutletContext } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
 
@@ -7,6 +7,7 @@ const CampusLife = () => {
     const { setIsNavbarVisible } = useOutletContext();
     const [galleryHoverPos, setGalleryHoverPos] = useState({ x: 0, y: 0 });
     const observerRef = useRef(null);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         // Intersection Observer for Navbar visibility
@@ -16,20 +17,24 @@ const CampusLife = () => {
         };
 
         const handleIntersect = (entries) => {
+            const isMobile = window.innerWidth <= 768;
+
             entries.forEach((entry) => {
+                if (isMobile) {
+                    setIsNavbarVisible(true);
+                    return;
+                }
+
                 if (entry.isIntersecting) {
                     setIsNavbarVisible(false);
-                } else {
-                    // Only show if we are above the section
-                    if (entry.boundingClientRect.top > 0) {
-                        setIsNavbarVisible(true);
-                    }
+                } else if (entry.boundingClientRect.top > 0) {
+                    setIsNavbarVisible(true);
                 }
             });
         };
 
         observerRef.current = new IntersectionObserver(handleIntersect, observerOptions);
-        const target = document.querySelector('.scroll-article');
+        const target = scrollRef.current;
         if (target) observerRef.current.observe(target);
 
         return () => {
@@ -100,7 +105,7 @@ const CampusLife = () => {
     ];
 
     return (
-        <div className="campus-life-page">
+        <div className={styles.campusLifePage}>
             <Hero
                 title="CAMPUS LIFE"
                 description="Experience the vibrant student life, culture, sports, and activities on campus."
@@ -108,14 +113,14 @@ const CampusLife = () => {
             />
 
             {/* INTRO SECTION */}
-            <section className="section">
+            <section className={styles.section}>
                 <h1>
-                    <span className="blue">Campus Life</span>{' '}
-                    <span className="green">at SVASC College of Arts and Science, Erode</span>
+                    <span className={styles.blue}>Campus Life</span>{' '}
+                    <span className={styles.green}>at SVASC College of Arts and Science, Erode</span>
                 </h1>
 
-                <div className="content">
-                    <div className="text">
+                <div className={styles.content}>
+                    <div className={styles.text}>
                         <p>
                             Nestled amidst lush coconut groves, SVASC College of Arts and Science, Coimbatore,
                             is an eco-friendly campus that offers a vibrant and enriching experience for students.
@@ -132,12 +137,12 @@ const CampusLife = () => {
                         </p>
                     </div>
 
-                    <div className="image-box">
+                    <div className={styles.imageBox}>
                         <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200" alt="Campus Life" />
                     </div>
                 </div>
 
-                <div className="extra-content">
+                <div className={styles.extraContent}>
                     <p>
                         The academic year begins with a warm welcome to freshers through Freshers' Day,
                         setting the stage for a year filled with excitement and engagement. Traditional
@@ -153,35 +158,35 @@ const CampusLife = () => {
                     </p>
                 </div>
 
-                <div className="big-number">1</div>
+                <div className={styles.bigNumber}>1</div>
             </section>
 
             {/* GALLERY SECTION */}
-            <nav>
-                <div className="container">
-                    <h1 className="main-heading">SVASC GALLERY</h1>
+            <nav className={styles.galleryNav}>
+                <div className={styles.container}>
+                    <h1 className={styles.mainHeading}>SVASC GALLERY</h1>
                 </div>
             </nav>
 
-            <section className="gallery">
-                <div className="container">
-                    <div className="grid">
+            <section className={styles.gallery}>
+                <div className={styles.container}>
+                    <div className={styles.grid}>
                         {galleryItems.map((item) => (
-                            <div key={item.id} className="column-xs-12 column-md-4">
-                                <figure className="img-container">
+                            <div key={item.id} className={`${styles.columnXs12} ${styles.columnMd4}`}>
+                                <figure className={styles.imgContainer}>
                                     <img src={item.img} alt={item.title} />
-                                    <figcaption className="img-content">
-                                        <h2 className="title">{item.title}</h2>
-                                        <h3 className="category">{item.category}</h3>
+                                    <figcaption className={styles.imgContent}>
+                                        <h2 className={styles.title}>{item.title}</h2>
+                                        <h3 className={styles.category}>{item.category}</h3>
                                     </figcaption>
                                     <span
-                                        className="img-content-hover"
+                                        className={styles.imgContentHover}
                                         style={{
                                             transform: `translate3d(${galleryHoverPos.x}px, ${galleryHoverPos.y}px, 0)`
                                         }}
                                     >
-                                        <h2 className="title">{item.title}</h2>
-                                        <h3 className="category">{item.category}</h3>
+                                        <h2 className={styles.title}>{item.title}</h2>
+                                        <h3 className={styles.category}>{item.category}</h3>
                                     </span>
                                 </figure>
                             </div>
@@ -189,13 +194,13 @@ const CampusLife = () => {
                     </div>
                 </div>
             </section>
-            <article className="scroll-article">
+            <article className={styles.scrollArticle} ref={scrollRef}>
                 {scrollItems.map((item, index) => (
                     <React.Fragment key={index}>
-                        <figure>
+                        <figure className={styles.scrollFigure}>
                             <img src={item.img} alt={item.title} />
                         </figure>
-                        <section>
+                        <section className={styles.scrollSection}>
                             <div>
                                 {item.title.includes('show the PEN') ? (
                                     <h2>

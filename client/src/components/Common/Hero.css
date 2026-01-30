@@ -5,7 +5,7 @@
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    height: 90vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,7 +93,7 @@
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
     .svasc-common-hero {
-        min-height: 80vh;
+        min-height: 70vh;
     }
 
     .svasc-common-hero-title {
@@ -107,7 +107,7 @@
 
 @media (max-width: 768px) {
     .svasc-common-hero {
-        min-height: 70vh;
+        min-height: 55vh;
     }
 
     .svasc-common-hero-title {
@@ -126,7 +126,7 @@
 
 @media (max-width: 640px) {
     .svasc-common-hero {
-        min-height: 60vh;
+        min-height: 45vh;
     }
 
     .svasc-common-hero-title {
@@ -145,7 +145,7 @@
 
 @media (max-width: 480px) {
     .svasc-common-hero {
-        min-height: 50vh;
+        min-height: 35vh;
     }
 
     .svasc-common-hero-title {

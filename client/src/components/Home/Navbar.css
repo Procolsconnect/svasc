@@ -26,7 +26,7 @@
     max-width: 100%;
     width: 1600px;
     margin: auto;
-    
+
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
@@ -365,30 +365,35 @@
     .header .right {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 80%;
         max-width: 320px;
         height: 100vh;
         background: #ffffff;
+        border: none;
         box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        padding: 80px 24px 24px;
-        align-items: flex-start;
-        gap: 24px;
+        padding: 50px 24px 24px;
+        align-items: center;
+        gap: 20px;
         overflow-y: auto;
-        transition: right 0.3s ease;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 0.3s ease, visibility 0.3s;
         z-index: 999;
     }
 
     .header .right.menu-open {
-        right: 0;
+        transform: translateX(0);
+        visibility: visible;
     }
 
     /* Top nav - vertical stack */
     .header .top-nav {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 12px;
         width: 100%;
+        text-align: center;
     }
 
     .header .top-nav a {
@@ -407,15 +412,20 @@
     /* Bottom nav - vertical stack */
     .header .bottom-nav {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 12px;
         width: 100%;
+        text-align: center;
     }
 
     .header .bottom-nav a {
         font-size: 15px;
-        padding: 8px 0;
+        padding: 12px 0;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        white-space: normal;
     }
 
     .header .first-item {
@@ -424,46 +434,81 @@
 
     .header .dropdown {
         width: 100%;
-        justify-content: space-between;
+        justify-content: center;
         cursor: pointer;
         padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f5b40022;
+        /* Light theme separator */
+        white-space: normal;
+        text-align: center;
+        color: #111;
+        /* Dark text for visibility */
+        font-weight: 700;
     }
 
     .nav-item-container {
         width: 100%;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .dropdown-menu {
         position: static;
         transform: none;
+        left: auto;
+        top: auto;
+        margin: 0;
         width: 100%;
         box-shadow: none;
-        padding: 0 0 0 15px;
+        background: #ffffff;
+        padding: 0;
         max-height: 0;
+        opacity: 0;
+        visibility: hidden;
         overflow: hidden;
         transition: max-height 0.3s ease-out, opacity 0.3s ease;
         border: none;
-        display: none;
     }
 
     .dropdown-menu.show {
-        max-height: 500px;
+        max-height: 1000px;
         opacity: 1;
-        display: block;
+        visibility: visible;
         margin-top: 5px;
-        border-left: 2px solid #f5b400;
+        border-left: none;
+        border-top: 2px solid #f5b400;
+        /* Theme accent */
+        transform: none;
+        /* Override base desktop transform */
+        background: #fff9e6;
+        /* Light yellow background */
     }
 
     .header .dropdown span {
         font-size: 14px;
         transition: transform 0.3s;
+        color: #f5b400;
+        /* Theme theme */
     }
 
     .nav-item-container.active .dropdown span {
         transform: rotate(180deg);
+    }
+
+    .dropdown-item {
+        text-align: center;
+        padding: 14px 20px;
+        width: 100%;
+        display: block;
+        white-space: normal;
+        color: #333;
+    }
+
+    .dropdown-item:hover {
+        padding-left: 20px;
+        background: #f5b40022;
+        /* Slightly darker light yellow on hover */
+        color: #f5b400;
     }
 
     /* CTA buttons */
@@ -474,7 +519,8 @@
         width: 100%;
         margin-top: 16px;
         padding-top: 16px;
-        border-top: 1px solid #e2e2e2;
+        border-top: 1px solid #f5b40033;
+        /* Light theme separator */
     }
 
     .header .btn-outline,
@@ -494,7 +540,9 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(255, 255, 255, 0.7);
+        /* White overlay instead of gray */
+        backdrop-filter: blur(4px);
         z-index: -1;
     }
 }

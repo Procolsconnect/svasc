@@ -34,9 +34,9 @@ html,
 body {
   font-size: 66.5%;
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
+  /* overflow-x: hidden;
   width: 100%;
-  position: relative;
+  position: relative; */
 }
 
 

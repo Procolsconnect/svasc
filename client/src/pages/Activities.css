@@ -380,6 +380,8 @@ body {
 @media screen and (max-width: 920px) {
     .project {
         width: 48%;
+        height: auto !important;
+        aspect-ratio: 1/1 !important;
     }
 
     .project:nth-child(1),
@@ -412,6 +414,8 @@ body {
 @media screen and (max-width: 620px) {
     .project {
         width: 98% !important;
+        height: auto !important;
+        aspect-ratio: 16/9 !important;
     }
 
     .card-container {
