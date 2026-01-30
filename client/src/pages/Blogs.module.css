@@ -1,38 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-/* Animations replaced by Hero component */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-.campus-life-title {
-    text-transform: uppercase;
-    font-weight: 100;
-    letter-spacing: 50px;
-    float: left;
-    text-align: center;
-    width: 100%;
-    margin: 40px 0;
-}
-
-@media screen and (max-width: 768px) {
-    .campus-life-title {
-        letter-spacing: 10px;
-        margin: 20px 0;
-        padding-left: 10px;
-        /* Offset to center properly with semi-wide spacing */
-    }
-}
-
 .project {
     float: left;
     position: relative;
@@ -42,12 +9,17 @@ body {
     margin: 10px 1%;
     overflow: hidden;
     transition: all 0.5s ease, opacity 0.1s;
-    width: 23%;
+    width: calc(25% - 2%);
 }
 
-.project:nth-child(1),
-.project:nth-child(2) {
-    width: 48%;
+.project.largeHero {
+    width: calc(50% - 2%);
+    aspect-ratio: 1/1;
+}
+
+.project.smallCard {
+    width: calc(25% - 2%);
+    aspect-ratio: 1/1.5;
 }
 
 .project.shrunk {
@@ -74,7 +46,7 @@ body {
     top: 0;
     left: 0;
     transition: all 0.5s ease;
-    z-index: 100;
+    z-index: 1010;
 }
 
 .project.openedProject .backArrow {
@@ -112,15 +84,16 @@ body {
     opacity: 1;
     background: #fff;
     padding: 10px 5px;
-    font-weight: 100;
-    letter-spacing: 2px;
     text-transform: uppercase;
     transition: all 0.5s ease;
     position: absolute;
-    width: 90%;
+    width: 100%;
     text-align: center;
+    letter-spacing: 2px;
+    padding-left: 2px;
     top: 45%;
-    margin: 0 5%;
+    left: 0;
+    margin: 0;
 }
 
 .project:hover .beforeTitle {
@@ -154,7 +127,28 @@ body {
     margin-left: 0;
     border-radius: 0;
     opacity: 1;
-    background: rgba(236, 188, 46, 0.85);
+    background: rgba(236, 188, 46, 0.85)
+}
+
+.blogsMainTitle {
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 15px;
+    padding-left: 15px;
+    text-align: center;
+    width: 100%;
+    margin: 40px auto;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
+.blogsGridContainer {
+    width: 100%;
+    display: block;
+    clear: both;
+    padding: 0 1%;
 }
 
 .fadeTitle {
@@ -166,12 +160,15 @@ body {
     font-size: 12pt;
     text-align: center;
     letter-spacing: 5px;
+    padding-left: 5px;
     position: absolute;
     margin: 0;
     opacity: 0;
     transition: all 0.3s ease;
     padding: 0 10px 5px;
     top: 45%;
+    left: 0;
+    width: 100%;
     transform: translate(0, -25px);
     transition-delay: 0.4s;
 }
@@ -214,7 +211,7 @@ body {
     float: left;
     background: #fff;
     position: fixed;
-    z-index: 10;
+    z-index: 1000;
     padding: 0 0 0 40px;
     opacity: 0;
     pointer-events: none;
@@ -222,7 +219,7 @@ body {
     overflow-x: hidden;
     top: 0;
     left: 0;
-    transition: all 0s ease;
+    transition: opacity 0.5s ease;
 }
 
 .selectedArea.opened {
@@ -230,15 +227,10 @@ body {
     pointer-events: all;
 }
 
-.selectedArea.opened .copyArea,
-.selectedArea.opened h1 span,
-.selectedArea.opened h1 {
+.selectedArea.opened .copyArea {
     opacity: 1;
     transform: translate(-50%, 0);
-}
-
-.selectedArea.opened h1 span {
-    transform: translate(0, 0);
+    /* Centering for relative + left: 50% */
 }
 
 .selectedArea::after {
@@ -261,13 +253,20 @@ body {
     margin: 0;
     padding: 80px 5px;
     background-size: cover;
+    background-position: center;
+    text-align: center;
     font-size: 28pt;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 5px;
+    padding-left: 5px;
     color: #1a1a1a;
     opacity: 0;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
+}
+
+.selectedArea.opened h1 {
+    opacity: 1;
 }
 
 .selectedArea h1 span {
@@ -278,6 +277,11 @@ body {
     transform: translate(0, -100%);
     transition: all 0.8s ease;
     margin-top: 100px;
+}
+
+.selectedArea.opened h1 span {
+    opacity: 1;
+    transform: translate(0, 0);
 }
 
 .copyArea {
@@ -306,7 +310,8 @@ body {
     color: #2a2a2a;
 }
 
-.card-container {
+/* Card Grid Styles */
+.cardContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
@@ -319,14 +324,14 @@ body {
     transform: translateX(-50%);
 }
 
-.game-card {
+.gameCard {
     position: relative;
     width: 100%;
     padding-bottom: 150%;
     perspective: 1000px;
 }
 
-.game-card__cover {
+.gameCardCover {
     position: absolute;
     top: 0;
     left: 0;
@@ -344,7 +349,7 @@ body {
     border-radius: 8px;
 }
 
-.game-card__cover::after {
+.gameCardCover::after {
     display: block;
     content: '';
     position: absolute;
@@ -359,15 +364,15 @@ body {
     transition: transform .65s cubic-bezier(0.18, 0.9, 0.58, 1);
 }
 
-.game-card:hover .game-card__cover {
+.gameCard:hover .gameCardCover {
     transform: rotateX(7deg) translateY(-6px);
 }
 
-.game-card:hover .game-card__cover::after {
+.gameCard:hover .gameCardCover::after {
     transform: translateY(0%);
 }
 
-.game-card::before {
+.gameCard::before {
     display: block;
     content: '';
     position: absolute;
@@ -383,12 +388,12 @@ body {
     transition: transform .35s ease-in-out, opacity .5s ease-in-out;
 }
 
-.game-card:hover::before {
+.gameCard:hover::before {
     opacity: 0.6;
     transform: rotateX(7deg) translateY(-6px) scale(1.05);
 }
 
-.card-title {
+.cardTitle {
     position: absolute;
     bottom: 10px;
     left: 0;
@@ -406,24 +411,45 @@ body {
 @media screen and (max-width: 920px) {
     .project {
         width: 48%;
-        height: auto !important;
+        margin: 10px 1%;
         aspect-ratio: 1/1 !important;
     }
 
-    .project:nth-child(1),
-    .project:nth-child(2) {
-        width: 48%;
+    .blogsMainTitle {
+        letter-spacing: 8px;
+        text-indent: 8px;
     }
 
-    .copyArea,
-    .card-container {
+    .selectedArea {
+        padding-left: 0;
+    }
+
+    .project.openedProject {
+        width: 100% !important;
+        height: 60px !important;
+        position: fixed;
+    }
+
+    .project.openedProject .backArrow {
+        top: 0;
+        height: 60px;
+        line-height: 60px;
+        font-size: 18pt;
+    }
+
+    .selectedArea {
+        padding-top: 60px;
+    }
+
+    .selectedArea.opened .copyArea,
+    .selectedArea.opened .cardContainer {
         width: 100%;
         margin-left: 0;
         left: 0;
-        transform: none;
+        transform: translate(0, 0) !important;
     }
 
-    .card-container {
+    .cardContainer {
         grid-template-columns: repeat(2, 1fr);
         padding: 0 15px;
     }
@@ -440,12 +466,25 @@ body {
 @media screen and (max-width: 620px) {
     .project {
         width: 98% !important;
-        height: auto !important;
+        margin: 10px 1%;
         aspect-ratio: 16/9 !important;
     }
 
-    .card-container {
+    .blogsMainTitle {
+        letter-spacing: 5px;
+        padding-left: 5px;
+        font-size: 2rem;
+        margin: 30px auto 20px;
+    }
+
+    .cardContainer {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 15px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cardContainer {
+        grid-template-columns: 1fr;
     }
 }

@@ -119,7 +119,7 @@ const Schools = () => {
                             <div className={styles.imageGrid}>
                                 <div className={styles.imageWrapper}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2670&auto=format&fit=crop"
+                                        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2670&auto"
                                         alt="SVASC Campus"
                                         className={styles.sectionImage}
                                     />

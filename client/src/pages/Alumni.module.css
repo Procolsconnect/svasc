@@ -1,42 +1,22 @@
-/* ================= GLOBAL RESET ================= */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-    margin: 0;
+/* ================= Alumni Page Module Styles ================= */
+.alumniPage {
     font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-size: 1.2rem;
     overflow-x: hidden;
     background: #ffffff;
 }
 
 /* ================= HERO SECTION ================= */
-#alumni-page-root .heroEffects {
-    height: 100vh;
-    position: relative;
-    z-index: 1;
-    /* Changed from -1 to 1 to be visible in React context if needed, but user had -1. Maintaining user's z-index hierarchy is risky if not careful. */
-    top: 0;
-    left: 0;
-}
-
-/* Wait, user had z-index: -1. In a single page app, this might put it behind the root div if root has background. */
-/* I will stick to USER'S code exactly. */
-
-#alumni-page-root .heroEffects {
+.heroEffects {
     height: 100vh;
     position: relative;
     z-index: 1;
     top: 0;
     left: 0;
+    overflow: hidden;
 }
 
-#alumni-page-root .heroEffects .bg {
+.heroEffects .bg {
     height: 100vh;
     position: fixed;
     width: 100%;
@@ -45,55 +25,59 @@ body {
     background-size: cover;
     background-position: center center;
     transform: scale(1);
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-#alumni-page-root .heroEffects .shade {
+.heroEffects .shade {
     opacity: 0;
     background: rgba(0, 0, 0, 0.8);
-    z-index: 3;
+    z-index: 0;
     height: 100vh;
     position: fixed;
     width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
-#alumni-page-root .heroEffects .title {
+.heroEffects .title {
     width: 100%;
     height: 100%;
     position: relative;
+    display: table;
+    z-index: 1;
+    text-transform: uppercase;
 }
 
-#alumni-page-root .heroEffects .title .text {
+.heroEffects .title .textWrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.heroEffects .title .text {
     z-index: 1;
     width: 100%;
     text-align: center;
     color: #fff;
     padding: 4em;
     background: rgba(0, 0, 0, 0.6);
+    transition: margin-top 0.1s linear;
 }
 
-#alumni-page-root .centerV {
-    display: table;
-    height: 100%;
-    width: 100%;
-}
-
-#alumni-page-root .centerV>div {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-#alumni-page-root .heroEffects .arrow {
-    position: fixed;
+.heroEffects .arrow {
+    position: absolute;
     left: 50%;
     margin-left: -20px;
-    bottom: 0;
-    width: 40px;
-    height: 40px;
+    bottom: 2rem;
+    width: 4rem;
+    height: 4rem;
     opacity: 1;
     z-index: 5;
 }
 
-#alumni-page-root .heroEffects h1 {
+.heroEffects h1 {
     font-family: 'Julius Sans One', sans-serif;
     font-size: 5em;
     margin-bottom: 0.1em;
@@ -101,17 +85,18 @@ body {
     color: #fff;
 }
 
-#alumni-page-root .heroEffects p {
+.heroEffects p {
     width: 60vw;
     margin: 0 auto;
     line-height: 1.5em;
-    padding: 10px 20px 0;
+    padding: 1rem 2rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     letter-spacing: 0.015em;
     color: #eee;
+    font-size: 1.4rem;
 }
 
-#alumni-page-root .bouncy {
+.bouncy {
     animation: Weeeeeeeeeee 3s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -142,7 +127,7 @@ body {
 }
 
 /* ================= CONTENT WRAPPER ================= */
-#alumni-page-root .content {
+.content {
     background: #ffffff;
     position: relative;
     z-index: 5;
@@ -150,44 +135,44 @@ body {
 }
 
 /* ================= RISING STARS SECTION ================= */
-#alumni-page-root .section-title {
+.sectionTitle {
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
 }
 
-#alumni-page-root .section-title h1 {
+.sectionTitle h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
+    font-size: 4.2rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.1rem;
     color: #0a1264;
 }
 
-#alumni-page-root .l-container {
+.container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 3rem;
     width: 100%;
-    max-width: 1200px;
-    padding: 20px 30px 40px;
+    max-width: 120rem;
+    padding: 2rem 3rem 4rem;
     margin: auto;
 }
 
 @media (max-width: 900px) {
-    #alumni-page-root .l-container {
+    .container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-#alumni-page-root .b-game-card {
+.gameCard {
     position: relative;
     width: 100%;
     padding-bottom: 150%;
     perspective: 1000px;
 }
 
-#alumni-page-root .b-game-card__cover {
+.gameCardCover {
     position: absolute;
     inset: 0;
     overflow: hidden;
@@ -197,19 +182,19 @@ body {
     transition: transform 0.35s ease-in-out;
 }
 
-#alumni-page-root .b-game-card__cover video {
+.gameCardCover video {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#alumni-page-root .play-btn {
+.playBtn {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 42px;
+    font-size: 4.2rem;
     color: #fff;
     background: rgba(0, 0, 0, 0.35);
     opacity: 0;
@@ -217,11 +202,11 @@ body {
     transition: opacity 0.3s ease;
 }
 
-#alumni-page-root .b-game-card:hover .play-btn {
+.gameCard:hover .playBtn {
     opacity: 1;
 }
 
-#alumni-page-root .b-game-card__cover::after {
+.gameCardCover::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -236,255 +221,320 @@ body {
     pointer-events: none;
 }
 
-#alumni-page-root .b-game-card:hover .b-game-card__cover {
-    transform: rotateX(7deg) translateY(-6px);
+.gameCard:hover .gameCardCover {
+    transform: rotateX(7deg) translateY(-0.6rem);
 }
 
-#alumni-page-root .b-game-card:hover .b-game-card__cover::after {
+.gameCard:hover .gameCardCover::after {
     transform: translateY(0%);
 }
 
-#alumni-page-root .b-game-card::before {
+.gameCard::before {
     content: "";
     position: absolute;
     inset: 5%;
     background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.6rem 1.2rem 1.2rem rgba(0, 0, 0, 0.2);
     transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-#alumni-page-root .b-game-card:hover::before {
+.gameCard:hover::before {
     opacity: 0.6;
-    transform: rotateX(7deg) translateY(-6px) scale(1.05);
+    transform: rotateX(7deg) translateY(-0.6rem) scale(1.05);
 }
 
-#alumni-page-root .student-info {
+.studentInfo {
     text-align: center;
-    margin-top: 12px;
+    margin-top: 1.2rem;
 }
 
-#alumni-page-root .student-info h3 {
-    font-size: 16px;
+.studentInfo h3 {
+    font-size: 1.6rem;
     font-weight: 600;
     color: #0b2c5d;
 }
 
-#alumni-page-root .student-info p {
-    font-size: 14px;
+.studentInfo p {
+    font-size: 1.4rem;
     color: #666;
 }
 
 /* ================= SUCCESS STORY CAROUSEL SECTION ================= */
-#alumni-page-root .carousel-section {
-    margin: 40px 0 60px;
-    padding: 20px 0 100px;
+.carouselSection {
+    margin: 4rem 0 6rem;
+    padding: 2rem 0 10rem;
+    overflow: hidden;
 }
 
-#alumni-page-root .carousel-title {
+.carouselTitle {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
-#alumni-page-root .carousel-title h1 {
+.carouselTitle h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
+    font-size: 4.2rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.1rem;
     color: #0a1264;
 }
 
-#alumni-page-root .carousel-wrapper {
+.carouselWrapper {
     width: 100%;
-    max-width: 1000px;
-    height: 400px;
+    max-width: 100rem;
+    height: 40rem;
     margin: 0 auto;
     position: relative;
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
-#alumni-page-root .carousel {
+.carousel {
     list-style: none;
     position: relative;
     padding: 0;
     margin: 0;
+    height: 100%;
 }
 
-#alumni-page-root .carousel li {
-    width: 600px;
-    height: 337px;
+.carousel li {
+    width: 60rem;
+    height: 33.7rem;
     background: #333;
     display: inline-block;
     transition: all .3s ease-in-out;
     overflow: hidden;
+    position: absolute;
+    top: 0;
 }
 
-#alumni-page-root .carousel li img,
-#alumni-page-root .carousel li iframe {
+.carousel li img,
+.carousel li iframe {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    pointer-events: auto;
 }
 
-#alumni-page-root .carousel li p {
-    color: white;
-    font-weight: bold;
-    font-size: 5em;
-    text-align: center;
-    margin-top: 1.15em;
-}
-
-#alumni-page-root .items {
-    position: absolute;
-}
-
-#alumni-page-root .main-pos {
-    margin-left: 50% !important;
-    transform: translateX(-50%);
+/* Carousel Positions */
+.mainPos {
+    left: 50%;
+    margin-left: -30rem;
     z-index: 3000;
+    transform: scale(1);
+    opacity: 1;
 }
 
-#alumni-page-root .left-pos {
-    opacity: .3;
-    margin-left: calc(50% - 500px) !important;
-    transform: translateX(-50%) scale(.75);
+.leftPos {
+    left: 50%;
+    margin-left: -60rem;
+    transform: scale(0.75);
     z-index: 1000;
+    opacity: 0.3;
+    cursor: pointer;
 }
 
-#alumni-page-root .right-pos {
-    opacity: .3;
-    margin-left: calc(50% + 500px) !important;
-    transform: translateX(-50%) scale(.75);
+.rightPos {
+    left: 50%;
+    margin-left: 0rem;
+    transform: scale(0.75);
     z-index: 1000;
+    opacity: 0.3;
+    cursor: pointer;
 }
 
-#alumni-page-root .back-pos {
-    margin-left: 50% !important;
-    transform: translateX(-50%) scale(.5);
-    opacity: .05;
+.backPos {
+    left: 50%;
+    margin-left: -30rem;
+    transform: scale(0.5);
+    opacity: 0.05;
+    z-index: 500;
+    pointer-events: none;
 }
 
-#alumni-page-root .carousel-controls {
+.carouselControls {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -80px;
+    bottom: -6rem;
     display: flex;
-    gap: 10px;
+    gap: 1rem;
+    z-index: 4000;
 }
 
-#alumni-page-root .carousel-controls input {
-    padding: 20px 35px;
-    margin: 0 10px;
+.carouselControls button {
+    padding: 2rem 3.5rem;
+    margin: 0 1rem;
     cursor: pointer;
     border: none;
     background: #0b2c5d;
     color: #ffffff;
     font-weight: bold;
-    border-radius: 20px;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    transition: background 0.3s;
 }
 
-#alumni-page-root .carousel-controls input:hover {
+.carouselControls button:hover {
     background: #123d80;
 }
 
 /* ================= RANK HOLDERS SECTION ================= */
-#alumni-page-root .rank-holder-section {
-    max-width: 1400px;
-    margin: 60px auto;
-    padding: 0 40px 80px;
+.rankHolderSection {
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 0 4rem 8rem;
 }
 
-#alumni-page-root .rank-title {
+.rankTitle {
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
+    font-size: 4.2rem;
     font-weight: 700;
     color: #0a1264;
-    margin-bottom: 35px;
+    margin-bottom: 3.5rem;
     text-align: center;
 }
 
-#alumni-page-root .year-tabs {
+.yearTabs {
     display: flex;
-    gap: 22px;
-    margin-bottom: 80px;
+    gap: 2.2rem;
+    margin-bottom: 8rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#alumni-page-root .year-tabs button {
-    width: 120px;
-    height: 58px;
-    border-radius: 10px;
-    border: 1.5px solid #facc15;
+.yearTabs button {
+    width: 12rem;
+    height: 5.8rem;
+    border-radius: 1rem;
+    border: 0.15rem solid #facc15;
     background: #ffffff;
-    font-size: 20px;
+    font-size: 2rem;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
+    color: #1f2a44;
 }
 
-#alumni-page-root .year-tabs button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.yearTabs button:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
 }
 
-#alumni-page-root .year-tabs button.active {
+.yearTabs button.active {
     background: #060c3f;
     color: #ffffff;
-    border: 1.5px solid #facc15;
+    border: 0.15rem solid #facc15;
 }
 
-#alumni-page-root .rank-cards {
+.rankCards {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 26px;
+    gap: 2.6rem;
 }
 
-#alumni-page-root .rank-card {
+.rankCard {
     background: #ffffff;
-    border-radius: 14px;
-    padding: 32px 26px;
+    border-radius: 1.4rem;
+    padding: 3.2rem 2.6rem;
     text-align: center;
-    border: 1px solid #e5e7eb;
+    border: 0.1rem solid #e5e7eb;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#alumni-page-root .rank-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.rankCard:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
-#alumni-page-root .rank-card h3 {
-    font-size: 20px;
-    margin-bottom: 14px;
+.rankCard h3 {
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
     color: #0b2c5d;
+    font-weight: 800;
 }
 
-#alumni-page-root .rank-card .degree {
-    font-size: 15px;
+.rankCard .degree {
+    font-size: 1.5rem;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     color: #4b5563;
 }
 
-#alumni-page-root .rank-card .rank {
-    font-size: 15px;
+.rankCard .rank {
+    font-size: 1.5rem;
     font-weight: 500;
     color: #374151;
 }
 
 @media (max-width: 1200px) {
-    #alumni-page-root .rank-cards {
+    .rankCards {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    #alumni-page-root .rank-cards {
+    .rankCards {
         grid-template-columns: 1fr;
     }
 
-    #alumni-page-root .rank-holder-section {
-        padding: 0 20px 60px;
+    .rankHolderSection {
+        padding: 0 2rem 6rem;
+    }
+
+    .carouselWrapper {
+        height: auto;
+        padding-bottom: 8rem;
+    }
+
+    .carousel li {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        margin-left: 0 !important;
+        left: 0 !important;
+        position: relative;
+        display: none;
+        transform: none !important;
+        opacity: 0;
+    }
+
+    .mainPos {
+        display: block !important;
+        opacity: 1 !important;
+        z-index: 10;
+    }
+
+    .heroEffects .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heroEffects .title .textWrapper {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .heroEffects .title .text {
+        padding: 2rem 1.25rem;
+        width: 90%;
+        max-width: 400px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        height: 12rem;
+    }
+
+    .heroEffects h1 {
+        font-size: 2.5rem;
+    }
+
+    .heroEffects p {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem 0.5rem 0;
     }
 }

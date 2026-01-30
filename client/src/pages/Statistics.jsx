@@ -44,6 +44,28 @@ const Statistics = () => {
                 image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=90&fm=jpg"
             />
 
+            {/* Focus Section */}
+            <section className={styles.focusSection}>
+                <div className={`${styles.container} ${styles.focusContent}`}>
+                    <div className={styles.focusImageContent}>
+                        <img
+                            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000&auto=format&fit=crop"
+                            alt="Student Excellence"
+                        />
+                    </div>
+                    <div className={styles.focusTextContent}>
+                        <h2>Bridging Ambition with Opportunity</h2>
+                        <p>
+                            At Shree Venkateshwara Arts and Science College, our commitment to professional excellence is reflected in our robust placement statistics and industry partnerships. We provide a holistic environment where students are nurtured with both academic rigor and industry-specific skills.
+                        </p>
+                        <p>
+                            Our career development initiatives ensure that every student is equipped to meet the challenges of the global job market, resulting in consistently high placement records across diverse sectors.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
             {/* Placement Statistics Section */}
             <section className={styles.section}>
                 <div className={styles.container}>
@@ -118,11 +140,45 @@ const Statistics = () => {
                 </div>
             </section>
 
-            {/* Impact Highlights */}
-            <section className={`${styles.section} ${styles.bgPrimary}`}>
-                <div className={styles.container}>
-                    <div className={styles.impactText}>
-                        <p>Leading the way in professional excellence and career development.</p>
+            {/* Recruiter Categories Section */}
+            <section className={styles.section}>
+                <div className={`${styles.container} ${styles.recruiterCategories}`}>
+                    <div className={styles.focusImageContent}>
+                        <img
+                            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000&auto=format&fit=crop"
+                            alt="Student Group"
+                        />
+                    </div>
+                    <div className={styles.categoryList}>
+                        <h2>Recruiter Categories</h2>
+
+                        <div className={styles.categoryItem}>
+                            <div className={styles.categoryIcon}>»</div>
+                            <div className={styles.categoryText}>
+                                <strong>IT & ITES:</strong> Infosys, TCS, Allsec, Hexaware, Wipro, Cognizant
+                            </div>
+                        </div>
+
+                        <div className={styles.categoryItem}>
+                            <div className={styles.categoryIcon}>»</div>
+                            <div className={styles.categoryText}>
+                                <strong>Banking & Finance:</strong> Axis Bank, HDFC Bank, ICICI Bank, IDBI
+                            </div>
+                        </div>
+
+                        <div className={styles.categoryItem}>
+                            <div className={styles.categoryIcon}>»</div>
+                            <div className={styles.categoryText}>
+                                <strong>Hospitality:</strong> Hyatt, Radisson, Vivanta, Sterling, Hard Rock
+                            </div>
+                        </div>
+
+                        <div className={styles.categoryItem}>
+                            <div className={styles.categoryIcon}>»</div>
+                            <div className={styles.categoryText}>
+                                <strong>BPO/KPO & EdTech:</strong> Sutherland, [24]7.ai, Focus Edumatics
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

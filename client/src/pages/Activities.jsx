@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Activities.css';
+import styles from './Activities.module.css';
 import Hero from '../components/Common/Hero';
 
 const ProjectsPortfolio = () => {
@@ -135,12 +135,12 @@ const ProjectsPortfolio = () => {
   }, []);
 
   const getProjectClass = (projectId) => {
-    const classes = ['project'];
+    const classes = [styles.project];
     if (selectedProject === projectId) {
-      classes.push('openedProject');
+      classes.push(styles.openedProject);
     }
     if (selectedProject && selectedProject !== projectId) {
-      classes.push('hidden', 'shrunk');
+      classes.push(styles.hidden, styles.shrunk);
     }
     return classes.join(' ');
   };
@@ -153,7 +153,7 @@ const ProjectsPortfolio = () => {
         image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400"
       />
 
-      <h2 className="campus-life-title">
+      <h2 className={styles.campusLifeTitle}>
         Campus Life
       </h2>
 
@@ -168,36 +168,36 @@ const ProjectsPortfolio = () => {
             }}
             onClick={() => selectProject(project.ID)}
           >
-            <h3 className="beforeTitle">{project.category}</h3>
-            <div className="info">
-              <h1 className="fadeTitle">{project.category}</h1>
+            <h3 className={styles.beforeTitle}>{project.category}</h3>
+            <div className={styles.info}>
+              <h1 className={styles.fadeTitle}>{project.category}</h1>
               <hr />
             </div>
-            <p className="backArrow">
+            <p className={styles.backArrow}>
               <i className="fa fa-angle-double-left" aria-hidden="true">‹‹</i>
             </p>
           </div>
         ))}
       </div>
 
-      <div className={`selectedArea ${selectedProject ? 'opened' : ''}`}>
+      <div className={`${styles.selectedArea} ${selectedProject ? styles.opened : ''}`}>
         <h1 style={{ backgroundImage: `url(${highlightedContent.bImage})` }}>
           <span>{highlightedContent.category}</span>
         </h1>
         <div
-          className="copyArea"
+          className={styles.copyArea}
           dangerouslySetInnerHTML={{ __html: highlightedContent.copy }}
         />
 
         {highlightedContent.cards && highlightedContent.cards.length > 0 && (
-          <div className="card-container">
+          <div className={styles.cardContainer}>
             {highlightedContent.cards.map((card, index) => (
-              <div key={index} className="game-card">
+              <div key={index} className={styles.gameCard}>
                 <div
-                  className="game-card__cover"
+                  className={styles.gameCardCover}
                   style={{ backgroundImage: `url(${card.image})` }}
                 >
-                  <div className="card-title">{card.title}</div>
+                  <div className={styles.cardTitle}>{card.title}</div>
                 </div>
               </div>
             ))}

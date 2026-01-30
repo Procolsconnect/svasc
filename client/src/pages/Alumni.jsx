@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Alumni.css';
+import styles from './Alumni.module.css';
 import { FaPlay, FaPause } from 'react-icons/fa'; // Assuming react-icons is available, else we use unicode
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const Alumni = () => {
         shadeOpacity: 0,
         zoom: 1,
         titleMove: 0
-    }); 
+    });
 
     useEffect(() => {
         const handleScroll = () => {
@@ -88,19 +88,11 @@ const Alumni = () => {
     };
 
     const getPositionClass = (index) => {
-        // Calculate relative position to the mainIndex
-        // We want: 
-        // 0 -> main-pos
-        // 1 -> right-pos
-        // total-1 -> left-pos
-        // others -> back-pos
-
         const diff = (index - mainIndex + totalItems) % totalItems;
-
-        if (diff === 0) return 'main-pos';
-        if (diff === 1) return 'right-pos';
-        if (diff === totalItems - 1) return 'left-pos';
-        return 'back-pos';
+        if (diff === 0) return styles.mainPos;
+        if (diff === 1) return styles.rightPos;
+        if (diff === totalItems - 1) return styles.leftPos;
+        return styles.backPos;
     };
 
     // ================= RANK HOLDERS DATA =================
@@ -159,16 +151,16 @@ const Alumni = () => {
     const [selectedYear, setSelectedYear] = useState(2019);
 
     return (
-        <div className="alumni-page">
+        <div className={styles.alumniPage}>
             {/* ================= HERO SECTION ================= */}
-            <div className="heroEffects">
+            <div className={styles.heroEffects}>
                 <div
-                    className="bg"
+                    className={styles.bg}
                     style={{
                         transform: `scale(${scrollState.zoom})`,
                     }}
                 >
-                    <div className="arrow bouncy">
+                    <div className={`${styles.arrow} ${styles.bouncy}`}>
                         <svg height="25" width="50">
                             <polygon
                                 points="0,0 25,10 50,0 25,25"
@@ -179,10 +171,10 @@ const Alumni = () => {
                         </svg>
                     </div>
 
-                    <div className="title">
-                        <div className="text-wrapper">
+                    <div className={styles.title}>
+                        <div className={styles.textWrapper}>
                             <div
-                                className="text"
+                                className={styles.text}
                                 style={{ marginTop: `-${scrollState.titleMove}px` }}
                             >
                                 <h1>Alumni</h1>
@@ -193,29 +185,29 @@ const Alumni = () => {
                 </div>
 
                 <div
-                    className="shade"
+                    className={styles.shade}
                     style={{ opacity: scrollState.shadeOpacity }}
                 ></div>
             </div>
 
             {/* ================= MAIN CONTENT ================= */}
-            <div className="content">
+            <div className={styles.content}>
 
                 {/* ================= RISING STARS SECTION ================= */}
-                <div className="section-title">
+                <div className={styles.sectionTitle}>
                     <h1>Rising Stars of SVASC</h1>
                 </div>
 
-                <div className="l-container">
+                <div className={styles.container}>
                     {risingStars.map((star, index) => (
                         <div key={index}>
-                            <div className="b-game-card">
-                                <div className="b-game-card__cover">
+                            <div className={styles.gameCard}>
+                                <div className={styles.gameCardCover}>
                                     <video id={`video-${index}`} loop muted={false}>
                                         <source src={star.video} />
                                     </video>
                                     <div
-                                        className="play-btn"
+                                        className={styles.playBtn}
                                         id={`btn-${index}`}
                                         onClick={(e) => toggleVideo(e, index)}
                                     >
@@ -223,7 +215,7 @@ const Alumni = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="student-info">
+                            <div className={styles.studentInfo}>
                                 <h3>{star.name}</h3>
                                 <p>{star.degree}</p>
                             </div>
@@ -232,21 +224,21 @@ const Alumni = () => {
                 </div>
 
                 {/* ================= SUCCESS STORY CAROUSEL SECTION ================= */}
-                <div className="carousel-section">
-                    <div className="carousel-title">
+                <div className={styles.carouselSection}>
+                    <div className={styles.carouselTitle}>
                         <h1>Success Story</h1>
                     </div>
 
-                    <div className="carousel-wrapper">
-                        <ul className="carousel">
+                    <div className={styles.carouselWrapper}>
+                        <ul className={styles.carousel}>
                             {carouselItems.map((item, index) => (
                                 <li
                                     key={item.id}
-                                    className={`${getPositionClass(index)}`}
+                                    className={getPositionClass(index)}
                                     onClick={() => {
-                                        const pos = getPositionClass(index);
-                                        if (pos === 'left-pos') moveCarousel('prev');
-                                        if (pos === 'right-pos') moveCarousel('next');
+                                        const posClass = getPositionClass(index);
+                                        if (posClass === styles.leftPos) moveCarousel('prev');
+                                        if (posClass === styles.rightPos) moveCarousel('next');
                                     }}
                                 >
                                     {item.type === 'text' && (
@@ -271,7 +263,7 @@ const Alumni = () => {
                             ))}
                         </ul>
 
-                        <div className="carousel-controls">
+                        <div className={styles.carouselControls}>
                             <button onClick={() => moveCarousel('prev')}>Prev</button>
                             <button onClick={() => moveCarousel('next')}>Next</button>
                         </div>
@@ -279,14 +271,14 @@ const Alumni = () => {
                 </div>
 
                 {/* ================= RANK HOLDERS SECTION ================= */}
-                <div className="rank-holder-section">
-                    <div className="rank-title">Rank Holders</div>
+                <div className={styles.rankHolderSection}>
+                    <div className={styles.rankTitle}>Rank Holders</div>
 
-                    <div className="year-tabs">
+                    <div className={styles.yearTabs}>
                         {Object.keys(rankData).map((year) => (
                             <button
                                 key={year}
-                                className={parseInt(year) === selectedYear ? 'active' : ''}
+                                className={parseInt(year) === selectedYear ? styles.active : ''}
                                 onClick={() => setSelectedYear(parseInt(year))}
                             >
                                 {year}
@@ -294,12 +286,12 @@ const Alumni = () => {
                         ))}
                     </div>
 
-                    <div className="rank-cards" id="cards">
+                    <div className={styles.rankCards} id="cards">
                         {rankData[selectedYear] && rankData[selectedYear].map((student, idx) => (
-                            <div className="rank-card" key={idx}>
+                            <div className={styles.rankCard} key={idx}>
                                 <h3>{student.name}</h3>
-                                <p className="degree">{student.degree}</p>
-                                <p className="rank">{student.rank}</p>
+                                <p className={styles.degree}>{student.degree}</p>
+                                <p className={styles.rank}>{student.rank}</p>
                             </div>
                         ))}
                     </div>
@@ -310,3 +302,4 @@ const Alumni = () => {
 };
 
 export default Alumni;
+

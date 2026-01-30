@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Blogs.css'
+import styles from './Blogs.module.css';
 import Hero from '../components/Common/Hero';
 
 const ProjectsPortfolio = () => {
@@ -100,23 +100,19 @@ const ProjectsPortfolio = () => {
     }
   };
 
-  useEffect(() => {
-    // Basic setup if needed, but height logic is moved to CSS
-  }, []);
-
   const getProjectClass = (projectId, index) => {
-    const classes = ['project'];
+    const classes = [styles.project];
     if (selectedProject === projectId) {
-      classes.push('openedProject');
+      classes.push(styles.openedProject);
     }
     if (selectedProject && selectedProject !== projectId) {
-      classes.push('hidden', 'shrunk');
+      classes.push(styles.hidden, styles.shrunk);
     }
     // Add sizing classes based on layout
     if (index < 2) {
-      classes.push('large-hero');
+      classes.push(styles.largeHero);
     } else {
-      classes.push('small-card');
+      classes.push(styles.smallCard);
     }
     return classes.join(' ');
   };
@@ -130,11 +126,11 @@ const ProjectsPortfolio = () => {
         image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c"
       />
 
-      <h2 className="blogs-main-title">
+      <h2 className={styles.blogsMainTitle}>
         College Blogs
       </h2>
 
-      <div className="blogs-grid-container">
+      <div className={styles.blogsGridContainer}>
         {projects.map((project, index) => (
           <div
             key={project.ID}
@@ -144,36 +140,36 @@ const ProjectsPortfolio = () => {
             }}
             onClick={() => selectProject(project.ID)}
           >
-            <h3 className="beforeTitle">{project.category}</h3>
-            <div className="info">
-              <h1 className="fadeTitle">{project.category}</h1>
+            <h3 className={styles.beforeTitle}>{project.category}</h3>
+            <div className={styles.info}>
+              <h1 className={styles.fadeTitle}>{project.category}</h1>
               <hr />
             </div>
-            <p className="backArrow">
+            <p className={styles.backArrow}>
               <i className="fa fa-angle-double-left" aria-hidden="true">‹‹</i>
             </p>
           </div>
         ))}
       </div>
 
-      <div className={`selectedArea ${selectedProject ? 'opened' : ''}`}>
+      <div className={`${styles.selectedArea} ${selectedProject ? styles.opened : ''}`}>
         <h1 style={{ backgroundImage: `url(${highlightedContent.bImage})` }}>
           <span>{highlightedContent.category}</span>
         </h1>
         <div
-          className="copyArea"
+          className={styles.copyArea}
           dangerouslySetInnerHTML={{ __html: highlightedContent.copy }}
         />
 
         {highlightedContent.cards && highlightedContent.cards.length > 0 && (
-          <div className="card-container">
+          <div className={styles.cardContainer}>
             {highlightedContent.cards.map((card, index) => (
-              <div key={index} className="game-card">
+              <div key={index} className={styles.gameCard}>
                 <div
-                  className="game-card__cover"
+                  className={styles.gameCardCover}
                   style={{ backgroundImage: `url(${card.image})` }}
                 >
-                  <div className="card-title">{card.title}</div>
+                  <div className={styles.cardTitle}>{card.title}</div>
                 </div>
               </div>
             ))}

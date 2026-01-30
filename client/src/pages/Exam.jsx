@@ -115,7 +115,7 @@ const SVASCExamination = () => {
               {/* Tall Image Left */}
               <div className="svasc-image-container svasc-image-tall">
                 <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1000&auto=format&fit=crop"
                   alt="Students in Classroom"
                   className="svasc-image"
                 />
