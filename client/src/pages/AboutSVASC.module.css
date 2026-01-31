@@ -17,6 +17,14 @@
     padding-left: 5rem;
 }
 
+@media (max-width: 768px) {
+    .heroContainer {
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+        padding-left: 0;
+    }
+}
+
 .heroBlob {
     position: absolute;
     top: 0;
@@ -54,6 +62,18 @@
     font-family: 'Volkhov', serif;
 }
 
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+    .heroContent {
+        align-items: center;
+        text-align: center;
+    }
+}
+
 .heroTitleSpan {
     position: relative;
     display: inline-block;
@@ -72,6 +92,13 @@
     margin-bottom: 3.5rem;
     max-width: 48rem;
     line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .heroDescription {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+    }
 }
 
 .heroButton {
@@ -119,6 +146,12 @@
     z-index: 10;
 }
 
+@media (max-width: 768px) {
+    .heroImageWrapper img {
+        width: 80%;
+    }
+}
+
 .heroImageGradient {
     position: absolute;
     top: 15%;
@@ -141,9 +174,18 @@
     padding-bottom: 8rem;
     padding-top: 5rem;
     padding-left: 3rem;
-    padding-right: rem;
+    padding-right: 0rem;
     overflow: hidden;
     background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .empoweringHeader {
+        min-height: auto;
+        padding-bottom: 4rem;
+        padding-top: 4rem;
+        padding-left: 0;
+    }
 }
 
 .empoweringBackgroundText {
@@ -182,6 +224,13 @@
     font-family: 'Volkhov', serif;
 }
 
+@media (max-width: 768px) {
+    .empoweringTitle {
+        font-size: 4rem;
+        text-align: center;
+    }
+}
+
 .empoweringSubtitle {
     color: #666;
 }
@@ -212,6 +261,12 @@
     height: 80vh;
     object-fit: cover;
     transition: transform 1s ease;
+}
+
+@media (max-width: 768px) {
+    .empoweringImageWrapper img {
+        height: 50vh;
+    }
 }
 
 
@@ -290,6 +345,13 @@
     font-family: 'Volkhov', serif;
 }
 
+@media (max-width: 768px) {
+    .aboutTitle {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+}
+
 .aboutSubtitle {
     color: #6b7280;
 }
@@ -334,6 +396,16 @@
     font-size: 2.975rem;
 }
 
+@media (max-width: 768px) {
+    .aboutStatTitle {
+        font-size: 2.2rem;
+    }
+
+    .aboutStatValue {
+        font-size: 1.5rem !important;
+    }
+}
+
 .aboutStatValue {
     color: #6b7280;
     font-weight: 500;
@@ -354,6 +426,12 @@
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .campusLifeSection {
+        padding: 4rem 2rem 6rem;
+    }
+}
+
 .campusLifeBackdrop {
     position: absolute;
     top: 0;
@@ -371,6 +449,12 @@
     letter-spacing: -0.02em;
     margin-bottom: 2rem;
     font-family: 'Volkhov', serif;
+}
+
+@media (max-width: 768px) {
+    .campusLifeTitle {
+        font-size: 2.8rem;
+    }
 }
 
 .campusLifeDescription {
@@ -432,6 +516,25 @@
     transition: all 0.5s ease;
 }
 
+@media (max-width: 768px) {
+    .campusLifeImagesContainer {
+        gap: 1.5rem;
+        padding: 0 2rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 3rem;
+        margin-top: 3rem;
+    }
+
+    .campusLifeImage {
+        width: 16rem;
+        height: 20rem;
+        transform: none !important;
+        /* Disable fan effect on mobile for better scrolling */
+    }
+}
+
 .campusLifeImage img {
     width: 100%;
     height: 100%;
@@ -447,6 +550,12 @@
 .testimonialsSection {
     padding: 2rem 5rem 0;
     background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .testimonialsSection {
+        padding: 4rem 2rem 10rem;
+    }
 }
 
 .testimonialsLabel {
@@ -465,6 +574,23 @@
     margin-bottom: 1rem;
     line-height: 1.2;
     font-family: 'Volkhov', serif;
+}
+
+@media (max-width: 768px) {
+    .testimonialsTitle {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+
+    .leftcontent {
+        text-align: center;
+        top: 0 !important;
+    }
+
+    .testimonialsDots {
+        justify-content: center;
+        margin-top: 1rem;
+    }
 }
 
 .testimonialsDots {
@@ -511,6 +637,30 @@
     left: 0;
     box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.08);
     z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .testimonialCard {
+        width: 100%;
+        position: relative;
+        top: 0 !important;
+        margin-top: 4rem;
+    }
+
+    .testimonialImage {
+        left: 2rem !important;
+        top: -3.5rem !important;
+    }
+
+    .testimonialText {
+        margin-top: 4rem;
+        margin-left: 0;
+    }
+
+    .testimonialName,
+    .testimonialRole {
+        margin-left: 0;
+    }
 }
 
 .leftcontent {
@@ -570,6 +720,12 @@
     padding: 4rem 5rem;
 }
 
+@media (max-width: 768px) {
+    .awardsSection {
+        padding: 4rem 2rem;
+    }
+}
+
 .awardsLogoContainer {
     display: flex;
     justify-content: center;
@@ -607,6 +763,14 @@
     font-weight: 800;
     letter-spacing: 0.15em;
     color: #0b1c6c;
+}
+
+@media (max-width: 768px) {
+    .awardsTitle {
+        font-size: 2.22rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 3rem;
+    }
 }
 
 .awardsScrollContainer {
@@ -661,6 +825,12 @@
     font-family: 'Popins,serif';
 }
 
+@media (max-width: 768px) {
+    .teacherAwardsSection {
+        padding: 6rem 2rem;
+    }
+}
+
 .teacherAwardsTitle {
     font-size: 2rem;
     font-weight: 600;
@@ -673,6 +843,14 @@
     gap: 2rem;
     flex-wrap: wrap;
     margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+    .yearTabsContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 }
 
 .yearButton {

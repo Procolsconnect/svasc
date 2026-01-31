@@ -3,7 +3,6 @@
     min-height: 100vh;
     width: 100%;
     position: relative;
-    overflow-y: auto;
     overflow-x: hidden;
     font-family: Arial, sans-serif;
 }
@@ -17,8 +16,9 @@
     height: 100px;
     background: #ffb200;
     border-radius: 50%;
-    position: fixed;
-    bottom: 10px;
+    position: absolute;
+    top: 20px;
+    /* Changed from bottom: 10px */
     right: 10px;
     animation: fadeIn 0.8s ease-in-out 0.1s backwards;
 }
@@ -28,8 +28,9 @@
     height: 80px;
     background: #ffb200;
     border-radius: 50%;
-    position: fixed;
-    bottom: 130px;
+    position: absolute;
+    top: 130px;
+    /* Changed from bottom: 130px */
     right: 85px;
     animation: fadeIn 0.8s ease-in-out 0.2s backwards;
     opacity: 0.5;
@@ -40,8 +41,9 @@
     height: 70px;
     background: white;
     border-radius: 50%;
-    position: fixed;
-    bottom: 135px;
+    position: absolute;
+    top: 135px;
+    /* Changed from bottom: 135px */
     right: 90px;
     animation: fadeIn 0.8s ease-in-out 0.25s backwards;
 }
@@ -51,8 +53,9 @@
     height: 70px;
     background: #ffb200;
     border-radius: 50%;
-    position: fixed;
-    bottom: 210px;
+    position: absolute;
+    top: 220px;
+    /* Changed from bottom: 210px */
     right: 5px;
     animation: fadeIn 0.8s ease-in-out 0.3s backwards;
     opacity: 0.5;
@@ -63,8 +66,9 @@
     height: 70px;
     background: #ffb200;
     border-radius: 50%;
-    position: fixed;
-    bottom: 300px;
+    position: absolute;
+    top: 310px;
+    /* Changed from bottom: 300px */
     right: 50px;
     animation: fadeIn 0.8s ease-in-out 0.4s backwards;
     opacity: 0.5;
@@ -75,8 +79,9 @@
     height: 90px;
     background: #ffb200;
     border-radius: 50%;
-    position: fixed;
-    bottom: 380px;
+    position: absolute;
+    top: 390px;
+    /* Changed from bottom: 380px */
     right: 0px;
     animation: fadeIn 0.8s ease-in-out 0.5s backwards;
     opacity: 0.5;
@@ -87,8 +92,9 @@
     height: 70px;
     background: white;
     border-radius: 50%;
-    position: fixed;
-    bottom: 390px;
+    position: absolute;
+    top: 400px;
+    /* Changed from bottom: 390px */
     right: 10px;
     animation: fadeIn 0.8s ease-in-out 0.55s backwards;
 }
@@ -98,8 +104,9 @@
     height: 60px;
     background: #ffb200;
     border-radius: 50%;
-    position: fixed;
-    bottom: 480px;
+    position: absolute;
+    top: 490px;
+    /* Changed from bottom: 480px */
     right: 70px;
     animation: fadeIn 0.8s ease-in-out 0.6s backwards;
     opacity: 0.5;
@@ -110,8 +117,9 @@
     height: 50px;
     background: #ffb200;
     border-radius: 50%;
-    position: fixed;
-    bottom: 550px;
+    position: absolute;
+    top: 560px;
+    /* Changed from bottom: 550px */
     right: 20px;
     animation: fadeIn 0.8s ease-in-out 0.7s backwards;
     opacity: 0.5;
@@ -134,10 +142,12 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
+    /* Changed from 100vh to avoid excessive space */
     display: flex;
     align-items: flex-start;
-    padding: 40px 80px 150px 80px;
+    padding: 20px 80px 100px 80px;
+    /* Reduced top padding */
 }
 
 .contentContainer {
@@ -153,7 +163,8 @@
 .leftContent {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Aligns text to the top */
 }
 
 .designation {
@@ -209,7 +220,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 .headerInfo {
@@ -223,7 +234,7 @@
 }
 
 .principalImage {
-    width:300px;
+    width: 300px;
     height: 400px;
     object-fit: cover;
     border-radius: 0;
@@ -254,6 +265,14 @@
     .contentContainer {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .leftContent {
+        order: 2;
+    }
+
+    .rightContent {
+        order: 1;
     }
 
     .contentWrapper {

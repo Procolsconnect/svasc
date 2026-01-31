@@ -7,45 +7,45 @@ import Hero from '../components/Common/Hero';
 const HeroSection = () => (
 
     <>
-    <Hero
+        <Hero
             title="About SVASC"
             description="Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values."
             image="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
         />
-    <section className={`${styles.heroContainer} max-w-[170rem] mx-auto px-10 grid grid-cols-1 lg:grid-cols-2 gap-16  relative`}>
-   
-        <div className={styles.heroBlob}></div>
+        <section className={`${styles.heroContainer} max-w-[170rem] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative`}>
 
-        {/* Left Content */}
-        <div className={styles.heroContent}>
-            <h3 className={styles.heroSubtitle}>About SVASC</h3>
+            <div className={styles.heroBlob}></div>
 
-            <h1 className={styles.heroTitle}>
-                Welcome to  &nbsp;
-                <span className={styles.heroTitleSpan}>
-                    SVASC
-                    <svg className={styles.heroTitleUnderline} viewBox="0 0 100 10" preserveAspectRatio="none" height="12">
-                        <path d="M0 5 Q 50 10 100 5" stroke="#181E4B" strokeWidth="4" fill="none"></path>
-                    </svg>
-                </span>
-            </h1>
+            {/* Left Content */}
+            <div className={styles.heroContent}>
+                <h3 className={styles.heroSubtitle}>About SVASC</h3>
 
-            <p className={styles.heroDescription}>
-                Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values. We empower students with career-oriented training, placements, certifications, internships, workshops, and co-curricular activities to meet global challenges with confidence and leadership.
-            </p>
+                <h1 className={styles.heroTitle}>
+                    Welcome to  &nbsp;
+                    <span className={styles.heroTitleSpan}>
+                        SVASC
+                        <svg className={styles.heroTitleUnderline} viewBox="0 0 100 10" preserveAspectRatio="none" height="12">
+                            <path d="M0 5 Q 50 10 100 5" stroke="#181E4B" strokeWidth="4" fill="none"></path>
+                        </svg>
+                    </span>
+                </h1>
 
-            <button className={styles.heroButton}>Find out more</button>
-        </div>
+                <p className={styles.heroDescription}>
+                    Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values. We empower students with career-oriented training, placements, certifications, internships, workshops, and co-curricular activities to meet global challenges with confidence and leadership.
+                </p>
 
-        {/* Right Image */}
-        <div className={styles.heroImageWrapper}>
-            <img
-                src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
-                alt="Traveler"
-            />
-            <div className={styles.heroImageGradient}></div>
-        </div>
-    </section>
+                <button className={styles.heroButton}>Find out more</button>
+            </div>
+
+            {/* Right Image */}
+            <div className={styles.heroImageWrapper}>
+                <img
+                    src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
+                    alt="Traveler"
+                />
+                <div className={styles.heroImageGradient}></div>
+            </div>
+        </section>
     </>
 );
 
@@ -58,7 +58,7 @@ const EmpoweringLeadersSection = () => (
         </div>
 
         {/* Main Content Grid */}
-        <div className={`${styles.empoweringMainContent} max-w-[120rem] mx-auto px-10 grid lg:grid-cols-12 gap-16 items-end`}>
+        <div className={`${styles.empoweringMainContent} max-w-[120rem] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center lg:items-end`}>
             {/* Left Column */}
             <div className="lg:col-span-5 mb-10">
                 <h2 className={styles.empoweringTitle}>
@@ -68,7 +68,7 @@ const EmpoweringLeadersSection = () => (
             </div>
 
             {/* Center/Right Column */}
-            <div className="lg:col-span-4 lg:mb-[-24rem] relative">
+            <div className="lg:col-span-4 lg:mb-[-24rem] relative w-full flex justify-center">
                 <div className={styles.empoweringImageContainer}>
                     <div className={styles.empoweringImageWrapper}>
                         <img
@@ -81,7 +81,7 @@ const EmpoweringLeadersSection = () => (
             </div>
 
             {/* Right Column */}
-            <div className="lg:col-span-3 mb-24 flex flex-col items-start">
+            <div className="lg:col-span-3 mb-12 lg:mb-24 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <p className={styles.empoweringDescription}>
                     SVASC is dedicated to academic excellence, innovation, and holistic student development, empowering students through quality education, practical learning, and industry-oriented training.
                 </p>
@@ -98,8 +98,8 @@ const EmpoweringLeadersSection = () => (
 
 // ================= ABOUT SECTION COMPONENT =================
 const AboutSection = () => (
-    <section className={`${styles.aboutSection} py-[15rem] max-w-[120rem]  px-10`}>
-        <div className="grid lg:grid-cols-2 gap-3 items-start ">
+    <section className={`${styles.aboutSection} py-20 lg:py-[15rem] max-w-[120rem] px-6 lg:px-10`}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-3 items-start ">
             <div>
                 <h2 className={`${styles.aboutTitle} lg:text-[7.5rem] `}>
                     Shaping Bright <br />
@@ -109,7 +109,7 @@ const AboutSection = () => (
                 </h2>
             </div>
 
-            <div className="space-y-16 px-10">
+            <div className="space-y-10 lg:space-y-16 px-0 lg:px-10">
                 <p className={styles.empoweringDescription}>
                     SVASC provides a dynamic academic environment with experienced faculty, modern infrastructure, research-driven programs, and career-focused learning to prepare students for global opportunities.
                 </p>
@@ -127,9 +127,9 @@ const AboutSection = () => (
                     </div>
                 </div>
 
-                <div className=" flex relative left-52 top-10">
-                    <button className={`${styles.heroButton} flex gap-2`}>
-                        <ArrowRightCircle className="w-8 h-8" />
+                <div className="flex justify-center lg:justify-start lg:relative lg:left-0 lg:top-0 mt-8 lg:mt-10">
+                    <button className={`${styles.heroButton} flex gap-2 items-center`}>
+                        <ArrowRightCircle className="w-6 h-6 lg:w-8 lg:h-8" />
                         View Departments
                     </button>
                 </div>
@@ -152,7 +152,7 @@ const CampusLifeSection = () => {
         <section className={styles.campusLifeSection}>
             <div className={styles.campusLifeBackdrop}></div>
 
-            <div className="max-w-[130rem] mx-auto px-10 text-center mb-24 relative z-10">
+            <div className="max-w-[130rem] mx-auto px-6 lg:px-10 text-center mb-12 lg:mb-24 relative z-10">
                 <h2 className={styles.campusLifeTitle}>Discover SVASC <br /> Campus Life</h2>
                 <p className={styles.campusLifeDescription}>Explore our programs, infrastructure, and student activities that nurture growth and talent.</p>
 
@@ -211,7 +211,7 @@ const TestimonialsSection = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent((prev) => (prev + 1) % testimonials.length);
-        }, 5000);
+        }, 3000);
         return () => clearInterval(interval);
     }, [testimonials.length]);
 
@@ -219,7 +219,7 @@ const TestimonialsSection = () => {
     const next = testimonials[(current + 1) % testimonials.length];
 
     return (
-        <section className={`${styles.testimonialsSection} max-w-[120rem]  flex flex-col lg:flex-row gap-1 `}>
+        <section className={`${styles.testimonialsSection} max-w-[120rem] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-1 px-6 lg:px-10`}>
             {/* Left */}
             <div className={` w-full lg:w-1/2 ${styles.leftcontent}`}>
                 <h3 className={styles.testimonialsLabel}>Testimonials</h3>
@@ -308,7 +308,7 @@ const TeacherAwardsSection = () => {
 
     return (
         <section className={styles.teacherAwardsSection}>
-            <div className="max-w-[120rem] mx-auto px-10">
+            <div className="max-w-[120rem] mx-auto px-6 lg:px-10">
                 <h2 className={styles.teacherAwardsTitle}>Awards Received By Teachers</h2>
 
                 {/* Year Tabs */}

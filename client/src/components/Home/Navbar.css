@@ -450,6 +450,13 @@
         width: 100%;
         flex-direction: column;
         align-items: center;
+        order: 2;
+        /* Default for dropdowns */
+    }
+
+    .nav-item-container:not(.has-dropdown) {
+        order: 1;
+        /* Single links show first */
     }
 
     .dropdown-menu {
@@ -521,6 +528,8 @@
         padding-top: 16px;
         border-top: 1px solid #f5b40033;
         /* Light theme separator */
+        order: 3;
+        /* Show after links */
     }
 
     .header .btn-outline,

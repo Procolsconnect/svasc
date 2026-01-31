@@ -89,7 +89,7 @@ const Vision = () => {
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer}`}>
                         <div className={styles.centeredContent}>
                             <h1 className={`${styles.headLarge} ${styles.headCentered}`}>MISSION</h1>
-                            <p className={styles.copy} style={{ color: 'black', fontWeight: 500, fontSize: '1.6rem' }}>
+                            <p className={`${styles.copy} ${styles.missionText}`}>
                                 Providing quality education through innovative teaching, experiential learning,
                                 industry-aligned curriculum, and holistic student development.
                             </p>
@@ -105,7 +105,7 @@ const Vision = () => {
                             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/andrew-branch-139678.jpg" alt="Integrity" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Integrity & Ethics</h2>
-                                <p className={styles.copy} style={{ textAlign: 'left', padding: "10px" }}>
+                                <p className={styles.captionText}>
                                     Commitment to honesty, moral values, accountability,
                                     and ethical conduct in all academic pursuits.
                                 </p>
@@ -116,7 +116,7 @@ const Vision = () => {
                             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/peter-hershey-112799.jpg" alt="Excellence" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Excellence & Inclusion</h2>
-                                <p className={styles.copy} style={{ textAlign: 'left', padding: '20px' }}>
+                                <p className={styles.captionText}>
                                     Fostering innovation, inclusivity, research culture,
                                     social responsibility, and academic excellence.
                                 </p>

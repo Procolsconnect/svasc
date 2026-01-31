@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './AwardsGallery.module.css';
-import { ChevronDown } from 'lucide-react';
+import { ChevronsDown  } from 'lucide-react';
 
 const imageCollections = {
     academic: {
@@ -82,7 +82,7 @@ const AwardsGallery = () => {
                 <div className={styles.sideHeader}>
                     <h2 className={styles.logo}>SVASC</h2>
                     <div className={styles.toggleBtn} onClick={toggleMenu}>
-                        <ChevronDown size={30} />
+                        <ChevronsDown  size={30} />
                     </div>
                 </div>
 
