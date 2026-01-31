@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     background: black;
-   font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 
 }
 
@@ -196,4 +196,26 @@
     top: var(--swiper-pagination-top, auto);
     left: 0;
     width: 100%;
+}
+
+/* ================= MOBILE STYLES ================= */
+@media (max-width: 768px) {
+    .item {
+        height: calc(100svh - 65px);
+        /* Modern solution for mobile height, accounts for navbar */
+    }
+
+    .info-text {
+        top: 120px;
+        /* Adjust text position if 90vh makes it too low */
+    }
+
+    .info-text h2 {
+        font-size: 2.8rem;
+        /* Slightly smaller headers on mobile */
+    }
+
+    .info-text p {
+        font-size: 1.4rem;
+    }
 }
