@@ -9,18 +9,15 @@
     margin: 10px 1%;
     overflow: hidden;
     transition: all 0.5s ease, opacity 0.1s;
-    width: calc(25% - 2%);
+    width: 23%;
 }
 
-.project.largeHero {
-    width: calc(50% - 2%);
-    aspect-ratio: 1/1;
+.project:nth-child(1),
+.project:nth-child(2) {
+    width: 48%;
 }
 
-.project.smallCard {
-    width: calc(25% - 2%);
-    aspect-ratio: 1/1.5;
-}
+
 
 .project.shrunk {
     pointer-events: none;
@@ -84,16 +81,15 @@
     opacity: 1;
     background: #fff;
     padding: 10px 5px;
+    font-weight: 100;
+    letter-spacing: 2px;
     text-transform: uppercase;
     transition: all 0.5s ease;
     position: absolute;
-    width: 100%;
+    width: 90%;
     text-align: center;
-    letter-spacing: 2px;
-    padding-left: 2px;
     top: 45%;
-    left: 0;
-    margin: 0;
+    margin: 0 5%;
 }
 
 .project:hover .beforeTitle {
@@ -132,16 +128,20 @@
 
 .blogsMainTitle {
     text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 15px;
-    padding-left: 15px;
+    font-weight: 100;
+    letter-spacing: 50px;
+    float: left;
     text-align: center;
     width: 100%;
-    margin: 40px auto;
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    display: block;
-    position: relative;
-    z-index: 5;
+    margin: 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .blogsMainTitle {
+        letter-spacing: 10px;
+        margin: 20px 0;
+        padding-left: 10px;
+    }
 }
 
 .blogsGridContainer {
@@ -160,15 +160,12 @@
     font-size: 12pt;
     text-align: center;
     letter-spacing: 5px;
-    padding-left: 5px;
     position: absolute;
     margin: 0;
     opacity: 0;
     transition: all 0.3s ease;
     padding: 0 10px 5px;
     top: 45%;
-    left: 0;
-    width: 100%;
     transform: translate(0, -25px);
     transition-delay: 0.4s;
 }
@@ -219,7 +216,7 @@
     overflow-x: hidden;
     top: 0;
     left: 0;
-    transition: opacity 0.5s ease;
+    transition: all 0s ease;
 }
 
 .selectedArea.opened {
@@ -262,7 +259,7 @@
     padding-left: 5px;
     color: #1a1a1a;
     opacity: 0;
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
 }
 
 .selectedArea.opened h1 {
@@ -411,34 +408,17 @@
 @media screen and (max-width: 920px) {
     .project {
         width: 48%;
-        margin: 10px 1%;
+        height: auto !important;
         aspect-ratio: 1/1 !important;
     }
 
-    .blogsMainTitle {
-        letter-spacing: 8px;
-        text-indent: 8px;
+    .project:nth-child(1),
+    .project:nth-child(2) {
+        width: 48%;
     }
 
-    .selectedArea {
-        padding-left: 0;
-    }
-
-    .project.openedProject {
-        width: 100% !important;
-        height: 60px !important;
-        position: fixed;
-    }
-
-    .project.openedProject .backArrow {
-        top: 0;
-        height: 60px;
-        line-height: 60px;
-        font-size: 18pt;
-    }
-
-    .selectedArea {
-        padding-top: 60px;
+    .blogsGridContainer {
+        padding: 0;
     }
 
     .selectedArea.opened .copyArea,
@@ -466,15 +446,8 @@
 @media screen and (max-width: 620px) {
     .project {
         width: 98% !important;
-        margin: 10px 1%;
+        height: auto !important;
         aspect-ratio: 16/9 !important;
-    }
-
-    .blogsMainTitle {
-        letter-spacing: 5px;
-        padding-left: 5px;
-        font-size: 2rem;
-        margin: 30px auto 20px;
     }
 
     .cardContainer {
@@ -485,6 +458,6 @@
 
 @media screen and (max-width: 400px) {
     .cardContainer {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }

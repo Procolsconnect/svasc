@@ -100,7 +100,42 @@ const ProjectsPortfolio = () => {
     }
   };
 
-  const getProjectClass = (projectId, index) => {
+  const [projectHeights, setProjectHeights] = useState({});
+
+  const calculateHeights = () => {
+    const winWidth = window.innerWidth;
+    const midRange = winWidth < 920 && winWidth > 620;
+    const smallRange = winWidth < 720;
+
+    const heights = {};
+    projects.forEach((project, index) => {
+      const baseWidth = index < 2 ? (winWidth * 0.48 - 20) : (winWidth * 0.23 - 20);
+      let height;
+
+      if (index < 2) {
+        height = baseWidth;
+      } else {
+        if (midRange) {
+          height = baseWidth * 0.5;
+        } else if (smallRange) {
+          height = baseWidth;
+        } else {
+          height = baseWidth * 1.5;
+        }
+      }
+      heights[project.ID] = height;
+    });
+
+    setProjectHeights(heights);
+  };
+
+  useEffect(() => {
+    calculateHeights();
+    window.addEventListener('resize', calculateHeights);
+    return () => window.removeEventListener('resize', calculateHeights);
+  }, []);
+
+  const getProjectClass = (projectId) => {
     const classes = [styles.project];
     if (selectedProject === projectId) {
       classes.push(styles.openedProject);
@@ -108,17 +143,11 @@ const ProjectsPortfolio = () => {
     if (selectedProject && selectedProject !== projectId) {
       classes.push(styles.hidden, styles.shrunk);
     }
-    // Add sizing classes based on layout
-    if (index < 2) {
-      classes.push(styles.largeHero);
-    } else {
-      classes.push(styles.smallCard);
-    }
     return classes.join(' ');
   };
 
   return (
-    <div style={{ fontFamily: "'Open Sans', sans-serif", margin: 0, padding: 0, minHeight: '100vh', overflowX: 'hidden' }}>
+    <div style={{ fontFamily: "'Open Sans', sans-serif", margin: 0, padding: 0, minHeight: '100vh' }}>
       {/* Hero Section */}
       <Hero
         title="SVASC College Blogs"
@@ -127,16 +156,17 @@ const ProjectsPortfolio = () => {
       />
 
       <h2 className={styles.blogsMainTitle}>
-        College Blogs
+        Blogs
       </h2>
 
-      <div className={styles.blogsGridContainer}>
-        {projects.map((project, index) => (
+      <div style={{ width: '100%', float: 'left', clear: 'both' }}>
+        {projects.map((project) => (
           <div
             key={project.ID}
-            className={getProjectClass(project.ID, index)}
+            className={getProjectClass(project.ID)}
             style={{
-              backgroundImage: `url(${project.bImage})`
+              backgroundImage: `url(${project.bImage})`,
+              height: projectHeights[project.ID] || '50px'
             }}
             onClick={() => selectProject(project.ID)}
           >
