@@ -14,21 +14,21 @@ const SecretaryMessage = () => {
             />
             <Leadership
                 designation="Secretary"
-                name="Thiru. A. SENGOTTAIYAN"
+                name="Thiru. K.C. KARUPANAN"
                 qualification="Educationist & Philanthropist"
                 image="https://via.placeholder.com/400x500" // Placeholder image
                 quote="Our mission is to provide quality education that empowers students to become responsible citizens and future leaders."
             >
                 <p className={styles.introText}>
-                    <span className={styles.arrow}>»</span> It gives me great pride to witness the growth and success of Shree Venkateshwara Arts and Science College. Our institution was founded with a vision to make quality education accessible to all, and today, we stand as a beacon of learning in this region.
+                    <span className={styles.arrow}>»</span> We are set to take the mission of implementing the new education methodologies to enable quality learning. It also encourages independent thinking and helps the student in developing wholesome personality so that he can contribute his best to the society and to the country. Shree Venkateshwara Group of Institutions takes keen interest in updating its infrastructures to meet the technological revolution and new challenges of modern era.
                 </p>
 
                 <p className={styles.descriptionText}>
-                    We believe that education is not just about academic excellence but also about character building and holistic development. Our dedicated faculty and state-of-the-art infrastructure ensure that every student receives the best possible environment to learn, grow, and thrive.
+                    SVASC has a reputation as an innovative and dynamic educational institution that maintains the highest standards of instructions and provides complete student support systems using latest developments in instructional technology with utmost care. SVASC’s strong vocational emphasis and its close links with business and industry ensure that our undergraduate programmes keep pace with change and remain firmly linked to the needs of the future.
                 </p>
 
                 <p className={styles.descriptionText}>
-                    As we continue to expand our horizons, we remain committed to our core values of discipline, integrity, and service. I encourage all our students to make the most of the opportunities available here and strive for excellence in all their endeavors.
+                   Experience education that works on both the counts only at Shree Venkateshwara Arts and Science (Co – Education) College
                 </p>
             </Leadership>
         </>

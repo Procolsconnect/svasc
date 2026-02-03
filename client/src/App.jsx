@@ -17,7 +17,7 @@ import Vision from './pages/Vision';
 import Timeline from './pages/Timeline';
 import PrincipalMessage from './components/Leadership/PrincipalMessage';
 import SecretaryMessage from './components/Leadership/SecretaryMessage';
-import DirectorMessage from './components/Leadership/DirectorMessage';
+import ChairmanMessage from './components/Leadership/ChairmanMessage';
 import AwardsGallery from './pages/AwardsGallery';
 import NewsLetter from './pages/NewsLetter';
 import WhySvasc from './pages/WhySvasc';
@@ -54,7 +54,7 @@ function App() {
           <Route path="/milestones" element={<Timeline />} />
           <Route path="/principal" element={<PrincipalMessage />} />
           <Route path="/secretary" element={<SecretaryMessage />} />
-          <Route path="/director" element={<DirectorMessage />} />
+          <Route path="/chairman" element={<ChairmanMessage />} />
           <Route path="/awards" element={<AwardsGallery />} />
           <Route path="/news" element={<NewsLetter />} />
           <Route path="/why-svasc" element={<WhySvasc />} />
