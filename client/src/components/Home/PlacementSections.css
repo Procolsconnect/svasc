@@ -160,8 +160,8 @@
     background: url(https://i.ibb.co/hKGcDGh/shape.png);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     text-align: center;
     align-items: center;
     display: flex;
@@ -484,6 +484,24 @@
         background-position: center center;
     }
 
+    .placement-about-text {
+        width: 120px;
+        height: 120px;
+    }
+
+    .placement-about-text-inner h1 {
+        font-size: 32px;
+        color: #003366;
+        font-weight: 600;
+        margin-bottom: 0px;
+    }
+
+    .placement-about-text-inner p {
+        font-weight: 500;
+        font-size: 11px;
+        margin-top: -5px;
+    }
+
     .placement-banner-info h1 {
         font-size: 30px;
     }
@@ -501,12 +519,22 @@
         background: url(https://i.ibb.co/hKGcDGh/shape.png);
         background-repeat: no-repeat;
         background-size: contain;
-        width: 10rem;
-        height: 10rem;
+        width: 80px;
+        height: 80px;
         text-align: center;
         align-items: center;
         display: flex;
         justify-content: center;
+    }
+
+    .placement-about-text-inner h1 {
+        font-size: 22px;
+        margin-bottom: 0;
+    }
+
+    .placement-about-text-inner p {
+        font-size: 8px;
+        margin-top: -2px;
     }
 
     .placement-sl-header-wrapper h3 {
