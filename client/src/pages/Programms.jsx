@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Programms.module.css';
 import { ArrowRight, ChevronRight, GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -16,9 +16,34 @@ const slugify = (text) => {
 };
 
 const Schools = () => {
+    const schoolSectionRef = useRef(null);
 
-    const [activeTab, setActiveTab] = useState("UG Programmes");
-    const [activeSchoolIndex, setActiveSchoolIndex] = useState(0);
+    const [activeTab, setActiveTab] = useState(() => {
+        return sessionStorage.getItem('activeTab') || "UG Programmes";
+    });
+    const [activeSchoolIndex, setActiveSchoolIndex] = useState(() => {
+        const savedIndex = sessionStorage.getItem('activeSchoolIndex');
+        return savedIndex !== null ? parseInt(savedIndex) : 0;
+    });
+
+    useEffect(() => {
+        // Scroll to the school section if we are returning from a detail page
+        const savedTab = sessionStorage.getItem('activeTab');
+        if (savedTab && schoolSectionRef.current) {
+            // Small delay to ensure the page has rendered enough for scroll calculations
+            setTimeout(() => {
+                schoolSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    }, []);
+
+    useEffect(() => {
+        sessionStorage.setItem('activeTab', activeTab);
+    }, [activeTab]);
+
+    useEffect(() => {
+        sessionStorage.setItem('activeSchoolIndex', activeSchoolIndex.toString());
+    }, [activeSchoolIndex]);
 
     // Mock Data Structure
     const programsData = {
@@ -28,36 +53,61 @@ const Schools = () => {
                 acronym: "SCSIT",
                 programs: [
                     { title: "B.Sc. Computer Science", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Sc.Computer AI & DS", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                     { title: "Bachelor of Computer Applications (BCA)", image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc. Information Technology", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc. Data Science", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+
+                    { title: "B.Sc.Information Technology", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+
+                    { title: "B.Sc.Cyber Security", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
                 ]
             },
             {
                 name: "School of Commerce",
                 acronym: "SOC",
                 programs: [
-                    { title: "B.Com General", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Com Computer Applications", image: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Com Professional Accounting", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "B. Com – Bachelor of Commerce", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+
+                    { title: "B. Com(B&I) – Bachelor of Commerce with Banking & Insurance", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+
+                    { title: "B.Com (IT) – Bachelor of Information Technology", image: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+
+                    { title: "B.Com(CA) - Computer Applications", image: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Com (PA) - Professional Accounting", image: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                 ]
             },
             {
                 name: "School of Management",
                 acronym: "SOM",
                 programs: [
-                    { title: "BBA Business Administration", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "BBA Computer Applications", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "Management", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                 ]
             },
             {
-                name: "School of Humanities & Sciences",
+                name: "School of Sciences",
                 acronym: "SOHS",
                 programs: [
-                    { title: "B.A. English Literature", image: "https://images.unsplash.com/photo-1457369804590-52c65a46227d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                     { title: "B.Sc. Physics", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc. Visual Communication", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc. Psychology", image: "https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "B.Sc. Chemistry", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Sc. Mathematics", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Sc. Microbiology", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+
+                ]
+            },
+            {
+                name: "School of Arts & Languages",
+                acronym: "SOAL",
+                programs: [
+                    { title: "B.A. Tamil", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.A. English", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    ,
+
+                ]
+            },
+            {
+                name: "School of Design & Fashion",
+                acronym: "SODF",
+                programs: [
+                    { title: "B.Sc Costume Design & Fashion", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
                 ]
             }
         ],
@@ -67,15 +117,24 @@ const Schools = () => {
                 acronym: "SCS",
                 programs: [
                     { title: "M.Sc. Computer Science", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "M.Sc. Data Analytics", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "M.Sc Microbiology", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    
+                ]
+            },
+            {
+                name: "School of Arts & Languages",
+                acronym: "SCS",
+                programs: [
+                    { title: "M.A English", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "M.A Tamil", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    
                 ]
             },
             {
                 name: "School of Commerce & Management",
                 acronym: "SCM",
                 programs: [
-                    { title: "M.Com General", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "Master of Business Administration (MBA)", image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "M.Com", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                 ]
             }
         ],
@@ -84,9 +143,9 @@ const Schools = () => {
                 name: "Research & Development",
                 acronym: "R&D",
                 programs: [
-                    { title: "Ph.D. Computer Science", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "Ph.D. Commerce", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "Ph.D. Management", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "Ph.D. Tamil", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "Ph.D. English", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                   
                 ]
             }
         ]
@@ -167,7 +226,7 @@ const Schools = () => {
             </section>
 
 
-            <div className={styles.headerSection}>
+            <div className={styles.headerSection} ref={schoolSectionRef}>
                 {/* Tabs */}
                 <div className={styles.tabContainer}>
                     {Object.keys(programsData).map((tab) => (

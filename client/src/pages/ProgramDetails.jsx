@@ -42,7 +42,7 @@ const ProgramDetails = () => {
                 {/* TICKER */}
                 <div className={styles.ticker}>
                     <div className={styles.tickerContent}>
-                        <span>Admissions Open for {new Date().getFullYear() + 1} - {new Date().getFullYear() + 2}</span>
+                        <span>Admissions Open for {new Date().getFullYear()} - {new Date().getFullYear() + 1}</span>
                         <span>•</span>
                         <span>Apply Online Today!</span>
                         <span>•</span>
@@ -59,9 +59,6 @@ const ProgramDetails = () => {
                             <div className={styles.aboutGrid}>
                                 <div className={styles.aboutText}>
                                     <p>{program.about}</p>
-                                    <button className={styles.distinctivenessBtn}>
-                                        Distinctiveness <ChevronsRight size={18} />
-                                    </button>
                                 </div>
                                 <div className={styles.aboutImage}>
                                     <img src={program.aboutImage} alt="Program Intro" />
@@ -150,9 +147,9 @@ const ProgramDetails = () => {
             </div>
 
             {/* STICKY ADMISSION SIDEBAR */}
-            <div className={styles.admissionSticky}>
+            <Link to="/admission" className={styles.admissionSticky}>
                 Admission Enquiry <span></span>
-            </div>
+            </Link>
         </div>
     );
 };
