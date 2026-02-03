@@ -976,25 +976,188 @@
     z-index: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 2.5rem;
+    }
+
     .heroHeadline {
-        font-size: 5rem;
+        font-size: 5.4rem;
+    }
+
+    .cafeGrid {
+        gap: 6rem;
+    }
+
+    .resourcesLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        padding: 4rem 0 8rem;
+    }
+
+    .heroHeadline {
+        font-size: 4.2rem;
     }
 
     .heroSubDescription {
         font-size: 1.65rem;
+        padding: 0 1rem;
     }
 
-    .sectionTitle {
-        font-size: 4rem;
-    }
-
-    .rulesGrid {
-        grid-template-columns: 1fr;
+    .libraryRail {
+        margin-top: 8rem;
     }
 
     .bookGrid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
+    }
+
+    .heroActions {
+        margin-top: 8rem;
+    }
+
+    .sectionTitle {
+        font-size: 3.6rem;
+    }
+
+    .statsGrid {
+        gap: 2rem;
+    }
+
+    .valuesTitle,
+    .facilitiesTitle,
+    .resourcesTitle,
+    .rulesTitle {
+        font-size: 2.8rem;
+    }
+
+    .ajcasH2 {
+        font-size: 2.4rem;
+    }
+
+    .tableCard {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .rulesGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .ruleCard {
+        padding: 3.5rem 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .heroHeadline {
+        font-size: 3.2rem;
+        line-height: 1.1;
+    }
+
+    .heroSubDescription {
+        font-size: 1.5rem;
+    }
+
+    .bookGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .heroActions {
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .ctaPrimary,
+    .ctaSecondary {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        justify-content: center;
+    }
+
+    .cafeImages {
+        gap: 1.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.8rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .howItWorksTitle {
+        font-size: 2.2rem;
+    }
+
+    .timelineSpace {
+        gap: 4rem;
+    }
+
+    .stepDot {
+        left: 2.5rem;
+    }
+
+    .timelineLine {
+        left: 2.5rem;
+    }
+
+    .stepContent {
+        padding-left: 5rem;
+    }
+
+    .valuesSubtitle {
+        font-size: 1.25rem;
+        margin-bottom: 5rem;
+    }
+
+    .valueCard {
+        padding: 2rem;
+    }
+
+    .facilitiesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .sliderContainer {
+        height: 25rem;
+    }
+
+    .resourcesText {
+        font-size: 1.25rem;
+    }
+
+    .sectionsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .ajcasContainer {
+        width: 95%;
+    }
+
+    .ajcasTable {
+        font-size: 1.2rem;
+    }
+
+    .ajcasTable thead th {
+        padding: 1.5rem 1rem;
+    }
+
+    .textLeft {
+        padding-left: 1.5rem !important;
     }
 }

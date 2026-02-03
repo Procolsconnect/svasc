@@ -47,7 +47,6 @@
 }
 
 .heroContent {
-    order: 2;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -186,10 +185,46 @@
 }
 
 .heroImageWrapper {
-    order: 1;
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+@media (min-width: 768px) {
+    .heroImageWrapper {
+        order: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .heroSection {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .heroContent {
+        display: contents;
+    }
+
+    .badge {
+        order: 1;
+    }
+
+    .heroTitle {
+        order: 2;
+    }
+
+    .heroImageWrapper {
+        order: 3;
+    }
+
+    .heroDescription {
+        order: 4;
+    }
+
+    .heroButtons {
+        order: 5;
+    }
 }
 
 

@@ -21,6 +21,43 @@
 @media (min-width: 1024px) {
     .container {
         grid-template-columns: 5fr 7fr;
+        gap: 3.5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .rightColumn {
+        display: contents;
+    }
+
+    .heading {
+        order: 1;
+        text-align: center;
+    }
+
+    .yellowLine {
+        order: 2;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .leftColumn {
+        order: 3;
+    }
+
+    .description {
+        order: 4;
+        text-align: center;
+    }
+
+    .pointsList {
+        order: 5;
     }
 }
 
@@ -39,7 +76,7 @@
 .carousel {
     display: flex;
     gap: 10px;
-    animation: continuousScroll 24s linear infinite;
+    animation: continuousScroll 10s linear infinite;
 }
 
 @keyframes continuousScroll {
@@ -137,11 +174,11 @@
     }
 
     .heading {
-        font-size: 1.875rem;
+        font-size: 2.4rem;
     }
 
     .description {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .point {

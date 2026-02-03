@@ -129,34 +129,86 @@
 }
 
 /* Responsive */
-@media (max-width: 992px) {
-    .routesGrid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1024px) {
+    .container {
+        padding: 5rem 2.5rem;
+    }
+
+    .mainTitle {
+        font-size: 3.6rem;
+    }
+
+    .galleryGrid {
+        gap: 3rem;
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
+    .routesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+
+    .bigText {
+        font-size: 5.5rem;
+    }
+
+    .routesContainer {
+        padding: 4rem 2rem;
+        margin-top: 8rem;
+    }
+}
+
+@media (max-width: 480px) {
     .container {
-        padding: 4rem 2.5rem;
+        padding: 4rem 1.5rem;
+    }
+
+    .mainTitle {
+        font-size: 2.8rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.4rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    .galleryGrid {
+        grid-template-columns: 1fr;
+        margin: 5rem auto;
+    }
+
+    .galleryFrame {
+        max-width: 100%;
+    }
+
+    .bigText {
+        font-size: 4.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .routesContainer {
+        padding: 3rem 1.5rem;
+        margin-top: 6rem;
     }
 
     .routesGrid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .mainTitle {
-        font-size: 3.45rem;
+    .routeList li {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
     }
 
-    .sectionTitle {
-        font-size: 3rem;
-    }
-
-    .bigText {
-        font-size: 6.3rem;
-    }
-
-    .routesContainer {
-        padding: 3rem;
+    .routeIcon {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: 1.5rem;
     }
 }
