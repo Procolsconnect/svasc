@@ -21,9 +21,16 @@ import DirectorMessage from './components/Leadership/DirectorMessage';
 import AwardsGallery from './pages/AwardsGallery';
 import NewsLetter from './pages/NewsLetter';
 import WhySvasc from './pages/WhySvasc';
+import Admission from './pages/Admission';
+import Cafeteria from './components/Facilities/Cafeteria';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/Common/ScrollToTop';
-
+import LMS from './components/Facilities/LMS';
+import Hostel from './components/Facilities/Hostel';
+import SmartClass from './components/Facilities/SmartClass';
+import Transport from './components/Facilities/Transport';
+import Laboratory from './components/Facilities/Laboratory';
+import LibraryPortal from './components/Facilities/LibraryPortal';
 function App() {
   return (
     <Router>
@@ -51,7 +58,15 @@ function App() {
           <Route path="/awards" element={<AwardsGallery />} />
           <Route path="/news" element={<NewsLetter />} />
           <Route path="/why-svasc" element={<WhySvasc />} />
+          <Route path="/cafeteria" element={<Cafeteria />} />
+          <Route path="/lms" element={<LMS />} />
+          <Route path="/hostel" element={<Hostel />} />
+          <Route path="/smart-class" element={<SmartClass />} />
+          <Route path="/transport" element={<Transport />} />
+          <Route path="/laboratory" element={<Laboratory />} />
+          <Route path="/library" element={<LibraryPortal />} />
         </Route>
+        <Route path="/admission" element={<Admission />} />
       </Routes>
     </Router>
   );

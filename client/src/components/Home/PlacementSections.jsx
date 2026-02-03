@@ -48,7 +48,7 @@ const PlacementSections = () => {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="placement-about-img">
-                                <img src="https://i.ibb.co/SB8xk8M/image3.png" alt="Campus" />
+                                <img src="/svgi image.png" alt="Campus" />
                                 <div className="placement-about-text">
                                     <div className="placement-about-text-inner">
                                         <h1>20</h1>
