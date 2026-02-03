@@ -15,14 +15,14 @@ export const navData = {
             path: '#',
             dropdown: [
                 { label: 'About Us', path: '/about' },
+                { label: 'Chairman Message', path: '/chairman' },
+                { label: 'Secretary Message', path: '/secretary' },
+                { label: 'Principal Message', path: '/principal' },
                 { label: 'Why SVASC', path: '/why-svasc' },
                 { label: 'Awards & Achievements', path: '/awards' },
                 { label: 'Vision & Mission', path: '/vision-mission' },
                 { label: 'NewsLetter', path: '/news' },
                 { label: 'Milestones', path: '/milestones' },
-                { label: 'Principal', path: '/principal' },
-                { label: 'Secretary', path: '/secretary' },
-                { label: 'Director', path: '/director' },
             ]
         },
         {
