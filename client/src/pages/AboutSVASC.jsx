@@ -68,7 +68,7 @@ const EmpoweringLeadersSection = () => (
             </div>
 
             {/* Center/Right Column */}
-            <div className="lg:col-span-4 lg:mb-[-24rem] relative w-full flex justify-center">
+            <div className="lg:col-span-4 lg:mb-[-20rem] relative w-full flex justify-center">
                 <div className={styles.empoweringImageContainer}>
                     <div className={styles.empoweringImageWrapper}>
                         <img
@@ -98,7 +98,7 @@ const EmpoweringLeadersSection = () => (
 
 // ================= ABOUT SECTION COMPONENT =================
 const AboutSection = () => (
-    <section className={`${styles.aboutSection} py-20 lg:py-[15rem] max-w-[120rem] px-6 lg:px-10`}>
+    <section className={`${styles.aboutSection} py-20 lg:py-[15rem] max-w-[100rem] px-6 lg:px-10`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-3 items-start ">
             <div>
                 <h2 className={`${styles.aboutTitle} lg:text-[7.5rem] `}>
@@ -211,7 +211,7 @@ const TestimonialsSection = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent((prev) => (prev + 1) % testimonials.length);
-        }, 3000);
+        }, 2000);
         return () => clearInterval(interval);
     }, [testimonials.length]);
 
@@ -304,22 +304,22 @@ const TeacherAwardsSection = () => {
         '2021': [["Azadi Ka Amrit Award", "Dr. M. Jasmine Priya"]]
     };
 
-    const [selectedYear, setSelectedYear] = useState('2010');
+    const [selectedYear, setSelectedYear] = useState(2010);
 
     return (
         <section className={styles.teacherAwardsSection}>
-            <div className="max-w-[120rem] mx-auto px-6 lg:px-10">
+            <div className="max-w-[120rem] mx-auto px-2 lg:px-10">
                 <h2 className={styles.teacherAwardsTitle}>Awards Received By Teachers</h2>
 
                 {/* Year Tabs */}
-                <div className={styles.yearTabsContainer}>
+                <div className={styles.yearTabs}>
                     {Object.keys(awardData).map((year) => (
                         <button
                             key={year}
-                            onClick={() => setSelectedYear(year)}
-                            className={`${styles.yearButton} ${selectedYear === year ? styles.yearButtonActive : ""}`}
+                            onClick={() => setSelectedYear(parseInt(year))}
+                            className={parseInt(year) === selectedYear ? styles.active : ''}
                         >
-                            {year} - {parseInt(year) + 1}
+                            {year}
                         </button>
                     ))}
                 </div>
@@ -329,7 +329,7 @@ const TeacherAwardsSection = () => {
                     <table className={styles.awardsTable}>
                         <thead>
                             <tr>
-                                <th className={`${styles.tableHeaderCell} ${styles.tableHeaderSerial}`}>S. No.</th>
+                                <th className={`${styles.tableHeaderCell} ${styles.tableHeaderSerial}`}>S.No</th>
                                 <th className={`${styles.tableHeaderCell} ${styles.tableHeaderAward}`}>Name of the Award</th>
                                 <th className={styles.tableHeaderCell}>Name of the Faculty</th>
                             </tr>

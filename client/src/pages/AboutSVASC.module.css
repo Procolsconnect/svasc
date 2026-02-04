@@ -148,7 +148,7 @@
 
 @media (max-width: 768px) {
     .heroImageWrapper img {
-        width: 80%;
+        width: 50vw;
     }
 }
 
@@ -166,7 +166,7 @@
 /* ================= EMPOWERING LEADERS SECTION ================= */
 .empoweringHeader {
     position: relative;
-    width: 100%;
+    width: 95%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -215,7 +215,7 @@
 }
 
 .empoweringTitle {
-    font-size: 7rem;
+    font-size: 6rem;
     font-weight: 700;
     color: #111;
     letter-spacing: -0.02em;
@@ -246,29 +246,55 @@
 .empoweringImageWrapper {
     position: relative;
     width: 100%;
-    max-width: 45rem;
-    aspect-ratio: 4 / 5;
+    max-width: 30rem;
+    height: 100vh;
+    /* Perfect for laptop as per user */
+    aspect-ratio: 3 / 4;
     border-radius: 20rem 20rem 0 0;
-    /* ARCH SHAPE */
+    /* ARCH SHAPE matching HTML rounded-t-[10rem] */
     overflow: hidden;
-    background-color: #f8f8f8;
-    border: 1px solid #eee;
-    box-shadow: 0 4rem 8rem -2rem rgba(0, 0, 0, 0.1);
+    background-color: #f3f4f6;
+    /* gray-100 */
+    border-top: 1px solid #d1d5db;
+    border-left: 1px solid #d1d5db;
+    border-right: 1px solid #d1d5db;
+    /* border-x border-t border-gray-300 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* shadow-2xl */
+    margin-bottom: -1px;
 }
 
 .empoweringImageWrapper img {
     width: 100%;
-    height: 80vh;
+    height: 100%;
     object-fit: cover;
-    transition: transform 1s ease;
+    opacity: 0.9;
+    transition: transform 0.7s ease;
 }
 
-@media (max-width: 768px) {
-    .empoweringImageWrapper img {
-        height: 50vh;
+
+@media (max-width: 1024px) {
+    .empoweringImageWrapper {
+        max-width: 60%;
+        height: 65vh;
     }
 }
 
+@media (max-width: 768px) {
+    .empoweringImageWrapper {
+        max-width: 55%;
+        height: 75vh;
+        border-radius: 20rem 20rem 0 0;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 475px) {
+    .empoweringImageWrapper {
+        max-width: 85%;
+        height: 55vh;
+        border-radius: 12rem 12rem 0 0;
+    }
+}
 
 
 .empoweringImageOverlay {
@@ -299,10 +325,7 @@
     box-shadow: 0 1.5rem 3rem rgba(245, 158, 11, 0.25);
 }
 
-.empoweringCtaButton:hover {
-    transform: translateX(1rem);
-    box-shadow: 0 2rem 4rem rgba(245, 158, 11, 0.35);
-}
+
 
 .empoweringCtaButtonText {
     font-weight: 700;
@@ -322,7 +345,7 @@
 /* ================= ABOUT SECTION STYLES ================= */
 
 .aboutSection {
-    padding: 5rem 2.5rem;
+    padding: 5rem 5.5rem;
     max-width: 120rem;
     margin: 0 auto;
 }
@@ -346,6 +369,10 @@
 }
 
 @media (max-width: 768px) {
+    .aboutSection {
+        padding: 5rem 2.5rem;
+    }
+
     .aboutTitle {
         font-size: 3.5rem;
         text-align: center;
@@ -821,84 +848,137 @@
 /* ================= TEACHER AWARDS SECTION STYLES ================= */
 .teacherAwardsSection {
     background-color: white;
-    padding: 10rem 10rem;
+    padding: 10rem 5rem;
     font-family: 'Popins,serif';
 }
 
 @media (max-width: 768px) {
     .teacherAwardsSection {
-        padding: 6rem 2rem;
+        padding: 5rem 0;
+    }
+
+    .yearTabs {
+        gap: 1rem;
+        margin-bottom: 4rem;
+    }
+
+    .yearTabs button {
+        width: 10rem;
+        height: 4.5rem;
+        font-size: 1.5rem;
+    }
+
+    .tableContainer {
+        border-left: 4px solid #facc15;
+        overflow-x: hidden;
+        margin-bottom: 4rem;
+    }
+
+    .awardsTable {
+        font-size: 1rem;
+        table-layout: fixed;
+        /* Force fit */
+    }
+
+    .tableHeaderCell {
+        padding: 0.8rem 0.4rem;
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+
+    .tableBodyCell {
+        padding: 1rem 0.4rem;
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+
+    .tableHeaderSerial {
+        width: 4px !important;
+    }
+
+    .tableHeaderAward {
+        width: 45% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .yearTabs button {
+        width: 8.5rem;
+        height: 4rem;
+        font-size: 1.3rem;
+    }
+
+    .tableHeaderCell,
+    .tableBodyCell {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.3rem;
     }
 }
 
 .teacherAwardsTitle {
-    font-size: 2rem;
+    font-size: 2.3rem;
     font-weight: 600;
     color: #2d3a8c;
     margin-bottom: 4rem;
 }
 
-.yearTabsContainer {
+.yearTabs {
     display: flex;
-    gap: 2rem;
+    gap: 2.2rem;
+    margin-bottom: 8rem;
     flex-wrap: wrap;
-    margin-bottom: 4rem;
+    justify-content: center;
 }
 
-@media (max-width: 768px) {
-    .yearTabsContainer {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-}
-
-.yearButton {
-
-    padding: 1rem 2rem;
-    font-size: 1.3rem;
-    font-weight: 300;
-    border-radius: 0.4rem;
-    border: 2px solid #f2c94c;
-    background-color: white;
-    color: #333;
+.yearTabs button {
+    width: 12rem;
+    height: 5.8rem;
+    border-radius: 1rem;
+    border: 0.15rem solid #facc15;
+    background: #ffffff;
+    font-size: 2rem;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
+    color: #1f2a44;
 }
 
-.yearButton:hover {
-    background-color: #fffdf5;
+.yearTabs button:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
 }
 
-.yearButtonActive {
-    background-color: #353d8f !important;
-    color: white !important;
-    border-color: #f2c94c !important;
+.yearTabs button.active {
+    background: #060c3f;
+    color: #ffffff;
+    border: 0.15rem solid #facc15;
 }
 
 .tableContainer {
-    background-color: #f8f9fc;
-    padding: 2.5rem;
-
+    background: #ffffff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 6rem;
+    border-left: 8px solid #facc15;
     overflow-x: auto;
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .awardsTable {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background-color: white;
-    overflow: hidden;
+    font-size: 1.35rem;
 }
 
 .tableHeaderCell {
-    background-color: #353d8f;
-    color: white;
-    font-size: 1.3rem;
+    background: linear-gradient(135deg, #0b3c6d, #102a43);
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    text-align: center;
     font-weight: 600;
-    padding: 1.4rem;
-    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .tableHeaderSerial {
@@ -910,11 +990,18 @@
 }
 
 .tableBodyCell {
-    padding: 1rem;
-    font-size: 1.3rem;
-    border: 1px solid #ebedf5;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+    font-size: 1.35rem;
 }
 
 .tableBodyRowEven {
-    background-color: #fbfcfe;
+    background: #f9fafb;
+}
+
+.awardsTable tbody tr:hover {
+    background: #fffbeb;
+    transition: background 0.25s ease;
 }
