@@ -406,7 +406,7 @@
         padding: 1rem 0;
     }
 
-    /* SCROLL SECTION RESET - STACKED LAYOUT */
+    /* SCROLL SECTION RESET - STACKED LAYOUT (Restored Sticky Effect) */
     .scrollArticle {
         display: block;
         /* Reset flex */
@@ -415,25 +415,34 @@
     .scrollArticle figure.scrollFigure,
     .scrollFigure:nth-of-type(2n) {
         width: 100%;
-        height: 50vh;
-        /* Shorter for mobile */
+        height: 100vh;
         margin: 0;
         box-shadow: none;
-        position: relative;
-        /* Remove sticky if desired, or keep sticky top:0 */
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .scrollSection,
     .scrollSection:nth-of-type(2n) {
         width: 100%;
-        height: auto;
-        min-height: 50vh;
+        height: 100vh;
         margin: 0;
-        padding: 4rem 2rem;
-        box-shadow: none;
+        padding: 10vmin;
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
         background: #000;
-        /* Dark mode style from original mobile */
-        position: relative;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .scrollSection::before,

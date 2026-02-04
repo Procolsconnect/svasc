@@ -94,6 +94,7 @@
 @media (max-width: 1024px) {
     .svasc-common-hero {
         min-height: 70vh;
+        background-attachment: scroll;
     }
 
     .svasc-common-hero-title {
