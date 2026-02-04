@@ -240,7 +240,7 @@
     }
 
     .news-slider__item {
-        width: 280px;
+        width: 65vw;
     }
 
     .news__item {
@@ -273,7 +273,8 @@
     }
 
     .news__img {
-        height: 180px;
+        height: 200px;
+        padding: 10px;
     }
 
     .blog-section-wrapper .news-slider__pagination {
@@ -291,7 +292,8 @@
     }
 
     .news-slider__item {
-        width: 250px;
+        width: 75vw;
+        padding: 10px;
     }
 
     .news__item {
@@ -307,6 +309,6 @@
     }
 
     .news__img {
-        height: 180px;
+        height: 200px;
     }
 }
