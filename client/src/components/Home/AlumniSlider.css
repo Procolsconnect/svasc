@@ -2,6 +2,9 @@
 #alumni-slider-root {
     font-family: "Rubik", sans-serif;
     width: 100%;
+    padding-top: 2rem;
+    font-size: 16px;
+    /* Override global 62.5% scaling */
 }
 
 #alumni-slider-root * {
@@ -46,16 +49,9 @@
     background-repeat: no-repeat;
 }
 
-#alumni-slider-root .sl-img-1 {
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/wonder_woman_ver6_xxlg.png");
-}
-
-#alumni-slider-root .sl-img-2 {
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/Leia_Organa.png");
-}
-
-#alumni-slider-root .sl-img-3 {
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/laraCroft.png");
+#alumni-slider-root .sl-bkg-img {
+    background-size: cover;
+    background-position: center top;
 }
 
 #alumni-slider-root .sl-gradient {
@@ -114,8 +110,9 @@
 }
 
 @media only screen and (min-width: 320px) {
+   
     #alumni-slider-root .sl-header-wrapper {
-        padding: 0 18px;
+        padding: 10px 18px;
     }
 
     #alumni-slider-root .sl-header-wrapper h3 {
@@ -156,6 +153,8 @@
         -webkit-transition: opacity 300ms;
         transition: opacity 300ms;
         visibility: visible;
+        pointer-events: none;
+        /* Ensure swipe works through the cover */
     }
 
     #alumni-slider-root .swiper-slide-active .slide-cover {
@@ -173,6 +172,8 @@
     #alumni-slider-root .swiper-container {
         width: 95%;
         height: 100%;
+        touch-action: pan-y;
+        /* Allow vertical scroll, let JS handle horizontal swipe */
     }
 
     #alumni-slider-root .swiper-button-next,
@@ -389,6 +390,13 @@
     #alumni-slider-root .sl-main-container {
         width: 1024px;
     }
+     #alumni-slider-root {
+    font-family: "Rubik", sans-serif;
+    width: 100%;
+    padding-top: 6rem;
+    font-size: 16px;
+    /* Override global 62.5% scaling */
+}
 
     #alumni-slider-root .sl-header-wrapper {
         padding: 50px 2% 0 5%;

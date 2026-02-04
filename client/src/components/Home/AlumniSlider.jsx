@@ -3,6 +3,11 @@ import './AlumniSlider.css';
 
 const AlumniSlider = () => {
     const [scriptsLoaded, setScriptsLoaded] = useState(false);
+    const [expandedIndex, setExpandedIndex] = useState(null);
+
+    const toggleExpand = (index) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
+    };
 
     useEffect(() => {
         // Load fonts
@@ -59,6 +64,17 @@ const AlumniSlider = () => {
                     prevButton: "#alumni-slider-root .swiper-button-prev",
                     slidesPerView: 2.7,
                     centeredSlides: true,
+                    grabCursor: true,
+                    simulateTouch: true,
+                    touchEventsTarget: 'container',
+                    longSwipes: true,
+                    shortSwipes: true,
+                    followFinger: true,
+                    touchRatio: 1,
+                    threshold: 5,
+                    preventClicks: true,
+                    preventClicksPropagation: true,
+                    iOSEdgeSwipeDetection: true,
                     breakpoints: {
                         1440: { slidesPerView: 2.6 },
                         1439: { slidesPerView: 1.45 },
@@ -71,68 +87,43 @@ const AlumniSlider = () => {
                     }
                 });
 
-                // Scoped helper lookup to find elements ONLY within our root.
-                // This is safer than $(selector) which might technically find other things,
-                // but we must use the exact user class structure.
-                var $root = $("#alumni-slider-root");
-
-                // User code: var $revealCardContentBtn = $(".sl--card-nav-container");
-                var $revealCardContentBtn = $root.find(".sl--card-nav-container");
-
-                // User code: var $contentContainer = $(".sl-card-wrapper .sl--content-wrapper .sl--content-container");
-                // We use a selector relative to the found slide, but we need the selector string for find() inside the handler
-                var contentContainerSelector = ".sl-card-wrapper .sl--content-wrapper .sl--content-container";
-
-                // User code: var $navGFX = $(".sl-card-wrapper .sl--content-wrapper .sl--card-nav-container .sl--content-btn .card-nav-gfx");
-                var navGFXSelector = ".sl-card-wrapper .sl--content-wrapper .sl--card-nav-container .sl--content-btn .card-nav-gfx";
-
-                // Unbind to prevent duplicate listeners if react re-runs this effect
-                $revealCardContentBtn.off("click");
-
-                $revealCardContentBtn.on("click", function () {
-                    var parent = $(this).closest(".swiper-slide");
-
-                    // User Code:
-                    // parent.siblings().find($contentContainer).removeClass("sl--card-reveal").addClass("sl--card-hide");
-                    // Note: find($contentContainer) in jQuery works if $contentContainer is an Object by matching elements.
-                    // But here we use selector strings for clarity in our scoped context.
-                    parent.siblings().find(contentContainerSelector).removeClass("sl--card-reveal").addClass("sl--card-hide");
-
-                    // parent.find($contentContainer).toggleClass("sl--card-hide sl--card-reveal");
-                    parent.find(contentContainerSelector).toggleClass("sl--card-hide sl--card-reveal");
-
-                    // parent.siblings().find(".sl--content-wrapper").removeClass("sl--content-wrapper-active").addClass("sl--content-wrapper-inactive");
-                    parent.siblings().find(".sl--content-wrapper").removeClass("sl--content-wrapper-active").addClass("sl--content-wrapper-inactive");
-
-                    // parent.find(".sl--content-wrapper").toggleClass("sl--content-wrapper-inactive sl--content-wrapper-active");
-                    parent.find(".sl--content-wrapper").toggleClass("sl--content-wrapper-inactive sl--content-wrapper-active");
-
-                    // parent.siblings().find($navGFX).removeClass("sl--close-card-info").addClass("sl--show-card-info");
-                    parent.siblings().find(navGFXSelector).removeClass("sl--close-card-info").addClass("sl--show-card-info");
-
-                    // parent.find($navGFX).toggleClass("sl--show-card-info sl--close-card-info");
-                    parent.find(navGFXSelector).toggleClass("sl--show-card-info sl--close-card-info");
-                });
-
                 mySwiper.on("onSlideChangeStart", function () {
-                    // User Logic: if ($contentContainer.hasClass("sl--card-reveal")) { ... }
-                    // We check if *any* inside our root is revealed to be safe
-                    if ($root.find(".sl--card-reveal").length > 0) {
-                        var $CI_ContentWrapper = $root.find(".sl--content-wrapper");
-
-                        // $contentContainer.removeClass("sl--card-reveal").addClass("sl--card-hide");
-                        $root.find(contentContainerSelector).removeClass("sl--card-reveal").addClass("sl--card-hide");
-
-                        // $navGFX.removeClass("sl--close-card-info").addClass("sl--show-card-info");
-                        $root.find(navGFXSelector).removeClass("sl--close-card-info").addClass("sl--show-card-info");
-
-                        // $CI_ContentWrapper.removeClass("sl--content-wrapper-active").addClass("sl--content-wrapper-inactive");
-                        $CI_ContentWrapper.removeClass("sl--content-wrapper-active").addClass("sl--content-wrapper-inactive");
-                    }
+                    setExpandedIndex(null);
                 });
             });
         }
     }, [scriptsLoaded]);
+
+    const alumniData = [
+        {
+            subTitle: "Successful Alumni",
+            name: "Dr. Anish Kumar",
+            content: "A pioneer in the tech industry, Dr. Anish has led multiple global projects and is now a mentor at SVASC, helping students achieve their dreams in software engineering.",
+            image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=800",
+            link: "#"
+        },
+        {
+            subTitle: "Industry Leader",
+            name: "Ms. Sneha Reddy",
+            content: "Sneha's journey from SVASC to becoming a CEO of a leading fintech firm is an inspiration. She frequently visits campus to share insights on financial technology.",
+            image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=800",
+            link: "#"
+        },
+        {
+            subTitle: "Creative Visionary",
+            name: "Mr. Rahul Verma",
+            content: "Rahul has redefined digital marketing with his innovative strategies. As an SVASC alumnus, he continues to support our media department with workshops.",
+            image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=800",
+            link: "#"
+        },
+        {
+            subTitle: "Academic Excellence",
+            name: "Dr. Priya Sharma",
+            content: "Having published over 50 research papers, Priya is a leading voice in scientific research. She credits SVASC for building her strong academic foundation.",
+            image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800",
+            link: "#"
+        }
+    ];
 
     return (
         <div id="alumni-slider-root">
@@ -169,75 +160,33 @@ const AlumniSlider = () => {
                     <div className="sl-wrapper">
                         <div className="swiper-container">
                             <div className="swiper-wrapper">
-                                {/* Slide 1 */}
-                                <div className="swiper-slide sl--slide">
-                                    <div className="slide-cover"></div>
-                                    <div className="sl-card-wrapper">
-                                        <div className="sl-gradient"></div>
-                                        <div className="sl-img-1 sl-bkg-img"></div>
-                                        <div className="sl--content-wrapper sl--content-wrapper-inactive">
-                                            <div className="sl--content-container sl--card-hide">
-                                                <p className="sl--sub-text">Powerful Women</p>
-                                                <h2>Wonder Woman</h2>
-                                                <p className="sl--card-content">Diana Prince is the most recognizable female superhero in the world. Her debut film Wonder Woman is the highest grossing superhero origin film of all time. Created in 1941 and beloved for over 76 years, Diana Prince is a strong, compassionate role model for men and women everywhere.</p>
-                                                <div className="sl--link">LINK</div>
-                                            </div>
-                                            <div className="sl--card-nav-container">
-                                                <div className="sl--content-btn content-reveal-btn">
-                                                    <svg className="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                                        <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z" />
-                                                    </svg>
+                                {alumniData.map((alumnus, index) => (
+                                    <div className="swiper-slide sl--slide" key={index}>
+                                        <div className="slide-cover"></div>
+                                        <div className="sl-card-wrapper">
+                                            <div className="sl-gradient"></div>
+                                            <div
+                                                className="sl-bkg-img"
+                                                style={{ backgroundImage: `url(${alumnus.image})` }}
+                                            ></div>
+                                            <div className={`sl--content-wrapper ${expandedIndex === index ? 'sl--content-wrapper-active' : 'sl--content-wrapper-inactive'}`}>
+                                                <div className={`sl--content-container ${expandedIndex === index ? 'sl--card-reveal' : 'sl--card-hide'}`}>
+                                                    <p className="sl--sub-text">{alumnus.subTitle}</p>
+                                                    <h2>{alumnus.name}</h2>
+                                                    <p className="sl--card-content">{alumnus.content}</p>
+                                                    <div className="sl--link">STORY</div>
+                                                </div>
+                                                <div className="sl--card-nav-container" onClick={() => toggleExpand(index)}>
+                                                    <div className="sl--content-btn content-reveal-btn">
+                                                        <svg className={`card-nav-gfx ${expandedIndex === index ? 'sl--close-card-info' : 'sl--show-card-info'}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                                            <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z" />
+                                                        </svg>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                {/* Slide 2 */}
-                                <div className="swiper-slide">
-                                    <div className="slide-cover"></div>
-                                    <div className="sl-card-wrapper">
-                                        <div className="sl-gradient"></div>
-                                        <div className="sl-img-2 sl-bkg-img"></div>
-                                        <div className="sl--content-wrapper sl--content-wrapper-inactive">
-                                            <div className="sl--content-container sl--card-hide">
-                                                <p className="sl--sub-text">Powerful Women</p>
-                                                <h2>General Leia Organa</h2>
-                                                <p className="sl--card-content">Leia is the most powerful female figurehead in the Star Wars franchise. This year she will take her final bow in Star Wars: The Last Jedi, as fans celebrate actress Carrie Fisher’s legacy one last time.</p>
-                                                <div className="sl--link">LINK</div>
-                                            </div>
-                                            <div className="sl--card-nav-container">
-                                                <div className="sl--content-btn content-reveal-btn">
-                                                    <svg className="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                                        <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {/* Slide 3 */}
-                                <div className="swiper-slide">
-                                    <div className="slide-cover"></div>
-                                    <div className="sl-card-wrapper">
-                                        <div className="sl-gradient"></div>
-                                        <div className="sl-img-3 sl-bkg-img"></div>
-                                        <div className="sl--content-wrapper sl--content-wrapper-inactive">
-                                            <div className="sl--content-container sl--card-hide">
-                                                <p className="sl--sub-text">Powerful Women</p>
-                                                <h2>Lara Croft</h2>
-                                                <p className="sl--card-content">This powerhouse of strength, smarts, and beauty is not to be trifled with. After the recent reboot of her 20-year-old video game franchise Tomb Raider, Lara is headed to the big screen next year for even greater adventures.</p>
-                                                <div className="sl--link">LINK</div>
-                                            </div>
-                                            <div className="sl--card-nav-container">
-                                                <div className="sl--content-btn content-reveal-btn">
-                                                    <svg className="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                                        <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>

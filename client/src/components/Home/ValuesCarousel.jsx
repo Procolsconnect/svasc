@@ -255,6 +255,33 @@ const ValuesCarousel = () => {
             top: 16px;
             background: #fff0;
         }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .values-carousel-scope .header h1 {
+                font-size: 2em;
+            }
+            .values-carousel-scope .header h2 {
+                font-size: 1.1em;
+            }
+            .values-carousel-scope .swiper-slide {
+                width: 280px;
+                height: 350px;
+            }
+            .values-carousel-scope .swiper {
+                padding-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+             .values-carousel-scope .header h1 {
+                font-size: 1.6em;
+            }
+            .values-carousel-scope .swiper-slide {
+                width: 240px;
+                height: 300px;
+            }
+        }
       `}</style>
 
             <div className="header">

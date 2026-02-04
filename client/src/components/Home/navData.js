@@ -15,14 +15,14 @@ export const navData = {
             path: '#',
             dropdown: [
                 { label: 'About Us', path: '/about' },
+                { label: 'Why SVASC', path: '/why-svasc' },
+                { label: 'Vision & Mission', path: '/vision-mission' },
+                { label: 'Awards & Achievements', path: '/awards' },
+                { label: 'Milestones', path: '/milestones' },
                 { label: 'Chairman Message', path: '/chairman' },
                 { label: 'Secretary Message', path: '/secretary' },
                 { label: 'Principal Message', path: '/principal' },
-                { label: 'Why SVASC', path: '/why-svasc' },
-                { label: 'Awards & Achievements', path: '/awards' },
-                { label: 'Vision & Mission', path: '/vision-mission' },
                 { label: 'NewsLetter', path: '/news' },
-                { label: 'Milestones', path: '/milestones' },
             ]
         },
         {
@@ -38,13 +38,13 @@ export const navData = {
             label: 'Facilities',
             path: '#',
             dropdown: [
-                { label: 'Cafeteria', path: '/cafeteria' },
-                { label: 'Library', path: '/library' },
                 { label: 'Laboratory', path: '/laboratory' },
+                { label: 'Library', path: '/library' },
                 { label: 'Hostel', path: '/hostel' },
                 { label: 'Smart Class', path: '/smart-class' },
-                { label: 'Transport', path: '/transport' },
-                { label: 'LMS', path: '/lms' },
+                { label: 'Free Transport', path: '/transport' },
+                { label: 'LM System', path: '/lms' },
+                { label: 'Cafeteria', path: '/cafeteria' },
             ]
         },
         { label: 'Events', path: '/events' },

@@ -6,6 +6,8 @@
     padding: 40px 30px;
     /* From body padding in snippet */
     width: 100%;
+    font-size: 16px;
+    /* Override global scaling */
 }
 
 #svasc-events-section * {
@@ -20,7 +22,7 @@
 
 #svasc-events-section .section-header h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.2rem;
+    font-size: 4.2rem;
     font-weight: 600;
     color: #1f2d5a;
     margin: 0;
@@ -28,7 +30,7 @@
 
 #svasc-events-section .section-header h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
+    font-size: 2.1rem;
     font-weight: 300;
     color: #6b7280;
     margin-top: 6px;
@@ -113,6 +115,8 @@
 #svasc-events-section .details ul li {
     display: block;
     margin-bottom: 6px;
+    font-size: 1.5rem;
+
 }
 
 /* ICONS */

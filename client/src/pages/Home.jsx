@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../components/Home/Navbar';
 import HeroSlider from '../components/Home/HeroSlider';
 import Marquee from '../components/Home/Marquee';
 import Accreditation from '../components/Home/Accreditation';
@@ -11,8 +10,8 @@ import ValuesCarousel from '../components/Home/ValuesCarousel';
 import CollegeAboutSection from '../components/Home/CollegeAboutSection';
 import PlacementSections from '../components/Home/PlacementSections';
 import BlogSection from '../components/Home/BlogSection';
-import InfoCardSlider from '../components/Home/InfoCardSlider';
 import SvascEvents from '../components/Home/SvascEvents';
+import AlumniSlider from '../components/Home/AlumniSlider';
 
 const Home = () => {
   return (
@@ -29,7 +28,7 @@ const Home = () => {
         <CollegeAboutSection />
         <PlacementSections />
         <BlogSection />
-        <InfoCardSlider />
+        <AlumniSlider />
         <SvascEvents />
 
       </div>
