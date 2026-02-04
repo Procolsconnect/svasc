@@ -338,7 +338,7 @@ html {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #10b981;
+  background-color: #f5b400;
   animation: svasc-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -365,7 +365,7 @@ html {
 }
 
 .svasc-hero-subtitle {
-  color: #818791;
+  color: #f5b400;
 }
 
 /* Hero Description */

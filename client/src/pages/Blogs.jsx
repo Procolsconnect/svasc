@@ -81,6 +81,7 @@ const ProjectsPortfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
   const scrollBackTo = useRef(0);
+  const selectedAreaRef = useRef(null);
 
   const selectProject = (projectId) => {
     const project = projects.find(p => p.ID === projectId);
@@ -135,6 +136,13 @@ const ProjectsPortfolio = () => {
     return () => window.removeEventListener('resize', calculateHeights);
   }, []);
 
+  // Reset scroll position when a project is opened
+  useEffect(() => {
+    if (selectedProject && selectedAreaRef.current) {
+      selectedAreaRef.current.scrollTop = 0;
+    }
+  }, [selectedProject, highlightedContent]);
+
   const getProjectClass = (projectId) => {
     const classes = [styles.project];
     if (selectedProject === projectId) {
@@ -182,7 +190,10 @@ const ProjectsPortfolio = () => {
         ))}
       </div>
 
-      <div className={`${styles.selectedArea} ${selectedProject ? styles.opened : ''}`}>
+      <div
+        ref={selectedAreaRef}
+        className={`${styles.selectedArea} ${selectedProject ? styles.opened : ''}`}
+      >
         <h1 style={{ backgroundImage: `url(${highlightedContent.bImage})` }}>
           <span>{highlightedContent.category}</span>
         </h1>
@@ -193,6 +204,20 @@ const ProjectsPortfolio = () => {
 
         {highlightedContent.cards && highlightedContent.cards.length > 0 && (
           <div className={styles.cardContainer}>
+            <div className={styles.eventUniqueSection}>
+              <div className={styles.yearContainer}>
+                <span className={styles.yearPart}>20</span>
+                <span className={styles.yearPart}>26</span>
+              </div>
+              <div className={styles.eventInfo}>
+                <div className={styles.eventDate}>
+                  {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()}
+                </div>
+                <h2 className={styles.eventCategoryTitle}>
+                  {highlightedContent.category}
+                </h2>
+              </div>
+            </div>
             {highlightedContent.cards.map((card, index) => (
               <div key={index} className={styles.gameCard}>
                 <div
