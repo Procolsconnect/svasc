@@ -30,7 +30,7 @@
     text-align: center;
     margin: 1rem auto 0;
     max-width: 72rem;
-    color: #FFE27A;
+    color: #eab308;
 }
 
 /* Grid Layout */
@@ -94,6 +94,7 @@
 .rightColumn {
     grid-column: span 12;
     order: -1;
+    position: relative;
 }
 
 @media (min-width: 1024px) {
@@ -105,6 +106,7 @@
 
 .carouselContainer {
     position: relative;
+    height: 70dvh;
     width: 100%;
     overflow: hidden;
     border-radius: 1.875rem;
@@ -161,28 +163,30 @@
 .floatingBox1 {
     top: 6rem;
     left: -4rem;
+    z-index: 300;
 }
 
 .floatingBox2 {
     bottom: 6rem;
     left: -6rem;
+    z-index: 300;
 }
 
 .floatingAvatar {
     margin-right: 0.75rem;
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
 }
 
 .floatingName {
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-weight: 600;
     margin: 0;
 }
 
 .floatingRating {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #eab308;
     /* yellow-500 */

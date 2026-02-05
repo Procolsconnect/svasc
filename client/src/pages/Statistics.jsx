@@ -23,8 +23,18 @@ const Statistics = () => {
     ];
 
     const recruiters = [
-        'Tech Mahindra', 'Axis Bank', 'HDFC Bank', 'Sutherland', 'Allsec Technologies',
-        'Infosys', 'TCS', 'Wipro', 'Cognizant', 'Capgemini', 'IBM', 'Amazon'
+        { name: 'Tech Mahindra', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tech_Mahindra_Logo.svg/512px-Tech_Mahindra_Logo.svg.png' },
+        { name: 'Axis Bank', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Axis_Bank_logo.svg/512px-Axis_Bank_logo.svg.png' },
+        { name: 'HDFC Bank', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HDFC_Bank_Logo.svg/512px-HDFC_Bank_Logo.svg.png' },
+        { name: 'Sutherland', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Sutherland_Global_Services_Logo.svg/512px-Sutherland_Global_Services_Logo.svg.png' },
+        { name: 'Allsec Technologies', src: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Allsec_Technologies_logo.png/512px-Allsec_Technologies_logo.png' },
+        { name: 'Infosys', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/512px-Infosys_logo.svg.png' },
+        { name: 'TCS', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png' },
+        { name: 'Wipro', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Logo.svg/512px-Wipro_Logo.svg.png' },
+        { name: 'Cognizant', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cognizant_logo_2022.svg/512px-Cognizant_logo_2022.svg.png' },
+        { name: 'Capgemini', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Capgemini_201x_logo.svg/512px-Capgemini_201x_logo.svg.png' },
+        { name: 'IBM', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/512px-IBM_logo.svg.png' },
+        { name: 'Amazon', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/512px-Amazon_logo.svg.png' }
     ];
 
     const starPerformers = [
@@ -104,7 +114,7 @@ const Statistics = () => {
                     <div className={styles.recruitersGrid}>
                         {recruiters.map((recruiter, index) => (
                             <div key={index} className={styles.recruiterCard}>
-                                {recruiter}
+                                <img src={recruiter.src} alt={recruiter.name} className={styles.recruiterLogo} />
                             </div>
                         ))}
                     </div>

@@ -261,7 +261,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #06C755;
+  background-color:#f5b400;
 }
 
 .hero-badge-text {
@@ -288,7 +288,7 @@
 
 .hero-title-accent {
   font-style: italic;
-  color: #a8a29e;
+  color: #f5b400;
 }
 
 /* ============================================

@@ -53,7 +53,7 @@ const HeroSection = () => {
             <div className="hero-text-top reveal-on-scroll">
               <div className="hero-badge">
                 <span className="hero-badge-dot"></span>
-                <span className="hero-badge-text">Sri Venkateswara Arts & Science College</span>
+                <span className="hero-badge-text">Shree Venkateswara Arts & Science College</span>
               </div>
 
               <h1 className="hero-title">

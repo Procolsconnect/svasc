@@ -153,6 +153,11 @@ const LogoSpinning = ({
 
   return (
     <div className="flex items-center justify-center min-h-[600px] w-full bg-transparent p-4 overflow-hidden">
+      <style>{`
+        .centertitle{
+          color: #001F66;
+        }`}
+      </style>
       <div
         ref={containerRef}
         className="relative flex items-center justify-center perspective-[1000px] select-none"
@@ -160,7 +165,7 @@ const LogoSpinning = ({
       >
         {/* Center Title */}
         <div className="absolute z-0 pointer-events-none text-center">
-          <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 uppercase tracking-widest opacity-20">
+          <h2 className=" centertitle text-2xl sm:text-4xl font-bold uppercase tracking-widest">
             {centerTitle}
           </h2>
         </div>

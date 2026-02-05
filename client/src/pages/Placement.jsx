@@ -3,6 +3,23 @@ import styles from './Placement.module.css';
 import { ArrowRight, Users, TrendingUp, Mic2, MessageSquare, LineChart, Network, Bell, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Quote } from 'lucide-react';
 import Hero from '../components/Common/Hero';
 import LogoSpinning from './LogoSpinning';
+import LogoMarquee from '../components/Common/LogoMarquee';
+
+const RECRUITERS = [
+    { name: "TCS", fullName: "Tata Consultancy Services", color: "#2563eb", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png" },
+    { name: "ZOHO", fullName: "Zoho Corporation", color: "#ea580c", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Zoho_Corporation_logo.svg/512px-Zoho_Corporation_logo.svg.png" },
+    { name: "INFOSYS", fullName: "Infosys Limited", color: "#1d4ed8", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/512px-Infosys_logo.svg.png" },
+    { name: "WIPRO", fullName: "Wipro Limited", color: "#f97316", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Logo.svg/512px-Wipro_Logo.svg.png" },
+    { name: "HCL", fullName: "HCL Technologies", color: "#6d28d9", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/HCL_Technologies_logo.svg/512px-HCL_Technologies_logo.svg.png" },
+    { name: "IBM", fullName: "IBM India", color: "#0530ad", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/512px-IBM_logo.svg.png" },
+    { name: "Accenture", fullName: "Accenture", color: "#7c3aed", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/512px-Accenture.svg.png" },
+    { name: "Capgemini", fullName: "Capgemini", color: "#2563eb", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Capgemini_201x_logo.svg/512px-Capgemini_201x_logo.svg.png" },
+    { name: "Amazon", fullName: "Amazon", color: "#f97316", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/512px-Amazon_logo.svg.png" },
+    { name: "Microsoft", fullName: "Microsoft", color: "#4b5563", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" },
+    { name: "Cognizant", fullName: "Cognizant", color: "#1a365d", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cognizant_logo_2022.svg/512px-Cognizant_logo_2022.svg.png" },
+    { name: "Tech Mahindra", fullName: "Tech Mahindra", color: "#dc2626", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tech_Mahindra_Logo.svg/512px-Tech_Mahindra_Logo.svg.png" },
+    { name: "24/7.ai", fullName: "24/7.ai", color: "#7c3aed", src: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/24-7_Customer_Logo.png/512px-24-7_Customer_Logo.png" }
+];
 
 const PlacementCell = () => {
     return (
@@ -51,7 +68,7 @@ const PlacementCell = () => {
                                 <img
                                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600"
                                     alt="Medical Technology"
-            />
+                                />
                             </div>
                             <div className={styles.heroStatCard}>
                                 <div className={styles.statIcon}>
@@ -158,7 +175,7 @@ const PlacementCell = () => {
                     </div>
                 </div>
             </section>
-<LogoSpinning />
+            <LogoSpinning />
             {/* Featured Events */}
             <section id="events" className={styles.eventsSection}>
                 <div className={styles.eventsContainer}>
@@ -336,13 +353,7 @@ const PlacementCell = () => {
             <section className={styles.partnersSection}>
                 <div className={styles.partnersContainer}>
                     <h3 className={styles.partnersTitle}>Organizations We Work With</h3>
-                    <div className={styles.partnersGrid}>
-                        <div className={styles.partnerLogo}>PARTNER LOGO</div>
-                        <div className={styles.partnerLogo}>HEALTH CORP</div>
-                        <div className={styles.partnerLogo}>INVEST GRP</div>
-                        <div className={styles.partnerLogo}>GOV AGENCY</div>
-                        <div className={styles.partnerLogo}>TECH INNOV</div>
-                    </div>
+                    <LogoMarquee logos={RECRUITERS} speed="40s" />
                 </div>
             </section>
 
