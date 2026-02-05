@@ -118,7 +118,7 @@ const Schools = () => {
                 programs: [
                     { title: "M.Sc. Computer Science", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                     { title: "M.Sc Microbiology", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    
+
                 ]
             },
             {
@@ -127,7 +127,7 @@ const Schools = () => {
                 programs: [
                     { title: "M.A English", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                     { title: "M.A Tamil", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    
+
                 ]
             },
             {
@@ -145,7 +145,7 @@ const Schools = () => {
                 programs: [
                     { title: "Ph.D. Tamil", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
                     { title: "Ph.D. English", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                   
+
                 ]
             }
         ]
@@ -176,14 +176,14 @@ const Schools = () => {
                         {/* Images */}
                         <div className={styles.imagesOrder}>
                             <div className={styles.imageGrid}>
-                                <div className={styles.imageWrapper}>
+                                <div className={`${styles.imageWrapper} ${styles.staggerUp}`}>
                                     <img
                                         src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2670&auto"
                                         alt="SVASC Campus"
                                         className={styles.sectionImage}
                                     />
                                 </div>
-                                <div className={`${styles.imageWrapper} ${styles.mt8}`}>
+                                <div className={`${styles.imageWrapper} ${styles.staggerDown}`}>
                                     <img
                                         src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2670&auto=format&fit=crop"
                                         alt="SVASC Students"

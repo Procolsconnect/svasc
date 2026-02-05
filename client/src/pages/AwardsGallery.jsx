@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './AwardsGallery.module.css';
-import { ChevronsDown  } from 'lucide-react';
+import { ChevronsDown } from 'lucide-react';
+import Hero from '../components/Common/Hero';
 
 const imageCollections = {
     academic: {
@@ -77,49 +78,57 @@ const AwardsGallery = () => {
     const currentData = imageCollections[activeCategory];
 
     return (
-        <div className={styles.wrapper}>
-            <aside className={styles.sideContent}>
-                <div className={styles.sideHeader}>
-                    <h2 className={styles.logo}>SVASC</h2>
-                    <div className={styles.toggleBtn} onClick={toggleMenu}>
-                        <ChevronsDown  size={30} />
+        <>
+            <Hero
+                title="Awards & Recognition"
+                description="Celebrating Excellence, Achievement, and Innovation"
+                image="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=1600"
+            />
+            <div className={styles.wrapper}>
+                <aside className={styles.sideContent}>
+                    <div className={styles.sideHeader}>
+                        <h2 className={styles.logo}>SVASC</h2>
+                        <div className={styles.toggleBtn} onClick={toggleMenu}>
+                            <ChevronsDown size={30} />
+                        </div>
                     </div>
-                </div>
 
-                <nav className={styles.navMenu}>
-                    <span className={styles.navLink}>Gallery Categories</span>
-                </nav>
+                    <nav className={styles.navMenu}>
+                        <span className={styles.navLink}>Certificate Categories</span>
+                    </nav>
 
-                <div className={`${styles.categories} ${isMenuOpen ? styles.categoriesOpen : ''}`}>
-                    {Object.keys(imageCollections).map((key) => (
-                        <h2
-                            key={key}
-                            className={`${styles.category} ${activeCategory === key ? styles.categoryActive : ''}`}
-                            onClick={() => handleCategoryChange(key)}
-                        >
-                            {key.charAt(0).toUpperCase() + key.slice(1)}
-                        </h2>
-                    ))}
-                </div>
-            </aside>
-
-            <main className={styles.mainContent}>
-                <h2 className={styles.categoryTitle}>{currentData.title}</h2>
-                <div className={styles.galleryColumns}>
-                    <div className={styles.column}>
-                        {currentData.column1.map((img, idx) => (
-                            <img key={idx} src={img.src} alt={img.alt} className={styles.image} loading="lazy" />
+                    <div className={`${styles.categories} ${isMenuOpen ? styles.categoriesOpen : ''}`}>
+                        {Object.keys(imageCollections).map((key) => (
+                            <h2 
+                                key={key}
+                                className={`${styles.category} ${activeCategory === key ? styles.categoryActive : ''}`}
+                                onClick={() => handleCategoryChange(key)}
+                            >
+                                {key.charAt(0).toUpperCase() + key.slice(1)}
+                            </h2>
                         ))}
                     </div>
-                    <div className={styles.column}>
-                        {currentData.column2.map((img, idx) => (
-                            <img key={idx} src={img.src} alt={img.alt} className={styles.image} loading="lazy" />
-                        ))}
+                </aside>
+
+                <main className={styles.mainContent}>
+                    <h2 className={styles.categoryTitle}>{currentData.title}</h2>
+                    <div className={styles.galleryColumns}>
+                        <div className={styles.column}>
+                            {currentData.column1.map((img, idx) => (
+                                <img key={idx} src={img.src} alt={img.alt} className={styles.image} loading="lazy" />
+                            ))}
+                        </div>
+                        <div className={styles.column}>
+                            {currentData.column2.map((img, idx) => (
+                                <img key={idx} src={img.src} alt={img.alt} className={styles.image} loading="lazy" />
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </main>
-        </div>
+                </main>
+            </div>
+        </>
     );
 };
+
 
 export default AwardsGallery;

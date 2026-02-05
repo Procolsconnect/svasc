@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Hostel.module.css';
 import { Sparkles, Scale, ShieldCheck, Star, Quote, Plus, PlayCircle } from 'lucide-react';
+import Hero from '../Common/Hero';
 
 const Hostel = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -31,7 +32,14 @@ const Hostel = () => {
   return (
     <div className={styles.hostelContainer}>
       {/* Hero Section */}
-      <header className={styles.heroSection}>
+      <Hero
+        title="SVASC Hostel"
+        description="A Safe, Respectful, and Comfortable Living Environment"
+        image="https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=2070&auto=format&fit=crop"
+      />
+
+      {/* ORIGINAL HERO SECTION RESTORED */}
+      <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <div className={styles.badge}>
             <span className={styles.badgeDot}></span>
@@ -54,24 +62,26 @@ const Hostel = () => {
             </button>
             <button className={styles.secondaryButton}>
               <PlayCircle className={styles.buttonIcon} />
-              Video ansehen
+              WATCH VIDEO
             </button>
           </div>
         </div>
 
         <div className={styles.heroImageWrapper}>
           <div className={styles.heroImageBorder}></div>
+
           <div className={styles.heroImage}>
             <img
               src="https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=2070&auto=format&fit=crop"
-              alt="Hostel facility"
+              alt="SVASC Hostel"
             />
+
             <div className={styles.heroImageBadge}>
               <p>"Full Facility Hostel"</p>
             </div>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* Value Props */}
       <section className={styles.valuePropsSection}>
@@ -233,10 +243,10 @@ const Hostel = () => {
               Jede Sitzung ist eine Reise in den Raum, in dem du gerade am meisten gebraucht wirst.
             </p>
           </div>
-          
+
           <div className={styles.stepsGrid}>
             <div className={styles.timelineLine}></div>
-            
+
             <div className={styles.stepItem}>
               <div className={styles.stepNumberCircle}>
                 <span className={styles.stepNumber}>1.</span>
@@ -246,7 +256,7 @@ const Hostel = () => {
                 Wir besprechen, was du heilen oder verändern möchtest...
               </p>
             </div>
-            
+
             <div className={styles.stepItem}>
               <div className={styles.stepNumberCircle}>
                 <span className={styles.stepNumber}>2.</span>
@@ -256,7 +266,7 @@ const Hostel = () => {
                 Auswahl der Kanäle...
               </p>
             </div>
-            
+
             <div className={styles.stepItem}>
               <div className={styles.stepNumberCircle}>
                 <span className={styles.stepNumber}>3.</span>

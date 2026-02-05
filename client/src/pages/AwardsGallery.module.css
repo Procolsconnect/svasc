@@ -12,11 +12,10 @@
 
 .sideContent {
     width: 250px;
-    height: 600px;
-    position: fixed;
+    height: auto;
+    position: sticky;
     top: 100px;
-    /* Offset for navbar */
-    left: 0;
+    /* Offset for navbar when it sticks */
     padding-left: 20px;
     display: flex;
     flex-direction: column;
@@ -86,10 +85,10 @@
 }
 
 .mainContent {
-    width: calc(100% - 300px);
+    flex: 1;
     min-width: 300px;
     height: auto;
-    margin-left: 270px;
+    margin-left: 20px;
     padding: 0 20px 50px 0;
     display: flex;
     flex-direction: column;
@@ -181,7 +180,7 @@
         cursor: pointer;
         animation: animate 0.9s ease-in infinite alternate;
         position: relative;
-    
+
     }
 
     .categories {

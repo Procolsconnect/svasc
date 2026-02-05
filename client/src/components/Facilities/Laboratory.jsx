@@ -2,15 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Laboratory.module.css';
+import Hero from '../Common/Hero';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Laboratory = () => {
-    const containerRef = useRef(null);
-    const rightSideRef = useRef(null);
-    const imagesRef = useRef([]);
-    const sectionRefs = useRef([]);
-
     const labs = [
         {
             id: 'computer-lab',
@@ -62,6 +58,10 @@ const Laboratory = () => {
             index: 1
         }
     ];
+    const containerRef = useRef(null);
+    const rightSideRef = useRef(null);
+    const imagesRef = useRef([]);
+    const sectionRefs = useRef([]);
 
     useEffect(() => {
         const bgColors = ["#FFF9E6", "#ffffff", "#FFF9E6", "#ffffff", "#FFF9E6", "#ffffff", "#FFF9E6"];
@@ -168,57 +168,64 @@ const Laboratory = () => {
             gsap.set("body", { backgroundColor: "#ffffff" });
         };
     }, []);
-
     return (
-        <div ref={containerRef} className={styles.laboratoryContainer}>
-            <div className={styles.innerContainer}>
-                <div className={styles.spacer}></div>
+        <>
+            <Hero
+                title="Research & Laboratories"
+                description="State-of-the-art facilities for practical learning and innovation"
+                image="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=80"
+            />
+            <div ref={containerRef} className={styles.laboratoryContainer}>
 
-                <div className={styles.arch}>
-                    <div className={styles.archLeft}>
-                        {labs.map((lab, idx) => (
-                            <div
-                                key={lab.id}
-                                id={lab.id}
-                                className={styles.archInfo}
-                                ref={el => sectionRefs.current[idx] = el}
-                                style={{ order: idx * 2 }}
-                            >
-                                <div className={styles.content}>
-                                    <h2 className={styles.header}>{lab.header}</h2>
-                                    <p className={styles.desc}>{lab.desc}</p>
-                                    <a className={styles.link} href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                            <path fill="currentColor" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
-                                        </svg>
-                                        <span>Explore Lab</span>
-                                    </a>
+                <div className={styles.innerContainer}>
+                    <div className={styles.spacer}></div>
+
+                    <div className={styles.arch}>
+                        <div className={styles.archLeft}>
+                            {labs.map((lab, idx) => (
+                                <div
+                                    key={lab.id}
+                                    id={lab.id}
+                                    className={styles.archInfo}
+                                    ref={el => sectionRefs.current[idx] = el}
+                                    style={{ order: idx * 2 }}
+                                >
+                                    <div className={styles.content}>
+                                        <h2 className={styles.header}>{lab.header}</h2>
+                                        <p className={styles.desc}>{lab.desc}</p>
+                                        <a className={styles.link} href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                                <path fill="currentColor" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                                            </svg>
+                                            <span>Explore Lab</span>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+
+                        <div ref={rightSideRef} className={styles.archRight}>
+                            {labs.map((lab, idx) => (
+                                <div
+                                    key={`img-${lab.id}`}
+                                    className={styles.imgWrapper}
+                                    data-index={lab.index}
+                                    ref={el => imagesRef.current[idx] = el}
+                                    style={{
+                                        zIndex: lab.index,
+                                        order: idx * 2 + 1
+                                    }}
+                                >
+                                    <img src={lab.image} alt={lab.header} />
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
-                    <div ref={rightSideRef} className={styles.archRight}>
-                        {labs.map((lab, idx) => (
-                            <div
-                                key={`img-${lab.id}`}
-                                className={styles.imgWrapper}
-                                data-index={lab.index}
-                                ref={el => imagesRef.current[idx] = el}
-                                style={{
-                                    zIndex: lab.index,
-                                    order: idx * 2 + 1
-                                }}
-                            >
-                                <img src={lab.image} alt={lab.header} />
-                            </div>
-                        ))}
-                    </div>
+                    <div className={styles.spacer}></div>
                 </div>
-
-                <div className={styles.spacer}></div>
             </div>
-        </div>
+        </>
     );
 };
 

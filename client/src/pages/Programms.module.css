@@ -126,7 +126,7 @@
 
 .activeItem {
     background-color: #ffffff;
-    border-left: 4px solid #f3eb07;
+    border-left: 4px solid #f5b400;
     color: #002147;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
@@ -220,8 +220,8 @@
 }
 
 .programCard:hover .arrowCircle {
-    background: rgb(236, 240, 8);
-    border-color: rgb(236, 240, 8);
+    background: #f5b400;
+    border-color: #f5b400;
 }
 
 .programCard:hover .arrowCircle svg {
@@ -339,7 +339,24 @@
 .imageWrapper {
     overflow: hidden;
     border-radius: 0.75rem;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.staggerUp {
+    transform: translateY(-20px);
+}
+
+.staggerDown {
+    transform: translateY(20px);
+}
+
+@media (max-width: 1024px) {
+
+    .staggerUp,
+    .staggerDown {
+        transform: none;
+    }
 }
 
 .sectionImage {
