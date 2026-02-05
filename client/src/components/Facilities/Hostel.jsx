@@ -68,8 +68,7 @@ const Hostel = () => {
         </div>
 
         <div className={styles.heroImageWrapper}>
-          <div className={styles.heroImageBorder}></div>
-
+         
           <div className={styles.heroImage}>
             <img
               src="https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=2070&auto=format&fit=crop"
