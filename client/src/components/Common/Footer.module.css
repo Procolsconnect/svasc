@@ -8,6 +8,8 @@
     font-family: 'Poppins', sans-serif;
     color: #6c757d;
     padding: 0 5rem 0 5rem;
+    z-index: 100;
+    
 }
 
 /* Yellow Decorative Elements */
@@ -127,7 +129,6 @@
 /* Footer Content */
 .footerContent {
     padding-top: 48px;
-    padding-bottom: 48px;
 }
 
 .contentRow {
@@ -346,7 +347,6 @@
 .copyrightArea {
     background: linear-gradient(135deg, #051b30 0%, #0f3459 100%);
     padding: 1.5rem 1rem;
-    margin-top: 40px;
     position: relative;
     z-index: 2;
 }

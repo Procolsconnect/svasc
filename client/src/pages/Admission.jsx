@@ -318,28 +318,33 @@ const Admission = () => {
                         {[1, 2].map((i) => (
                             <div key={i} className={styles.logoSet}>
                                 <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}><span style={{ color: '#2563eb' }}>TCS</span></div>
-                                    <span>Tata Consultancy Services</span>
+                                    <div className={styles.logoBox}>
+                                        <img src="https://cdn.simpleicons.org/tcs" alt="TCS" />
+                                    </div>
                                 </div>
                                 <span className={styles.dot}>•</span>
                                 <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}><span style={{ color: '#ea580c' }}>ZOHO</span></div>
-                                    <span>Zoho Corporation</span>
+                                    <div className={styles.logoBox}>
+                                        <img src="https://cdn.simpleicons.org/zoho" alt="ZOHO"  />
+                                    </div>
                                 </div>
                                 <span className={styles.dot}>•</span>
                                 <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}><span style={{ color: '#1d4ed8' }}>INFOSYS</span></div>
-                                    <span>Infosys</span>
+                                    <div className={styles.logoBox}>
+                                        <img src="https://cdn.simpleicons.org/infosys" alt="INFOSYS"  width="60" />
+                                    </div>
                                 </div>
                                 <span className={styles.dot}>•</span>
                                 <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}><span style={{ color: '#dc2626' }}>WIPRO</span></div>
-                                    <span>Wipro</span>
+                                    <div className={styles.logoBox}>
+                                        <img src="https://cdn.simpleicons.org/wipro" alt="WIPRO" size={100} />
+                                    </div>
                                 </div>
                                 <span className={styles.dot}>•</span>
                                 <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}><span style={{ color: '#7c3aed' }}>HCL</span></div>
-                                    <span>HCL Technologies</span>
+                                    <div className={styles.logoBox}>
+                                        <img src="https://cdn.simpleicons.org/hcl" alt="HCL" />
+                                    </div>
                                 </div>
                                 <span className={styles.dot}>•</span>
                             </div>
@@ -508,21 +513,21 @@ const Admission = () => {
                     </div>
                     <div className={styles.recruitersGrid}>
                         {[
-                            { name: "IBM", color: "#0530ad", fs: "32px" },
-                            { name: "24/7.ai", color: "#7c3aed", fs: "24px" },
-                            { name: "COGNIZANT", color: "#1a365d", fs: "18px" },
-                            { name: "WIPRO", color: "#f97316", fs: "28px" },
-                            { name: "TCS", color: "#2563eb", fs: "32px" },
-                            { name: "TECH MAHINDRA", color: "#dc2626", fs: "14px" },
-                            { name: "INFOSYS", color: "#1d4ed8", fs: "20px" },
-                            { name: "Accenture", color: "#7c3aed", fs: "22px" },
-                            { name: "HCL", color: "#6d28d9", fs: "32px" },
-                            { name: "Capgemini", color: "#2563eb", fs: "20px" },
-                            { name: "amazon", color: "#f97316", fs: "30px" },
-                            { name: "Microsoft", color: "#4b5563", fs: "24px" }
+                            { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/512px-IBM_logo.svg.png" },
+                            { name: "24/7.ai", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/24-7_Customer_Logo.png/512px-24-7_Customer_Logo.png" },
+                            { name: "COGNIZANT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cognizant_logo_2022.svg/512px-Cognizant_logo_2022.svg.png" },
+                            { name: "WIPRO", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Logo.svg/512px-Wipro_Logo.svg.png" },
+                            { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png" },
+                            { name: "TECH MAHINDRA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tech_Mahindra_Logo.svg/512px-Tech_Mahindra_Logo.svg.png" },
+                            { name: "INFOSYS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/512px-Infosys_logo.svg.png" },
+                            { name: "Accenture", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/512px-Accenture.svg.png" },
+                            { name: "HCL", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/HCL_Technologies_logo.svg/512px-HCL_Technologies_logo.svg.png" },
+                            { name: "Capgemini", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Capgemini_201x_logo.svg/512px-Capgemini_201x_logo.svg.png" },
+                            { name: "amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/512px-Amazon_logo.svg.png" },
+                            { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" }
                         ].map((r, i) => (
                             <div key={i} className={styles.recruiterBox}>
-                                <span style={{ color: r.color, fontSize: r.fs, fontWeight: 700 }}>{r.name}</span>
+                                <img src={r.logo} alt={r.name} className={styles.recruiterLogo} />
                             </div>
                         ))}
                     </div>
