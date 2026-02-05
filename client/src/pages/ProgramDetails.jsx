@@ -147,7 +147,7 @@ const ProgramDetails = () => {
             </div>
 
             {/* STICKY ADMISSION SIDEBAR */}
-            <Link to="/admission" className={styles.admissionSticky}>
+            <Link to="https://docs.google.com/forms/d/1D8p8FqQc3wgbY7PkNJxsJAl87X0yQ3tUiAKosXWVUCY/viewform?ts=5e7b2d33&edit_requested=true" className={styles.admissionSticky}>
                 Admission Enquiry <span></span>
             </Link>
         </div>
