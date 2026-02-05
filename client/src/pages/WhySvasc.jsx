@@ -189,7 +189,7 @@ const WhySvasc = () => {
                                 return `<span class="${className}" style="background-image: url(${testimonials[index].image})"></span>`;
                             }
                         }}
-                        autoplay={{ delay: 5000 }}
+                        autoplay={{ delay: 2500 }}
                         navigation={{
                             prevEl,
                             nextEl,

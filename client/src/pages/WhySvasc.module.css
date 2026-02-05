@@ -104,7 +104,7 @@
 
 .heroText h2 span {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #1a237e;
     margin-bottom: 10px;
@@ -112,7 +112,7 @@
 
 .heroText p {
     color: #666;
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.8;
     margin-bottom: 30px;
 }
@@ -120,6 +120,7 @@
 .ctaButton {
     display: inline-block;
     background: #ffc107;
+    font-size: 1.4rem;
     color: #1a237e;
     padding: 14px 32px;
     border-radius: 8px;
@@ -149,7 +150,7 @@
 .sectionTitle {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     font-weight: 700;
     color: #0a1150;
     margin-bottom: 60px;
@@ -215,7 +216,7 @@
 }
 
 .cardTitle {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #1a237e;
     flex: 1;
@@ -223,12 +224,16 @@
 }
 
 .cardDescription {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: #666;
     line-height: 1.7;
     margin: 0;
 }
-
+.cardPercentage{
+    font-size: 1.6rem;
+    color: #0a1150;
+    font-weight: 500;
+}
 /* Curve Mask */
 .curveMask {
     width: 100%;
@@ -236,6 +241,10 @@
 }
 
 @media (max-width: 768px) {
+.cardPercentage{
+    font-size: 1.4rem;
+    color: #0a1150;
+    font-weight: 500;}
 
     .curveDown,
     .curveUp {
@@ -256,6 +265,7 @@
     margin-left: -10%;
     margin-right: 10%;
     overflow: hidden;
+    height: 160px;
     border-radius: 0 0 200vh 200vh / 0 0 20vh 20vh;
 }
 
@@ -272,7 +282,7 @@
 .curveContentWrap {
     width: 83.4%;
     margin: 0 auto;
-    padding-top: 3vw;
+    padding-top: 3.5vw;
     padding-bottom: 3em;
 }
 
@@ -598,7 +608,7 @@
 .programsHero {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1518176258769-f227c798150e') center;
     background-size: cover;
-    padding: 6rem 2rem;
+    padding: 5rem 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     align-items: center;
@@ -638,6 +648,7 @@
 .programLink {
     background-color: goldenrod;
     text-decoration: none;
+    font-size: 1.2rem;
     color: white;
     border-radius: .25rem;
     text-align: center;
@@ -656,7 +667,7 @@
 }
 
 .programsSection {
-    padding: 80px 20px;
+    padding: 20px 20px;
 }
 
 .programsGrid {
@@ -715,13 +726,13 @@
 .programFigcaption h3 {
     color: white;
     padding: .75rem;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     margin: 0;
     font-family: 'Playfair Display', serif;
 }
 
 .programText {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.5;
     padding: 1.5rem 1rem;
     color: #666666;
@@ -732,6 +743,7 @@
 .programItem .programLink {
     padding: .5rem 1rem;
     margin: 0 1rem 1.5rem;
+    font-size: 1.5rem;
 }
 
 /* Animations */
