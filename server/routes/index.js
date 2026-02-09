@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const risingStarRoutes = require('./alumni.route');
+const alumniRoutes = require('./alumni.route');
 
-router.use('/rising-stars', risingStarRoutes);
+router.use('/alumni', alumniRoutes);
 
 module.exports = router;
