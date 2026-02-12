@@ -1,0 +1,101 @@
+{
+    "info": {
+        "_postman_id": "8a7c2b5d-1234-4a5b-9c8d-e0f1a2b3c4d5",
+        "name": "SVASC Programs API",
+        "description": "Collection for testing Academic Programs CRUD API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Program",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"title\": \"B.Sc. Computer Science\",\n  \"programType\": \"UG Programmes\",\n  \"school\": \"School of Computer Science & IT\",\n  \"schoolAcronym\": \"SCSIT\",\n  \"image\": \"https://images.unsplash.com/photo-1517694712202-14dd9538aa97\",\n  \"heroImage\": \"https://images.unsplash.com/photo-1517694712202-14dd9538aa97\",\n  \"aboutImage\": \"https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2\",\n  \"about\": \"To provide knowledge of computer systems, networks, and operating systems.\",\n  \"vision\": \"To be a leading Computer Science Department...\",\n  \"mission\": \"Our mission is to empower students...\",\n  \"facilities\": [\n    \"State-of-the-art computer laboratories\",\n    \"WiFi Enabled Campus\"\n  ],\n  \"facilitiesImage\": \"https://images.unsplash.com/photo-1434030216411-0b793f4b4173\",\n  \"careerOpportunities\": [\n    { \"title\": \"Software Developer\" }\n  ],\n  \"faqs\": [\n    { \"question\": \"Duration?\", \"answer\": \"3 years\" }\n  ]\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/api/programs",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "programs"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Grouped Programs",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/api/programs/grouped",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "programs",
+                        "grouped"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Program Details",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/api/programs/details/bsc-computer-science",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "programs",
+                        "details",
+                        "bsc-computer-science"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Programs",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/api/programs",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "programs"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:5000",
+            "type": "string"
+        }
+    ]
+}
