@@ -82,9 +82,9 @@ const Events = () => {
         <div className={`${styles.wrapper} text-[18px] leading-relaxed text-stone-800`}>
             {/* Hero Section */}
             <Hero
-            title={"Events"}
-            description={"Stay updated with the latest events and activities at SVASC."}
-            image={"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"} />
+                title={"Events"}
+                description={"Stay updated with the latest events and activities at SVASC."}
+                image={"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"} />
             <Eventhero />
 
             {/* Events Grid Section */}

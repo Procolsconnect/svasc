@@ -1,8 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Hero from '../components/Common/Hero'
+import axios from 'axios'
 import './NewsLetter.css'
 
+const API_URL = 'http://localhost:5000/api/newsletter';
+const BASE_URL = 'http://localhost:5000';
+
 const NewsLetter = () => {
+    const [newsletters, setNewsletters] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNewsletters = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get(API_URL);
+                if (response.data.success) {
+                    setNewsletters(response.data.data);
+                }
+            } catch (error) {
+                console.error('Error fetching newsletters:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNewsletters();
+    }, []);
+
     return (
         <div>
             <Hero title="NewsLetter"
@@ -12,13 +37,29 @@ const NewsLetter = () => {
             <div className="container">
                 <div className="row">
                     <h2 className='title'>NewsLetter</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-                        <div className='content'>NewsLetter 2015-2016 &#8594;</div>
-                        <div className='content'>NewsLetter 2016-2017 &#8594;</div>
-                        <div className='content'>NewsLetter 2017-2018 &#8594;</div>
-                        <div className='content'>NewsLetter 2018-2019 &#8594;</div>
-                        <div className='content'>NewsLetter 2019-2020 &#8594;</div>
-                    </div>
+                    {loading ? (
+                        <div className="text-center py-10">Loading newsletters...</div>
+                    ) : (
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                            {newsletters.length > 0 ? (
+                                newsletters.map((item) => (
+                                    <a
+                                        key={item._id}
+                                        href={`${BASE_URL}/${item.pdf.replace(/^\/+/, '')}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className='content'
+                                    >
+                                        {item.title} &#8594;
+                                    </a>
+                                ))
+                            ) : (
+                                <div className="col-span-full text-center py-10 text-gray-500">
+                                    No newsletters available at the moment.
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

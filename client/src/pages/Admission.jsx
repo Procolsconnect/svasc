@@ -20,6 +20,7 @@ import {
     MessageCircle
 } from 'lucide-react';
 import styles from './Admission.module.css';
+import FooterSVASC from '../components/Common/FooterSVASC';
 
 const Admission = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -325,13 +326,13 @@ const Admission = () => {
                                 <span className={styles.dot}>•</span>
                                 <div className={styles.logoItem}>
                                     <div className={styles.logoBox}>
-                                        <img src="https://cdn.simpleicons.org/zoho" alt="ZOHO"  />
+                                        <img src="https://cdn.simpleicons.org/zoho" alt="ZOHO" />
                                     </div>
                                 </div>
                                 <span className={styles.dot}>•</span>
                                 <div className={styles.logoItem}>
                                     <div className={styles.logoBox}>
-                                        <img src="https://cdn.simpleicons.org/infosys" alt="INFOSYS"  width="60" />
+                                        <img src="https://cdn.simpleicons.org/infosys" alt="INFOSYS" width="60" />
                                     </div>
                                 </div>
                                 <span className={styles.dot}>•</span>
@@ -533,8 +534,9 @@ const Admission = () => {
                     </div>
                 </div>
             </section>
+            <FooterSVASC />
         </div>
     );
 };
 
-export default Admission;
+export default Admission; 

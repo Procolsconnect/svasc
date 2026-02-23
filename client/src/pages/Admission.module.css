@@ -314,10 +314,10 @@
 /* HERO SECTION */
 .heroSection {
     position: relative;
-    min-height: 850px;
+    min-height: 600px;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding: 120px 0 80px;
     overflow: hidden;
 }
 
@@ -574,7 +574,7 @@
 
 .logoBox {
     background: white;
-  
+
     border-radius: 12px;
     height: 90px;
     display: flex;
@@ -1112,8 +1112,7 @@
     right: 0;
     width: 85%;
     max-width: 380px;
-    height: 100vh;
-    height: 100dvh;
+    height: 100%;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
