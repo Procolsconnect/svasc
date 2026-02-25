@@ -17,35 +17,67 @@ import {
     Plus,
     X,
     Calendar,
-    MessageCircle
+    MessageCircle,
+    CheckCircle,
+    Trophy,
+    BookOpen,
+    BadgeDollarSign,
+    Rocket
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import styles from './Admission.module.css';
 import FooterSVASC from '../components/Common/FooterSVASC';
+
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyIoL5MQoj-ltrc05z4kMKce0BnT7LadzV3tPj3XqauFrx_SgjmkyOrSJose6MBThKr/exec";
 
 const Admission = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [expandedFaq, setExpandedFaq] = useState(null);
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        mobile: '',
-        programme: '',
-        specialization: ''
+        studentName: "",
+        phone: "",
+        email: "",
+        course: "",
+        qualification: "",
+        city: "",
+        message: "",
     });
+    const [submitStatus, setSubmitStatus] = useState("idle");
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-        console.log('Admission Form Data:', formData);
-        alert('Application Submitted Successfully!');
-    };
+        setSubmitStatus("submitting");
 
-    const toggleFaq = (index) => {
-        setExpandedFaq(expandedFaq === index ? null : index);
+        try {
+            await fetch(GOOGLE_SHEET_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            setFormData({
+                studentName: "",
+                phone: "",
+                email: "",
+                course: "",
+                qualification: "",
+                city: "",
+                message: "",
+            });
+            setSubmitStatus("success");
+            alert('Application Submitted Successfully!');
+        } catch (error) {
+            setSubmitStatus("error");
+            alert('Something went wrong. Please try again.');
+        }
     };
 
     const services = [
@@ -57,6 +89,17 @@ const Admission = () => {
         { id: 6, title: "Expert Faculty", icon: <Users />, desc: "Highly qualified and experienced faculty members dedicated to providing personalized attention and mentorship to every student for their academic success." }
     ];
 
+    const toggleFaq = (index) => {
+        setExpandedFaq(expandedFaq === index ? null : index);
+    };
+
+    const badges = [
+        { icon: CheckCircle, label: "Direct Admission Open" },
+        { icon: Trophy, label: "Autonomous College" },
+        { icon: BookOpen, label: "159 Rank Holders" },
+        { icon: Briefcase, label: "100% Placement" },
+        { icon: BadgeDollarSign, label: "Scholarship Available" },
+    ];
     const faqs = [
         { q: "What programs does SVASC Group of Institutions offer?", a: "We offer 25+ programs across Arts, Science, and Nursing streams at UG, PG, and Ph.D levels. Our programs include BCA, BBA, B.Com, BSc, BA, B.Tech, B.Sc Nursing, MCA, MBA, M.Com, MSc, and doctoral programs with NAAC A+ accreditation." },
         { q: "What is the placement record of SVASC Group of Institutions?", a: "We maintain an excellent 98% placement record with partnerships with top companies like TCS, Zoho, Infosys, Wipro, and HCL Technologies. Our dedicated placement cell provides comprehensive support to ensure students secure rewarding career opportunities." },
@@ -232,82 +275,200 @@ const Admission = () => {
 
                 <div className={styles.heroContainer}>
                     <div className={styles.heroGrid}>
-                        <div className={styles.heroText}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className={styles.heroText}
+                        >
                             <h1 className={styles.heroTitle}>
-                                Prepare for a Bright<br />Future
+                                Admission 2025-26 Open at
+                                <span className={styles.heroTitleHighlight}>
+                                    SVASC (Autonomous)
+                                </span>
                             </h1>
                             <p className={styles.heroDesc}>
-                                Equip yourself with the knowledge, skills, and experiences needed to succeed in your career and beyond, paving the way for a promising future.
+                                SVASC - Top Arts & Science Colleges in Coimbatore | 25+ Programs | 100% Placement | NAAC A+ Accreditation | Bharathiar University Affiliated
                             </p>
-                        </div>
-
-                        <div className={styles.glassPanel}>
-                            <h3 className={styles.formHeading}>Admissions 2026</h3>
-                            <form className={styles.form} onSubmit={handleFormSubmit}>
-                                <div className={styles.inputGroup}>
-                                    <label>Enter Name *</label>
-                                    <input type="text" name="name" onChange={handleInputChange} required />
-                                </div>
-                                <div className={styles.inputGroup}>
-                                    <label>Enter Email Address *</label>
-                                    <input type="email" name="email" onChange={handleInputChange} required />
-                                </div>
-                                <div className={styles.inputGroup}>
-                                    <label>Enter Mobile Number *</label>
-                                    <div className={styles.mobileInput}>
-                                        <span>+91</span>
-                                        <input type="tel" name="mobile" onChange={handleInputChange} required />
+                            <div className={styles.badgeList}>
+                                {badges.map(({ icon: Icon, label }) => (
+                                    <div
+                                        key={label}
+                                        className={styles.badgeItem}
+                                    >
+                                        <Icon size={16} strokeWidth={1.5} />
+                                        {label}
                                     </div>
-                                </div>
-                                <div className={styles.inputGroup}>
-                                    <label>Select Programme *</label>
-                                    <div className={styles.selectWrapper}>
-                                        <select name="programme" onChange={handleInputChange} required>
-                                            <option value="">Select Programme</option>
-                                            <option>UG</option>
-                                            <option>PG</option>
-                                            <option>Ph.D</option>
-                                        </select>
-                                        <ChevronDown className={styles.selectIcon} />
-                                    </div>
-                                </div>
-                                <div className={styles.inputGroup}>
-                                    <label>Select Specialization *</label>
-                                    <div className={styles.selectWrapper}>
-                                        <select name="specialization" onChange={handleInputChange} required>
-                                            <option value="">Select Specialization</option>
-                                            <option>BCA - Bachelor of Computer Applications</option>
-                                            <option>BBA - Bachelor of Business Administration</option>
-                                            <option>BSc - Bachelor of Science</option>
-                                            <option>BSc CS - Computer Science</option>
-                                            <option>BSc IT - Information Technology</option>
-                                            <option>B.Com - Bachelor of Commerce</option>
-                                            <option>B.Com CA - Computer Applications</option>
-                                            <option>BA - Bachelor of Arts</option>
-                                            <option>B.Tech - Bachelor of Technology</option>
-                                            <option>B.Sc Nursing</option>
-                                            <option>MCA - Master of Computer Applications</option>
-                                            <option>MBA - Master of Business Administration</option>
-                                            <option>MSc - Master of Science</option>
-                                            <option>M.Com - Master of Commerce</option>
-                                            <option>PhD - Doctor of Philosophy</option>
-                                        </select>
-                                        <ChevronDown className={styles.selectIcon} />
-                                    </div>
-                                </div>
-                                <div className={styles.checkboxGroup}>
-                                    <input type="checkbox" required />
-                                    <span>I agree to receive information regarding my submitted application by signing up on SVASC College of Arts and Nursing *</span>
-                                </div>
-                                <button type="submit" className={styles.submitBtn}>
-                                    APPLY NOW →
-                                </button>
-                            </form>
-                            <div className={styles.formFooter}>
-                                {/* <a href="#">Already have an Account? Login</a>
-                                <a href="#">RESEND VERIFICATION EMAIL</a> */}
+                                ))}
                             </div>
-                        </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            className={styles.glassPanel}
+                        >
+                            <div className={styles.formHeader}>
+                                <div className={styles.formTitleRow}>
+                                    <GraduationCap className={styles.formTitleIcon} strokeWidth={1.5} />
+                                    <h2 className={styles.formHeading}>Apply for Admission 2025-26</h2>
+                                </div>
+                                <p className={styles.formSubheading}>Get instant admission details, course information & scholarship eligibility</p>
+                            </div>
+
+                            <form onSubmit={handleFormSubmit} className={styles.form}>
+                                <div className={styles.inputGroupFull}>
+                                    <label className={styles.fieldLabel}>Student Name *</label>
+                                    <input
+                                        type="text"
+                                        name="studentName"
+                                        required
+                                        placeholder="Enter your full name"
+                                        className={styles.inputBox}
+                                        value={formData.studentName}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+
+                                <div className={styles.inputGrid}>
+                                    <div className={styles.inputGroup}>
+                                        <label className={styles.fieldLabel}>Mobile Number *</label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            required
+                                            placeholder="10-digit mobile"
+                                            pattern="[0-9]{10}"
+                                            className={styles.inputBox}
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                    <div className={styles.inputGroup}>
+                                        <label className={styles.fieldLabel}>Email *</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            required
+                                            placeholder="your@email.com"
+                                            className={styles.inputBox}
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className={styles.inputGroupFull}>
+                                    <label className={styles.fieldLabel}>Interested Course *</label>
+                                    <div className={styles.selectWrapper}>
+                                        <select
+                                            name="course"
+                                            required
+                                            className={styles.selectBox}
+                                            value={formData.course}
+                                            onChange={handleInputChange}
+                                        >
+                                            <option value="">Select a course</option>
+                                            <optgroup label="UG Programs (12 Courses)">
+                                                <option>B.Sc Computer Science</option>
+                                                <option>B.Sc (CS) AI & Data Science</option>
+                                                <option>B.Sc Information Technology</option>
+                                                <option>BCA - Bachelor of Computer Applications</option>
+                                                <option>B.Com</option>
+                                                <option>B.Com (Computer Applications)</option>
+                                                <option>BBA - Business Administration</option>
+                                                <option>B.Sc Microbiology</option>
+                                                <option>B.Sc Biochemistry</option>
+                                                <option>B.Sc Mathematics</option>
+                                                <option>B.Sc Costume Design & Fashion</option>
+                                                <option>BA English</option>
+                                            </optgroup>
+                                            <optgroup label="PG Programs (7 Courses)">
+                                                <option>M.Sc Computer Science</option>
+                                                <option>M.Sc Information Technology</option>
+                                                <option>M.Com</option>
+                                                <option>M.Com (Computer Applications)</option>
+                                                <option>MBA</option>
+                                                <option>M.Sc Microbiology</option>
+                                                <option>M.Sc Biochemistry</option>
+                                                <option>MA English</option>
+                                                <option>M.Sc Mathematics</option>
+                                                <option>M.Sc Costume Design & Fashion</option>
+                                            </optgroup>
+                                            <optgroup label="Research Programs">
+                                                <option>Ph.D Biochemistry</option>
+                                                <option>Ph.D Commerce</option>
+                                                <option>Ph.D Computer Science</option>
+                                            </optgroup>
+                                        </select>
+                                        <ChevronDown className={styles.selectIcon} />
+                                    </div>
+                                </div>
+
+                                <div className={styles.inputGrid}>
+                                    <div className={styles.inputGroup}>
+                                        <label className={styles.fieldLabel}>Qualification *</label>
+                                        <div className={styles.selectWrapper}>
+                                            <select
+                                                name="qualification"
+                                                required
+                                                className={styles.selectBox}
+                                                value={formData.qualification}
+                                                onChange={handleInputChange}
+                                            >
+                                                <option value="">Select</option>
+                                                <option>10th Standard</option>
+                                                <option>12th Standard</option>
+                                                <option>Undergraduate</option>
+                                                <option>Postgraduate</option>
+                                            </select>
+                                            <ChevronDown className={styles.selectIcon} />
+                                        </div>
+                                    </div>
+                                    <div className={styles.inputGroup}>
+                                        <label className={styles.fieldLabel}>City *</label>
+                                        <input
+                                            type="text"
+                                            name="city"
+                                            required
+                                            placeholder="Your city"
+                                            className={styles.inputBox}
+                                            value={formData.city}
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className={styles.inputGroupFull}>
+                                    <label className={styles.fieldLabel}>Message (Optional)</label>
+                                    <textarea
+                                        name="message"
+                                        rows={2}
+                                        placeholder="Any specific queries?"
+                                        className={styles.textareaBox}
+                                        value={formData.message}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    disabled={submitStatus === "submitting"}
+                                    className={styles.submitBtn}
+                                >
+                                    <Rocket size={18} strokeWidth={1.5} />
+                                    {submitStatus === "submitting" ? "Submitting..." : "Submit Application"}
+                                </button>
+
+                                {submitStatus === "success" && (
+                                    <p className={styles.successMsg}>Thanks! Your application was submitted.</p>
+                                )}
+                                {submitStatus === "error" && (
+                                    <p className={styles.errorMsg}>Something went wrong. Please try again.</p>
+                                )}
+                            </form>
+                        </motion.div>
                     </div>
                 </div>
             </header>

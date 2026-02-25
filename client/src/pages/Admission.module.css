@@ -368,179 +368,213 @@
 }
 
 .heroTitle {
-    font-size: 72px;
+    font-size: 56px;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02rem;
     color: white;
 }
 
+.heroTitleHighlight {
+    display: block;
+    color: #ffd700;
+    /* Gold/Secondary from snippet */
+    margin-top: 8px;
+}
+
 .heroDesc {
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 1.5;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
     max-width: 560px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 24px 0;
+}
+
+.badgeList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.badgeItem {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 10px 18px;
+    border-radius: 9999px;
     color: white;
-    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .glassPanel {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(15, 23, 42, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 24px;
-    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 32px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     color: white;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.formHeader {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.formTitleRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.formTitleIcon {
+    width: 28px;
+    height: 28px;
+    color: #ffd700;
 }
 
 .formHeading {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.formSubheading {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
-.inputGroup {
+.inputGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.inputGroup,
+.inputGroupFull {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 6px;
 }
 
-.inputGroup label {
-    font-size: 11px;
-    font-weight: 500;
-    color: #cbd5e1;
+.fieldLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.inputGroup input,
-.inputGroup select {
+.inputBox,
+.selectBox,
+.textareaBox {
     width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 14px;
     color: white;
-    padding: 6px 0;
-    font-size: 12px;
     transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
     outline: none;
-    appearance: none;
-    /* Hide default arrow */
 }
 
-.inputGroup input::placeholder {
+.inputBox::placeholder,
+.textareaBox::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 
-.inputGroup input:focus,
-.inputGroup select:focus {
-    border-bottom-color: white;
+.inputBox:focus,
+.selectBox:focus,
+.textareaBox:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffd700;
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
 }
 
-.inputGroup select option {
-    color: #1e40af;
-    background-color: white;
+.textareaBox {
+    resize: none;
 }
 
 .selectWrapper {
     position: relative;
+    width: 100%;
+}
+
+.selectBox {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
 }
 
 .selectIcon {
     position: absolute;
-    right: 4px;
-    bottom: 10px;
-    color: #cbd5e1;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     pointer-events: none;
-    width: 14px;
-    height: 14px;
-}
-
-.mobileInput {
-    display: flex;
-    align-items: center;
-}
-
-.mobileInput span {
-    padding: 6px 10px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.5);
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.mobileInput input {
-    margin-left: 6px;
-}
-
-.checkboxGroup {
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-    margin-top: 4px;
-}
-
-.checkboxGroup input {
-    width: 14px;
-    height: 14px;
-    margin-top: 2px;
-    cursor: pointer;
-    accent-color: #eab308;
-    flex-shrink: 0;
-}
-
-.checkboxGroup span {
-    font-size: 11px;
-    color: #cbd5e1;
-    line-height: 1.3;
+    color: #64748b;
+    width: 16px;
+    height: 16px;
 }
 
 .submitBtn {
     width: 100%;
-    background: #eab308;
+    background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
     color: white;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 9999px;
+    font-weight: 700;
+    padding: 16px;
+    border-radius: 12px;
     border: none;
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    margin-top: 8px;
+    box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
 }
 
 .submitBtn:hover {
-    background: #d4a117;
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(234, 179, 8, 0.4);
+    box-shadow: 0 10px 20px rgba(234, 179, 8, 0.4);
 }
 
-.formFooter {
-    margin-top: 12px;
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.successMsg {
+    color: #166534;
+    font-size: 14px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    margin-top: 8px;
 }
 
-.formFooter a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 11px;
-    transition: color 0.3s;
-}
-
-.formFooter a:hover {
-    color: white;
+.errorMsg {
+    color: #dc2626;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
 }
 
 /* BRAND BANNER */
