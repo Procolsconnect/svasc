@@ -75,7 +75,7 @@ const Admission = () => {
                         {/* Logo Section */}
                         <div className={styles.logoContainer}>
                             <div className={styles.logoIconBg}>
-                                <GraduationCap size={24} color="white" />
+                                <img src="/kalvippaathai.jpeg" alt="SVASC Logo" />
                             </div>
                             <div className={styles.logoText}>
                                 <span className={styles.logoMain}>Shree Venkateshwara</span>
@@ -153,7 +153,7 @@ const Admission = () => {
                         <div className={styles.mobileMenuHeader}>
                             <div className={styles.logoContainer}>
                                 <div className={styles.logoIconBg}>
-                                    <GraduationCap size={20} color="white" />
+                                    <img src="/kalvippaathai.jpeg" alt="SVASC Logo" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
                                 </div>
                                 <div className={styles.logoText}>
                                     <span className={styles.logoMain}>SVASC</span>
@@ -304,8 +304,8 @@ const Admission = () => {
                                 </button>
                             </form>
                             <div className={styles.formFooter}>
-                                <a href="#">Already have an Account? Login</a>
-                                <a href="#">RESEND VERIFICATION EMAIL</a>
+                                {/* <a href="#">Already have an Account? Login</a>
+                                <a href="#">RESEND VERIFICATION EMAIL</a> */}
                             </div>
                         </div>
                     </div>
