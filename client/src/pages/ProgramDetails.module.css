@@ -194,6 +194,127 @@
     color: #555;
 }
 
+.vmList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.vmList li {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #555;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.vmList li span {
+    flex: 1;
+}
+
+/* OBJECTIVES & ROLES SECTIONS */
+.objectivesSection,
+.rolesSection {
+    margin-bottom: 6rem;
+}
+
+.sectionCard {
+    background: white;
+    padding: 4rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.05);
+    border-left: 5px solid #021f4b;
+}
+
+.sectionCard h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #021f4b;
+    margin-bottom: 2.5rem;
+}
+
+.bulletList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.bulletList li {
+    font-size: 1.7rem;
+    line-height: 1.6;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+
+.bulletList li span {
+    flex: 1;
+}
+
+/* STAFF DETAILS SECTION */
+.staffSection {
+    background: white;
+    padding: 8rem 0;
+    margin-bottom: 8rem;
+}
+
+.tableWrapper {
+    overflow-x: auto;
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.staffTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.6rem;
+    text-align: left;
+}
+
+.staffTable thead {
+    background-color: #021f4b;
+    color: white;
+}
+
+.staffTable th {
+    padding: 2rem;
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+}
+
+.staffTable td {
+    padding: 2rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #334155;
+}
+
+.staffTable tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.staffTable tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.staffTable tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+.facultyName {
+    font-weight: 600;
+    color: #021f4b;
+}
+
 /* FACILITIES SECTION */
 .facilitiesSection {
     background: #021f4b;

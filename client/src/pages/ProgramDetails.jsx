@@ -78,11 +78,60 @@ const ProgramDetails = () => {
                             </div>
                             <div className={styles.vmCard}>
                                 <h2>Mission</h2>
-                                <p>{program.mission}</p>
+                                {Array.isArray(program.mission) ? (
+                                    <ul className={styles.vmList}>
+                                        {program.mission.map((item, idx) => (
+                                            <li key={idx}>
+                                                <ChevronsRight className={styles.doubleArrow} size={18} />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p>{program.mission}</p>
+                                )}
                             </div>
                         </div>
                     </div>
                 </section>
+
+                {/* OBJECTIVES */}
+                {program.objectives && (
+                    <section className={styles.objectivesSection}>
+                        <div className={styles.container}>
+                            <div className={styles.sectionCard}>
+                                <h2>Objectives</h2>
+                                <ul className={styles.bulletList}>
+                                    {program.objectives.map((obj, idx) => (
+                                        <li key={idx}>
+                                            <ChevronsRight className={styles.doubleArrow} size={20} />
+                                            <span>{obj}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* ROLES AND RESPONSIBILITIES */}
+                {program.rolesAndResponsibilities && (
+                    <section className={styles.rolesSection}>
+                        <div className={styles.container}>
+                            <div className={styles.sectionCard}>
+                                <h2>Roles and Responsibilities of the Department</h2>
+                                <ul className={styles.bulletList}>
+                                    {program.rolesAndResponsibilities.map((role, idx) => (
+                                        <li key={idx}>
+                                            <ChevronsRight className={styles.doubleArrow} size={20} />
+                                            <span>{role}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                )}
 
                 {/* FACILITIES SECTION (Split Color) */}
                 {program.facilities && (
@@ -107,43 +156,76 @@ const ProgramDetails = () => {
                 )}
 
                 {/* CAREER OPPORTUNITIES */}
-                <section className={styles.careerSection}>
-                    <div className={styles.container}>
-                        <h2 className={styles.sectionTitle}>Career Opportunities</h2>
-                        <div className={styles.careerGrid}>
-                            {program.careerOpportunities.map((career, idx) => (
-                                <div key={idx} className={styles.careerBox}>
-                                    {career.title}
-                                </div>
-                            ))}
+                {program.careerOpportunities && (
+                    <section className={styles.careerSection}>
+                        <div className={styles.container}>
+                            <h2 className={styles.sectionTitle}>Career Opportunities</h2>
+                            <div className={styles.careerGrid}>
+                                {program.careerOpportunities.map((career, idx) => (
+                                    <div key={idx} className={styles.careerBox}>
+                                        {career.title}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
+
+                {/* STAFF DETAILS */}
+                {program.staffDetails && (
+                    <section className={styles.staffSection}>
+                        <div className={styles.container}>
+                            <h2 className={styles.sectionTitle}>Staff Details</h2>
+                            <div className={styles.tableWrapper}>
+                                <table className={styles.staffTable}>
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Name of the Faculty</th>
+                                            <th>Qualification</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {program.staffDetails.map((staff, idx) => (
+                                            <tr key={idx}>
+                                                <td>{staff.sNo || idx + 1}</td>
+                                                <td className={styles.facultyName}>{staff.name}</td>
+                                                <td>{staff.qualification}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                )}
 
                 {/* FAQ SECTION */}
-                <section className={styles.faqSection}>
-                    <div className={styles.container}>
-                        <div className={styles.faqFlex}>
-                            <div className={styles.faqLeftImage}>
-                                <img src="https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?q=80&w=800" alt="FAQ Illustration" />
-                            </div>
-                            <div className={styles.faqRight}>
-                                <h2>FAQ</h2>
-                                <div className={styles.faqList}>
-                                    {program.faqs.map((faq, index) => (
-                                        <details key={index} className={styles.faqItem}>
-                                            <summary>
-                                                {faq.question}
-                                                <MessageSquare size={18} className={styles.faqIcon} />
-                                            </summary>
-                                            <div className={styles.faqAnswer}>{faq.answer}</div>
-                                        </details>
-                                    ))}
+                {program.faqs && program.faqs.length > 0 && (
+                    <section className={styles.faqSection}>
+                        <div className={styles.container}>
+                            <div className={styles.faqFlex}>
+                                <div className={styles.faqLeftImage}>
+                                    <img src="https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?q=80&w=800" alt="FAQ Illustration" />
+                                </div>
+                                <div className={styles.faqRight}>
+                                    <h2>FAQ</h2>
+                                    <div className={styles.faqList}>
+                                        {program.faqs.map((faq, index) => (
+                                            <details key={index} className={styles.faqItem}>
+                                                <summary>
+                                                    {faq.question}
+                                                    <MessageSquare size={18} className={styles.faqIcon} />
+                                                </summary>
+                                                <div className={styles.faqAnswer}>{faq.answer}</div>
+                                            </details>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
             </div>
 
             {/* STICKY ADMISSION SIDEBAR */}
