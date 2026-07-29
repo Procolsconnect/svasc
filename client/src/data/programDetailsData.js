@@ -3,9 +3,31 @@ export const programDetailsData = {
         title: "B.Sc. Computer Science",
         heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "To provide knowledge of computer systems, networks, and operating systems, enabling students to understand how different components of computing interact.",
-        vision: "To be a leading Computer Science Department recognized for excellence in education, research, and community engagement, producing innovative leaders and problem solvers who will shape the future of technology.",
-        mission: "Our mission is to empower students through a comprehensive computer science education, fostering critical thinking, creativity, and ethical responsibility. We strive to advance knowledge through impactful research and to contribute positively to society by addressing real-world challenges with technology.",
+        about: "The Department of Computer Science was established in 2019–2020 with the objective of providing quality education in computing and IT, and was upgraded with a PG Programme in 2023–2024. Equipped with modern infrastructure, advanced computing labs, high-speed internet, and dedicated faculty, the department emphasizes outcome-based education, hands-on lab sessions, research activities, seminars, workshops, and industrial visits to nurture industry-ready professionals.",
+        vision: "To emerge as a Center of Excellence in Computer Science education by developing skilled professionals equipped with strong technical knowledge, innovative thinking, ethical values, and a dedication to lifelong learning to address the dynamic needs of industry and society.",
+        mission: [
+            "To equip students with strong theoretical knowledge and practical skills in Computer Science and emerging technologies.",
+            "To instil professional ethics, leadership qualities, teamwork, and social responsibility among students.",
+            "To promote hands-on learning through laboratories, projects, and real-world applications.",
+            "To develop problem-solving, analytical, and programming skills among students.",
+            "To prepare students for higher education, competitive exams, and global career opportunities.",
+            "To promote lifelong learning and continuous skill enhancement."
+        ],
+        objectives: [
+            "To provide a strong foundation in Computer Science principles and programming.",
+            "To develop analytical, problem-solving, and critical thinking skills.",
+            "To prepare students for careers in software development, research, higher education, and entrepreneurship.",
+            "To encourage participation in research, internships, industrial training, and technical events.",
+            "To develop communication, leadership, and professional skills for lifelong success."
+        ],
+        rolesAndResponsibilities: [
+            "Academic Excellence: Deliver high-quality education and ensure effective teaching-learning practices.",
+            "Student Development: Enhance technical, analytical, and problem-solving skills through coding competitions, hackathons, and career counseling.",
+            "Research & Innovation: Promote faculty/student research publications, innovative projects, and patent development.",
+            "Industry Interaction: Organize guest lectures, workshops, seminars, industrial visits, and collaborations for internships and placements.",
+            "Student Mentoring: Assign faculty mentors to guide students academically, monitor performance, and provide counseling.",
+            "Professional Ethics & Alumni: Promote ethical computing practices, responsible technology usage, and foster strong alumni relationships."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -14,18 +36,25 @@ export const programDetailsData = {
             "ICT Enabled Smart Classrooms",
             "Electronic Library"
         ],
-
         careerOpportunities: [
-            { title: "Software Developer/Engineer" },
-            { title: "Data Scientist/Analyst" },
-            { title: "Database Administrator" },
-            { title: "Systems Analyst" },
-            { title: " Network Engineer" },
-            { title: "Cybersecurity Specialist" },
-            { title: "DevOps Engineer" },
-            { title: "Machine Learning Engineer" },
-            { title: "Web Developer" },
-            { title: "IT Consultant" }
+            { title: "Software Developer / Engineer" },
+            { title: "Full Stack, Front-End & Back-End Developer" },
+            { title: "Mobile Application & Web Developer" },
+            { title: "Data Scientist, Data Analyst & BI Analyst" },
+            { title: "Computer Vision & Machine Learning Engineer" },
+            { title: "Ethical Hacker, Security Consultant & Forensics Analyst" },
+            { title: "Database Administrator (DBA) & ERP Consultant" },
+            { title: "UI/UX Designer & Web Application Developer" },
+            { title: "Freelance Software Developer & Tech Entrepreneur" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Ms. B. Kanchanadevi", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
+            { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
+            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 6, name: "Ms. K. Iswarya", qualification: "MCA." },
+            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc., M.Phil., NET (Ph.D)" }
         ],
         faqs: [
             { question: "What is B.Sc. Computer Science?", answer: "The B.Sc. Computer Science is a 3-year undergraduate program that covers core areas such as data structures, database management, and software development." },
@@ -68,9 +97,24 @@ export const programDetailsData = {
         title: "Bachelor of Computer Applications (BCA)",
         heroImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "BCA is a 3-year undergraduate degree program that focuses on knowledge of the basics of computer application and software development.",
-        vision: "To be a leading center of excellence in computer applications education, fostering innovation in software development and IT solutions, and producing highly skilled professionals who will drive technological advancements in the application domain and contribute to the betterment of society.",
-        mission: "To provide quality education through a cutting-edge BCA curriculum focused on application development, practical programming, and emerging technologies, while offering research opportunities, industry partnerships, and strong support for students through career guidance, skill development workshops, and hands-on training. Provide a comprehensive and rigorous curriculum that balances theoretical foundations with extensive practical application skills.",
+        about: "The Department of Computer Applications offers a 3-year undergraduate degree program (BCA) designed to provide a comprehensive education in computer applications, programming, and software development. The program integrates rigorous academic curriculum with hands-on technical training, research culture, and industry collaborations to prepare students for rewarding tech careers and higher studies.",
+        vision: "To be a leading centre of excellence in computer science education and research, fostering innovation and producing highly skilled professionals who will drive technological advancements and contribute to the betterment of society.",
+        mission: "The Department is to provide quality education through a comprehensive and rigorous curriculum that integrates theoretical knowledge with practical skills while fostering creativity, critical thinking, and problem-solving abilities. The Department is committed to promoting research and innovation by encouraging faculty and students to undertake cutting-edge research projects and publish their findings in reputed journals. It strives to strengthen industry collaboration through partnerships, internships, workshops, and guest lectures that provide real-world exposure and align academic programs with current technological trends.",
+        objectives: [
+            "To provide students with a strong theoretical and practical foundation in computer applications, programming, and emerging technologies.",
+            "To develop problem-solving, analytical, and logical thinking abilities among students.",
+            "To bridge the gap between academia and industry through internships, projects, and collaborations.",
+            "To promote research culture and innovation among students and faculty.",
+            "To equip students with communication, teamwork, and leadership skills for professional success.",
+            "To ensure ethical and socially responsible use of technology.",
+            "To enhance employability through skill development, certification, and placement training.",
+            "To encourage lifelong learning and adaptability to evolving technological trends."
+        ],
+        rolesAndResponsibilities: [
+            "Head of the Department: Provide academic leadership, ensure quality curriculum delivery, oversee resource allocation, faculty development, university/industry liaison, and monitor student outcomes.",
+            "Teaching Faculty: Design and deliver curriculum balancing theory with practical applications, mentor students in research and projects, publish scholarly work, and coordinate industry interactions and internships.",
+            "Student Responsibilities: Maintain regular attendance, actively participate in coding competitions, hackathons, workshops, and technical fests, utilize library and lab resources responsibly, and prepare proactively for placements."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -79,16 +123,17 @@ export const programDetailsData = {
             "ICT Enabled Smart Classrooms",
             "Electronic Library"
         ],
-
         careerOpportunities: [
-            { title: "Software Developer/Engineer" },
-            { title: "App Developer" },
-            { title: "Database Manager" },
-            { title: "Data Scientist," },
-            { title: "Developer" },
-            { title: "Computer Network Architect" }
+            { title: "Software Developer / Engineer" },
+            { title: "Mobile App & Web Developer" },
+            { title: "Systems & Business Analyst" },
+            { title: "Database & Network Administrator" },
+            { title: "Cybersecurity Analyst & Ethical Hacker" },
+            { title: "IT Manager & Project Manager" },
+            { title: "Data Scientist & Business Intelligence Analyst" },
+            { title: "Cloud Solutions Architect & DevOps Engineer" },
+            { title: "AI / Machine Learning Engineer & Data Engineer" }
         ],
-
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
             { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
@@ -157,9 +202,30 @@ export const programDetailsData = {
         title: "B. Com – Bachelor of Commerce",
         heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "B. Com or Bachelor of Commerce is a 3-year undergraduate course that deals with the study of financial accounting, corporate tax, economics, company law, auditing, business management, etc. The main aim of the B. Com course is to equip students with the right skills required to form a lucrative career in the fields of accounting, banking, finance, and insurance.",
-        vision: "To be a leading department in commerce education and research. The department aims to provide skill-based education to students with profound aspiration for faith and wisdom so that they can contribute strongly to society with their talent.",
-        mission: "To develop future leaders and experts in the field of commerce and business. To work towards transformation of people into competent and motivated professionals with sound theoretical and practical knowledge.",
+        about: "The Department of Commerce was established in 2019 with the introduction of the B.Com programme. The department is supported by seven dedicated and experienced faculty members and a vibrant community of enthusiastic students. The Department of Bachelor of Commerce (B.Com) is committed to providing quality education in commerce, accounting, finance, taxation, banking, and business management. The department focuses on developing students' academic knowledge, professional skills, ethical values and leadership qualities through innovative teaching methods, practical learning and industry exposure.",
+        vision: "To be a centre of excellence in commerce education by developing competent, ethical and socially responsible professionals.",
+        mission: [
+            "To provide quality education in commerce and business studies.",
+            "To develop analytical, managerial and entrepreneurial skills.",
+            "To promote practical learning, research and innovation.",
+            "To enhance employability through industry-oriented education.",
+            "To encourage critical thinking, innovation, and research in commerce and business."
+        ],
+        objectives: [
+            "To develop accounting, finance and management skills.",
+            "To promote ethical values and professional integrity.",
+            "To enhance communication and leadership abilities.",
+            "To encourage entrepreneurship and innovation."
+        ],
+        rolesAndResponsibilities: [
+            "Conduct classroom teaching and practical learning.",
+            "Organize seminars, workshops, and guest lectures.",
+            "Arrange industrial visits and educational tours.",
+            "Encourage research and project work.",
+            "Offer career guidance and placement support.",
+            "Conduct internal assessments and examinations.",
+            "Support students' overall academic and personal development."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -169,13 +235,27 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Entrepreneurship" },
-            { title: "Directors of Account" },
-            { title: "Tax Advisory Services" },
-            { title: "Forensic Professional Accounting" },
-            { title: "Insurance Jobs" },
-            { title: "Chartered Management Accountant" },
-            { title: "Entrepreneurship" }
+            { title: "Accountant / Audit Assistant" },
+            { title: "Banking Executive (Clerk / PO)" },
+            { title: "Tax Assistant & Advisory" },
+            { title: "Financial Analyst & Investment Assistant" },
+            { title: "Accounts & Finance Executive in MNCs" },
+            { title: "Insurance Claims & Sales Executive" },
+            { title: "Government Jobs (Banking, SSC, UPSC, Railways)" },
+            { title: "Educational & Office Administrator" },
+            { title: "Entrepreneurship & Consultancy" },
+            { title: "BPO Finance Process Executive" },
+            { title: "Higher Education: M.Com / MBA" },
+            { title: "Professional Courses: CA / CMA / CS" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. A. SAVITHA", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D., SET." },
+            { sNo: 2, name: "Mrs. S. SWATHI", qualification: "M.COM (CA)., M.PHIL., MBA., (Ph.D)" },
+            { sNo: 3, name: "Mr. V. NAVEENKUMAR", qualification: "M.COM (CA)., M.PHIL., (Ph.D)" },
+            { sNo: 4, name: "Dr. M. KALAIVANI", qualification: "M.COM., M.PHIL., PGDCA., Ph.D." },
+            { sNo: 5, name: "Mr. R. SELVAKUMAR", qualification: "M.COM., M.PHIL., B.Ed., B.L." },
+            { sNo: 6, name: "Mrs. S. RAMYADEVI", qualification: "M.COM., M.PHIL., MBA." },
+            { sNo: 7, name: "Ms. K. SUSITHRA", qualification: "MBA." }
         ],
         faqs: [
             { question: "Can I pursue CA after B.Com?", answer: "Yes, B.Com is an excellent foundation for pursuing CA, CS, or CMA." }
@@ -185,9 +265,36 @@ export const programDetailsData = {
         title: "B. Com(B&I) – Bachelor of Commerce with Banking & Insurance",
         heroImage: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Commerce Department is determined to become outstanding in offering commerce education courses like (B. Com and B. Com (BI) for students to inculcate the fundamentals of business, commerce, banking, and insurance to cater to the dynamic needs of the business world by generating professionals in the field of commerce",
-        vision: "To be a premier center for banking and insurance education, producing professionals with ethical values and financial expertise.",
-        mission: "To provide quality education in banking and insurance through updated curriculum and practical exposure to industry practices.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (B&I) alongside other UG, M.Com, and Ph.D. research programs. The department is manned by well-qualified and experienced faculty striving hard for holistic student development in Accounting, Banking, Insurance, Leadership, and Research skills.",
+        vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
+        mission: [
+            "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
+            "To cultivate a culture of research and inquiry that contributes to academic excellence and societal development.",
+            "To develop professionals with integrity, analytical skills, and a global outlook.",
+            "To engage in industry-institution collaboration for mutual growth and relevance.",
+            "To empower students and scholars to become thought leaders, entrepreneurs, and change-makers."
+        ],
+        objectives: [
+            "To provide quality education in commerce by equipping students with comprehensive knowledge and practical skills in accounting, finance, banking, taxation, management and information technology.",
+            "To promote research excellence by encouraging faculty members and scholars to undertake innovative, ethical, and socially relevant research that contributes to academic and industrial development.",
+            "To develop professional competence and leadership qualities by nurturing critical thinking, analytical ability, communication skills, ethical values and entrepreneurial mindset among students.",
+            "To strengthen industry and institutional collaboration through guest lectures, internships, industrial visits, training programmes, workshops and research partnerships to enhance employability and practical exposure.",
+            "To foster lifelong learning and social responsibility by preparing students to become competent professionals, responsible citizens, entrepreneurs and contributors to sustainable economic and societal development."
+        ],
+        rolesAndResponsibilities: [
+            "To provide quality education in commerce through effective teaching, learning and evaluation practices.",
+            "To design and implement a curriculum that meets the evolving needs of industry, academia and society.",
+            "To promote research, innovation, and publication among faculty members, research scholars and students.",
+            "To organize seminars, workshops, conferences, guest lectures, faculty development programmes and skill enhancement activities.",
+            "To facilitate industry–institution interaction through internships, industrial visits, expert talks and collaborative initiatives.",
+            "To mentor and guide students in academic, career, entrepreneurial and research-related activities.",
+            "To encourage students to participate in co-curricular and extracurricular activities for holistic personality development.",
+            "To ensure the effective implementation of Outcome-Based Education (OBE) and continuous quality improvement practices.",
+            "To maintain academic discipline, transparency, and ethical standards in teaching, research and evaluation.",
+            "To support students in placement, higher education, competitive examinations and entrepreneurial ventures.",
+            "To undertake extension and outreach programmes that promote social responsibility and community engagement.",
+            "To maintain departmental records, research documentation and academic activities in compliance with the requirements of the University and IQAC."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -197,11 +304,26 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Auditing Clerk" },
-            { title: "Risk Manager" },
-            { title: "Financial Consultant" },
-            { title: "Professional Accounting Associate" },
-            { title: "Certified Public Accountant" }
+            { title: "Bank Executive (Clerk / PO)" },
+            { title: "Risk & Claims Manager" },
+            { title: "Insurance Advisor & Underwriter" },
+            { title: "Financial & Investment Consultant" },
+            { title: "Auditing & Accounting Associate" },
+            { title: "Certified Public Accountant & CA/CMA Prep" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
             { question: "What are the career prospects after B.Com B&I?", answer: "Graduates can work in public and private sector banks, insurance companies, and financial consultancy firms." }
@@ -211,9 +333,36 @@ export const programDetailsData = {
         title: "B.Com(IT) - Bachelor of Information Technology",
         heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "B. Com in Information Technology is a three-year course that combines business and technology. B.com Information Technology imparts design, development, implementation, and management of information systems along with adapting software applications and computer hardware..",
-        vision: "To integrate commerce with technology for digital business transformation.",
-        mission: "To equip students with both commercial knowledge and technical skills to excel in the digital economy.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (IT) alongside other UG, M.Com, and Ph.D. research programs. B.Com Information Technology combines business and technology, imparting design, development, implementation, and management of information systems along with adapting software applications in accounting and business.",
+        vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
+        mission: [
+            "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
+            "To cultivate a culture of research and inquiry that contributes to academic excellence and societal development.",
+            "To develop professionals with integrity, analytical skills, and a global outlook.",
+            "To engage in industry-institution collaboration for mutual growth and relevance.",
+            "To empower students and scholars to become thought leaders, entrepreneurs, and change-makers."
+        ],
+        objectives: [
+            "To provide quality education in commerce by equipping students with comprehensive knowledge and practical skills in accounting, finance, banking, taxation, management and information technology.",
+            "To promote research excellence by encouraging faculty members and scholars to undertake innovative, ethical, and socially relevant research that contributes to academic and industrial development.",
+            "To develop professional competence and leadership qualities by nurturing critical thinking, analytical ability, communication skills, ethical values and entrepreneurial mindset among students.",
+            "To strengthen industry and institutional collaboration through guest lectures, internships, industrial visits, training programmes, workshops and research partnerships to enhance employability and practical exposure.",
+            "To foster lifelong learning and social responsibility by preparing students to become competent professionals, responsible citizens, entrepreneurs and contributors to sustainable economic and societal development."
+        ],
+        rolesAndResponsibilities: [
+            "To provide quality education in commerce through effective teaching, learning and evaluation practices.",
+            "To design and implement a curriculum that meets the evolving needs of industry, academia and society.",
+            "To promote research, innovation, and publication among faculty members, research scholars and students.",
+            "To organize seminars, workshops, conferences, guest lectures, faculty development programmes and skill enhancement activities.",
+            "To facilitate industry–institution interaction through internships, industrial visits, expert talks and collaborative initiatives.",
+            "To mentor and guide students in academic, career, entrepreneurial and research-related activities.",
+            "To encourage students to participate in co-curricular and extracurricular activities for holistic personality development.",
+            "To ensure the effective implementation of Outcome-Based Education (OBE) and continuous quality improvement practices.",
+            "To maintain academic discipline, transparency, and ethical standards in teaching, research and evaluation.",
+            "To support students in placement, higher education, competitive examinations and entrepreneurial ventures.",
+            "To undertake extension and outreach programmes that promote social responsibility and community engagement.",
+            "To maintain departmental records, research documentation and academic activities in compliance with the requirements of the University and IQAC."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -222,27 +371,60 @@ export const programDetailsData = {
             "ICT Enabled Smart Classrooms",
             "Electronic Library"
         ],
-
         careerOpportunities: [
-            { title: "Database Administrator" },
-            { title: "Maintenance Technician" },
-            { title: "Quality Analyst" },
-            { title: "System Administrator" },
-            { title: "Application Programmer" },
-            { title: "Information Technologist" }
+            { title: "Database Administrator & Developer" },
+            { title: "System Administrator & Quality Analyst" },
+            { title: "Application Programmer & Web Developer" },
+            { title: "Information Technologist & ERP Consultant" },
+            { title: "Accounts & IT Systems Analyst" },
+            { title: "E-Commerce & Digital Business Executive" }
         ],
-
+        staffDetails: [
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
+        ],
         faqs: [
             { question: "Is this course different from regular B.Com?", answer: "Yes, it includes additional IT subjects like database management and web technologies applied to business." }
         ]
     },
     "bcomca-computer-applications": {
-        title: "B.Com(CA)-Computer Applications",
+        title: "B.Com (Computer Applications)",
         heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "To Provide students with an in-depth understanding of computer programming, applications, software development, and business management. This course is mainly for students who have an aptitude for computer programming and an interest in commerce..",
-        vision: "To create tech-savvy commerce professionals for the global market.",
-        mission: "To bridge the gap between traditional commerce and computer technology through innovative teaching and learning.",
+        about: "The B.Com (Computer Applications) degree programme was introduced in 2019. The Department of B.Com (Computer Applications) integrates commerce education with computer application skills. It enables students to acquire knowledge in accounting, finance, business management, programming, and information technology. The department prepares students for careers in business, banking, finance, information technology and entrepreneurship through a balanced combination of theoretical knowledge and practical learning.",
+        vision: "To provide quality education in commerce and computer applications and to develop skilled, ethical and confident professionals.",
+        mission: [
+            "To provide strong knowledge in commerce and computer applications.",
+            "To improve students' technical, analytical and communication skills.",
+            "To prepare students for employment, higher education, and entrepreneurship.",
+            "To promote ethical values, innovation and lifelong learning."
+        ],
+        objectives: [
+            "To build a strong foundation in commerce, accounting and computer applications.",
+            "To develop practical computer and business skills.",
+            "To improve problem-solving and decision-making abilities.",
+            "To prepare students for careers in business, banking, finance, and IT.",
+            "To encourage teamwork, leadership and professional ethics."
+        ],
+        rolesAndResponsibilities: [
+            "Provide quality teaching in commerce and computer applications.",
+            "Conduct practical sessions, seminars, workshops, and industrial visits.",
+            "Guide students in projects, internships, and placements.",
+            "Encourage research, innovation, and entrepreneurship.",
+            "Develop students' communication, leadership, and technical skills.",
+            "Maintain discipline and promote professional ethics.",
+            "Support students in higher education and career development."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -251,12 +433,27 @@ export const programDetailsData = {
             "ICT Enabled Smart Classrooms",
             "Electronic Library"
         ],
-
         careerOpportunities: [
-            { title: "Web Designer" },
+            { title: "Accountant" },
+            { title: "Computer Operator" },
+            { title: "Banking Executive" },
+            { title: "Financial Analyst" },
+            { title: "Tax Consultant" },
+            { title: "Business Executive" },
             { title: "Data Entry Operator" },
-            { title: "Web developer" },
-            { title: "App Developer" }
+            { title: "Software Support Executive" },
+            { title: "Digital Marketing Executive" },
+            { title: "Office Administrator" },
+            { title: "Entrepreneur" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr.M.S.Gomathi", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D." },
+            { sNo: 2, name: "Ms.K.S.Kanya", qualification: "MCA., (Ph.D)" },
+            { sNo: 3, name: "Mrs.T.Bhuvaneswari", qualification: "M.COM., M.PHIL., PGDCA., B.Ed., (Ph.D)." },
+            { sNo: 4, name: "Mr.M.Elango", qualification: "M.COM (CA)., (Ph.D)." },
+            { sNo: 5, name: "Mrs.U.Gowthami", qualification: "MCA., Dip in Travel & Tourism., M.PHIL., (Ph.D)" },
+            { sNo: 6, name: "Dr.K.Suresh Kumar", qualification: "M.COM., M.PHIL., PGDCA., Ph.D." },
+            { sNo: 7, name: "Mrs.K.V.Ranjani", qualification: "M.COM (CA)., B.Ed." }
         ],
         faqs: [
             { question: "Is coding required for B.Com(CA)?", answer: "Basic programming knowledge is taught as part of the application of software in business." }
@@ -266,9 +463,36 @@ export const programDetailsData = {
         title: "B.Com(PA)-Professional Accounting",
         heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "To build up their research, finance, economics, and accounting careers. In addition, there is plenty of B. Com Professional Accounting scope for the graduates in the field of teaching after completion of the course, and even there is broad scope in the public and private sectors of various organizations.",
-        vision: "To produce world-class professional accountants and finance experts.",
-        mission: "To provide rigorous training and knowledge aligned with professional accounting standards.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (PA) alongside other UG, M.Com, and Ph.D. research programs. B.Com Professional Accounting is specifically aligned with professional accounting standards (CA, CMA, CS), building strong research, finance, corporate tax, and accounting careers.",
+        vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
+        mission: [
+            "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
+            "To cultivate a culture of research and inquiry that contributes to academic excellence and societal development.",
+            "To develop professionals with integrity, analytical skills, and a global outlook.",
+            "To engage in industry-institution collaboration for mutual growth and relevance.",
+            "To empower students and scholars to become thought leaders, entrepreneurs, and change-makers."
+        ],
+        objectives: [
+            "To provide quality education in commerce by equipping students with comprehensive knowledge and practical skills in accounting, finance, banking, taxation, management and information technology.",
+            "To promote research excellence by encouraging faculty members and scholars to undertake innovative, ethical, and socially relevant research that contributes to academic and industrial development.",
+            "To develop professional competence and leadership qualities by nurturing critical thinking, analytical ability, communication skills, ethical values and entrepreneurial mindset among students.",
+            "To strengthen industry and institutional collaboration through guest lectures, internships, industrial visits, training programmes, workshops and research partnerships to enhance employability and practical exposure.",
+            "To foster lifelong learning and social responsibility by preparing students to become competent professionals, responsible citizens, entrepreneurs and contributors to sustainable economic and societal development."
+        ],
+        rolesAndResponsibilities: [
+            "To provide quality education in commerce through effective teaching, learning and evaluation practices.",
+            "To design and implement a curriculum that meets the evolving needs of industry, academia and society.",
+            "To promote research, innovation, and publication among faculty members, research scholars and students.",
+            "To organize seminars, workshops, conferences, guest lectures, faculty development programmes and skill enhancement activities.",
+            "To facilitate industry–institution interaction through internships, industrial visits, expert talks and collaborative initiatives.",
+            "To mentor and guide students in academic, career, entrepreneurial and research-related activities.",
+            "To encourage students to participate in co-curricular and extracurricular activities for holistic personality development.",
+            "To ensure the effective implementation of Outcome-Based Education (OBE) and continuous quality improvement practices.",
+            "To maintain academic discipline, transparency, and ethical standards in teaching, research and evaluation.",
+            "To support students in placement, higher education, competitive examinations and entrepreneurial ventures.",
+            "To undertake extension and outreach programmes that promote social responsibility and community engagement.",
+            "To maintain departmental records, research documentation and academic activities in compliance with the requirements of the University and IQAC."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -278,22 +502,66 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Auditors" },
-            { title: "Accountants" },
-            { title: "Accounts Receivable Clerk" },
-            { title: "Bookkeeper" }
+            { title: "Chartered Accountant (CA) & Audit Executive" },
+            { title: "Cost & Management Accountant (CMA)" },
+            { title: "Company Secretary (CS) & Corporate Tax Consultant" },
+            { title: "Forensic Accountant & Financial Analyst" },
+            { title: "Accounts Receivable/Payable Manager" },
+            { title: "Certified Public Accountant (CPA) & Academician" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
             { question: "Does this course help in CA preparation?", answer: "Yes, the syllabus is significantly aligned with CA curriculum, making it easier for students to prepare for professional exams." }
         ]
     },
     "management": {
-        title: "Management",
+        title: "Management (BBA)",
         heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Management program (BBA) offers a fundamental education in business and management principles. It provides knowledge and training in leadership skills to prepare students for managerial roles and entrepreneurship.",
-        vision: "The department strives to develop the knowledge and skills required to act as a responsible steward and offer meaningful tutelage to students in achieving their career goals.",
-        mission: "To empower students in their chosen disciplines by combining academic learning with hands-on industry experience.To equip students with the ability to conduct method study, time study, and work study for improving efficiency and productivity in the workplace.To inculcate Students should be valued and empowered not only within society but also throughout their professional lives.",
+        about: "The Department of Business Administration (BBA) offers a fundamental education in business and management principles. It provides comprehensive knowledge and practical training in leadership, analytical, decision-making, and entrepreneurial skills to prepare students for managerial roles, corporate careers, higher education, and successful business ventures.",
+        vision: "The department strives to develop the knowledge and skills required to act as responsible stewards and provide meaningful guidance to students in achieving their career goals.",
+        mission: [
+            "To empower students in their chosen disciplines by combining academic learning with hands-on industry experience.",
+            "To equip students with the ability to conduct method study, time study, and work study for improving efficiency and productivity in the workplace.",
+            "To inculcate values that empower students not only within society but also throughout their professional lives."
+        ],
+        objectives: [
+            "To provide quality management education that develops competent, ethical, and socially responsible business professionals.",
+            "To bridge the gap between classroom learning and industry requirements through experiential learning, internships, industrial visits, and project work.",
+            "To enhance students' analytical, problem-solving, decision-making, and leadership skills.",
+            "To develop entrepreneurial competencies and innovation for self-employment and business creation.",
+            "To encourage research, critical thinking, and continuous learning among students and faculty.",
+            "To improve communication, interpersonal, and professional skills required in the corporate world.",
+            "To promote ethical values, social responsibility, and sustainable business practices.",
+            "To prepare students for higher education, competitive examinations, and global career opportunities."
+        ],
+        rolesAndResponsibilities: [
+            "Deliver quality teaching through an outcome-based curriculum.",
+            "Organize seminars, workshops, conferences, guest lectures, and management development programmes.",
+            "Facilitate industrial visits, internships, field projects, and experiential learning.",
+            "Promote research activities, publications, and consultancy.",
+            "Conduct student development programmes focusing on aptitude, communication, leadership, and employability skills.",
+            "Encourage entrepreneurship through Entrepreneurship Development Cell (EDC) activities.",
+            "Establish collaborations with industries and professional organizations for academic enrichment.",
+            "Provide mentoring, counselling, and career guidance to students.",
+            "Organize placement training and campus recruitment activities.",
+            "Conduct extension and outreach programmes to develop social responsibility.",
+            "HOD & Faculty Leadership: Academic strategic direction, curriculum quality assurance, innovative pedagogy, research, and industry interaction.",
+            "Student Responsibilities: Active academic participation, discipline, leadership, internships, community service, and entrepreneurship initiatives."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -303,19 +571,19 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Banks, Financial Services and Insurance Sector" },
-            { title: "Entrepreneur" },
-            { title: "Shipping Management" },
-            { title: "Business" },
-            { title: "Sales & Marketing Manager" },
-            { title: "Finance & Accounting" },
-            { title: "Human Resource Management" },
-            { title: "Tourism Management" },
-            { title: "Supply Chain Management" },
-            { title: "Business Consultancy" },
-            { title: "Information Technology" },
-            { title: "E-Commerce" },
-            { title: "Government Jobs" },
+            { title: "Human Resource & Talent Executive" },
+            { title: "Marketing Executive & Sales Manager" },
+            { title: "Financial Analyst & Operations Executive" },
+            { title: "Business Development Executive & CRM Manager" },
+            { title: "Banking Professional & Insurance Advisor" },
+            { title: "Logistics, Supply Chain & Retail Manager" },
+            { title: "Digital Marketing Executive & Business Analyst" },
+            { title: "Administrative Officer & Management Trainee" },
+            { title: "Start-up Founder & Business Consultant" },
+            { title: "Franchise & E-commerce Entrepreneur" },
+            { title: "Government Services (UPSC, TNPSC, SSC, Banking, Railways, PSUs)" },
+            { title: "Higher Education: MBA, M.Com, MHRM, MSW, PGDM" },
+            { title: "Professional Skill & Personality Development Programmes" }
         ],
         faqs: [
             { question: "Is there an entrance exam for BBA?", answer: "Typically, admission is based on academic merit and a personal interview." }
@@ -350,9 +618,33 @@ export const programDetailsData = {
         title: "B.Sc. Chemistry",
         heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Department of Chemistry was established in the year 2020. It has been doing a good job in providing excellent opportunities for the students to equip themselves for the job opportunities and challenges in this fast-paced world. The department also provides ample opportunities for students to enrich their career skills.The Department of Chemistry lays the foundation for future Researchers and. Besides imparting knowledge and understanding of essential Chemical and Physical Principles in Chemistry",
-        vision: "To build foundation for excellence and spur development of the institution as a premier department, by nurturing enthusiasm, interests and passion, in the study of chemistry and environmental science and engineering in professional courses as a part of curricula",
-        mission: "To awaken the young budding minds and discover their talents both in theory and in practical chemistry, through dedication to teaching commitment to students and innovative instructional methods.To support the developmental activities of the college in all aspects and makes the department vibrant..",
+        about: "The Department of Chemistry was established in 2020. It lays a strong foundation for future researchers and professionals by imparting knowledge of essential chemical and physical principles. The department equips students with theoretical foundations, practical skills, scientific integrity, and hands-on laboratory experience to excel in diverse career paths and advanced studies.",
+        vision: "Emerges as a centre of excellence in undergraduate chemistry education, where students develop into competent professionals equipped with strong theoretical foundations, practical skills, and scientific integrity to excel in diverse career paths.",
+        mission: [
+            "To provide a comprehensive and rigorous education in the fundamental principles of chemistry, fostering an understanding of both theoretical concepts and practical laboratory techniques.",
+            "To develop critical thinking and problem-solving skills that enable students to apply chemical knowledge in real-world contexts, promoting scientific inquiry and discovery.",
+            "To prepare students for careers in chemistry and related fields such as pharmaceuticals, environmental science, materials science, and chemical engineering, as well as for advanced studies in graduate or professional programs.",
+            "To cultivate a passion for scientific research by encouraging students to engage in hands-on experiments, collaborative projects, and the application of modern analytical techniques."
+        ],
+        objectives: [
+            "To impart strong theoretical and practical knowledge in chemistry.",
+            "To provide hands-on laboratory training using modern instruments.",
+            "To encourage student participation in seminars, workshops, and research projects.",
+            "To develop communication, leadership, and teamwork skills.",
+            "To establish collaboration with industries and research institutions.",
+            "To promote ethical values and environmental consciousness."
+        ],
+        rolesAndResponsibilities: [
+            "Conduct theory and practical classes effectively.",
+            "Maintain laboratories and ensure laboratory safety.",
+            "Organize seminars, workshops, conferences, and industrial visits.",
+            "Guide students in research projects and internships.",
+            "Mentor students for academic and career development.",
+            "Conduct extension and outreach activities.",
+            "Encourage participation in scientific competitions.",
+            "Maintain academic records and ensure quality assurance.",
+            "Promote innovation, entrepreneurship, and environmental sustainability."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -362,30 +654,18 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: " Academic researcher" },
-            { title: "Agricultural chemist" },
-            { title: "Analytical chemist" },
-            { title: "Biochemist" },
-            { title: "Biotechnologist" },
-            { title: "Chemical engineering assistant" },
-            { title: "Chemical product officer" },
-            { title: "Chemistry tutor, teacher or Professor" },
-            { title: "Clinical research specialist" },
-            { title: "Cytologist" },
-            { title: "Food and flavour chemist" },
-            { title: "Forensic assistant" },
-            { title: "Industrial research scientist" },
-            { title: "Lab assistant" },
-            { title: "Pharmacy assistant" },
-            { title: "Production chemist" },
-            { title: "Proofreader for chemistry textbooks" },
-            { title: "Quality controller" },
-            { title: "Radiologist" },
-            { title: "Safety & health specialist" },
-            { title: "Scientific data entry specialist" },
-            { title: "Science writer" },
-            { title: "Toxicologist" },
-            { title: "Water quality chemist" },
+            { title: "Chemist & Analytical Chemist" },
+            { title: "Quality Control (QC) & Quality Assurance (QA) Officer" },
+            { title: "Research Associate & Industrial Research Scientist" },
+            { title: "Laboratory Technician & Chemical Analyst" },
+            { title: "Pharmaceutical Scientist & Clinical Specialist" },
+            { title: "Food Safety Officer & Environmental Chemist" },
+            { title: "Forensic Science Expert & Toxicologist" },
+            { title: "Industrial Chemist & Petrochemical Executive" },
+            { title: "Paint & Polymer Chemist" },
+            { title: "Government Scientific Officer & PSU Jobs" },
+            { title: "Civil Services & State Government Exams" },
+            { title: "Entrepreneurship (Chemical Products, Testing Labs, Consultancy)" }
         ],
         faqs: [
             { question: "What are the job opportunities in the chemical industry?", answer: "Graduates can find roles in pharmaceuticals, petrochemicals, cosmetics, and food processing industries." }
@@ -395,9 +675,23 @@ export const programDetailsData = {
         title: "B.Sc. Mathematics",
         heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Department of Mathematics came to full form in the year of 2019 with the introduction of B.Sc Maths. We have 8 inspiring faculty members and dynamic students. Our glowing department stimulates excellent navigation for the students to expose their competency.It can help you improve your solving Mathematics problems. The Department trains the student with practical work and gives exposure in various activities to gain knowledge.",
-        vision: "Imparting of quality mathematics education and the inculcating of the spirit of research through innovative teaching and research methodologies.",
-        mission: "To be a leading Mathematics Department in the country.To emerge as a global center of learning, academic excellence, and innovative research.",
+        about: "The Department of Mathematics came to full form in the year 2019 with the introduction of the 3-year full-time B.Sc Mathematics programme. Guided by 7 inspiring faculty members and dynamic students, the department stimulates excellent navigation for students to expose their competency, build strong logical reasoning, and apply mathematical concepts to solve real-world problems. Motto: 'Think Logically, Solve Creatively.'",
+        vision: "To develop competent graduates through quality education, research, and innovation.",
+        mission: "To promote academic excellence, professional skills, research, and lifelong learning for the betterment of society.",
+        objectives: [
+            "Build strong mathematical foundations.",
+            "Improve critical and logical thinking.",
+            "Support academic and research excellence.",
+            "Prepare students for higher education and careers."
+        ],
+        rolesAndResponsibilities: [
+            "Academic Excellence: Deliver quality teaching, curriculum implementation, and foster critical thinking and problem-solving abilities.",
+            "Student Development & Remedial Learning: Mentor students and prepare them for competitive exams (NET, SET, GATE, TRB, UPSC, TNPSC).",
+            "Research & Innovation: Promote research culture, paper publications, seminars, workshops, and innovative projects.",
+            "Software & Skill Development: Train students in mathematical software and tools (MATLAB, Python, R, Mathematica, GeoGebra).",
+            "Co-curricular & Outreach: Organize Mathematics Association events, National Mathematics Day celebrations, and community enrichment programmes.",
+            "Quality Assurance & Placement Support: Support IQAC/NAAC initiatives, conduct career guidance, placement training, and SWAYAM/NPTEL digital learning."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -407,25 +701,52 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: " Market Researcher" },
-            { title: "Mathematics Teacher" },
-            { title: "Puchasing Manager" },
-            { title: "Insurance Underwriter" },
-            { title: "Financial Planner" },
-            { title: "Statistician" },
-            { title: "Operations Research analyst" },
+            { title: "Mathematics Teacher / Lecturer" },
+            { title: "Data Analyst & Statistician" },
+            { title: "Operations Research Analyst" },
+            { title: "Financial Planner & Actuarial Specialist" },
+            { title: "Insurance Underwriter & Purchasing Manager" },
+            { title: "Software Developer & Computational Specialist" },
+            { title: "Higher Studies (M.Sc., M.Phil., Ph.D.)" },
+            { title: "Competitive Exams (NET, SET, GATE, TRB, UPSC, TNPSC, Banking, Railways)" }
         ],
+        staffDetails: [
+            { sNo: 1, name: "Mr. P. Arokyaraj", qualification: "M.Sc., M.Ed., M.Phil., (Ph.D) (HoD & Assistant Professor)" },
+            { sNo: 2, name: "Mrs. P. S. Kavitha", qualification: "M.Sc., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Mr. C. Suresh", qualification: "M.Sc. (Assistant Professor)" },
+            { sNo: 4, name: "Mrs. M. Kavitha", qualification: "M.Sc., B.Ed., M.Phil. (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. K. Nagarathinam", qualification: "M.Sc., M.Phil. (Assistant Professor)" },
+            { sNo: 6, name: "Mr. L. Sridhar", qualification: "M.Sc., B.Ed. (Assistant Professor)" },
+            { sNo: 7, name: "Mr. S. Praveen", qualification: "M.Sc. (Assistant Professor)" }
+        ],
+        eligibility: "Pass in Higher Secondary (+2) Examination in Academic or Vocational stream from Govt of Tamil Nadu or equivalent approved by Bharathiar University.",
         faqs: [
-            { question: "Is B.Sc. Mathematics useful for a career in IT?", answer: "Yes, mathematical logic is fundamental to computer science and data analytics." }
+            { question: "Is B.Sc. Mathematics useful for a career in IT?", answer: "Yes, mathematical logic is fundamental to computer science, programming languages (Python, R), and data analytics." }
         ]
     },
     "bsc-microbiology": {
         title: "B.Sc. Microbiology",
         heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Department of Microbiology was established in the year 2020 with a view to promoting an integrated approach to teaching and research in all areas of modern microbiology. Microbiology, the study of microorganisms is of major importance to our lives.",
-        vision: "To contribute to global health and environmental sustainability through microbiological research and education.",
-        mission: "To provide students with advanced knowledge and laboratory skills in microbiology.",
+        about: "The Department of Microbiology was established in 2020 with the UG course, upgraded to PG course in 2023, and established its Research program in 2024 to promote an integrated approach to teaching and research in modern microbiology. It aims to provide world-class life science education to empower students to build character, strengthen their minds, and become self-reliant. Equipped with modest UG & PG laboratories and common instrument facilities, the department contributes significantly to academic and professional communities.",
+        vision: "To emerge as a leading center for microbiological education and research, fostering innovation and scientific inquiry to tackle health, agricultural, and environmental challenges, with a strong foundation in rural needs and a global outlook.",
+        mission: [
+            "To cultivate a strong research culture in the field of Microbiology aimed at achieving global competence.",
+            "By leveraging state-of-the-art knowledge and skill development, students are empowered to learn beyond the curriculum.",
+            "The department also focuses on enhancing employability, practical skills, and fostering an entrepreneurial mindset among learners."
+        ],
+        rolesAndResponsibilities: [
+            "Provide quality education in Microbiology through undergraduate, postgraduate, and research programs.",
+            "Deliver effective theoretical and practical training in Medical, Industrial, Environmental, Food, Agricultural, and Molecular Microbiology.",
+            "Maintain well-equipped laboratories and ensure safe laboratory practices for teaching and research activities.",
+            "Promote scientific temper, critical thinking, and problem-solving skills among students.",
+            "Encourage student participation in internships, field visits, industrial training programs, and research projects.",
+            "Conduct seminars, workshops, conferences, guest lectures, and skill-development programs.",
+            "Guide students in higher education, entrepreneurship, and career development.",
+            "Undertake extension and outreach activities to create awareness on public health, environmental sustainability, and microbial applications.",
+            "Promote ethical values, professional responsibility, and lifelong learning among students and faculty members.",
+            "Maintain continuous quality improvement in teaching, learning, research, and laboratory practices."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -435,14 +756,26 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Food safety officer (MRB)" },
-            { title: "Clinical Lab Technician" },
-            { title: "Quality Control Analyst" },
-            { title: "Medical Coder" },
-            { title: "Pharmaceutical Industry" },
-
+            { title: "Food Safety Officer (MRB)" },
+            { title: "Clinical Microbiologist & Lab Technologist" },
+            { title: "Quality Control & Quality Assurance Analyst" },
+            { title: "Medical Coder & Molecular Biologist" },
+            { title: "Technical Officer in Biotech & Pharma Industries" },
+            { title: "Health and Safety Analyst" },
+            { title: "Forensic Science (TNPSC)" },
+            { title: "Scientific Officer in Research Laboratories" },
+            { title: "Cosmetic Scientist" },
+            { title: "Entrepreneur in Diagnostic, Food & Biotech Sectors" },
+            { title: "Faculty Member in Colleges & Universities" }
         ],
-        eligibility: "12th standard pass with Biology/Microbiology.",
+        staffDetails: [
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" },
+            { sNo: 6, name: "Mr. C. Andavar", qualification: "B.Com., CLIS (Lab Technician)" }
+        ],
         faqs: [
             { question: "What is the scope of Microbiology in healthcare?", answer: "Microbiologists play a crucial role in diagnostic labs, pharmaceutical research, and public health departments." }
         ]
@@ -451,9 +784,21 @@ export const programDetailsData = {
         title: "B.A. Tamil",
         heroImage: "https://images.unsplash.com/photo-1544411047-c491584222f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1544411047-c491584222f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "B.A. Tamil is an undergraduate degree program that focuses on the study of Tamil literature, language, and culture. It covers ancient works, modern literature, and linguistics.",
-        vision: "To preserve and promote the richness of Tamil language and heritage.",
-        mission: "To provide a comprehensive understanding of Tamil literature and its cultural significance.",
+        about: "2019ஆம் ஆண்டு கல்லூரி தொடங்கப்பட்ட காலத்திலிருந்தே தமிழ்த்துறை சிறப்பாக இயங்கி வருகிறது. இளங்கலை மாணவர்களுக்கு பகுதி–I தமிழ்ப்பாடம் கற்பிக்கப்பட்டு, மொழித்திறன், இலக்கியப்புலமை, பண்பாட்டு விழிப்புணர்வு, நற்பண்புகள் மற்றும் சமூகப்பொறுப்புணர்வு ஆகியவற்றை மாணவர்களிடம் வளர்ப்பதே துறையின் முக்கிய நோக்கமாகும். தரமான கற்பித்தலுடன், இலக்கியமன்ற நிகழ்வுகள், கருத்தரங்குகள், பயிலரங்குகள், போட்டிகள் போன்ற கல்விசார் செயல்பாடுகள் தொடர்ந்து நடத்தப்பட்டு, மாணவர்களின் படைப்பாற்றல், ஆய்வுத்திறன், பேச்சுத்திறன், எழுத்துத்திறன் ஆகியவை மேம்படுத்தப்படுகின்றன. 2025ஆம் ஆண்டில், பாரதியார் பல்கலைக்கழகம் தமிழ்த்துறைக்கு முனைவர்பட்ட (Ph.D.) ஆய்வுப்படிப்பு வழங்குவதற்கான அங்கீகாரத்தை வழங்கியது — இது துறையின் கல்வித்தரத்தையும் ஆய்வுச்சிறப்பையும் வெளிப்படுத்தும் முக்கிய மைல்கல்.",
+        vision: "தமிழ்மொழியின் தொன்மையையும் பண்பாட்டு மரபுகளையும் போற்றி, ஆய்வுமனப்பான்மையும் இலக்கியப்புலமையும் மிக்க, சமூகப்பொறுப்புணர்வுடன் செயல்படும் தலைமுறையினரை உருவாக்கும் சிறந்த தமிழ்த்துறையாக விளங்குவது.",
+        mission: [
+            "மாணவர்களிடம் தமிழ்மொழித்திறன், எழுத்துத்திறன், பேச்சுத்திறன் ஆகியவற்றை மேம்படுத்துதல்.",
+            "இலக்கியப்புலமையையும் ஆய்வுத்திறனையும் வளர்ப்பதற்கான கல்விசார் செயல்பாடுகளை மேற்கோள்ளுதல்.",
+            "கருத்தரங்குகள், பயிலரங்குகள், இலக்கியமன்ற நிகழ்வுகள் மற்றும் போட்டிகள் வாயிலாக மாணவர்களின் படைப்பாற்றலை ஊக்குவித்தல்.",
+            "முனைவர்பட்ட (Ph.D.) ஆய்வுப்படிப்பு மூலம் உயர்கல்வி மற்றும் ஆய்வுத்துறையில் சிறப்பான பங்களிப்பை வழங்குதல்.",
+            "தமிழ்மொழி மற்றும் பண்பாட்டு மரபுகளைப் பாதுகாத்து அடுத்த தலைமுறைக்குக் கொண்டுசெல்லுதல்.",
+            "மாணவர்களிடம் நற்பண்புகளையும் சமூகப்பொறுப்புணர்வையும் வளர்த்தல்."
+        ],
+        objectives: [
+            "தமிழின் பெருமையைப்போற்றி, அறிவை வளர்த்து, ஆய்வை ஊக்குவித்தல்.",
+            "தமிழ்மொழித்திறன், எழுத்துத்திறன், பேச்சுத்திறன் மற்றும் படைப்பாற்றலை மேம்படுத்துதல்.",
+            "பாரதியார் பல்கலைக்கழக அங்கீகாரத்துடன் முனைவர்பட்ட (Ph.D.) ஆய்வு வழிகாட்டல் வழங்குதல்."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -462,19 +807,24 @@ export const programDetailsData = {
             "ICT Enabled Smart Classrooms",
             "Electronic Library"
         ],
-        keyHighlights: [
-            "In-depth study of Sangam literature",
-            "Focus on Tamil grammar and linguistics",
-            "Exploration of modern Tamil creative writing",
-            "Cultural seminars and literary workshops"
-        ],
         careerOpportunities: [
-            { title: "Tamil Teacher/Professor" },
-            { title: "Journalist in Tamil Media" },
-            { title: "Content Writer" },
-            { title: "Translator" }
+            { title: "தமிழாசிரியர் & கல்லூரிப் பேராசிரியர் (Tamil Teacher / Professor)" },
+            { title: "தமிழ் ஊடகவியலாளர் & செய்தியாளர் (Tamil Journalist & Reporter)" },
+            { title: "படைப்பாளர் & எழுத்தாளர் (Creative Writer & Content Writer)" },
+            { title: "மொழிபெயர்ப்பாளர் & பதிப்புத்துறை (Translator & Publisher)" },
+            { title: "அரசுப்பணிகள் (TNPSC, UPSC Civil Services)" },
+            { title: "முனைவர்பட்ட ஆய்வு (Ph.D. Research Scholar)" }
         ],
-        eligibility: "12th standard pass in any stream.",
+        staffDetails: [
+            { sNo: 1, name: "முனைவர் இர. செந்தில்ராணி", qualification: "M.A., M.A. (Edn), M.Phil., B.Ed., Ph.D., NET., SET. (உதவிப்பேராசிரியர் & துறைத்தலைவர்)" },
+            { sNo: 2, name: "திரு. ப. இராமன்", qualification: "M.A., B.Ed. (உதவிப்பேராசிரியர்)" },
+            { sNo: 3, name: "திரு. செ. செல்வக்குமார்", qualification: "M.A., M.Phil., B.Ed. (உதவிப்பேராசிரியர்)" },
+            { sNo: 4, name: "திரு. கு. ராஜேந்திரகுமார்", qualification: "M.A., B.Ed., NET, (Ph.D.) (உதவிப்பேராசிரியர்)" },
+            { sNo: 5, name: "திருமதி கு. யசோதா", qualification: "M.A., M.Phil., B.Ed., DCT. (உதவிப்பேராசிரியர்)" },
+            { sNo: 6, name: "திரு. பா. நந்தகுமார்", qualification: "M.A. (உதவிப்பேராசிரியர்)" },
+            { sNo: 7, name: "திரு. வே. விமல்ராஜ்", qualification: "M.A., DIE, (Ph.D.) (உதவிப்பேராசிரியர்)" },
+            { sNo: 8, name: "செல்வி ச. மைவிழி", qualification: "M.A. (உதவிப்பேராசிரியர்)" }
+        ],
         faqs: [
             { question: "What are the benefits of studying B.A. Tamil?", answer: "It opens doors to careers in education, media, administration, and creative writing, while strengthening cultural roots." }
         ]
@@ -483,9 +833,28 @@ export const programDetailsData = {
         title: "B.A. English",
         heroImage: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Department of English came to full form in the year 2019 with the introduction of B.A English. We have 8 inspiring faculty members and dynamic students. Our glowing department stimulates excellent navigation for the students to expose their competency. It can help you to improve your writing skills, expand your vocabulary and knowledge of grammar, and deepen your understanding of literature. It conducts a literary fest towards the end of every academic year.A variety of competitions such as Essay writing, Short story writing, Poetry writing, creative writing, and literary exhibitions are conducted every year. The Department is looking forward to an intra-collegiate literary fest during every academic year as a step to widen the program’s horizon.",
-        vision: "The Vision of the Department of English is to provide students with education of the highest quality in English language and literature as well as in critical and creative writing. The Department also seeks to imbibe value education in the students and teach them the value of Humanism and also to produce great and responsible citizens of their own community as well as country.",
-        mission: "The Mission of the Department is to train students in communication skills in English; to introduce students to the tool of literary scholarship; to strengthen their ability to analyze all forms of literary expression and to prepare them for careers and higher education.",
+        about: "The PG & Research Department of English came to full form in 2019 with the introduction of B.A English. The department provides students with education of the highest quality in English language, literature, critical thinking, and creative writing. It regularly conducts literary fests, essay, short story, poetry, creative writing competitions, and literary exhibitions to expand students' horizons, vocabulary, and scholarly depth.",
+        vision: "To be a centre of excellence in English language and literary studies by nurturing critical thinking, effective communication, creativity, ethical values and global perspectives, empowering students to become competent professionals and responsible citizens.",
+        mission: [
+            "To provide quality education in English language, literature, and communication skills through innovative and learner-centred teaching.",
+            "To cultivate critical thinking, analytical ability, creativity and research aptitude among students.",
+            "To enhance students' proficiency in spoken and written English for academic, professional and personal success.",
+            "To organize seminars, workshops, literary activities and extension programs that enrich learning beyond the classroom.",
+            "To prepare students for higher education, competitive examinations (including UGC-NET/SET), employment, and entrepreneurship."
+        ],
+        objectives: [
+            "To develop proficiency in listening, speaking, reading and writing skills.",
+            "To foster appreciation of English literature from different periods and cultures.",
+            "To encourage participation in literary, cultural and co-curricular activities.",
+            "To promote interdisciplinary learning and digital literacy.",
+            "To inspire research and scholarly writing.",
+            "To prepare students for careers in teaching, media, publishing, content writing, civil services, corporate communication and other language-related professions."
+        ],
+        rolesAndResponsibilities: [
+            "Head of the Department: Academic leadership, administrative management, faculty/student development, research, curriculum development, quality assurance, placements, resource management, and strategic planning.",
+            "Assistant Professor (Teaching Faculty): Effective teaching, curriculum implementation, student mentoring, assessment, research publication, literary activities, placement skills, and community engagement.",
+            "Core Values: Academic excellence, integrity & ethics, inclusiveness, creativity, critical thinking, effective communication, lifelong learning, and social responsibility."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -495,17 +864,29 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Teacher / Professor" },
-            { title: "Medical Transcriptionist" },
-            { title: "Big Data Engineer" },
-            { title: "Lawyer" },
-            { title: "Software engineer" },
-            { title: "Data scientist" },
-            { title: "Soft skill Trainer" },
-            { title: "Content Writer" },
-            { title: "Orator, Editor" }
+            { title: "Teacher / Assistant Professor" },
+            { title: "Journalist & Media Professional" },
+            { title: "Content Writer, Copywriter & Editor" },
+            { title: "Corporate Communication Specialist" },
+            { title: "Soft Skill & Spoken English Trainer" },
+            { title: "Translator & Publishing Professional" },
+            { title: "Civil Services & Government Jobs (UPSC, TNPSC)" },
+            { title: "Higher Education (M.A., M.Phil., Ph.D., UGC-NET/SET)" }
         ],
-
+        staffDetails: [
+            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D. (AP & HOD)" },
+            { sNo: 2, name: "Mr. P. Ramesh", qualification: "M.A., M.Phil., (Ph. D) (AP)" },
+            { sNo: 3, name: "Mr. K. S. Sowmiyan", qualification: "M.A., M.Phil. (AP)" },
+            { sNo: 4, name: "Mr. S. Vignesh", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 5, name: "Mrs. S. Kowsalya", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 6, name: "Mr. A. Arunkumar", qualification: "M.A., B.Ed., M.Phil. (AP)" },
+            { sNo: 7, name: "Mr. V. AshokKumar", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 8, name: "Ms. V. Divya Bharathi", qualification: "M.A., (Ph. D) (AP)" },
+            { sNo: 9, name: "Mr. A. Ramesh", qualification: "M.A., M.Phil., B.Ed. (AP)" },
+            { sNo: 10, name: "Mrs. N. Jayasankavi", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 11, name: "Mr. S. Mohamed Yashin", qualification: "M.A., M.Phil. (AP)" },
+            { sNo: 12, name: "Mr. M. Sanjai", qualification: "M.A. (AP)" }
+        ],
         faqs: [
             { question: "Does this course help with competitive exams?", answer: "Yes, the strong focus on language and analytical skills is highly beneficial for exams like UPSC, CAT, and Banking." }
         ]
@@ -514,19 +895,41 @@ export const programDetailsData = {
         title: "B.Sc Costume Design & Fashion",
         heroImage: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Department of Costume design and fashion was established in the year 2019. It has been doing a good job in providing excellent opportunities for the students to equip themselves for the job opportunities and challenges in this fast-paced world. The department also provides ample opportunities for students to enrich their career skills. The Department of Costume design and fashion lays the foundation for future executives and entrepreneurs. Besides imparting Confidence boost, Sense of accomplishment, Consistent wardrobe, Creativity, Happiness boost, Better focus ,Better focus.A career as a Fashion consultant is lucrative and has an amazing growth opportunity as well..",
-        vision: "The vision of the department is to be the best in the field of fashion and design attune with the growth of the textile industry and impart the skills of innovation in the students for the finest creation of traditional and western culture.",
-        mission: "Our mission is to offer textile related education and services, which are society centered in order to enhance the student’s skills in the field of textile design and fashion",
+        about: "The Department of Costume Design and Fashion, established in 2019, is committed to nurturing creative, skilled, and industry-ready fashion professionals through quality education that integrates theoretical knowledge with practical training. The curriculum provides comprehensive learning in costume design, garment construction, textile science, fashion illustration, apparel production, and computer-aided design (CAD). The department is equipped with well-established laboratories to provide students with hands-on training, technical competence, and foster innovation.",
+        vision: "To become a center of excellence in costume design and fashion education, empowering students to lead the global fashion industry with creativity, innovation and sustainability.",
+        mission: [
+            "Our mission is to provide quality education in costume design and fashion by blending traditional craftsmanship with modern technology.",
+            "We aim to nurture creative thinkers, skilled professionals, and responsible designers who can contribute to the cultural and commercial aspects of the fashion world, and to offer textile-related education and services.",
+            "To promote research, innovation, and collaboration with industry partners to enhance learning opportunities and foster creativity."
+        ],
+        objectives: [
+            "To develop the creative talents of young people who aspire to become professional fashion designers by enhancing their skills through research, innovation, and careful observation to create unique and innovative collections.",
+            "To create clothing and accessory designs for men, women, and children.",
+            "To research fashion design, colour trends, and seasonal forecasts.",
+            "To research, compare, and evaluate products and their prices.",
+            "To design graphics for screen printing, embroidery, garments, and promotional materials.",
+            "To review and evaluate samples provided by manufacturers.",
+            "To ensure that design objectives align with operational performance goals such as quality, speed, dependability, flexibility, cost, and sustainability."
+        ],
+        rolesAndResponsibilities: [
+            "To provide quality education by integrating theoretical knowledge with practical training in Costume Design and Fashion.",
+            "To develop students' creativity, technical competence, and professional skills through outcome-based learning.",
+            "To provide hands-on learning opportunities through well-equipped laboratories, workshops, and modern teaching methodologies.",
+            "To organize industrial visits, internships, seminars, exhibitions, fashion shows, and skill development programmes.",
+            "To promote research, innovation, entrepreneurship, and sustainable practices in the field of fashion and textiles.",
+            "To encourage students to participate in extension activities, community outreach programmes, and professional development initiatives.",
+            "To prepare students for higher education, employment, and entrepreneurship by fostering ethical values, leadership, and lifelong learning."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
-            "State-of-the-art computer laboratories",
-            "WiFi Enabled Campus",
-            "Well Equipped Laboratories",
-            "ICT Enabled Smart Classrooms",
-            "Electronic Library",
-            "Advanced Sewing and Drafting Lab"
+            "Garment Construction Lab & Advanced Garment Construction Lab",
+            "Textile Processing Lab & Fiber to Fabric Lab",
+            "Fabric Structure Design Lab",
+            "Surface Embellishment Lab",
+            "Fashion Sketching and Designing Lab",
+            "Computer-Aided Design (CAD) Lab",
+            "WiFi Enabled Campus & Electronic Library"
         ],
-
         careerOpportunities: [
             { title: "Apparel Production Manager" },
             { title: "Costume Designer" },
@@ -534,7 +937,18 @@ export const programDetailsData = {
             { title: "Fabric Quality Control Manager" },
             { title: "Fabric Buyer" },
             { title: "Fashion Show Organizer" },
-
+            { title: "Technical Designer" },
+            { title: "Fashion Consultant" },
+            { title: "Production Pattern Maker" },
+            { title: "Showroom Sales Representative" },
+            { title: "Graphic Designer" },
+            { title: "Higher Education Opportunities (M.Sc. CDF, MBA)" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Mrs. T. AYEESHASUMAIYA", qualification: "M.Sc., (Ph.D) (Head of the Department)" },
+            { sNo: 2, name: "Mrs. K. DHENMOZHI", qualification: "M.Sc. (Assistant Professor)" },
+            { sNo: 3, name: "Mrs. P. ANITHA", qualification: "M.Sc. (Assistant Professor)" },
+            { sNo: 4, name: "Mrs. R. J. SADHANA", qualification: "M.Sc. (Assistant Professor)" }
         ],
         faqs: [
             { question: "Is a portfolio required for admission?", answer: "While not mandatory, a passion for creativity and design is highly encouraged." }
@@ -574,12 +988,39 @@ export const programDetailsData = {
         ]
     },
     "mcom": {
-        title: "Master of Commerce",
+        title: "Master of Commerce (M.Com)",
         heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         aboutImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "Master of Commerce (M. Com) course is considered an entry point for professions like chartered accountancy, company secretary, cost and work accountancy, and insurance and banking services. One can also pursue higher studies and become a lecturer and assistant professor at universities.",
-        vision: "To produce academic leaders and commerce experts for the global economy.",
-        mission: "To provide a strong foundation in commerce research and professional practice.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering M.Com in the Post Graduate stream alongside Ph.D. research courses. The department is manned by academically well-qualified, experienced, and committed faculty members. It strives for the holistic development of students in acquiring advanced Accounting, Banking, Managerial, Leadership, Entrepreneurial, and Research Skills.",
+        vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
+        mission: [
+            "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
+            "To cultivate a culture of research and inquiry that contributes to academic excellence and societal development.",
+            "To develop professionals with integrity, analytical skills, and a global outlook.",
+            "To engage in industry-institution collaboration for mutual growth and relevance.",
+            "To empower students and scholars to become thought leaders, entrepreneurs, and change-makers."
+        ],
+        objectives: [
+            "To provide quality postgraduate education in commerce by equipping students with comprehensive knowledge and practical skills in accounting, finance, banking, taxation, management and information technology.",
+            "To promote research excellence by encouraging faculty members and scholars to undertake innovative, ethical, and socially relevant research that contributes to academic and industrial development.",
+            "To develop professional competence and leadership qualities by nurturing critical thinking, analytical ability, communication skills, ethical values and entrepreneurial mindset among students.",
+            "To strengthen industry and institutional collaboration through guest lectures, internships, industrial visits, training programmes, workshops and research partnerships to enhance employability and practical exposure.",
+            "To foster lifelong learning and social responsibility by preparing students to become competent professionals, responsible citizens, entrepreneurs and contributors to sustainable economic and societal development."
+        ],
+        rolesAndResponsibilities: [
+            "To provide quality postgraduate education in commerce through effective teaching, learning and evaluation practices.",
+            "To design and implement a curriculum that meets the evolving needs of industry, academia and society.",
+            "To promote research, innovation, and publication among faculty members, research scholars and postgraduate students.",
+            "To organize seminars, workshops, conferences, guest lectures, faculty development programmes and skill enhancement activities.",
+            "To facilitate industry–institution interaction through internships, industrial visits, expert talks and collaborative initiatives.",
+            "To mentor and guide students in academic, career, entrepreneurial and research-related activities.",
+            "To encourage students to participate in co-curricular and extracurricular activities for holistic personality development.",
+            "To ensure the effective implementation of Outcome-Based Education (OBE) and continuous quality improvement practices.",
+            "To maintain academic discipline, transparency, and ethical standards in teaching, research and evaluation.",
+            "To support students in placement, Ph.D. research entrance, competitive examinations (NET/SET) and entrepreneurial ventures.",
+            "To undertake extension and outreach programmes that promote social responsibility and community engagement.",
+            "To maintain departmental records, research documentation and academic activities in compliance with the requirements of the University and IQAC."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -589,13 +1030,30 @@ export const programDetailsData = {
             "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Chartered Accountant" },
-            { title: "Company Secretary" },
-            { title: "Insurance and Banking services." },
-
+            { title: "Assistant Professor / Lecturer (UGC-NET / SET)" },
+            { title: "Financial Analyst & Research Associate" },
+            { title: "Chartered Accountant (CA) & Company Secretary (CS)" },
+            { title: "Taxation & Corporate Audit Consultant" },
+            { title: "Banking Executive & Finance Manager" },
+            { title: "Ph.D. Doctoral Research Scholar" },
+            { title: "Corporate Finance & Investment Specialist" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
-            { question: "Is this course suitable for pursuing Ph.D.?", answer: "Yes, M.Com General provides the necessary foundation and research background for doctoral studies in commerce." }
+            { question: "Is this course suitable for pursuing Ph.D.?", answer: "Yes, M.Com provides the necessary academic foundation, research methodology, and qualification for NET/SET and Ph.D. doctoral studies in commerce." }
         ]
     },
     "msc-microbiology": {
@@ -741,6 +1199,122 @@ export const programDetailsData = {
         ],
         faqs: [
             { question: "What is the scope of M.A Tamil?", answer: "M.A Tamil offers opportunities in teaching, research, translation, media, and government services (TNPSC)." }
+        ]
+    },
+    "physical-education": {
+        title: "Department of Physical Education",
+        heroImage: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+        aboutImage: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        about: "The Department of Physical Education at Shree Venkateshwara Arts and Science College is dedicated to promoting physical fitness, mental well-being, and the holistic development of students. The department strives to create a healthy and active campus environment by encouraging students to participate in sports, games, yoga, physical fitness programmes, and recreational activities. Through regular coaching, training camps, and fitness initiatives, the department instills discipline, teamwork, leadership, perseverance, and sportsmanship.",
+        vision: "To be a Centre of Excellence in Physical Education by promoting physical fitness, sportsmanship, ethical values, leadership, and holistic personality development, empowering students to lead healthy, active, disciplined, and socially responsible lives.",
+        mission: [
+            "To provide quality physical education that enhances the physical, mental, emotional, and social well-being of students.",
+            "To promote active participation in sports, games, yoga, and recreational activities for lifelong fitness.",
+            "To identify, nurture, and develop talented athletes through systematic coaching and scientific training.",
+            "To cultivate discipline, teamwork, leadership, integrity, and sportsmanship among students.",
+            "To encourage students to participate and achieve excellence in intercollegiate, university, state, national, and international competitions.",
+            "To create awareness about health, wellness, fitness, and healthy lifestyle practices.",
+            "To develop responsible citizens with strong moral values, confidence, and a spirit of service through sports and physical education."
+        ],
+        objectives: [
+            "To promote physical fitness, health, and overall well-being among students.",
+            "To encourage active participation in sports, games, yoga, and recreational activities.",
+            "To develop discipline, teamwork, leadership, self-confidence, and sportsmanship through physical education.",
+            "To identify, encourage, and nurture talented sportspersons for participation in university, state, national, and international competitions.",
+            "To organize intramural, intercollegiate, and extension sports activities to enhance students' competitive skills.",
+            "To create awareness about healthy lifestyles, nutrition, stress management, and fitness.",
+            "To encourage inclusive participation by providing equal opportunities for all students in physical activities and sports.",
+            "To support the overall personality development of students through physical education and sports."
+        ],
+        rolesAndResponsibilities: [
+            "Plan and implement the department's activities and prepare annual sports calendar.",
+            "Organize sports tournaments, athletic meets, and coordinate university sports participation.",
+            "Select and coach college teams through scientific training and fitness initiatives.",
+            "Maintain discipline during sports activities and manage sports facilities and equipment.",
+            "Prepare departmental reports, budgets, and conduct fitness and wellness programmes.",
+            "Encourage student participation in intercollegiate, state, national, and international competitions."
+        ],
+        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilities: [
+            "State-of-the-art computer laboratories",
+            "WiFi Enabled Campus",
+            "Well Equipped Laboratories",
+            "ICT Enabled Smart Classrooms",
+            "Electronic Library"
+        ],
+        careerOpportunities: [
+            { title: "Physical Education Director & Coach" },
+            { title: "Sports Development Officer & Trainer" },
+            { title: "Fitness & Wellness Instructor" },
+            { title: "Yoga Trainer & Cognitive Skill Coach" },
+            { title: "Professional Athlete & State/National Player" },
+            { title: "Sports Management & Event Coordinator" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. G. TAMILSELVAN", qualification: "B.Sc., M.PED., PGDYE., Ph.D. (HOD)" },
+            { sNo: 2, name: "K. MANIKANDAN", qualification: "B.COM (CS)., B.PED., M.PED. (Physical Director)" },
+            { sNo: 3, name: "S. BHAVANI", qualification: "B.COM., B.PED. (Assistant Physical Director)" }
+        ],
+        faqs: [
+            { question: "Does the department support university & national level sports participation?", answer: "Yes, the department provides scientific coaching, training camps, and full support for intercollegiate, university, state, and national sports competitions." }
+        ]
+    },
+    "department-of-physical-education": {
+        title: "Department of Physical Education",
+        heroImage: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+        aboutImage: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        about: "The Department of Physical Education at Shree Venkateshwara Arts and Science College is dedicated to promoting physical fitness, mental well-being, and the holistic development of students. The department strives to create a healthy and active campus environment by encouraging students to participate in sports, games, yoga, physical fitness programmes, and recreational activities. Through regular coaching, training camps, and fitness initiatives, the department instills discipline, teamwork, leadership, perseverance, and sportsmanship.",
+        vision: "To be a Centre of Excellence in Physical Education by promoting physical fitness, sportsmanship, ethical values, leadership, and holistic personality development, empowering students to lead healthy, active, disciplined, and socially responsible lives.",
+        mission: [
+            "To provide quality physical education that enhances the physical, mental, emotional, and social well-being of students.",
+            "To promote active participation in sports, games, yoga, and recreational activities for lifelong fitness.",
+            "To identify, nurture, and develop talented athletes through systematic coaching and scientific training.",
+            "To cultivate discipline, teamwork, leadership, integrity, and sportsmanship among students.",
+            "To encourage students to participate and achieve excellence in intercollegiate, university, state, national, and international competitions.",
+            "To create awareness about health, wellness, fitness, and healthy lifestyle practices.",
+            "To develop responsible citizens with strong moral values, confidence, and a spirit of service through sports and physical education."
+        ],
+        objectives: [
+            "To promote physical fitness, health, and overall well-being among students.",
+            "To encourage active participation in sports, games, yoga, and recreational activities.",
+            "To develop discipline, teamwork, leadership, self-confidence, and sportsmanship through physical education.",
+            "To identify, encourage, and nurture talented sportspersons for participation in university, state, national, and international competitions.",
+            "To organize intramural, intercollegiate, and extension sports activities to enhance students' competitive skills.",
+            "To create awareness about healthy lifestyles, nutrition, stress management, and fitness.",
+            "To encourage inclusive participation by providing equal opportunities for all students in physical activities and sports.",
+            "To support the overall personality development of students through physical education and sports."
+        ],
+        rolesAndResponsibilities: [
+            "Plan and implement the department's activities and prepare annual sports calendar.",
+            "Organize sports tournaments, athletic meets, and coordinate university sports participation.",
+            "Select and coach college teams through scientific training and fitness initiatives.",
+            "Maintain discipline during sports activities and manage sports facilities and equipment.",
+            "Prepare departmental reports, budgets, and conduct fitness and wellness programmes.",
+            "Encourage student participation in intercollegiate, state, national, and international competitions."
+        ],
+        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilities: [
+            "State-of-the-art computer laboratories",
+            "WiFi Enabled Campus",
+            "Well Equipped Laboratories",
+            "ICT Enabled Smart Classrooms",
+            "Electronic Library"
+        ],
+        careerOpportunities: [
+            { title: "Physical Education Director & Coach" },
+            { title: "Sports Development Officer & Trainer" },
+            { title: "Fitness & Wellness Instructor" },
+            { title: "Yoga Trainer & Cognitive Skill Coach" },
+            { title: "Professional Athlete & State/National Player" },
+            { title: "Sports Management & Event Coordinator" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. G. TAMILSELVAN", qualification: "B.Sc., M.PED., PGDYE., Ph.D. (HOD)" },
+            { sNo: 2, name: "K. MANIKANDAN", qualification: "B.COM (CS)., B.PED., M.PED. (Physical Director)" },
+            { sNo: 3, name: "S. BHAVANI", qualification: "B.COM., B.PED. (Assistant Physical Director)" }
+        ],
+        faqs: [
+            { question: "Does the department support university & national level sports participation?", answer: "Yes, the department provides scientific coaching, training camps, and full support for intercollegiate, university, state, and national sports competitions." }
         ]
     }
 };
