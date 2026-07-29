@@ -22,9 +22,11 @@ import AwardsGallery from './pages/AwardsGallery';
 import NewsLetter from './pages/NewsLetter';
 import WhySvasc from './pages/WhySvasc';
 import Admission from './pages/Admission';
+import AdminDashboard from './pages/AdminDashboard';
 import Cafeteria from './components/Facilities/Cafeteria';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/Common/ScrollToTop';
+import ErrorBoundary from './components/ErrorBoundary';
 import LMS from './components/Facilities/LMS';
 import Hostel from './components/Facilities/Hostel';
 import SmartClass from './components/Facilities/SmartClass';
@@ -35,39 +37,42 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Routes>
-        <Route element={<UserLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/programms" element={<Programms />} />
-          <Route path="/program/:id" element={<ProgramDetails />} />
-          <Route path="/activities" element={<Activities />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/sports" element={<Sports />} />
-          <Route path="/exam" element={<Exam />} />
-          <Route path="/campus-life" element={<CampusLife />} />
-          <Route path="/alumni" element={<Alumni />} />
-          <Route path="/placement" element={<Placement />} />
-          <Route path="/statistics" element={<Statistics />} />
-          <Route path="/about" element={<AboutSVASC />} />
-          <Route path="/vision-mission" element={<Vision />} />
-          <Route path="/milestones" element={<Timeline />} />
-          <Route path="/principal" element={<PrincipalMessage />} />
-          <Route path="/secretary" element={<SecretaryMessage />} />
-          <Route path="/chairman" element={<ChairmanMessage />} />
-          <Route path="/awards" element={<AwardsGallery />} />
-          <Route path="/news" element={<NewsLetter />} />
-          <Route path="/why-svasc" element={<WhySvasc />} />
-          <Route path="/cafeteria" element={<Cafeteria />} />
-          <Route path="/lms" element={<LMS />} />
-          <Route path="/hostel" element={<Hostel />} />
-          <Route path="/smart-class" element={<SmartClass />} />
-          <Route path="/transport" element={<Transport />} />
-          <Route path="/laboratory" element={<Laboratory />} />
-          <Route path="/library" element={<LibraryPortal />} />
-        </Route>
-        <Route path="/admission" element={<Admission />} />
-      </Routes>
+      <ErrorBoundary>
+        <Routes>
+          <Route element={<UserLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/programms" element={<Programms />} />
+            <Route path="/program/:id" element={<ProgramDetails />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/sports" element={<Sports />} />
+            <Route path="/exam" element={<Exam />} />
+            <Route path="/campus-life" element={<CampusLife />} />
+            <Route path="/alumni" element={<Alumni />} />
+            <Route path="/placement" element={<Placement />} />
+            <Route path="/statistics" element={<Statistics />} />
+            <Route path="/about" element={<AboutSVASC />} />
+            <Route path="/vision-mission" element={<Vision />} />
+            <Route path="/milestones" element={<Timeline />} />
+            <Route path="/principal" element={<PrincipalMessage />} />
+            <Route path="/secretary" element={<SecretaryMessage />} />
+            <Route path="/chairman" element={<ChairmanMessage />} />
+            <Route path="/awards" element={<AwardsGallery />} />
+            <Route path="/news" element={<NewsLetter />} />
+            <Route path="/why-svasc" element={<WhySvasc />} />
+            <Route path="/cafeteria" element={<Cafeteria />} />
+            <Route path="/lms" element={<LMS />} />
+            <Route path="/hostel" element={<Hostel />} />
+            <Route path="/smart-class" element={<SmartClass />} />
+            <Route path="/transport" element={<Transport />} />
+            <Route path="/laboratory" element={<Laboratory />} />
+            <Route path="/library" element={<LibraryPortal />} />
+          </Route>
+          <Route path="/admission" element={<Admission />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Routes>
+      </ErrorBoundary>
     </Router>
   );
 }

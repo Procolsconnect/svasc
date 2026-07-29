@@ -44,14 +44,8 @@ const getBlogById = async (req, res) => {
 const createBlog = async (req, res) => {
     try {
         const { title, day, month, description } = req.body;
-        if (!req.file) {
-            return res.status(400).json({
-                success: false,
-                message: 'Image file is required'
-            });
-        }
-
-        const imagePath = `/uploads/${req.file.filename}`;
+        
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
         const blog = await BlogService.createBlog({ title, day, month, description, image: imagePath });
         res.status(201).json({
             success: true,

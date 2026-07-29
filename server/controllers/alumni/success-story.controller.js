@@ -20,34 +20,18 @@ const getAllStories = async (req, res) => {
 
 const createStory = async (req, res) => {
     try {
-        const { type, content, order } = req.body;
+        const { name, role, description, order } = req.body;
 
-        if (!type) {
+        if (!name || !role) {
             return res.status(400).json({
                 success: false,
-                message: 'Type is required'
+                message: 'Name and role are required'
             });
         }
 
-        let storyData = { type, order: order || 0 };
+        let storyData = { name, role, description, order: order || 0 };
 
-        if (type === 'text' || type === 'video') {
-            if (!content) {
-                return res.status(400).json({
-                    success: false,
-                    message: 'Content is required for text and video types'
-                });
-            }
-            storyData.content = content;
-        }
-
-        if (type === 'image') {
-            if (!req.file) {
-                return res.status(400).json({
-                    success: false,
-                    message: 'Image file is required for image type'
-                });
-            }
+        if (req.file) {
             storyData.image = `/uploads/${req.file.filename}`;
         }
 
@@ -68,11 +52,12 @@ const createStory = async (req, res) => {
 const updateStory = async (req, res) => {
     try {
         const { id } = req.params;
-        const { type, content, order } = req.body;
+        const { name, role, description, order } = req.body;
         let updateData = {};
 
-        if (type) updateData.type = type;
-        if (content) updateData.content = content;
+        if (name) updateData.name = name;
+        if (role) updateData.role = role;
+        if (description !== undefined) updateData.description = description;
         if (order !== undefined) updateData.order = order;
 
         if (req.file) {

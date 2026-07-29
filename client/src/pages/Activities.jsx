@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Activities.module.css';
 import Hero from '../components/Common/Hero';
+import axios from 'axios';
 
-const ProjectsPortfolio = () => {
-  const projects = [
+const BASE_URL = 'http://localhost:5000';
+
+const defaultActivities = [
     {
       ID: "antiRagging",
       category: "Anti Ragging Cell",
@@ -396,392 +398,67 @@ const ProjectsPortfolio = () => {
         { image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400", title: "Creativity Club" },
         { image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400", title: "Life Skills Workshop" }
       ]
-    },
-    {
-      ID: "antiDrugClub",
-      category: "Anti Drug Club",
-      bImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800",
-      copy: `
-        <div class="${styles.activitySection}">
-          <h3>Vision</h3>
-          <p>To build a campus free from substance abuse where every student chooses health, purpose, and a drug-free future.</p>
-          
-          <h3>Mission</h3>
-          <ol>
-            <li>Create awareness about the harmful effects of drugs through campaigns and workshops.</li>
-            <li>Empower students to make informed, healthy choices.</li>
-            <li>Provide peer support and guidance for those seeking help.</li>
-            <li>Collaborate with experts and authorities to promote a safe campus environment.</li>
-          </ol>
-
-          <h3>Objectives of Anti Drug Club</h3>
-          <ul>
-            <li><strong>Create Awareness:</strong> Conduct regular seminars, workshops, and campaigns to educate students about the physical, mental, and social effects of drug abuse.</li>
-            <li><strong>Prevent First Use:</strong> Equip students with life skills to resist peer pressure and make informed decisions through interactive sessions and role plays.</li>
-            <li><strong>Promote Healthy Alternatives:</strong> Encourage sports, arts, yoga, and cultural activities as positive outlets to reduce stress and prevent drug experimentation.</li>
-            <li><strong>Build Support Systems:</strong> Establish peer support groups and confidential counseling channels for students seeking help or information.</li>
-            <li><strong>Early Identification & Intervention:</strong> Train club members to identify early warning signs and guide at-risk students to professional help without stigma.</li>
-          </ul>
-
-          <div class="${styles.teamDetails}">
-            <h3>Coordinator & Committee</h3>
-            <p><strong>Coordinator:</strong> Mr. K. Manikandan, Physical Director</p>
-            <p><strong>Members:</strong></p>
-            <ul>
-              <li>Mr. V. Ashok Kumar, AP/English</li>
-              <li>Ms. M. Miruthila, AP/PG Commerce</li>
-              <li>Mr. D. Shyamsundar, AP/BCA</li>
-            </ul>
-          </div>
-        </div>
-      `,
-      cards: [
-        { image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400", title: "Awareness Campaigns" },
-        { image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400", title: "Healthy Alternatives" },
-        { image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400", title: "Interactive Sessions" },
-        { image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400", title: "Peer Support Groups" }
-      ]
-    },
-    {
-      ID: "ecoClub",
-      category: "Eco Club",
-      bImage: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800",
-      copy: `
-        <div class="${styles.activitySection}">
-          <h3>Vision</h3>
-          <p>To create an environmentally conscious and sustainable campus by inspiring students to protect nature, conserve resources, and promote eco-friendly practices.</p>
-          
-          <h3>Mission</h3>
-          <ul>
-            <li>To develop environmental awareness among students and staff.</li>
-            <li>To encourage active participation in environmental conservation activities.</li>
-            <li>To promote sustainable practices such as waste management, energy conservation, and tree plantation.</li>
-            <li>To create responsible citizens committed to protecting the environment.</li>
-          </ul>
-
-          <h3>Objectives of the Eco Club</h3>
-          <ol>
-            <li>To create awareness about environmental issues such as pollution, climate change, and biodiversity conservation.</li>
-            <li>To encourage students to participate in tree plantation and campus greening activities.</li>
-            <li>To promote waste segregation, recycling, and proper waste management.</li>
-            <li>To conserve natural resources like water and electricity.</li>
-            <li>To organize seminars, workshops, rallies, and awareness campaigns on environmental protection.</li>
-            <li>To celebrate environmental days such as World Environment Day and Earth Day.</li>
-            <li>To encourage the use of eco-friendly products and reduce plastic usage.</li>
-            <li>To develop leadership, teamwork, and social responsibility among students.</li>
-            <li>To undertake community outreach programs related to environmental conservation.</li>
-            <li>To make the college campus clean, green, and sustainable.</li>
-          </ol>
-
-          <h3>Role & Responsibilities</h3>
-          <div class="${styles.tableWrapper || 'table-wrapper'}">
-            <table class="${styles.ecoClubTable || 'eco-club-table'}">
-              <thead>
-                <tr>
-                  <th>Role of the Eco Club</th>
-                  <th>Responsibilities</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Environmental Awareness</td><td>Organize awareness programs, rallies, and campaigns on environmental conservation.</td></tr>
-                <tr><td>Tree Plantation</td><td>Conduct tree plantation drives and ensures proper care of planted trees.</td></tr>
-                <tr><td>Waste Management</td><td>Promote waste segregation, recycling, composting, and reduction of plastic use.</td></tr>
-                <tr><td>Water Conservation</td><td>Create awareness on saving water and organize activities like rainwater harvesting campaigns.</td></tr>
-                <tr><td>Energy Conservation</td><td>Encourage energy-saving practices such as switching off lights and using renewable energy.</td></tr>
-                <tr><td>Clean Campus Initiative</td><td>Organize campus and community cleanliness drives to maintain a clean environment.</td></tr>
-                <tr><td>Biodiversity Conservation</td><td>Protect local flora and fauna by conducting biodiversity surveys and awareness activities.</td></tr>
-                <tr><td>Climate Change Awareness</td><td>Educate students about climate change, its impacts, and sustainable practices.</td></tr>
-                <tr><td>Celebration of Environmental Days</td><td>Observe events such as World Environment Day, Earth Day, and Wildlife Week through competitions and activities.</td></tr>
-                <tr><td>Community Outreach</td><td>Involve local communities in environmental protection programs and awareness campaigns.</td></tr>
-                <tr><td>Sustainable Practices</td><td>Encourage eco-friendly habits like reducing plastic use, using reusable materials, and conserving natural resources.</td></tr>
-                <tr><td>Student Leadership</td><td>Develop leadership, teamwork, and responsibility among students through environmental activities.</td></tr>
-                <tr><td>Monitoring and Reporting</td><td>Monitor Eco Club activities, maintain records, and prepare reports on achievements and future plans.</td></tr>
-                <tr><td>Collaboration</td><td>Coordinate with schools, colleges, NGOs, government departments, and local bodies for environmental initiatives.</td></tr>
-                <tr><td>Green Campus Development</td><td>Promote campus gardening, herbal gardens, biodiversity parks, and other green initiatives.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="${styles.teamDetails}">
-            <h3>Composition of Eco Club</h3>
-            <div class="${styles.tableWrapper || 'table-wrapper'}">
-              <table class="${styles.ecoClubTable || 'eco-club-table'}">
-                <thead>
-                  <tr>
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Designation</th>
-                    <th>Phone Number</th>
-                    <th>Mail ID</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td><td>Mrs. K. S. MALATHI</td><td>COORDINATOR</td><td><a href="tel:6383021694">6383021694</a></td><td><a href="mailto:malathiks@svac.org">malathiks@svac.org</a></td></tr>
-                  <tr><td>2</td><td>Mrs. M. KAVITHA</td><td>MEMBER</td><td><a href="tel:8012470308">8012470308</a></td><td><a href="mailto:Kavitha@svasc.org">Kavitha@svasc.org</a></td></tr>
-                  <tr><td>3</td><td>Mr. P. KARTHIKEYAN</td><td>MEMBER</td><td><a href="tel:9840083468">9840083468</a></td><td><a href="mailto:karthikeyanp@svasc.org">karthikeyanp@svasc.org</a></td></tr>
-                  <tr><td>4</td><td>Mrs. K. GAYATHRI</td><td>MEMBER</td><td><a href="tel:9171934382">9171934382</a></td><td><a href="mailto:gayathrik@svasc.org">gayathrik@svasc.org</a></td></tr>
-                  <tr><td>5</td><td>L. MOHAN</td><td>MEMBER</td><td><a href="tel:7904960075">7904960075</a></td><td><a href="mailto:janakidevippm@gmail.com">janakidevippm@gmail.com</a></td></tr>
-                  <tr><td>6</td><td>M. SUBINRAJ</td><td>MEMBER</td><td><a href="tel:8681890021">8681890021</a></td><td><a href="mailto:subinraj2708@gmail.com">subinraj2708@gmail.com</a></td></tr>
-                  <tr><td>7</td><td>R. SUDHARSHAN</td><td>MEMBER</td><td><a href="tel:967744410">967744410</a></td><td><a href="mailto:sudharshan28092007@gmail.com">sudharshan28092007@gmail.com</a></td></tr>
-                  <tr><td>8</td><td>T. MUNEESHWARAN</td><td>MEMBER</td><td><a href="tel:6369085370">6369085370</a></td><td><a href="mailto:Mugi13106@gmail.com">Mugi13106@gmail.com</a></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      `,
-      cards: [
-        { image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400", title: "Tree Plantation Drives" },
-        { image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400", title: "Waste Segregation" },
-        { image: "https://images.unsplash.com/photo-1528190336454-13cd56b45b5a?w=400", title: "Green Campus Initiatives" },
-        { image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400", title: "Cleanliness Programs" }
-      ]
-    },
-    {
-      ID: "voterLiteracyClub",
-      category: "Voter Literacy Club",
-      bImage: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=800",
-      copy: `
-        <div class="${styles.activitySection}">
-          <h3>Vision</h3>
-          <p>To enlighten, enable and empower every citizen to register as a voter and cast his/her vote at every election in an informed and ethical manner. Universal and enlightened participation of citizens in elections and democracy.</p>
-          
-          <h3>Mission</h3>
-          <ul>
-            <li>The group wants to educate students, teachers, and the civil society about the right to vote.</li>
-            <li>Its main goal is to inform upcoming voters about important election-related topics, such as voter registration.</li>
-            <li>The group encourages voting ethics based on the tenets of "Every Vote Counts" and "No Voter to be Left Behind."</li>
-          </ul>
-
-          <h3>Objectives</h3>
-          <ul>
-            <li>To Engage in promoting awareness of 'Right to Vote' among students, faculty members and community at large.</li>
-            <li>To promote awareness about voter registration and voting procedures.</li>
-            <li>To encourage ethical and informed voting behaviour.</li>
-            <li>To create awareness about the importance of free and fair elections.</li>
-          </ul>
-
-          <h3>Roles & Responsibilities</h3>
-          <ul>
-            <li>The members of the College shall meet once a month to engage in a closed or open group session of thematic discussions on relevant topics.</li>
-            <li>They will organize activities like outreach programs and in campus programs with targeted groups to create voting awareness.</li>
-            <li>They shall function towards the goal to create and preserve the literature for the cell.</li>
-          </ul>
-
-          <h3>Functions of the Literacy Club</h3>
-          <ul>
-            <li>To Create awareness about voting system and the importance of voting during elections and make the students realize the responsibility of a Citizen.</li>
-            <li>To Conduct Rallies, special lectures and various competitions to motivate our students for voting.</li>
-            <li>To Conduct Special Camps for the students for new enrolments.</li>
-          </ul>
-
-          <h3>Annual Plan 2026-2027</h3>
-          <div class="${styles.tableWrapper || 'table-wrapper'}">
-            <table class="${styles.ecoClubTable || 'eco-club-table'}">
-              <thead>
-                <tr>
-                  <th>S.NO</th>
-                  <th>Month</th>
-                  <th>Program Title</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>1</td><td>August</td><td>Poster and slogan promote voter awareness</td></tr>
-                <tr><td>2</td><td>October</td><td>Voter Registration Awareness Campaign</td></tr>
-                <tr><td>3</td><td>January</td><td>Celebrate National Voter’s Day</td></tr>
-                <tr><td>4</td><td>February</td><td>Essay writing competition - Encourage students ideas on voting</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="${styles.teamDetails}">
-            <h3>Composition of the Voter Literacy Club (VLC)</h3>
-            <div class="${styles.tableWrapper || 'table-wrapper'}">
-              <table class="${styles.ecoClubTable || 'eco-club-table'}">
-                <thead>
-                  <tr>
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Designation</th>
-                    <th>Position</th>
-                    <th>Phone Number & Mail ID</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td><td>Dr. R. Ramkumar</td><td>Principal</td><td>Chairperson</td><td><a href="tel:9600966086">9600966086</a><br /><a href="mailto:principal@svasc.org">principal@svasc.org</a></td></tr>
-                  <tr><td>2</td><td>Dr. K. Sureshkumar</td><td>Assistant Professor of Commerce CA</td><td>Coordinator</td><td><a href="tel:9688840458">9688840458</a><br /><a href="mailto:ksureshkumar@svasc.org">ksureshkumar@svasc.org</a></td></tr>
-                  <tr><td>3</td><td>Ms. V. Divyabharathi</td><td>Assistant Professor of English</td><td>Member</td><td><a href="tel:9942788441">9942788441</a><br /><a href="mailto:divyabharathi@svasc.org">divyabharathi@svasc.org</a></td></tr>
-                  <tr><td>4</td><td>Mrs. K. Susithra</td><td>Assistant Professor of Commerce</td><td>Member</td><td><a href="tel:8056591755">8056591755</a><br /><a href="mailto:susithrak@svasc.org">susithrak@svasc.org</a></td></tr>
-                  <tr><td>5</td><td>Mr. Rajenderakumar</td><td>Assistant Professor of Tamil</td><td>Member</td><td><a href="tel:9894094979">9894094979</a><br /><a href="mailto:rajenderakumar@svasc.org">rajenderakumar@svasc.org</a></td></tr>
-                  <tr><td>6</td><td>M. Priyadharshini</td><td>II-Year B.Com (CA)-B</td><td>Student Member</td><td><a href="tel:9566124119">9566124119</a><br /><a href="mailto:Mmuthuraman145@gmail.com">Mmuthuraman145@gmail.com</a></td></tr>
-                  <tr><td>7</td><td>P. Rajesh</td><td>II-Year B.Com (CA)-B</td><td>Student Member</td><td><a href="tel:9442630982">9442630982</a><br /><a href="mailto:Rajesh1219728@gmail.com">Rajesh1219728@gmail.com</a></td></tr>
-                  <tr><td>8</td><td>M. Vishnupriya</td><td>II-Year B.Com-B</td><td>Student Member</td><td><a href="tel:6383323256">6383323256</a><br /><a href="mailto:Mvishnupriya805615@gmail.com">Mvishnupriya805615@gmail.com</a></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      `,
-      cards: [
-        { image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400", title: "Poster Awareness Campaign" },
-        { image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400", title: "Voter Registrations" },
-        { image: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=400", title: "National Voters Day" },
-        { image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400", title: "Essay Competitions" }
-      ]
-    },
-    {
-      ID: "consumerProtectionClub",
-      category: "Consumer Protection Club",
-      bImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800",
-      copy: `
-        <div class="${styles.activitySection}">
-          <p>A Consumer Protection Club (CPC) main purpose is to educate people about making informed purchasing decisions and protecting themselves from unfair trade practices.</p>
-
-          <h3>Vision</h3>
-          <p>To create aware, responsible and empowered consumers who understand their rights and responsibilities and contribute to fair, ethical and sustainable markets.</p>
-          
-          <h3>Mission</h3>
-          <ul>
-            <li>To educate consumers about their rights and responsibilities.</li>
-            <li>To promote awareness of consumer protection laws and grievance redressal mechanisms.</li>
-            <li>To encourage ethical consumer practices and informed decision-making.</li>
-            <li>To develop leadership and social responsibility among club members through consumer awareness activities.</li>
-          </ul>
-
-          <h3>Objectives</h3>
-          <ol>
-            <li>Create awareness about consumer rights and responsibilities.</li>
-            <li>Educate members on consumer protection laws and government initiatives.</li>
-            <li>Promote the habit of checking quality standards, expiry dates, prices, and product labels.</li>
-            <li>Encourage consumers to seek redressal against unfair trade practices.</li>
-            <li>Organize awareness campaigns, seminars, workshops, and competitions.</li>
-            <li>Promote digital consumer safety, including safe online shopping and digital payments.</li>
-            <li>Collaborate with government departments, consumer organizations, and local communities for awareness programs.</li>
-            <li>Celebrate important consumer-related observances to spread public awareness.</li>
-          </ol>
-
-          <h3>Roles & Responsibilities</h3>
-          <ol>
-            <li><strong>Create awareness:</strong> Teach people about their consumer rights and responsibilities.</li>
-            <li><strong>Educate consumers:</strong> Explain how to choose good-quality products and avoid fraud.</li>
-            <li><strong>Promote fair practices:</strong> Encourage businesses to sell safe and genuine products.</li>
-            <li><strong>Help consumers:</strong> Guide people on how to file complaints if they are cheated.</li>
-            <li><strong>Conduct programs:</strong> Organize seminars, rallies, competitions, and campaigns on consumer protection.</li>
-            <li><strong>Spread information:</strong> Share updates about consumer laws, rights, and government schemes.</li>
-            <li><strong>Encourage responsible buying:</strong> Teach consumers to check labels, expiry dates, prices, and quality before buying.</li>
-            <li><strong>Support consumer rights:</strong> Help protect consumers from unfair trade practices and exploitation.</li>
-          </ol>
-
-          <div class="${styles.teamDetails}">
-            <h3>Club Members Details</h3>
-            <div class="${styles.tableWrapper || 'table-wrapper'}">
-              <table class="${styles.ecoClubTable || 'eco-club-table'}">
-                <thead>
-                  <tr>
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Designation</th>
-                    <th>Mobile No</th>
-                    <th>Mail Id</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td><td>Dr. M. S. Gomathi</td><td>Coordinator</td><td><a href="tel:9790627469">9790627469</a></td><td><a href="mailto:gomathims@svasc.org">gomathims@svasc.org</a></td></tr>
-                  <tr><td>2</td><td>Mr. R. Selvakumar</td><td>Member</td><td><a href="tel:6379656116">6379656116</a></td><td><a href="mailto:rselvakumar@svasc.org">rselvakumar@svasc.org</a></td></tr>
-                  <tr><td>3</td><td>Ms. N. Sangeerthana</td><td>Member</td><td><a href="tel:934402120">934402120</a></td><td><a href="mailto:sangeerthanan@svasc.org">sangeerthanan@svasc.org</a></td></tr>
-                  <tr><td>4</td><td>Mrs. K. Sangeetha</td><td>Member</td><td><a href="tel:9500241640">9500241640</a></td><td><a href="mailto:sangeethak@svasc.org">sangeethak@svasc.org</a></td></tr>
-                  <tr><td>5</td><td>Mrs. J. Lavanya</td><td>Member</td><td><a href="tel:8610072390">8610072390</a></td><td><a href="mailto:jlavanya@svasc.org">jlavanya@svasc.org</a></td></tr>
-                  <tr><td>6</td><td>R. Tamilarasan (III B.Com B)</td><td>Student Member</td><td><a href="tel:9342219642">9342219642</a></td><td><a href="mailto:tamilkavitha93422@gmail.com">tamilkavitha93422@gmail.com</a></td></tr>
-                  <tr><td>7</td><td>B. Devapriyan (II B.Com (CA))</td><td>Student Member</td><td><a href="tel:7708549202">7708549202</a></td><td><a href="mailto:ddevapriyan997@gmail.com">ddevapriyan997@gmail.com</a></td></tr>
-                  <tr><td>8</td><td>V. Abinaya (II B.Com (CA))</td><td>Student Member</td><td><a href="tel:9087667413">9087667413</a></td><td><a href="mailto:abinayav353@gmail.com">abinayav353@gmail.com</a></td></tr>
-                  <tr><td>9</td><td>M. Dhivagar (III B.Com (PA))</td><td>Student Member</td><td><a href="tel:9566361253">9566361253</a></td><td><a href="mailto:dhivagar24072007@gmail.com">dhivagar24072007@gmail.com</a></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      `,
-      cards: [
-        { image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400", title: "Consumer Awareness" },
-        { image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400", title: "Seminars & Workshops" },
-        { image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400", title: "Mock Court Competitions" },
-        { image: "https://images.unsplash.com/photo-1563013544-824ae1d704d3?w=400", title: "Digital Safety" }
-      ]
-    },
-    {
-      ID: "mediaCell",
-      category: "Media Cell",
-      bImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800",
-      copy: `
-        <div class="${styles.activitySection}">
-          <p>The Media Cell coordinates digital communication and manages the college's public image across all digital platforms, connecting the institution with students, alumni, parents, and the public.</p>
-
-          <h3>Vision</h3>
-          <p>To create a connected digital world where people can communicate, collaborate, share knowledge, and access information instantly, fostering innovation, learning, and global relationships.</p>
-
-          <h3>Mission</h3>
-          <ul>
-            <li>To enable seamless communication among people across the world.</li>
-            <li>To provide a platform for sharing information, ideas, and experiences.</li>
-            <li>To support learning, collaboration, and community engagement.</li>
-          </ul>
-
-          <h3>Objectives</h3>
-          <p>The Social Media Cell aims to promote the college's activities, achievements, and events through various social media platforms. It serves as a bridge between the institution and students, alumni, parents, and the wider community by sharing timely and accurate information. The cell also works to enhance the college's visibility, strengthen its reputation, encourage student engagement, and showcase academic, cultural, and extracurricular accomplishments.</p>
-
-          <h3>Role of the Social Media Coordinator</h3>
-          <p>The Social Media Coordinator is responsible for managing and promoting the college's presence on social media platforms to enhance visibility, engagement, admissions outreach, and the institution's reputation.</p>
-
-          <h3>Key Responsibilities</h3>
-          <ol>
-            <li><strong>Content Planning and Management:</strong> Develop and maintain a content calendar; schedule posts for academics, admissions, and campus life.</li>
-            <li><strong>Promotion of College Activities:</strong> Publicize seminars, workshops, cultural events, placements, and milestones.</li>
-            <li><strong>Coordination with Departments:</strong> Collect updates, photos, and announcements from all departments and clubs.</li>
-            <li><strong>Social Media Engagement:</strong> Monitor comments/messages, answer public queries, and maintain community dialogue.</li>
-            <li><strong>Brand Representation:</strong> Keep visual identity, logos, and messaging consistent and professional.</li>
-            <li><strong>Compliance and Ethics:</strong> Obtain necessary permissions before posting and respect privacy guidelines.</li>
-            <li><strong>Performance Monitoring:</strong> Track key metrics (reach, engagement, reach growth) and draft progress reports.</li>
-            <li><strong>Account Security:</strong> Maintain credentials confidentiality and report unauthorized access or misuse.</li>
-          </ol>
-
-          <h3>Expected Outcomes</h3>
-          <ul>
-            <li>Increased visibility of the college and its programs.</li>
-            <li>Enhanced engagement with prospective students, parents, alumni, and stakeholders.</li>
-            <li>Timely dissemination of accurate information.</li>
-            <li>Strong and positive online reputation for the institution.</li>
-          </ul>
-
-          <h3>Conditions for Posting</h3>
-          <ul>
-            <li>All content shared on social media must be accurate, professional, and approved by the Principal.</li>
-            <li>Posts should uphold the college's values and maintain the institution's reputation.</li>
-            <li>Members must respect privacy and obtain permission before sharing photos, videos, or personal information.</li>
-            <li>No offensive, discriminatory, or misleading content should be posted.</li>
-            <li>Social media accounts should be used only for official college-related activities.</li>
-            <li>Coordinators are expected to follow ethical standards and platform policies while creating content.</li>
-          </ul>
-
-          <div class="${styles.teamDetails}">
-            <h3>Resolution</h3>
-            <p>The committee approved the roles and responsibilities for Social Media Coordinators and directed all coordinators to follow these guidelines while promoting college activities through official social media channels.</p>
-          </div>
-        </div>
-      `,
-      cards: [
-        { image: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?w=400", title: "Digital Communication" },
-        { image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=400", title: "Content Management" },
-        { image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400", title: "Activity Coverage" },
-        { image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400", title: "Brand Engagement" }
-      ]
     }
   ];
 
+const ProjectsPortfolio = () => {
+  const [projects, setProjects] = useState(defaultActivities);
   const [selectedProject, setSelectedProject] = useState(null);
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
   const [projectHeights, setProjectHeights] = useState({});
+  const [modalCard, setModalCard] = useState(null);
+  const [heroData, setHeroData] = useState({
+    title: 'SVASC Campus Activities',
+    description: 'Explore the comprehensive range of student support services, clubs, and developmental programs at SVASC.',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400'
+  });
   const scrollBackTo = useRef(0);
   const selectedAreaRef = useRef(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/api/page-heros/activities`).then(res => {
+      if (res.data.success && res.data.data) {
+        const d = res.data.data;
+        const cleanImg = d.image ? d.image.replace(/^\/+/, '') : '';
+        setHeroData({
+          title: d.title || heroData.title,
+          description: d.description || heroData.description,
+          image: d.image ? (d.image.startsWith('http') ? d.image : `${BASE_URL}/${cleanImg}`) : heroData.image
+        });
+      }
+    }).catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const fetchActivities = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/api/activities`);
+        if (res.data.success && res.data.data.length > 0) {
+          const mapped = res.data.data.map(item => {
+            const cleanImg = item.bannerImage.replace(/^\/+/, '');
+            return {
+              ID: item._id,
+              category: item.category,
+              bImage: item.bannerImage.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
+              copy: item.description,
+              cards: item.cards.map(card => {
+                const cardClean = card.image.replace(/^\/+/, '');
+                return {
+                  title: card.title,
+                  description: card.description || "No description provided.",
+                  image: card.image.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`
+                };
+              })
+            };
+          });
+          setProjects(mapped);
+        }
+      } catch (err) {
+        console.error("Error fetching activities", err);
+      }
+    };
+    fetchActivities();
+  }, []);
 
   const selectProject = (projectId) => {
     const project = projects.find(p => p.ID === projectId);
@@ -855,9 +532,9 @@ const ProjectsPortfolio = () => {
   return (
     <div style={{ fontFamily: "'Open Sans', sans-serif", margin: 0, padding: 0, minHeight: '100vh' }}>
       <Hero
-        title="SVASC Campus Activities"
-        description="Explore the comprehensive range of student support services, clubs, and developmental programs at SVASC that foster holistic growth and create a safe, enriching campus environment."
-        image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400"
+        title={heroData.title}
+        description={heroData.description}
+        image={heroData.image}
       />
 
       <h2 className={styles.campusLifeTitle}>
@@ -919,15 +596,30 @@ const ProjectsPortfolio = () => {
               <div key={index} className={styles.gameCard}>
                 <div
                   className={styles.gameCardCover}
-                  style={{ backgroundImage: `url(${card.image})` }}
+                  style={{ backgroundImage: `url(${card.image})`, cursor: 'pointer' }}
+                  onClick={(e) => { e.stopPropagation(); setModalCard(card); }}
                 >
-                  <div className={styles.cardTitle}>{card.title}</div>
+                  <div className={styles.cardContentOverlay}>
+                    <div className={styles.cardTitle}>{card.title}</div>
+                    <button className={styles.readMoreBtn}>Read More</button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         )}
       </div>
+
+      {modalCard && (
+        <div className={styles.cardModalOverlay} onClick={() => setModalCard(null)}>
+          <div className={styles.cardModalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeModalBtn} onClick={() => setModalCard(null)}>×</button>
+            <img src={modalCard.image} alt={modalCard.title} className={styles.modalImage} />
+            <h2 className={styles.modalTitle}>{modalCard.title}</h2>
+            <div className={styles.modalDesc}>{modalCard.description}</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

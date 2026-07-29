@@ -46,17 +46,11 @@ const createEventGrid = async (req, res) => {
         const { title, date, description, spanTwoCols } = req.body;
 
         // Validate image upload
-        if (!req.file) {
-            return res.status(400).json({
-                success: false,
-                message: 'Event image is required'
-            });
-        }
-
+        
         // Automatically assign order based on current count
         const currentCount = await EventsGridService.getEventGridCount();
 
-        const imagePath = `/uploads/${req.file.filename}`;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
 
         const event = await EventsGridService.createEventGrid({
             title,

@@ -20,8 +20,8 @@ router.delete('/success-stories/:id', successStoryController.deleteStory);
 // Rank Holder routes
 router.get('/rank-holders', rankHolderController.getAllRankHolders);
 router.get('/rank-holders/year/:year', rankHolderController.getRankHoldersByYear);
-router.post('/rank-holders', rankHolderController.createRankHolder);
-router.put('/rank-holders/:id', rankHolderController.updateRankHolder);
+router.post('/rank-holders', upload.none(), rankHolderController.createRankHolder);
+router.put('/rank-holders/:id', upload.none(), rankHolderController.updateRankHolder);
 router.delete('/rank-holders/:id', rankHolderController.deleteRankHolder);
 
 module.exports = router;

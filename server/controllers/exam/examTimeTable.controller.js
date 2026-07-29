@@ -43,20 +43,14 @@ const getExamById = async (req, res) => {
 
 const createExam = async (req, res) => {
     try {
-        const { title, category } = req.body;
+        const { title, examType } = req.body;
 
-        if (!req.file) {
-            return res.status(400).json({
-                success: false,
-                message: "PDF file is required"
-            });
-        }
-
-        const filePath = `/uploads/${req.file.filename}`;
+        
+        const filePath = req.file ? `/uploads/${req.file.filename}` : null;
 
         const exam = await ExamTimeTableService.createExamTimeTable({
             title,
-            category,
+            examType,
             file: filePath
         });
 
@@ -76,8 +70,9 @@ const createExam = async (req, res) => {
 const updateExam = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, category } = req.body;
-        let updateData = { title, category };
+        const { title, examType } = req.body;
+        let updateData = { title };
+        if (examType) updateData.examType = examType;
 
         if (req.file) {
             const oldExam = await ExamTimeTableService.getExamTimeTableById(id);

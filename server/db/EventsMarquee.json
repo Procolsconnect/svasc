@@ -1,0 +1,28 @@
+[
+  {
+    "title": "demo",
+    "day": " 28",
+    "month": "may",
+    "description": "CS Department - Annual Tech Fest",
+    "image": "/uploads/image-1785284786125-921909875.png",
+    "order": 0,
+    "_id": "ms5cgt7m3oatilf24lc",
+    "createdAt": "2026-07-29T00:26:26.146Z",
+    "updatedAt": "2026-07-29T00:52:34.019Z",
+    "url": "",
+    "youtubeLink": "https://www.youtube.com/"
+  },
+  {
+    "title": "summa",
+    "day": "5",
+    "month": "Apr",
+    "description": "dummy",
+    "url": "#",
+    "youtubeLink": "https://www.youtube.com/",
+    "image": "/uploads/image-1785286431760-501349513.png",
+    "order": 1,
+    "_id": "ms5dg30fcz7lxwhs0un",
+    "createdAt": "2026-07-29T00:53:51.807Z",
+    "updatedAt": "2026-07-29T00:53:51.807Z"
+  }
+]

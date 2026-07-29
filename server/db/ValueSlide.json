@@ -1,0 +1,38 @@
+[
+  {
+    "backgroundImage": "/uploads/backgroundImage-1785282479461-10010933.png",
+    "field1": "point 1",
+    "field2": "point 2",
+    "field3": "point 3",
+    "field4": "point 5",
+    "field5": "point 5",
+    "order": 1,
+    "_id": "ms5b3dec3ngs9x3cbpq",
+    "createdAt": "2026-07-28T23:47:59.508Z",
+    "updatedAt": "2026-07-28T23:47:59.514Z"
+  },
+  {
+    "backgroundImage": "/uploads/backgroundImage-1785282557035-955914946.png",
+    "field1": "Point 1",
+    "field2": "Point 1",
+    "field3": "Point 1",
+    "field4": "Point 1",
+    "field5": "Point 1",
+    "order": 2,
+    "_id": "ms5b518rbx9oa9a31h7",
+    "createdAt": "2026-07-28T23:49:17.067Z",
+    "updatedAt": "2026-07-28T23:49:17.067Z"
+  },
+  {
+    "backgroundImage": "/uploads/backgroundImage-1785282582607-951483131.png",
+    "field1": "Point 1",
+    "field2": "Point 1",
+    "field3": "Point 1",
+    "field4": "Point 1",
+    "field5": "Point 1",
+    "order": 3,
+    "_id": "ms5b5kzgwixfpbrfjtf",
+    "createdAt": "2026-07-28T23:49:42.652Z",
+    "updatedAt": "2026-07-28T23:49:42.657Z"
+  }
+]

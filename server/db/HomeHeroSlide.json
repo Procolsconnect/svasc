@@ -1,0 +1,28 @@
+[
+  {
+    "type": "video",
+    "src": "/uploads/src-1785280513750-979169995.mp4",
+    "title": "Demo ",
+    "description": "demo test",
+    "link": "#",
+    "linkLabel": "Explore",
+    "alignLeft": false,
+    "order": 0,
+    "_id": "ms59x8v7j8oyzlg81r",
+    "createdAt": "2026-07-28T23:15:14.083Z",
+    "updatedAt": "2026-07-28T23:15:14.085Z"
+  },
+  {
+    "type": "image",
+    "src": "/uploads/src-1785280683729-464973473.png",
+    "title": "demo 1",
+    "description": "demo image hero section",
+    "link": "#",
+    "linkLabel": "Explore",
+    "alignLeft": false,
+    "order": 0,
+    "_id": "ms5a0vs5z8tuthdjqsn",
+    "createdAt": "2026-07-28T23:18:03.749Z",
+    "updatedAt": "2026-07-28T23:18:03.749Z"
+  }
+]

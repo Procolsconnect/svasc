@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import axios from 'axios';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -9,12 +10,85 @@ import 'swiper/css/pagination';
 
 import './BlogSection.css';
 
+const BASE_URL = 'http://localhost:5000';
+
+const fallbackBlogs = [
+    {
+        day: 24,
+        month: 'May',
+        title: 'Campus Life & Student Growth',
+        description: 'Insights into student achievements, campus culture, and the vibrant academic excellence that defines us.',
+        image: 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+        day: 25,
+        month: 'May',
+        title: 'Innovative Learning',
+        description: 'Exploring modern teaching methods and technology that are shaping the future of education at SVASC.',
+        image: 'https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+        day: 26,
+        month: 'May',
+        title: 'Student Activities',
+        description: 'From cultural fests to leadership camps, see how we encourage creativity and teamwork on campus.',
+        image: 'https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+        day: 27,
+        month: 'May',
+        title: 'Career Pathways',
+        description: 'Expert guidance on internships, placements, and building a strong professional portfolio for the future.',
+        image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600'
+    },
+    {
+        day: 28,
+        month: 'May',
+        title: 'Alumni Success',
+        description: 'Celebrating the remarkable journeys of our graduations who are making waves in their industries.',
+        image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=600'
+    }
+];
+
 const BlogSection = () => {
+    const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/home/blogs`);
+                if (response.data.success && response.data.data.length > 0) {
+                    const mapped = response.data.data.map(blog => {
+                        const cleanImg = blog.image.replace(/^\/+/, '');
+                        const imgUrl = blog.image.startsWith('http') ? blog.image : `${BASE_URL}/${cleanImg}`;
+                        return {
+                            ...blog,
+                            image: imgUrl
+                        };
+                    });
+                    setBlogs(mapped);
+                } else {
+                    setBlogs(fallbackBlogs);
+                }
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+                setBlogs(fallbackBlogs);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchBlogs();
+    }, []);
+
+    if (loading) {
+        return <div style={{ padding: '60px 0', textAlign: 'center', color: '#fff', background: '#111' }}>Loading Blogs...</div>;
+    }
+
     return (
         <section className="blog-section-wrapper">
             {/* Decorative Background */}
             <div className="blog-background">
-                {/* Using a lighter, texture-like image or gradient for performance */}
                 <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Background Texture" loading="lazy" />
             </div>
 
@@ -25,7 +99,7 @@ const BlogSection = () => {
                         SVASC <br />
                         <span>Insightful Blogs</span>
                     </h2>
-                    <a href="#">View All Stories</a>
+                    <a href="/blogs">View All Stories</a>
                 </div>
 
                 {/* Slider */}
@@ -36,9 +110,9 @@ const BlogSection = () => {
                         grabCursor={true}
                         centeredSlides={true}
                         slidesPerView={'auto'}
-                        loop={true}
-                        loopedSlides={5} /* Added to ensure smooth looping since we have 5 slides */
-                        speed={800} /* Smoother transition speed */
+                        loop={blogs.length > 2}
+                        loopedSlides={blogs.length}
+                        speed={800}
                         autoplay={{
                             delay: 3000,
                             disableOnInteraction: false,
@@ -47,93 +121,33 @@ const BlogSection = () => {
                         coverflowEffect={{
                             rotate: 0,
                             stretch: 0,
-                            depth: 100, /* Added depth for 3D effect */
+                            depth: 100,
                             modifier: 2.5,
-                            slideShadows: false, /* Disabled shadows for performance */
+                            slideShadows: false,
                         }}
                         pagination={{
                             el: '.news-slider__pagination',
                             clickable: true,
                             dynamicBullets: true,
                         }}
-                        spaceBetween={30} /* Explicit space between slides */
+                        spaceBetween={30}
                         className="swiper-container"
                     >
-                        {/* Slide 1 */}
-                        <SwiperSlide className="news-slider__item">
-                            <div className="news__item">
-                                <div className="news-date">
-                                    <span className="news-date__title">24</span>
-                                    <span>May</span>
+                        {blogs.map((blog, idx) => (
+                            <SwiperSlide key={blog._id || idx} className="news-slider__item">
+                                <div className="news__item">
+                                    <div className="news-date">
+                                        <span className="news-date__title">{blog.day}</span>
+                                        <span>{blog.month}</span>
+                                    </div>
+                                    <div className="news__title">{blog.title}</div>
+                                    <p className="news__txt">{blog.description}</p>
+                                    <div className="news__img">
+                                        <img src={blog.image} alt={blog.title} loading="lazy" />
+                                    </div>
                                 </div>
-                                <div className="news__title">Campus Life & Student Growth</div>
-                                <p className="news__txt">Insights into student achievements, campus culture, and the vibrant academic excellence that defines us.</p>
-                                <div className="news__img">
-                                    <img src="https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Campus Life" loading="lazy" />
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
-                        {/* Slide 2 */}
-                        <SwiperSlide className="news-slider__item">
-                            <div className="news__item">
-                                <div className="news-date">
-                                    <span className="news-date__title">25</span>
-                                    <span>May</span>
-                                </div>
-                                <div className="news__title">Innovative Learning</div>
-                                <p className="news__txt">Exploring modern teaching methods and technology that are shaping the future of education at SVASC.</p>
-                                <div className="news__img">
-                                    <img src="https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Innovation" loading="lazy" />
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
-                        {/* Slide 3 */}
-                        <SwiperSlide className="news-slider__item">
-                            <div className="news__item">
-                                <div className="news-date">
-                                    <span className="news-date__title">26</span>
-                                    <span>May</span>
-                                </div>
-                                <div className="news__title">Student Activities</div>
-                                <p className="news__txt">From cultural fests to leadership camps, see how we encourage creativity and teamwork on campus.</p>
-                                <div className="news__img">
-                                    <img src="https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Activities" loading="lazy" />
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
-                        {/* Slide 4 */}
-                        <SwiperSlide className="news-slider__item">
-                            <div className="news__item">
-                                <div className="news-date">
-                                    <span className="news-date__title">27</span>
-                                    <span>May</span>
-                                </div>
-                                <div className="news__title">Career Pathways</div>
-                                <p className="news__txt">Expert guidance on internships, placements, and building a strong professional portfolio for the future.</p>
-                                <div className="news__img">
-                                    <img src="https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Career" loading="lazy" />
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
-                        {/* Slide 5 */}
-                        <SwiperSlide className="news-slider__item">
-                            <div className="news__item">
-                                <div className="news-date">
-                                    <span className="news-date__title">28</span>
-                                    <span>May</span>
-                                </div>
-                                <div className="news__title">Alumni Success</div>
-                                <p className="news__txt">Celebrating the remarkable journeys of our graduations who are making waves in their industries.</p>
-                                <div className="news__img">
-                                    <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Alumni" loading="lazy" />
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
 
                     <div className="news-slider__pagination"></div>

@@ -18,11 +18,8 @@ const getAllStars = async (req, res) => {
 const createStar = async (req, res) => {
     try {
         const { name, degree } = req.body;
-        if (!req.file) {
-            return res.status(400).json({ message: 'Video file is required' });
-        }
-
-        const videoPath = `/uploads/${req.file.filename}`;
+        
+        const videoPath = req.file ? `/uploads/${req.file.filename}` : null;
         const star = await RisingStarService.createStar({ name, degree, video: videoPath });
         res.status(201).json({
             success: true,

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../../fake-mongoose.js');
 
 const awardGallerySchema = new mongoose.Schema({
     image: {

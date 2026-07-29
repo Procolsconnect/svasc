@@ -1,14 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Swiper from 'swiper';
 import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css/bundle'; // Import all swiper styles
 import './HeroSlider.css';
+import axios from 'axios';
+
+const BASE_URL = 'http://localhost:5000';
 
 // Custom Icons as components or strings
 const playSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
 const pauseSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6zm8-14v14h4V5h-4z"/></svg>`;
 
-const heroSlides = [
+const fallbackSlides = [
     {
         type: 'video',
         src: './College Dron.mp4',
@@ -48,8 +51,39 @@ const heroSlides = [
 const HeroSlider = () => {
     const sliderRef = useRef(null);
     const paginationRef = useRef(null);
+    const [slides, setSlides] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const fetchSlides = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/home/hero-slides`);
+                if (response.data.success && response.data.data.length > 0) {
+                    const mapped = response.data.data.map(slide => {
+                        const cleanSrc = slide.src.replace(/^\/+/, '');
+                        const slideSrc = slide.src.startsWith('http') || slide.src.startsWith('.') ? slide.src : `${BASE_URL}/${cleanSrc}`;
+                        return {
+                            ...slide,
+                            src: slideSrc
+                        };
+                    });
+                    setSlides(mapped);
+                } else {
+                    setSlides(fallbackSlides);
+                }
+            } catch (error) {
+                console.error('Error fetching hero slides:', error);
+                setSlides(fallbackSlides);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchSlides();
+    }, []);
+
+    useEffect(() => {
+        if (loading || slides.length === 0) return;
+
         let swiperInstance = null;
         let rafId = null;
         let lastTime = 0;
@@ -68,7 +102,6 @@ const HeroSlider = () => {
 
         const loop = (now) => {
             if (!lastTime) lastTime = now;
-            // Swiper's autoplay logic handles the timing, we just update the UI
             if (swiperInstance && swiperInstance.autoplay && !swiperInstance.autoplay.paused) {
                 const elapsed = (duration - swiperInstance.autoplay.timeLeft);
                 const progress = (elapsed / duration) * 100;
@@ -108,7 +141,6 @@ const HeroSlider = () => {
                         </div>
                     `;
 
-                    // Add "show" class after a small delay for animation
                     setTimeout(() => {
                         const pct = bullet.querySelector('.percentage');
                         if (pct) pct.classList.add('show');
@@ -158,10 +190,9 @@ const HeroSlider = () => {
                     resetLoaders(s);
                 },
                 slideChangeTransitionEnd: (s) => {
-                    // Video playback rate speed adjustment
-                    const slides = s.slides;
-                    if (slides) {
-                        slides.forEach((slide) => {
+                    const slidesList = s.slides;
+                    if (slidesList) {
+                        slidesList.forEach((slide) => {
                             const video = slide.querySelector('video');
                             if (video) {
                                 video.playbackRate = slide.classList.contains('swiper-slide-active') ? 0.5 : 1.0;
@@ -173,23 +204,26 @@ const HeroSlider = () => {
             },
         });
 
-        // Cleanup
         return () => {
             if (rafId) cancelAnimationFrame(rafId);
             if (swiperInstance) swiperInstance.destroy();
         };
-    }, []);
+    }, [loading, slides]);
+
+    if (loading) {
+        return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', color: '#fff' }}>Loading Hero Section...</div>;
+    }
 
     return (
         <div className="wrapper-slider">
             <div className="swiper main-slider" ref={sliderRef}>
                 <div className="swiper-wrapper">
-                    {heroSlides.map((slide, index) => (
+                    {slides.map((slide, index) => (
                         <div className="swiper-slide" key={index}>
                             <div className="item">
                                 {slide.type === 'video' ? (
                                     <div className="video">
-                                        <video autoPlay loop muted playsInline>
+                                        <video autoPlay loop muted playsInline key={slide.src}>
                                             <source src={slide.src} type="video/mp4" />
                                         </video>
                                     </div>
@@ -202,14 +236,13 @@ const HeroSlider = () => {
                                     <div className={`info-text ${slide.alignLeft ? 'align-left' : ''}`}>
                                         <h2 dangerouslySetInnerHTML={{ __html: slide.title }}></h2>
                                         <p>{slide.description}</p>
-                                        <a href={slide.link}>{slide.linkLabel}</a>
+                                        <a href={slide.link || '#'}>{slide.linkLabel || 'Explore'}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-                {/* Pagination Container */}
                 <div className="swiper-pagination" ref={paginationRef}></div>
             </div>
         </div>

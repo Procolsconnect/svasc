@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../../fake-mongoose.js');
 
 const eventsMarqueeSchema = new mongoose.Schema({
     title: {
@@ -23,6 +23,14 @@ const eventsMarqueeSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true
+    },
+    url: {
+        type: String,
+        default: '#'
+    },
+    youtubeLink: {
+        type: String,
+        default: ''
     },
     order: {
         type: Number,

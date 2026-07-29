@@ -8,11 +8,11 @@ router.get('/', blogsController.getAllBlogs);
 router.get('/:id', blogsController.getBlogById);
 router.post('/', upload.fields([
     { name: 'bannerImage', maxCount: 1 },
-    { name: 'cardImages', maxCount: 10 }
+    { name: 'cardImages', maxCount: 100 }
 ]), blogsController.createBlog);
 router.put('/:id', upload.fields([
     { name: 'bannerImage', maxCount: 1 },
-    { name: 'cardImages', maxCount: 10 }
+    { name: 'cardImages', maxCount: 100 }
 ]), blogsController.updateBlog);
 router.delete('/:id', blogsController.deleteBlog);
 

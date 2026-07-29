@@ -44,17 +44,11 @@ const getEventById = async (req, res) => {
 const createEvent = async (req, res) => {
     try {
         const { title, subtitle, description, author, date, link } = req.body;
-        if (!req.file) {
-            return res.status(400).json({
-                success: false,
-                message: 'Image file is required'
-            });
-        }
-
+        
         // Automatically assign order based on current count
         const currentCount = await SvascEventsService.getEventCount();
 
-        const imagePath = `/uploads/${req.file.filename}`;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
         const event = await SvascEventsService.createEvent({
             title,
             subtitle,

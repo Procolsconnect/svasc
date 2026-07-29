@@ -1,15 +1,77 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './AlumniSlider.css';
+
+const BASE_URL = 'http://localhost:5000';
+
+const fallbackAlumni = [
+    {
+        subTitle: "Successful Alumni",
+        name: "Dr. Anish Kumar",
+        content: "A pioneer in the tech industry, Dr. Anish has led multiple global projects and is now a mentor at SVASC, helping students achieve their dreams in software engineering.",
+        image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=800",
+        link: "#"
+    },
+    {
+        subTitle: "Industry Leader",
+        name: "Ms. Sneha Reddy",
+        content: "Sneha's journey from SVASC to becoming a CEO of a leading fintech firm is an inspiration. She frequently visits campus to share insights on financial technology.",
+        image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=800",
+        link: "#"
+    },
+    {
+        subTitle: "Creative Visionary",
+        name: "Mr. Rahul Verma",
+        content: "Rahul has redefined digital marketing with his innovative strategies. As an SVASC alumnus, he continues to support our media department with workshops.",
+        image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=800",
+        link: "#"
+    },
+    {
+        subTitle: "Academic Excellence",
+        name: "Dr. Priya Sharma",
+        content: "Having published over 50 research papers, Priya is a leading voice in scientific research. She credits SVASC for building her strong academic foundation.",
+        image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800",
+        link: "#"
+    }
+];
 
 const AlumniSlider = () => {
     const [scriptsLoaded, setScriptsLoaded] = useState(false);
     const [expandedIndex, setExpandedIndex] = useState(null);
+    const [alumniData, setAlumniData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const toggleExpand = (index) => {
         setExpandedIndex(expandedIndex === index ? null : index);
     };
 
     useEffect(() => {
+        const fetchAlumni = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/home/alumni-slider`);
+                if (response.data.success && response.data.data.length > 0) {
+                    const mapped = response.data.data.map(item => {
+                        const cleanImg = item.image.replace(/^\/+/, '');
+                        const imgUrl = item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
+                        return {
+                            ...item,
+                            image: imgUrl
+                        };
+                    });
+                    setAlumniData(mapped);
+                } else {
+                    setAlumniData(fallbackAlumni);
+                }
+            } catch (error) {
+                console.error('Error fetching alumni slider data:', error);
+                setAlumniData(fallbackAlumni);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchAlumni();
+
         // Load fonts
         const fontLink = document.createElement('link');
         fontLink.href = 'https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900';
@@ -47,22 +109,18 @@ const AlumniSlider = () => {
     }, []);
 
     useEffect(() => {
-        if (!scriptsLoaded) return;
+        if (!scriptsLoaded || loading || alumniData.length === 0) return;
 
-        // Execute the exact jQuery logic from the snippet
         if (window.$ && window.Swiper) {
             const $ = window.$;
 
             $(document).ready(function () {
                 "use strict";
 
-                // Initialize Swiper (using the selector inside our wrapper)
-                // Note: We use .swiper-container inside #alumni-slider-root
-                // Using exact params from snippet
                 var mySwiper = new window.Swiper("#alumni-slider-root .swiper-container", {
                     nextButton: "#alumni-slider-root .swiper-button-next",
                     prevButton: "#alumni-slider-root .swiper-button-prev",
-                    slidesPerView: 2.7,
+                    slidesPerView: alumniData.length < 3 ? alumniData.length : 2.7,
                     centeredSlides: true,
                     grabCursor: true,
                     simulateTouch: true,
@@ -76,7 +134,7 @@ const AlumniSlider = () => {
                     preventClicksPropagation: true,
                     iOSEdgeSwipeDetection: true,
                     breakpoints: {
-                        1440: { slidesPerView: 2.6 },
+                        1440: { slidesPerView: alumniData.length < 3 ? alumniData.length : 2.6 },
                         1439: { slidesPerView: 1.45 },
                         1024: { slidesPerView: 1.45 },
                         1023: { slidesPerView: 2 },
@@ -92,38 +150,11 @@ const AlumniSlider = () => {
                 });
             });
         }
-    }, [scriptsLoaded]);
+    }, [scriptsLoaded, loading, alumniData]);
 
-    const alumniData = [
-        {
-            subTitle: "Successful Alumni",
-            name: "Dr. Anish Kumar",
-            content: "A pioneer in the tech industry, Dr. Anish has led multiple global projects and is now a mentor at SVASC, helping students achieve their dreams in software engineering.",
-            image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=800",
-            link: "#"
-        },
-        {
-            subTitle: "Industry Leader",
-            name: "Ms. Sneha Reddy",
-            content: "Sneha's journey from SVASC to becoming a CEO of a leading fintech firm is an inspiration. She frequently visits campus to share insights on financial technology.",
-            image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=800",
-            link: "#"
-        },
-        {
-            subTitle: "Creative Visionary",
-            name: "Mr. Rahul Verma",
-            content: "Rahul has redefined digital marketing with his innovative strategies. As an SVASC alumnus, he continues to support our media department with workshops.",
-            image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=800",
-            link: "#"
-        },
-        {
-            subTitle: "Academic Excellence",
-            name: "Dr. Priya Sharma",
-            content: "Having published over 50 research papers, Priya is a leading voice in scientific research. She credits SVASC for building her strong academic foundation.",
-            image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800",
-            link: "#"
-        }
-    ];
+    if (loading) {
+        return <div style={{ padding: '60px 0', textAlign: 'center', background: '#0f0f0f', color: '#fff' }}>Loading Alumni Stories...</div>;
+    }
 
     return (
         <div id="alumni-slider-root">
@@ -134,7 +165,7 @@ const AlumniSlider = () => {
 
                         <h3>
                             Their<br />
-                            Journey,
+                            Journey,<br />
                             Their<br />
                             Story
                         </h3>
@@ -161,7 +192,7 @@ const AlumniSlider = () => {
                         <div className="swiper-container">
                             <div className="swiper-wrapper">
                                 {alumniData.map((alumnus, index) => (
-                                    <div className="swiper-slide sl--slide" key={index}>
+                                    <div className="swiper-slide sl--slide" key={alumnus._id || index}>
                                         <div className="slide-cover"></div>
                                         <div className="sl-card-wrapper">
                                             <div className="sl-gradient"></div>
