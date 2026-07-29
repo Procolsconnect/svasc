@@ -1,49 +1,113 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, ExternalLink, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, ChevronRight, BookOpen, Clock, Award, ShieldAlert, Users, Image as ImageIcon } from 'lucide-react';
 import styles from './LibraryPortal.module.css';
 import Hero from '../Common/Hero';
 
 const LibraryPortal = () => {
-    // Book grid focus state
     const [activeBook, setActiveBook] = useState(null);
 
-    // Slider state
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const sliderImages = [
-        "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f",
-        "https://images.unsplash.com/photo-1507842217343-583bb7270b66",
-        "https://images.unsplash.com/photo-1519682337058-a94d519337bc"
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
-        }, 3000);
-        return () => clearInterval(timer);
-    }, [sliderImages.length]);
-
     const books = [
-        { id: 0, src: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop", rotation: "-rotate-6", translateY: "translate-y-4" },
-        { id: 1, src: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop", rotation: "rotate-3", translateY: "translate-y-8" },
-        { id: 2, src: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop", rotation: "-rotate-2", translateY: "-translate-y-2" },
-        { id: 3, src: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop", rotation: "rotate-6", translateY: "translate-y-3" },
-        { id: 4, src: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=800&auto=format&fit=crop", rotation: "-rotate-3", translateY: "translate-y-6" },
-        { id: 5, src: "https://images.unsplash.com/photo-1629196914168-3a9644388fb3?q=80&w=800&auto=format&fit=crop", rotation: "rotate-2", translateY: "-translate-y-1" },
+        { id: 0, src: "/library_images/image28.jpeg", rotation: "-rotate-6", translateY: "translate-y-4" },
+        { id: 1, src: "/library_images/image29.jpeg", rotation: "rotate-3", translateY: "translate-y-8" },
+        { id: 2, src: "/library_images/image30.jpeg", rotation: "-rotate-2", translateY: "-translate-y-2" },
+        { id: 3, src: "/library_images/image31.jpeg", rotation: "rotate-6", translateY: "translate-y-3" },
+        { id: 4, src: "/library_images/image33.jpeg", rotation: "-rotate-3", translateY: "translate-y-6" },
+        { id: 5, src: "/library_images/image34.jpeg", rotation: "rotate-2", translateY: "-translate-y-1" },
     ];
+
+    const libraryActivities = [
+        {
+            title: "Library Orientation Program",
+            date: "18 June 2025 – 26 June 2025",
+            desc: "The Department of library conducted a library orientation program for the students. During the sessions, the librarian and library staff explained all the library services in detail and provided live demonstrations on DELNET, OPAC, and digital resources to help students utilize e-resources effectively.",
+            images: ["/library_images/image1.png", "/library_images/image2.jpeg"]
+        },
+        {
+            title: "Reading Skill Training Program",
+            date: "01 August 2025",
+            desc: "This training program actively engaged students in understanding the value of reading books. It provided tips on building a continuous reading habit and improving comprehension and reading speed.",
+            images: ["/library_images/image3.jpeg", "/library_images/image4.jpeg"]
+        },
+        {
+            title: "Book Fair Trip",
+            date: "11 August 2025",
+            desc: "Organized by the Department of library, this trip encouraged reading habits by providing students a direct opportunity to browse and purchase books across multiple academic and general genres.",
+            images: ["/library_images/image5.jpeg", "/library_images/image6.jpeg"]
+        },
+        {
+            title: "Seminar on “Search Beyond Algorithms” & Book Fair",
+            date: "03 February 2026 – 05 February 2026",
+            desc: "A seminar on 'search beyond algorithms' and a three-day book fair were organized with Chief Guest Mr. S. Karthikeyan. The event drew over 3,500 students and highlighted books on national leaders and syllabus-supporting text materials.",
+            images: ["/library_images/image7.jpeg", "/library_images/image8.jpeg"]
+        },
+        {
+            title: "Librarian's Day Celebration",
+            date: "12 August 2025",
+            desc: "Commemorated by highlighting the importance of daily reading habits. The program helped foster a deeper interest in books and academic research among both staff and student communities.",
+            images: ["/library_images/image9.jpeg", "/library_images/image10.jpeg"]
+        }
+    ];
+
+    const studentAwards = [
+        { name: "Deepak Ram A", class: "II B.Com CA", src: "/library_images/image11.jpeg" },
+        { name: "Gokula Kannan", class: "II B.Com CA", src: "/library_images/image12.png" },
+        { name: "Nagamoorthi", class: "II B.Com CA", src: "/library_images/image13.png" }
+    ];
+
+    const staffAwards = [
+        { name: "Dr. S. Rajeswari", role: "Assistant Professor", dept: "English", src: "/library_images/image14.png" },
+        { name: "Ms. G. Nandhini", role: "Assistant Professor", dept: "Tamil", src: "/library_images/image15.jpeg" },
+        { name: "Mrs. R. Pushpa", role: "Assistant Professor", dept: "Tamil", src: "/library_images/image16.png" }
+    ];
+
+    const nonStaffAwards = [
+        { name: "C. Andavar", role: "Microbiology Lab Technician", src: "/library_images/image17.jpeg" }
+    ];
+
+    const newsClippings = [
+        "/library_images/image18.png",
+        "/library_images/image19.jpeg",
+        "/library_images/image20.jpeg",
+        "/library_images/image21.jpeg",
+        "/library_images/image22.jpeg",
+        "/library_images/image23.jpeg",
+        "/library_images/image24.jpeg",
+        "/library_images/image25.jpeg",
+        "/library_images/image26.jpeg",
+        "/library_images/image27.jpeg"
+    ];
+
+    const galleryImages = [
+        "/library_images/image28.jpeg",
+        "/library_images/image29.jpeg",
+        "/library_images/image30.jpeg",
+        "/library_images/image31.jpeg",
+        "/library_images/image33.jpeg",
+        "/library_images/image34.jpeg",
+        "/library_images/image35.jpeg",
+        "/library_images/image36.jpeg",
+        "/library_images/image37.jpeg",
+        "/library_images/image38.jpeg",
+        "/library_images/image39.jpeg",
+        "/library_images/image40.jpeg",
+        "/library_images/image41.jpeg",
+        "/library_images/image42.jpeg"
+    ];
+
     return (
         <>
             <Hero
                 title="SVASC Library Portal"
                 description="Your gateway to a world of knowledge and intellectual growth"
-                image="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80"
+                image="/library_images/image32.png"
             />
             <div className={styles.pageWrapper}>
                 {/* Global Background Texture */}
                 <div className={styles.bgNoise}></div>
 
-                {/* ORIGINAL HERO SECTION RESTORED */}
+                {/* Hero section */}
                 <section className={styles.heroSection}>
-                <div className={styles.bgGrid}></div>
+                    <div className={styles.bgGrid}></div>
 
                     <div className={styles.meshBg}>
                         <div className={styles.meshOrange}></div>
@@ -65,13 +129,13 @@ const LibraryPortal = () => {
                             <div className={`${styles.floatingTag} ${styles.tagFiction}`}>
                                 <div className={styles.tagBadge}>
                                     <div className={styles.dotBlue}></div>
-                                    <span>Fiction</span>
+                                    <span>Sci & Tech</span>
                                 </div>
                             </div>
                             <div className={`${styles.floatingTag} ${styles.tagPhilosophy}`}>
                                 <div className={styles.tagBadge}>
                                     <div className={styles.dotOrange}></div>
-                                    <span>Philosophy</span>
+                                    <span>E-journals</span>
                                 </div>
                             </div>
 
@@ -85,7 +149,7 @@ const LibraryPortal = () => {
                                             onMouseLeave={() => setActiveBook(null)}
                                         >
                                             <div className={styles.bookAspect}>
-                                                <img src={book.src} alt="Book Cover" className={styles.bookImg} />
+                                                <img src={book.src} alt="Library Scene" className={styles.bookImg} />
                                                 <div className={styles.bookOverlay}></div>
                                             </div>
                                         </div>
@@ -95,72 +159,72 @@ const LibraryPortal = () => {
                         </div>
 
                         <div className={styles.heroActions}>
-                            <button className={styles.ctaPrimary}>
+                            <a href="#about-library" className={styles.ctaPrimary} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
                                 <div className={styles.ctaContent}>
-                                    <span>Get Started</span>
+                                    <span>Explore More</span>
                                     <ArrowRight className={styles.ctaIcon} size={20} />
                                 </div>
-                            </button>
-                            <a href="#" className={styles.ctaSecondary}>
-                                <span>Browse Catalog</span>
+                            </a>
+                            <a href="#working-hours" className={styles.ctaSecondary}>
+                                <span>Library Rules</span>
                                 <ChevronRight size={20} />
                             </a>
                         </div>
                     </div>
                 </section>
 
-                {/* CAFÉ ABOUT SECTION RESTORED */}
-                <section id="cafe-about" className={styles.cafeSection}>
+                {/* About Library Section */}
+                <section id="about-library" className={styles.cafeSection}>
                     <div className={styles.container}>
                         <div className={styles.cafeGrid}>
                             <div className={styles.cafeImages}>
                                 <div className={styles.imageColumn}>
                                     <div className={`${styles.imageWrapper} ${styles.aspect34}`}>
-                                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=533&fit=crop" alt="Café Interior" />
+                                        <img src="/library_images/image28.jpeg" alt="Library Seating Area" />
                                     </div>
                                     <div className={`${styles.imageWrapper} ${styles.aspectSquare}`}>
-                                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=400&fit=crop" alt="Coffee Art" />
+                                        <img src="/library_images/image29.jpeg" alt="Library Book Racks" />
                                     </div>
                                 </div>
                                 <div className={`${styles.imageColumn} ${styles.pt8}`}>
                                     <div className={`${styles.imageWrapper} ${styles.aspectSquare}`}>
-                                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=400&fit=crop" alt="Café Ambiance" />
+                                        <img src="/library_images/image30.jpeg" alt="Librarian Desk" />
                                     </div>
                                     <div className={`${styles.imageWrapper} ${styles.aspect34}`}>
-                                        <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=400&h=533&fit=crop" alt="Food Plating" />
+                                        <img src="/library_images/image31.jpeg" alt="Student Reading Desk" />
                                     </div>
                                 </div>
                             </div>
 
                             <div className={styles.cafeInfo}>
-                                <span className={styles.sectionLabel}>Our Story</span>
+                                <span className={styles.sectionLabel}>Established in 2019</span>
                                 <h2 className={styles.sectionTitle}>
-                                    Where Every Cup<br />Tells a Story
+                                    The Academic Info Hub
                                 </h2>
                                 <div className={styles.sectionCms}>
                                     <p>
-                                        Nestled in the heart of Civil Lines, Raipur, <span className={styles.textHighlight}>More Over Coffee (MOC)</span> is more than just a café—it's a sanctuary for coffee lovers, food enthusiasts, and anyone seeking a cozy escape from the everyday hustle.
+                                        The knowledge centre of <span className={styles.textHighlight}>Shree Venkateshwara Arts and Science (co-edu.) College (SVCAS)</span>, established in 2019, serves as the academic information hub of the institution. Spread across <span className={styles.textHighlight}>4,000 sq. ft.</span> with a seating capacity of <span className={styles.textHighlight}>80 students</span>, it provides a learner-friendly environment that supports teaching, learning, research, and self-study.
                                     </p>
                                     <p>
-                                        Since our doors opened, we've been committed to creating an Instagram-worthy space where great conversations flow as freely as our artisanal coffee. Our menu features everything from sizzling hot plates to delicate croissants, each dish crafted with care and passion.
+                                        The centre maintains a collection of <span className={styles.textHighlight}>6,644 volumes with 2,272 titles</span>, covering science, arts, commerce, management, and allied disciplines. The collection is regularly updated to meet curriculum requirements and support academic excellence.
                                     </p>
                                     <p>
-                                        With over <span className={styles.textHighlight}>1,068+ reviews</span> and a strong <span className={styles.textHighlight}>4.1-star rating</span>, our community of regulars keeps coming back for the warm ambiance, friendly service, and unforgettable flavors.
+                                        The centre is automated using <span className={styles.textHighlight}>Campusilib library management software</span>, offering barcode-based circulation and OPAC (online public access catalogue) facilities for efficient access to library resources.
                                     </p>
                                 </div>
 
                                 <div className={styles.statsGrid}>
                                     <div>
-                                        <p className={styles.statValue}>4.1★</p>
-                                        <p className={styles.statLabel}>Google Rating</p>
+                                        <p className={styles.statValue}>6,644</p>
+                                        <p className={styles.statLabel}>Total Volumes</p>
                                     </div>
                                     <div>
-                                        <p className={styles.statValue}>1K+</p>
-                                        <p className={styles.statLabel}>Happy Reviews</p>
+                                        <p className={styles.statValue}>2,272</p>
+                                        <p className={styles.statLabel}>Total Titles</p>
                                     </div>
                                     <div>
-                                        <p className={styles.statValue}>100+</p>
-                                        <p className={styles.statLabel}>Menu Items</p>
+                                        <p className={styles.statValue}>15+</p>
+                                        <p className={styles.statLabel}>Digital Terminals</p>
                                     </div>
                                 </div>
                             </div>
@@ -168,239 +232,298 @@ const LibraryPortal = () => {
                     </div>
                 </section>
 
-                {/* HOW IT WORKS SECTION */}
-                <section className={styles.howItWorksSection}>
-                    <div className={styles.tornEdge}></div>
-                    <div className={styles.max4xl}>
-                        <h2 className={styles.howItWorksTitle}>How It Works</h2>
-                        <div className={styles.timelineContainer}>
-                            <div className={styles.timelineLine}></div>
-                            <div className={styles.timelineSpace}>
-                                {[
-                                    { title: "Add to Library", desc: "Import your physical and digital books.", side: "right" },
-                                    { title: "Start Session", desc: "Set a goal and start the focus timer.", side: "left" },
-                                    { title: "Capture Insights", desc: "Jot down thoughts as they emerge.", side: "right" },
-                                    { title: "Review", desc: "See your knowledge base grow.", side: "left" }
-                                ].map((step, i) => (
-                                    <div key={i} className={`${styles.timelineStep} ${step.side === 'left' ? styles.stepLeft : styles.stepRight}`}>
-                                        <div className={styles.stepContent}>
-                                            <h4 className={styles.stepTitle}>{step.title}</h4>
-                                            <p className={styles.stepDesc}>{step.desc}</p>
-                                        </div>
-                                        <div className={styles.stepDot}></div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* VALUES SECTION */}
-                <section className={styles.valuesSection}>
+                {/* Computer Infrastructure Section */}
+                <section className={styles.facilitiesSection} style={{ background: '#f5f5f4' }}>
                     <div className={styles.container}>
-                        <h2 className={styles.valuesTitle}>Values</h2>
-                        <p className={styles.valuesSubtitle}>
-                            We believe the library is central to the intellectual and creative lives of the students.
+                        <h2 className={styles.facilitiesTitle}>Computer Infrastructure</h2>
+                        <p className={{ textAlign: 'center', marginBottom: '40px', fontSize: '1.8rem', color: '#666' }} style={{ textAlign: 'center', marginBottom: '30px' }}>
+                            The knowledge centre is equipped with ICT-enabled facilities to support library operations and promote digital learning.
                         </p>
-                        <div className={styles.valuesGrid}>
-                            {["Access", "Service", "Life-Long Learning", "Intellectual And Academic Freedom", "Collaboration", "Mutual Respect And Civility", "Responsible Stewardship"].map((val, i) => (
-                                <div key={i} className={`${styles.valueCard} ${val === 'Responsible Stewardship' ? styles.colSpan2 : ''}`}>
-                                    <p className={styles.valueText}>{val}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* FACILITIES SECTION */}
-                <section className={styles.facilitiesSection}>
-                    <div className={styles.container}>
-                        <h2 className={styles.facilitiesTitle}>Facilities</h2>
                         <div className={styles.facilitiesGrid}>
-                            {["Library Automation", "Auto-Lib Software", "Number of computers for public access", "Multimedia Learning Resources", "Participation in Resource Sharing Networks / Consortia", "DELNET Service", "INFLIBNET Service", "Soul 3.0 software"].map((fac, i) => (
-                                <div key={i} className={styles.facilityCard}>
-                                    <p className={styles.facilityText}>{fac}</p>
-                                </div>
-                            ))}
+                            <div className={styles.facilityCard}>
+                                <p className={styles.facilityText}><strong>Circulation Section:</strong> Two computer systems are available for circulation services.</p>
+                            </div>
+                            <div className={styles.facilityCard}>
+                                <p className={styles.facilityText}><strong>OPAC (Online Public Access Catalogue):</strong> One dedicated computer system is available for users to search the library catalogue.</p>
+                            </div>
+                            <div className={styles.facilityCard}>
+                                <p className={styles.facilityText}><strong>Digital Library:</strong> Fifteen computer systems with internet connectivity provide access to DELNET, e-books, e-journals, and other online academic resources.</p>
+                            </div>
+                            <div className={styles.facilityCard}>
+                                <p className={styles.facilityText}><strong>Server Terminal:</strong> One server system supports library automation and digital services.</p>
+                            </div>
+                            <div className={styles.facilityCard}>
+                                <p className={styles.facilityText}><strong>Scanning Facilities:</strong> Barcode scanners are available for library operations.</p>
+                            </div>
+                            <div className={styles.facilityCard}>
+                                <p className={styles.facilityText}><strong>DELNET Resources:</strong> Access to e-books, e-journals, theses, dissertations, and online databases.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* LIBRARY RESOURCES SECTION */}
-                <section className={styles.resourcesSection}>
+                {/* Working Hours & Membership Limits Table Section */}
+                <section id="working-hours" className={styles.resourcesSection}>
                     <div className={styles.container}>
-                        <h2 className={styles.resourcesTitle}>Library Resources</h2>
-                        <div className={styles.resourcesLayout}>
-                            <div className={styles.sliderContainer}>
-                                {sliderImages.map((img, i) => (
-                                    <img
-                                        key={i}
-                                        src={img}
-                                        className={`${styles.sliderImg} ${currentSlide === i ? styles.active : ''}`}
-                                        alt="Library"
-                                    />
-                                ))}
-                            </div>
-                            <div className={styles.resourcesText}>
-                                <p>The library has more than 11000 volumes of books, print journals, magazines, project reports, training reports, educational CDs, newspapers, Knimbus and electronic resources like e-journals, INFLIBNET & DELNET.</p>
-                                <p>General books, encyclopedias, year books are available. Books for placement readiness, competitive examinations and entrance examinations are also available for the students.</p>
-                                <p>AutoLib / SOUL 3.0 integrated library management software developed by INFLIBNET Centre has been installed in the library.</p>
-                                <p>Department libraries also function to cater to the additional needs of students and faculty members.</p>
-                            </div>
-                        </div>
-
-                        <h3 className={styles.sectionsTitle}>Sections</h3>
-                        <div className={styles.sectionsGrid}>
-                            {[
-                                "Reading Section", "Reference Book Section", "Journals and Magazines Section",
-                                "TV and NewsPaper Section", "Reprography and Printing Section",
-                                "Rare Book Section", "Digital Library", "Trending Book Section"
-                            ].map((sec, i) => (
-                                <div key={i} className={styles.sectionItem}>
-                                    <div className={styles.sectionIcon}>▦</div>
-                                    <span className={styles.sectionName}>{sec}</span>
+                        <div className={styles.ajcasContainer} style={{ padding: 0, marginTop: 0 }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px' }}>
+                                
+                                {/* Working Hours Card */}
+                                <div className={styles.facilityCard} style={{ padding: '30px', height: 'fit-content' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+                                        <Clock size={28} color="#2b3990" />
+                                        <h2 className={styles.ajcasH2} style={{ margin: 0, borderBottom: 'none' }}>Library Timing</h2>
+                                    </div>
+                                    <div style={{ fontSize: '1.6rem', color: '#444' }}>
+                                        <p><strong>Monday – Friday:</strong> 9:10 AM to 4:30 PM</p>
+                                        <p><strong>Saturday:</strong> Library is open (College Working Day Only)</p>
+                                        <p><strong>Sundays & Holidays:</strong> Closed</p>
+                                        <p style={{ marginTop: '20px', fontSize: '1.4rem', color: '#666', fontStyle: 'italic' }}>
+                                            Membership is extended to all students, faculty members, and non-teaching staff of the institution for academic and professional development.
+                                        </p>
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
 
-                        <h3 className={styles.sectionsTitle}>Online Resources</h3>
-                        <div className={styles.onlineResources}>
-                            {[
-                                "Knimbus – complete digital library platform (anywhere, anytime)",
-                                "INFLIBNET Centre (UGC – Ministry of Education, Govt. of India)",
-                                "DELNET – resource sharing network among libraries",
-                                "N-LIST – access to scholarly e-resources for colleges"
-                            ].map((res, i) => (
-                                <div key={i} className={styles.onlineItem}>
-                                    <div className={styles.onlineIcon}>⧉</div>
-                                    <span>{res}</span>
+                                {/* Membership Limits Table */}
+                                <div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+                                        <BookOpen size={28} color="#2b3990" />
+                                        <h2 className={styles.ajcasH2} style={{ margin: 0, borderBottom: 'none' }}>Borrowing Eligibility Limits</h2>
+                                    </div>
+                                    <div className={styles.tableCard}>
+                                        <table className={styles.ajcasTable}>
+                                            <thead>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Book Limit</th>
+                                                    <th>Return Period (Days)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>UG Students</td><td>3 Books</td><td>30 Days</td></tr>
+                                                <tr><td>PG Students</td><td>5 Books</td><td>30 Days</td></tr>
+                                                <tr><td>M.Phil & Ph.D. Scholars</td><td>7 Books</td><td>30 Days</td></tr>
+                                                <tr><td>Teaching Staff</td><td>10 Books</td><td>30 Days</td></tr>
+                                                <tr><td>Non-Teaching Staff</td><td>3 Books</td><td>30 Days</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* AJCAS TABLES SECTION */}
-                <div className={styles.ajcasContainer}>
-                    {/* Library Details */}
-                    <h2 className={styles.ajcasH2}>Library Details</h2>
-                    <div className={styles.tableCard}>
-                        <table className={styles.ajcasTable}>
-                            <thead>
-                                <tr>
-                                    <th>S.No</th>
-                                    <th>Library Details</th>
-                                    <th>Counts</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1</td><td className={styles.textLeft}>Total No. of Seating Capacity</td><td>160</td></tr>
-                                <tr><td>2</td><td className={styles.textLeft}>Total No. of Text Books (Till Date)</td><td>11832</td></tr>
-                                <tr><td>3</td><td className={styles.textLeft}>Total No. of E-Books</td><td>27900+</td></tr>
-                                <tr><td>4</td><td className={styles.textLeft}>Total No. of E-Journals</td><td>6000+</td></tr>
-                                <tr><td>5</td><td className={styles.textLeft}>Total No. of Dissertation / Projects</td><td>201</td></tr>
-                                <tr><td>6</td><td className={styles.textLeft}>Total No. of Back Volumes</td><td>159</td></tr>
-                                <tr><td>7</td><td className={styles.textLeft}>Total No. of Rare Books</td><td>150</td></tr>
-                                <tr><td>8</td><td className={styles.textLeft}>Total No. of Database</td><td>02 (DELNET, N-LIST)</td></tr>
-                                <tr><td>9</td><td className={styles.textLeft}>Integrated Library Management System</td><td>01 (SOUL 3.0)</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    {/* Library Book Count */}
-                    <h2 className={styles.ajcasH2}>Library Book Count</h2>
-                    <div className={styles.tableCard}>
-                        <table className={styles.ajcasTable}>
-                            <thead>
-                                <tr>
-                                    <th>Particulars</th>
-                                    <th>Quantity</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td className={styles.textLeft}>Text Books</td><td>11185</td></tr>
-                                <tr><td className={styles.textLeft}>Reference Books</td><td>1815</td></tr>
-                                <tr><td className={styles.textLeft}>e-Books</td><td>27918</td></tr>
-                                <tr><td className={styles.textLeft}>Journals</td><td>73</td></tr>
-                                <tr><td className={styles.textLeft}>e-Journals</td><td>3018</td></tr>
-                                <tr><td className={styles.textLeft}>Digital Databases</td><td>3</td></tr>
-                                <tr><td className={styles.textLeft}>CD & Video</td><td>6152</td></tr>
-                                <tr><td className={styles.textLeft}>Library Automation Software</td><td>2</td></tr>
-                                <tr><td className={styles.textLeft}>Weeding (Hard & Soft)</td><td>232</td></tr>
-                                <tr><td className={styles.textLeft}>Rare Book Collections</td><td>81</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    {/* E-Journals */}
-                    <h2 className={styles.ajcasH2}>List of E-Journals</h2>
-                    <div className={styles.tableCard}>
-                        <table className={styles.ajcasTable}>
-                            <thead>
-                                <tr>
-                                    <th>S No</th>
-                                    <th>E-Journal Subscription</th>
-                                    <th>Web Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {["AICTE - IEEE - IEI Explore", "ASME Explore", "British Library Online Membership", "National Digital Library (NDL)", "Knimubus is cloud based elibrary"].map((name, i) => (
-                                    <tr key={i}>
-                                        <td>{i + 1}</td>
-                                        <td className={styles.textLeft}>{name}</td>
-                                        <td><a href="#" className={styles.tableBtn}>Click Here</a></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-
-                    {/* E-Newspapers */}
-                    <h2 className={styles.ajcasH2}>List of Newspapers (E-Newspapers)</h2>
-                    <div className={styles.tableCard}>
-                        <table className={styles.ajcasTable}>
-                            <thead>
-                                <tr>
-                                    <th>S No</th>
-                                    <th>Newspaper Name</th>
-                                    <th>Web Site (E-Newspaper)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {["Times of India", "Indian Express", "Employment News", "Reader Digest", "C.S.R"].map((name, i) => (
-                                    <tr key={i}>
-                                        <td>{i + 1}</td>
-                                        <td className={styles.textLeft}>{name}</td>
-                                        <td><a href="#" className={styles.tableBtn}>Click Here</a></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* LIBRARY RULES SECTION */}
-                <div className={styles.rulesContainer}>
-                    
-                    <h2 className={styles.rulesTitle}>Library Rules & Regulations</h2>
-                    
+                {/* Library Usage Guidelines Section */}
+                <section className={styles.rulesContainer} style={{ background: '#fafaf9' }}>
+                    <h2 className={styles.rulesTitle}>Library Usage Guidelines</h2>
                     <div className={styles.rulesGrid}>
                         {[
-                            "Each student can use the Computer in Digital Library for a specified period only.",
-                            "Students must make a compulsory entry in the log book before switching on the terminal.",
-                            "Use of computers is not allowed during class hours except Library hours.",
-                            "Students are not allowed to use their own floppies/CDs.",
-                            "Playing games on library computers is strictly prohibited.",
-                            "Students should shutdown the system properly. If unable, contact the staff-in-charge.",
-                            "Students are responsible for any damage to systems or CDs.",
-                            "Copying files from CDs to Hard-disk or deleting files in Hard-disks is strictly prohibited."
+                            "Library membership is available to all students, faculty members, research scholars, and staff.",
+                            "A valid college identity card is mandatory for library entry and borrowing privileges.",
+                            "Users shall maintain silence, discipline, and a study-friendly environment within the library.",
+                            "Mobile phones must be kept in silent mode while inside the library.",
+                            "Food and beverages are not permitted in the library premises.",
+                            "Library resources shall be handled with care. Users are responsible for any loss or damage to borrowed materials.",
+                            "Books must be returned or renewed on or before the due date to ensure equitable access.",
+                            "Reference Books, journals, newspapers, and other non-circulating resources are for in-library use only."
                         ].map((rule, i) => (
-                            <div key={i} className={styles.ruleCard}>
-                                <p>{rule}</p>
+                            <div key={i} className={styles.ruleCard} style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
+                                <ShieldAlert size={20} color="#fb923c" style={{ flexShrink: 0, marginTop: '4px' }} />
+                                <p style={{ margin: 0 }}>{rule}</p>
                             </div>
                         ))}
                     </div>
-                </div>
+                </section>
+
+                {/* Library Activities Section (Events) */}
+                <section className={styles.howItWorksSection} style={{ padding: '80px 0' }}>
+                    <div className={styles.tornEdge}></div>
+                    <div className={styles.container} style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+                        <h2 className={styles.howItWorksTitle} style={{ marginBottom: '50px' }}>Department of Library Activities</h2>
+                        
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
+                            {libraryActivities.map((activity, index) => (
+                                <div key={index} style={{
+                                    background: 'white',
+                                    borderRadius: '16px',
+                                    padding: '30px',
+                                    border: '1px solid #e7e5e4',
+                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                                }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '10px', marginBottom: '15px' }}>
+                                        <h3 style={{ fontSize: '2.2rem', color: '#1c1917', fontWeight: '600', margin: 0 }}>{activity.title}</h3>
+                                        <span style={{ fontSize: '1.4rem', background: '#e7e5e4', padding: '4px 12px', borderRadius: '9999px', color: '#44403c', fontWeight: '500' }}>{activity.date}</span>
+                                    </div>
+                                    <p style={{ fontSize: '1.6rem', color: '#57534e', lineHeight: '1.7', marginBottom: '20px' }}>{activity.desc}</p>
+                                    
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                        {activity.images.map((imgSrc, imgIndex) => (
+                                            <div key={imgIndex} style={{ borderRadius: '12px', overflow: 'hidden', height: '220px', border: '1px solid #e7e5e4' }}>
+                                                <img src={imgSrc} alt="Activity documentation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Best User Awards Section */}
+                <section className={styles.valuesSection}>
+                    <div className={styles.container}>
+                        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                            <Award size={48} color="#fb923c" style={{ margin: '0 auto 15px' }} />
+                            <h2 className={styles.valuesTitle}>Best Library User Awards</h2>
+                            <p className={styles.valuesSubtitle}>
+                                Recognizing and honoring outstanding dedication to reading and library research during the academic year 2025–2026
+                            </p>
+                        </div>
+
+                        {/* Students Section */}
+                        <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Student Recipients</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '60px' }}>
+                            {studentAwards.map((student, i) => (
+                                <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px' }}>
+                                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #fb923c', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                                        <img src={student.src} alt={student.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    </div>
+                                    <div>
+                                        <h4 style={{ fontSize: '1.8rem', fontWeight: '600', color: '#1c1917', margin: '0 0 5px' }}>{student.name}</h4>
+                                        <span style={{ fontSize: '1.4rem', color: '#78716c' }}>{student.class}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Staff Section */}
+                        <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Faculty Recipients</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '60px' }}>
+                            {staffAwards.map((staff, i) => (
+                                <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px' }}>
+                                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #2b3990', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                                        <img src={staff.src} alt={staff.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    </div>
+                                    <div>
+                                        <h4 style={{ fontSize: '1.8rem', fontWeight: '600', color: '#1c1917', margin: '0 0 5px' }}>{staff.name}</h4>
+                                        <span style={{ fontSize: '1.4rem', color: '#78716c', display: 'block' }}>{staff.role}</span>
+                                        <span style={{ fontSize: '1.3rem', color: '#fb923c', fontWeight: '600' }}>Dept of {staff.dept}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Non-Staff Section */}
+                        <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Non-Teaching Staff Recipient</h3>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            {nonStaffAwards.map((staff, i) => (
+                                <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px', maxWidth: '350px', width: '100%' }}>
+                                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #2b3990', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                                        <img src={staff.src} alt={staff.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    </div>
+                                    <div>
+                                        <h4 style={{ fontSize: '1.8rem', fontWeight: '600', color: '#1c1917', margin: '0 0 5px' }}>{staff.name}</h4>
+                                        <span style={{ fontSize: '1.4rem', color: '#78716c' }}>{staff.role}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+                </section>
+
+                {/* Newspaper Clippings & Photo Gallery */}
+                <section className={styles.resourcesSection} style={{ background: '#f5f5f4' }}>
+                    <div className={styles.container}>
+                        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                            <ImageIcon size={40} color="#2b3990" style={{ margin: '0 auto 15px' }} />
+                            <h2 className={styles.resourcesTitle}>Newspaper Clippings & Gallery</h2>
+                            <p style={{ fontSize: '1.6rem', color: '#666', maxWidth: '600px', margin: '0 auto' }}>
+                                Media publications, event celebrations, and snapshots highlighting college achievements.
+                            </p>
+                        </div>
+
+                        {/* Newspaper Grid */}
+                        <h3 className={styles.sectionsTitle} style={{ marginBottom: '25px' }}>Newspaper Clippings</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '20px', marginBottom: '60px' }}>
+                            {newsClippings.map((img, i) => (
+                                <div key={i} style={{ borderRadius: '8px', overflow: 'hidden', height: '180px', border: '1px solid #ddd', background: 'white' }}>
+                                    <img src={img} alt="Newspaper clipping" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Gallery Grid */}
+                        <h3 className={styles.sectionsTitle} style={{ marginBottom: '25px' }}>Library Gallery</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '25px' }}>
+                            {galleryImages.map((img, i) => (
+                                <div key={i} style={{ borderRadius: '12px', overflow: 'hidden', height: '200px', border: '1px solid #e7e5e4', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+                                    <img src={img} alt="Library activities" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Staff Profiles Section */}
+                <section className={styles.resourcesSection} style={{ background: '#ffffff', paddingBottom: '100px' }}>
+                    <div className={styles.container}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '35px' }}>
+                            <Users size={28} color="#2b3990" />
+                            <h2 className={styles.ajcasH2} style={{ margin: 0, borderBottom: 'none' }}>Library Staff Profile</h2>
+                        </div>
+
+                        <div className={styles.ajcasContainer} style={{ padding: 0, marginTop: 0 }}>
+                            <div className={styles.tableCard}>
+                                <table className={styles.ajcasTable}>
+                                    <thead>
+                                        <tr>
+                                            <th>S. No</th>
+                                            <th>Staff Photo</th>
+                                            <th>Name & Designation</th>
+                                            <th>Year of Joining</th>
+                                            <th>Email ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div style={{ width: '80px', height: '80px', borderRadius: '8px', overflow: 'hidden', margin: '0 auto', border: '1px solid #ddd' }}>
+                                                    <img src="/library_images/image45.jpeg" alt="Dr. P. Krishnakumari" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                </div>
+                                            </td>
+                                            <td className={styles.textLeft}>
+                                                <strong>Dr. P. Krishnakumari</strong><br />
+                                                <span style={{ fontSize: '1.3rem', color: '#666' }}>MLIS., M.Phil., Ph.D.</span><br />
+                                                <span style={{ fontSize: '1.4rem', color: '#fb923c', fontWeight: '500' }}>Librarian & Head</span>
+                                            </td>
+                                            <td>2024</td>
+                                            <td><a href="mailto:krishna.phdlib13@gmail.com">krishna.phdlib13@gmail.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <div style={{ width: '80px', height: '80px', borderRadius: '8px', overflow: 'hidden', margin: '0 auto', border: '1px solid #ddd' }}>
+                                                    <img src="/library_images/image46.png" alt="Karthi P" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                </div>
+                                            </td>
+                                            <td className={styles.textLeft}>
+                                                <strong>Karthi P</strong><br />
+                                                <span style={{ fontSize: '1.3rem', color: '#666' }}>B.Com., BLIS.</span><br />
+                                                <span style={{ fontSize: '1.4rem', color: '#fb923c', fontWeight: '500' }}>Library Assistant</span>
+                                            </td>
+                                            <td>2022</td>
+                                            <td><a href="mailto:karthideva2311@gmail.com">karthideva2311@gmail.com</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </>
     );

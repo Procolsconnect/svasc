@@ -5,18 +5,22 @@ const LogoSpinning = ({
   maxSpeed = 0.2, // Reduced from 1.5
   centerTitle = 'Our Partners',
   logos = [
-    { src: 'https://assets.codepen.io/191814/icon-google.png', alt: 'Google', tooltip: 'Google', href: 'https://google.com' },
-    { src: 'https://assets.codepen.io/191814/logo-one.png', alt: 'Logo One', tooltip: 'Innovation' },
-    { src: 'https://assets.codepen.io/191814/logo-two.png', alt: 'Logo Two', tooltip: 'Excellence' },
-    { src: 'https://assets.codepen.io/191814/logo-three.png', alt: 'Logo Three', tooltip: 'Trust' },
-    { src: 'https://assets.codepen.io/191814/logo-nine.png', alt: 'Logo Nine', tooltip: 'Quality' },
-    { src: 'https://assets.codepen.io/191814/logo-five.png', alt: 'Logo Five', tooltip: 'Growth' },
-    { src: 'https://assets.codepen.io/191814/logo-six.png', alt: 'Logo Six', tooltip: 'Success' },
-    { src: 'https://assets.codepen.io/191814/logo-seven.png', alt: 'Logo Seven', tooltip: 'Integrity' },
-    { src: 'https://assets.codepen.io/191814/logo-eight.png', alt: 'Logo Eight', tooltip: 'Future' },
-    { src: 'https://assets.codepen.io/191814/icon-google.png', alt: 'Google', tooltip: 'Google' },
-    { src: 'https://assets.codepen.io/191814/logo-one.png', alt: 'Logo One', tooltip: 'Commitment' },
-    { src: 'https://assets.codepen.io/191814/logo-two.png', alt: 'Logo Two', tooltip: 'Expertise' },
+    { src: '/comapanies/tcs.jpg', alt: 'TCS', tooltip: 'Tata Consultancy Services' },
+    { src: '/comapanies/mrf.jpg', alt: 'MRF Tyres', tooltip: 'MRF Tyres' },
+    { src: '/comapanies/nokia.png', alt: 'Nokia', tooltip: 'Nokia Networks' },
+    { src: '/comapanies/tata elctornics.jpg', alt: 'Tata Electronics', tooltip: 'Tata Electronics' },
+    { src: '/comapanies/muthoot finance.png', alt: 'Muthoot Finance', tooltip: 'Muthoot Finance' },
+    { src: '/comapanies/foxconn.png', alt: 'Foxconn', tooltip: 'Foxconn India' },
+    { src: '/comapanies/motherson.png', alt: 'Motherson Group', tooltip: 'Motherson Group' },
+    { src: '/comapanies/kgis.png', alt: 'KGIS', tooltip: 'KG Information Systems' },
+    { src: '/comapanies/smarttail.png', alt: 'Smartail', tooltip: 'Smartail Pvt Ltd' },
+    { src: '/comapanies/jilaba.png', alt: 'Jilaba', tooltip: 'Jilaba Technologies' },
+    { src: '/comapanies/scm.png', alt: 'SCM Garments', tooltip: 'SCM Garments' },
+    { src: '/comapanies/clarus.jpg', alt: 'Clarus', tooltip: 'Clarus' },
+    { src: '/comapanies/cognicent.jpg', alt: 'Cognizant', tooltip: 'Cognizant' },
+    { src: '/comapanies/rinex.png', alt: 'Rinex', tooltip: 'Rinex' },
+    { src: '/comapanies/sakthiauto.png', alt: 'Sakthi Auto', tooltip: 'Sakthi Auto' },
+    { src: '/comapanies/spaperals.jpg', alt: 'SP Apparels', tooltip: 'SP Apparels' }
   ]
 }) => {
   const containerRef = useRef(null);

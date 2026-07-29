@@ -1,24 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Placement.module.css';
-import { ArrowRight, Users, TrendingUp, Mic2, MessageSquare, LineChart, Network, Bell, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Quote } from 'lucide-react';
+import { ArrowRight, Users, TrendingUp, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Quote, Mic2, MessageSquare, LineChart, Network, FileText, CheckSquare, Award, Clock } from 'lucide-react';
 import Hero from '../components/Common/Hero';
 import LogoSpinning from './LogoSpinning';
 import LogoMarquee from '../components/Common/LogoMarquee';
 
 const RECRUITERS = [
-    { name: "TCS", fullName: "Tata Consultancy Services", color: "#2563eb", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png" },
-    { name: "ZOHO", fullName: "Zoho Corporation", color: "#ea580c", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Zoho_Corporation_logo.svg/512px-Zoho_Corporation_logo.svg.png" },
-    { name: "INFOSYS", fullName: "Infosys Limited", color: "#1d4ed8", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/512px-Infosys_logo.svg.png" },
-    { name: "WIPRO", fullName: "Wipro Limited", color: "#f97316", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Logo.svg/512px-Wipro_Logo.svg.png" },
-    { name: "HCL", fullName: "HCL Technologies", color: "#6d28d9", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/HCL_Technologies_logo.svg/512px-HCL_Technologies_logo.svg.png" },
-    { name: "IBM", fullName: "IBM India", color: "#0530ad", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/512px-IBM_logo.svg.png" },
-    { name: "Accenture", fullName: "Accenture", color: "#7c3aed", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/512px-Accenture.svg.png" },
-    { name: "Capgemini", fullName: "Capgemini", color: "#2563eb", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Capgemini_201x_logo.svg/512px-Capgemini_201x_logo.svg.png" },
-    { name: "Amazon", fullName: "Amazon", color: "#f97316", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/512px-Amazon_logo.svg.png" },
-    { name: "Microsoft", fullName: "Microsoft", color: "#4b5563", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" },
-    { name: "Cognizant", fullName: "Cognizant", color: "#1a365d", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cognizant_logo_2022.svg/512px-Cognizant_logo_2022.svg.png" },
-    { name: "Tech Mahindra", fullName: "Tech Mahindra", color: "#dc2626", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tech_Mahindra_Logo.svg/512px-Tech_Mahindra_Logo.svg.png" },
-    { name: "24/7.ai", fullName: "24/7.ai", color: "#7c3aed", src: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/24-7_Customer_Logo.png/512px-24-7_Customer_Logo.png" }
+    { name: "TCS", fullName: "Tata Consultancy Services", color: "#2563eb", src: "/comapanies/tcs.jpg" },
+    { name: "MRF Tyres", fullName: "MRF Tyres Pvt Ltd", color: "#ea580c", src: "/comapanies/mrf.jpg" },
+    { name: "Nokia Networks", fullName: "Nokia Network Pvt Ltd", color: "#0a1264", src: "/comapanies/nokia.png" },
+    { name: "Tata Electronics", fullName: "Tata Electronics", color: "#000000", src: "/comapanies/tata elctornics.jpg" },
+    { name: "Muthoot Finance", fullName: "Muthoot Finance Pvt Ltd", color: "#dc2626", src: "/comapanies/muthoot finance.png" },
+    { name: "Foxconn", fullName: "Foxconn India", color: "#0f766e", src: "/comapanies/foxconn.png" },
+    { name: "Motherson Group", fullName: "Motherson Group", color: "#4f46e5", src: "/comapanies/motherson.png" },
+    { name: "KGIS", fullName: "KGISL", color: "#0891b2", src: "/comapanies/kgis.png" },
+    { name: "Smartail", fullName: "Smartail Pvt Ltd", color: "#16a34a", src: "/comapanies/smarttail.png" },
+    { name: "Jilaba Technologies", fullName: "Jilaba Technologies", color: "#7c3aed", src: "/comapanies/jilaba.png" },
+    { name: "SCM Garments", fullName: "SCM Garments", color: "#db2777", src: "/comapanies/scm.png" },
+    { name: "Clarus", fullName: "Clarus", color: "#0284c7", src: "/comapanies/clarus.jpg" },
+    { name: "Cognizant", fullName: "Cognizant", color: "#1a365d", src: "/comapanies/cognicent.jpg" },
+    { name: "Rinex", fullName: "Rinex", color: "#4f46e5", src: "/comapanies/rinex.png" },
+    { name: "Sakthi Auto", fullName: "Sakthi Auto", color: "#ea580c", src: "/comapanies/sakthiauto.png" },
+    { name: "SP Apparels", fullName: "SP Apparels", color: "#16a34a", src: "/comapanies/spaperals.jpg" }
 ];
 
 const PlacementCell = () => {
@@ -27,8 +31,8 @@ const PlacementCell = () => {
             {/* Hero Section */}
             <Hero
                 title="Placement and Training Cell"
-                description="At SVASC, we always believe in equipping our students with the right talent and personality to face the industry requirements. Our focus on placement centers is to create new approaches to attract the best from the industry to our campus."
-                image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600"
+                description="Enhancing students' employability by providing comprehensive career guidance, industry-oriented training, and placement opportunities at Shree Venkateshwara Arts and Science College."
+                image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1200"
             />
             <header className={styles.heroSection}>
                 <div className={styles.heroBackground}></div>
@@ -36,27 +40,23 @@ const PlacementCell = () => {
                     <div className={styles.heroContent}>
                         <div className={styles.heroBadge}>
                             <span className={styles.badgePulse}></span>
-                            Placement and Training Cell
+                            Empowering Career Excellence
                         </div>
                         <h1 className={styles.heroTitle}>
-                            About Placement Cell
-                            <span className={styles.heroHighlight}>We Always Believe</span>
-                            In Equipping Our Students With The Right Talent
+                            Training & Placement
+                            <span className={styles.heroHighlight}>Connecting Potential</span>
+                            with Professional Opportunities
                         </h1>
                         <p className={styles.heroDescription}>
-                            At SVASC, we always believe in equipping our students with the right talent and personality to face the
-                            industry requirements. Our focus on placement centers is to create new approaches to attract the best from the
-                            industry to our campus At SVASC, Placement time is not a mere annual ritual; it is a time for showcasing the
-                            very best among our young graduates to the industrial world. The Placement & Training Cell functions with the
-                            primary aim of placing students in top-notch companies even before they have completed their courses.
+                            The Training & Placement Cell of Shree Venkateshwara Arts and Science (Co-Education) College, Gobichettipalayam, is committed to enhancing students' employability by providing comprehensive career guidance, industry-oriented training, and placement opportunities.
                         </p>
                         <div className={styles.heroButtons}>
-                            <a href="#events" className={`${styles.btn} ${styles.btnPrimary}`}>
-                                Explore Our Events
+                            <Link to="/statistics" className={`${styles.btn} ${styles.btnPrimary}`}>
+                                View Statistics
                                 <ArrowRight size={18} />
-                            </a>
-                            <a href="#contact" className={`${styles.btn} ${styles.partner}`}>
-                                Partner With Us
+                            </Link>
+                            <a href="#recruiters" className={`${styles.btn} ${styles.partner}`}>
+                                Our Recruiters
                             </a>
                         </div>
                     </div>
@@ -66,16 +66,16 @@ const PlacementCell = () => {
                         <div className={styles.heroGridLeft}>
                             <div className={styles.heroImageLarge}>
                                 <img
-                                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600"
-                                    alt="Medical Technology"
+                                    src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=600"
+                                    alt="Student Interview Prep"
                                 />
                             </div>
                             <div className={styles.heroStatCard}>
                                 <div className={styles.statIcon}>
                                     <Users size={20} />
                                 </div>
-                                <span className={styles.statLabel}>94% Placement</span>
-                                <p className={styles.statDescription}>Exceptional Placement At SVASC</p>
+                                <span className={styles.statLabel}>83% Placement</span>
+                                <p className={styles.statDescription}>In Academic Year 2025–2026</p>
                             </div>
                         </div>
                         <div className={styles.heroGridRight}>
@@ -83,13 +83,13 @@ const PlacementCell = () => {
                                 <div className={styles.statIcon}>
                                     <TrendingUp size={20} />
                                 </div>
-                                <span className={styles.statLabel}>150+ Companies</span>
-                                <p className={styles.statDescription}>Accelerating capital deployment</p>
+                                <span className={styles.statLabel}>550+ Offers</span>
+                                <p className={styles.statDescription}>Total Placement Offers Received</p>
                             </div>
                             <div className={styles.heroImageLarge}>
                                 <img
-                                    src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=600"
-                                    alt="Conference Panel"
+                                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600"
+                                    alt="Professional Career Seminar"
                                 />
                             </div>
                         </div>
@@ -100,336 +100,212 @@ const PlacementCell = () => {
             {/* About Section */}
             <section id="about" className={styles.aboutSection}>
                 <div className={styles.aboutContainer}>
-                    <h2 className={styles.sectionTitle}>Why SVASC training Stand over</h2>
+                    <h2 className={styles.sectionTitle}>About The Placement Cell</h2>
                     <p className={styles.aboutMainText}>
-                        SVASC Training stands over others by delivering
-                        <span className={styles.textHighlight}>Industry-focused, practical, and career-oriented learning</span>
-                        that goes beyond textbooks. Our programs are designed to equip students with real-world skills through hands-on
-                        training, live projects, and expert-led sessions aligned with current industry demands.
+                        The Training & Placement Cell serves as a vital link between academia and industry by equipping students with technical knowledge, communication skills, aptitude, and professional competencies required to meet evolving industry expectations.
                     </p>
                     <div className={styles.divider}></div>
                     <p className={styles.aboutSecondaryText}>
-                        With experienced trainers, personalized mentorship, and strong placement support, SVASC ensures every student is
-                        confident, job-ready, and future-focused. This commitment to quality training and student success makes SVASC a
-                        trusted choice for professional excellence.
+                        Through structured training programmes, industry interactions, internships, and campus recruitment drives, the Cell prepares students for successful careers across diverse sectors. During the academic year 2025–2026, the Cell conducted continuous employability enhancement programmes and facilitated campus recruitment drives with leading multinational companies and reputed organizations, resulting in significant placement opportunities for students.
                     </p>
                 </div>
             </section>
 
-            {/* Value Proposition */}
-            <section id="services" className={styles.servicesSection}>
-                <div className={styles.servicesContainer}>
-                    <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Placement Training</h2>
-                        <p className={styles.sectionSubtitle}>Career services offered.</p>
+            {/* Vision & Mission */}
+            <section className={styles.aboutSection} style={{ background: '#f8fafc' }}>
+                <div className={styles.aboutContainer} style={{ textAlign: 'left', maxWidth: '100rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Vision</h2>
+                    <p className={styles.aboutMainText} style={{ textAlign: 'center', fontSize: '1.8rem', fontStyle: 'italic', marginBottom: '40px' }}>
+                        "To empower students with the knowledge, skills, values, and confidence required to become globally competent professionals by providing quality training, career guidance, and excellent placement opportunities."
+                    </p>
+                    
+                    <div className={styles.divider} style={{ margin: '30px auto' }}></div>
+                    
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginTop: '40px' }}>Mission</h2>
+                    <ul style={{ paddingLeft: '20px', fontSize: '1.6rem', lineHeight: '1.8', color: '#4b5563', listStyleType: 'disc' }}>
+                        <li style={{ marginBottom: '12px' }}>To enhance students' employability through continuous training in aptitude, technical, communication, and soft skills.</li>
+                        <li style={{ marginBottom: '12px' }}>To establish strong partnerships with leading industries and organizations for internships, training, and campus recruitment.</li>
+                        <li style={{ marginBottom: '12px' }}>To prepare students for competitive recruitment processes through mock interviews, group discussions, resume-building, and career counseling.</li>
+                        <li style={{ marginBottom: '12px' }}>To promote industry-oriented learning, innovation, and lifelong professional development.</li>
+                        <li style={{ marginBottom: 0 }}>To achieve maximum placement opportunities while supporting students in building successful and ethical careers.</li>
+                    </ul>
+                </div>
+            </section>
+
+            {/* Objectives of the Placement & Training Cell */}
+            <section className={styles.servicesSection}>
+                <div className={styles.servicesContainer} style={{ maxWidth: '120rem', margin: '0 auto' }}>
+                    <div className={styles.sectionHeader} style={{ textAlign: 'center' }}>
+                        <h2 className={styles.sectionTitle}>Objectives of the Placement & Training Cell</h2>
+                        <p className={styles.sectionSubtitle}>Key goals that guide our student career initiatives</p>
                     </div>
-
-                    <div className={styles.servicesGrid}>
-                        {/* Card 1 */}
+                    <div className={styles.servicesGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(28rem, 1fr))' }}>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
-                                <Mic2 size={24} />
+                                <Award size={24} />
                             </div>
-                            <h3 className={styles.cardTitle}>Career Planning & Development</h3>
-                            <p className={styles.cardDescription}>
-                                We prepare students with technical expertise and soft skills to meet industry standards. Career planning
-                                sessions help them set goals and build well-rounded personalities.
-                            </p>
+                            <h3 className={styles.cardTitle}>Employability Skills</h3>
+                            <p className={styles.cardDescription}>To provide comprehensive training in aptitude, technical, communication, and soft skills to improve students' employability.</p>
                         </div>
-
-                        {/* Card 2 */}
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
-                                <MessageSquare size={24} />
+                                <Users size={24} />
                             </div>
-                            <h3 className={styles.cardTitle}>Placement</h3>
-                            <p className={styles.cardDescription}>
-                                Our placement efforts at SVASC are designed to align students' talents with industry needs. Placement time
-                                is not just an annual event; it's an opportunity to showcase our students' abilities to leading companies.
-                            </p>
+                            <h3 className={styles.cardTitle}>Recruitment Prep</h3>
+                            <p className={styles.cardDescription}>To prepare students for campus recruitment through mock interviews, group discussions, coding assessments, and resume-building sessions.</p>
                         </div>
-
-                        {/* Card 3 */}
-                        <div className={styles.serviceCard}>
-                            <div className={styles.cardIcon}>
-                                <LineChart size={24} />
-                            </div>
-                            <h3 className={styles.cardTitle}>Corporate Relations</h3>
-                            <p className={styles.cardDescription}>
-                                SVASC fosters strong relationships with the corporate world to bridge the gap between academia and industry.
-                                Through numerous partnerships and collaborations, we create opportunities for students.
-                            </p>
-                        </div>
-
-                        {/* Card 4 */}
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <Network size={24} />
                             </div>
-                            <h3 className={styles.cardTitle}>Corporate Training</h3>
-                            <p className={styles.cardDescription}>
-                                SVASC collaborates with industry experts to conduct impactful corporate training programs. With over 200+
-                                MoUs signed with leading companies, we provide training on soft skills, life skills, and technical knowledge.
-                            </p>
+                            <h3 className={styles.cardTitle}>Industry Partnerships</h3>
+                            <p className={styles.cardDescription}>To establish and strengthen partnerships with leading industries, corporate organizations, and recruiters for internships and placement opportunities.</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <Mic2 size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Expert Seminars</h3>
+                            <p className={styles.cardDescription}>To organize career guidance programs, industry interactions, seminars, workshops, and guest lectures by experts.</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <TrendingUp size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Curriculum Alignment</h3>
+                            <p className={styles.cardDescription}>To bridge the gap between academic learning and industry requirements through skill development initiatives.</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <MessageSquare size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Ethics & Leadership</h3>
+                            <p className={styles.cardDescription}>To encourage students to develop professional ethics, leadership qualities, teamwork, and problem-solving abilities.</p>
                         </div>
                     </div>
                 </div>
             </section>
+
+            {/* Training Programmes */}
+            <section className={styles.servicesSection} style={{ background: '#f8fafc' }}>
+                <div className={styles.servicesContainer} style={{ maxWidth: '120rem', margin: '0 auto' }}>
+                    <div className={styles.sectionHeader} style={{ textAlign: 'center' }}>
+                        <h2 className={styles.sectionTitle}>Employability Training Programmes</h2>
+                        <p className={styles.sectionSubtitle}>Focused guidance modules designed to make students industry-ready</p>
+                    </div>
+                    <div className={styles.servicesGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(26rem, 1fr))' }}>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <TrendingUp size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Aptitude Development</h3>
+                            <p className={styles.cardDescription}>Quantitative Ability, Logical Reasoning & Verbal Ability</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <Mic2 size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Communication Skills</h3>
+                            <p className={styles.cardDescription}>Spoken English, listening capabilities, and written communication</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <Users size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Soft Skills</h3>
+                            <p className={styles.cardDescription}>Personality development, positive attitude, and behavioral dynamics</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <MessageSquare size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Group Discussions</h3>
+                            <p className={styles.cardDescription}>Formulating structured arguments, presentation skills, and public speaking</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <FileText size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Resume & Profile Writing</h3>
+                            <p className={styles.cardDescription}>Resume engineering, cover letters, and corporate profile building</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <Network size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Technical Skill Training</h3>
+                            <p className={styles.cardDescription}>Department-specific technical workshops and coding assessments</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <CheckSquare size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Mock HR & Technical Rounds</h3>
+                            <p className={styles.cardDescription}>One-on-one simulations replicating industry hiring processes</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <Award size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Professional Etiquette</h3>
+                            <p className={styles.cardDescription}>Corporate protocols, leadership mindset, and workplace communication</p>
+                        </div>
+                        <div className={styles.serviceCard}>
+                            <div className={styles.cardIcon}>
+                                <Clock size={24} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Workplace Readiness</h3>
+                            <p className={styles.cardDescription}>Time management, stress handling, and team collaboration</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <LogoSpinning />
-            {/* Featured Events */}
-            <section id="events" className={styles.eventsSection}>
-                <div className={styles.eventsContainer}>
-                    <div className={styles.eventsHeader}>
-                        <div>
-                            <h2 className={styles.sectionTitle}>Training & Placement Cell</h2>
-                            <p className={styles.sectionSubtitle}>Empowering Students for the Future of Work.</p>
-                        </div>
-                        <a href="#" className={styles.viewAllLink}>
-                            View All Events
-                            <ArrowRight size={16} />
-                        </a>
-                    </div>
-
-                    <div className={styles.eventsGrid}>
-                        {/* Event 1 */}
-                        <article className={styles.eventCard}>
-                            <div className={styles.eventImage}>
-                                <img
-                                    src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&q=80&w=600"
-                                    alt="Lagos Health Summit"
-                                />
-                                <span className={styles.eventBadge}>LAGOS</span>
-                            </div>
-                            <div className={styles.eventContent}>
-                                <h3 className={styles.eventTitle}>Lagos Health Summit</h3>
-                                <p className={styles.eventDescription}>
-                                    A premier healthcare event focused on innovation, policy reform, and system strengthening.
-                                </p>
-                                <a href="#" className={styles.eventLink}>Event Details</a>
-                            </div>
-                        </article>
-
-                        {/* Event 2 */}
-                        <article className={styles.eventCard}>
-                            <div className={styles.eventImage}>
-                                <img
-                                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=600"
-                                    alt="Nigeria Healthcare Investment Forum"
-                                />
-                                <span className={styles.eventBadge}>ABUJA</span>
-                            </div>
-                            <div className={styles.eventContent}>
-                                <h3 className={styles.eventTitle}>Healthcare Investment Forum</h3>
-                                <p className={styles.eventDescription}>
-                                    Connecting investors and healthcare businesses shaping the future of health financing.
-                                </p>
-                                <a href="#" className={styles.eventLink}>Event Details</a>
-                            </div>
-                        </article>
-
-                        {/* Event 3 */}
-                        <article className={styles.eventCard}>
-                            <div className={styles.eventImage}>
-                                <img
-                                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600"
-                                    alt="UK-Nigeria Health-Tech Fest"
-                                />
-                                <span className={styles.eventBadge}>LONDON / LAGOS</span>
-                            </div>
-                            <div className={styles.eventContent}>
-                                <h3 className={styles.eventTitle}>UK-Nigeria Health-Tech Fest</h3>
-                                <p className={styles.eventDescription}>
-                                    Cross-border platform advancing health-tech innovation, trade, and investment.
-                                </p>
-                                <a href="#" className={styles.eventLink}>Event Details</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            {/* Calendar Section */}
-            <section className={styles.calendarSection}>
-                <div className={styles.calendarContainer}>
-                    <div className={styles.calendarHeader}>
-                        <h2 className={styles.sectionTitle}>2026 Event Calendar</h2>
-                        <p className={styles.sectionSubtitle}>Stay informed on upcoming summits, forums, and sector convenings.</p>
-                    </div>
-
-                    <div className={styles.calendarTimeline}>
-                        {/* Item 1 */}
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineDate}>Q1 2026</div>
-                            <div className={styles.timelineDot}></div>
-                            <div className={styles.timelineContent}>
-                                <h4 className={styles.timelineTitle}>Lagos Health Summit</h4>
-                                <p className={styles.timelineSubtitle}>Innovation & Policy Dialogue</p>
-                                <p className={styles.timelineDescription}>Bringing together key stakeholders to set the agenda for the year.</p>
-                            </div>
-                        </div>
-
-                        {/* Item 2 */}
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineDate}>Q2 2026</div>
-                            <div className={styles.timelineDot}></div>
-                            <div className={styles.timelineContent}>
-                                <h4 className={styles.timelineTitle}>Nigeria Healthcare Investment Forum</h4>
-                                <p className={styles.timelineSubtitle}>Investment & Market Access</p>
-                                <p className={styles.timelineDescription}>Connecting capital with high-impact healthcare opportunities.</p>
-                            </div>
-                        </div>
-
-                        {/* Item 3 */}
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineDate}>Q3 2026</div>
-                            <div className={styles.timelineDot}></div>
-                            <div className={styles.timelineContent}>
-                                <h4 className={styles.timelineTitle}>UK-Nigeria Health-Tech Fest</h4>
-                                <p className={styles.timelineSubtitle}>Cross-Border Health-Tech Showcase</p>
-                                <p className={styles.timelineDescription}>Showcasing the latest technologies bridging the gap between markets.</p>
-                            </div>
-                        </div>
-
-                        {/* Item 4 */}
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineDate}>Q4 2026</div>
-                            <div className={styles.timelineDot}></div>
-                            <div className={styles.timelineContent}>
-                                <h4 className={styles.timelineTitle}>Special Convenings</h4>
-                                <p className={styles.timelineSubtitle}>Partner Events & Roundtables</p>
-                                <p className={styles.timelineDescription}>Targeted discussions on emerging trends and year-end strategic reviews.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.calendarCta}>
-                        <button className={`${styles.btn} ${styles.btnPrimary}`}>
-                            <Bell size={18} />
-                            Subscribe for Updates
-                        </button>
-                    </div>
-                </div>
-            </section>
 
             {/* Impact Section */}
             <section className={styles.impactSection}>
                 <div className={styles.impactContainer}>
                     <div className={styles.impactContent}>
-                        <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Placement highlights and opportunities</h2>
+                        <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Placement Highlights 2025–2026</h2>
                         <p className={styles.impactDescription}>
-                            SVASC takes pride in its strong placement ecosystem that connects talented students with the world's leading
-                            companies. Through industry-driven training, continuous skill development, and career-focused mentoring, our
-                            students are prepared to meet global professional standards and excel in competitive environments
+                            SVASC takes pride in its strong placement ecosystem that connects talented students with the world's leading companies. Through industry-driven training, continuous skill development, and career-focused mentoring, our students are prepared to meet global professional standards.
                         </p>
                         <div className={styles.impactDivider}></div>
                         <div className={styles.impactHighlight}>
                             <div className={styles.highlightDot}></div>
-                            <p>The World's Leading Company Hire Our Talent</p>
+                            <p>500+ Students successfully placed in the current academic year.</p>
                         </div>
                     </div>
 
                     <div className={styles.impactStats}>
                         <div className={styles.statBox}>
-                            <p className={styles.statNumber}>200+</p>
-                            <p className={styles.statText}>Companies for Internship</p>
+                            <p className={styles.statNumber}>500+</p>
+                            <p className={styles.statText}>Students Placed</p>
                         </div>
                         <div className={styles.statBox}>
-                            <p className={`${styles.statNumber} ${styles.statNumberHighlight}`}>250+</p>
-                            <p className={styles.statText}>Memorandum of Understanding</p>
+                            <p className={`${styles.statNumber} ${styles.statNumberHighlight}`}>553</p>
+                            <p className={styles.statText}>Total Placement Offers Received</p>
                         </div>
                         <div className={styles.statBox}>
-                            <p className={styles.statNumber}>300+</p>
-                            <p className={styles.statText}>Number of offer letters issued as of 2024</p>
-                        </div>
-                        <div className={styles.statBox}>
-                            <p className={`${styles.statNumber} ${styles.statNumberHighlight}`}>24LPA</p>
+                            <p className={styles.statNumber}>₹3.16 LPA</p>
                             <p className={styles.statText}>LPA Highest Package</p>
+                        </div>
+                        <div className={styles.statBox}>
+                            <p className={`${styles.statNumber} ${styles.statNumberHighlight}`}>₹2.40 LPA</p>
+                            <p className={styles.statText}>LPA Average Package</p>
                         </div>
                     </div>
                 </div>
             </section>
 
+
+
             {/* Partners Section */}
-            <section className={styles.partnersSection}>
+            <section id="recruiters" className={styles.partnersSection}>
                 <div className={styles.partnersContainer}>
                     <h3 className={styles.partnersTitle}>Organizations We Work With</h3>
                     <LogoMarquee logos={RECRUITERS} speed="40s" />
-                </div>
-            </section>
-
-            {/* Blog / Insights */}
-            <section id="insights" className={styles.insightsSection}>
-                <div className={styles.insightsContainer}>
-                    <div className={styles.insightsHeader}>
-                        <div>
-                            <h2 className={styles.sectionTitle}>
-                                Our Expert Trainers
-                                <p>Our training partners and inhouse experts include</p>
-                            </h2>
-                        </div>
-                        <a href="#" className={styles.readMoreLink}>
-                            Read More Insights
-                        </a>
-                    </div>
-
-                    <div className={styles.blogGrid}>
-                        {/* Blog 1 */}
-                        <a href="#" className={styles.blogCard}>
-                            <div className={styles.blogImage}>
-                                <img
-                                    src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg"
-                                    alt="Health Tech"
-                                />
-                            </div>
-                            <div className={styles.blogMeta}>
-                                <span className={styles.blogCategory}>Analysis</span>
-                                <span className={styles.blogSeparator}>•</span>
-                                <span className={styles.blogReadTime}>5 min read</span>
-                            </div>
-                            <h3 className={styles.blogTitle}>Investment Outlook for Health-Tech in West Africa</h3>
-                            <p className={styles.blogExcerpt}>
-                                Analyzing the trends driving capital into digital health solutions across the region.
-                            </p>
-                        </a>
-
-                        {/* Blog 2 */}
-                        <a href="#" className={styles.blogCard}>
-                            <div className={styles.blogImage}>
-                                <img
-                                    src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg"
-                                    alt="Workforce"
-                                />
-                            </div>
-                            <div className={styles.blogMeta}>
-                                <span className={styles.blogCategory}>Report</span>
-                                <span className={styles.blogSeparator}>•</span>
-                                <span className={styles.blogReadTime}>4 min read</span>
-                            </div>
-                            <h3 className={styles.blogTitle}>Workforce Innovation and the Future of Health Delivery</h3>
-                            <p className={styles.blogExcerpt}>
-                                Strategies to retain talent and upskill healthcare workers in emerging markets.
-                            </p>
-                        </a>
-
-                        {/* Blog 3 */}
-                        <a href="#" className={styles.blogCard}>
-                            <div className={styles.blogImage}>
-                                <img
-                                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600"
-                                    alt="PPP"
-                                />
-                            </div>
-                            <div className={styles.blogMeta}>
-                                <span className={styles.blogCategory}>Policy</span>
-                                <span className={styles.blogSeparator}>•</span>
-                                <span className={styles.blogReadTime}>6 min read</span>
-                            </div>
-                            <h3 className={styles.blogTitle}>Public-Private Partnerships in the Nigerian Health Sector</h3>
-                            <p className={styles.blogExcerpt}>
-                                How collaborative models are bridging the infrastructure gap effectively.
-                            </p>
-                        </a>
-                    </div>
                 </div>
             </section>
 
@@ -438,12 +314,9 @@ const PlacementCell = () => {
                 <div className={styles.testimonialContainer}>
                     <Quote size={48} className={styles.quoteIcon} />
                     <blockquote className={styles.testimonialText}>
-                        " Industry-Ready Students with certifications in AR/VR, Cybersecurity, Hotel Simulation Placement Support with
-                        mock interviews, aptitude training, company-specific coaching Naan Mudhalvan Skill Partner – Certified under
-                        Tamil Nadu Government's flagship programme 94%+ Placement Record in multiple departments Global Exposure –
-                        International recruiters from the USA and UAE "
+                        "Industry-Ready Students with certifications in AR/VR, Cybersecurity, and Naan Mudhalvan Skill training programs. Excellent placement support with mock interviews, aptitude coaching, and international recruitment access."
                     </blockquote>
-                    <div className={styles.testimonialAuthor}>Why Recruiters Choose SVASC ?</div>
+                    <div className={styles.testimonialAuthor}>Why Recruiters Choose SVASC</div>
                 </div>
             </section>
 
@@ -456,14 +329,8 @@ const PlacementCell = () => {
                             <div className={styles.contactLeft}>
                                 <h2 className={styles.contactTitle}>Partner With Us</h2>
                                 <p className={styles.contactDescription}>
-                                    Let's explore opportunities to collaborate, co-host events, support projects, or sponsor initiatives shaping Africa's
-                                    healthcare future.
+                                    Let's explore opportunities to collaborate, coordinate placement drives, or offer internships to SVASC students.
                                 </p>
-                                <div className={styles.contactButtons}>
-                                    <button className={`${styles.btn} ${styles.btnWhite}`}>Collaborate with HCA</button>
-                                    <button className={`${styles.btn} ${styles.btnSecondary}`}>Sponsor an Event</button>
-                                    <button className={`${styles.btn} ${styles.btnOutline}`}>Join Mailing List</button>
-                                </div>
                             </div>
 
                             <div className={styles.contactInfoCard}>
@@ -471,15 +338,15 @@ const PlacementCell = () => {
                                 <div className={styles.contactDetails}>
                                     <div className={styles.contactItem}>
                                         <Mail size={18} />
-                                        <a href="mailto:info@hcaconsults.com">info@hcaconsults.com</a>
+                                        <a href="mailto:principal@svasc.org">principal@svasc.org</a>
                                     </div>
                                     <div className={styles.contactItem}>
                                         <Phone size={18} />
-                                        <span>+234 (0) 123 456 7890</span>
+                                        <span>+91 9600966086</span>
                                     </div>
                                     <div className={styles.contactItem}>
                                         <MapPin size={18} />
-                                        <span>Lagos, Nigeria</span>
+                                        <span>Gobichettipalayam, Tamil Nadu, India</span>
                                     </div>
                                 </div>
                                 <div className={styles.socialLinks}>

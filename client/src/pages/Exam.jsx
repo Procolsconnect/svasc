@@ -285,6 +285,128 @@ const SVASCExamination = () => {
           ))}
         </div>
       </div>
+
+      {/* Exam Cell Overview Section */}
+      <section className="svasc-examcell-section">
+        <h1 className="svasc-examcell-title">About the Exam Cell</h1>
+
+        <div className="svasc-examcell-motto">
+          <h3>Motto</h3>
+          <p>"Upholding Integrity, Ensuring Transparency, Driving Excellence"</p>
+        </div>
+
+        <div className="svasc-examcell-container">
+          {/* Vision & Mission */}
+          <div className="svasc-examcell-card">
+            <h3>Vision</h3>
+            <p>We strive to conduct examinations fairly and efficiently, supporting the development of knowledgeable, ethical, and responsible graduates.</p>
+          </div>
+
+          <div className="svasc-examcell-card">
+            <h3>Mission</h3>
+            <ol>
+              <li>To conduct examinations in a transparent and systematic manner.</li>
+              <li>To provide timely examination services and publish results promptly.</li>
+              <li>To maintain confidentiality and accuracy in all examination activities.</li>
+              <li>To use modern technology for effective examination management.</li>
+              <li>To uphold ethics and academic integrity in the examination process.</li>
+            </ol>
+          </div>
+
+          {/* Objectives */}
+          <div className="svasc-examcell-card">
+            <h3>Objectives</h3>
+            <ul>
+              <li>To conduct internal and external examinations smoothly.</li>
+              <li>To ensure fairness and transparency in examinations.</li>
+              <li>To publish timetables and results on time.</li>
+              <li>To maintain examination records properly.</li>
+              <li>To provide quick and effective services to students and staff.</li>
+              <li>To encourage discipline and prevent malpractices.</li>
+              <li>To support continuous learning and academic excellence.</li>
+              <li>To follow university rules and regulations effectively.</li>
+            </ul>
+          </div>
+
+          {/* Functionality */}
+          <div className="svasc-examcell-card">
+            <h3>Functionality</h3>
+            <ul>
+              <li>Planning and conducting internal and university examinations.</li>
+              <li>Preparing examination timetables and seating arrangements.</li>
+              <li>Maintaining confidentiality of examination records.</li>
+              <li>Processing examination applications and related documents.</li>
+              <li>Issuing hall tickets and examination notifications.</li>
+              <li>Maintaining student examination records and documents.</li>
+              <li>Preventing malpractices and ensuring discipline during examinations.</li>
+              <li>Coordinating with Bharathiar University regarding examination matters.</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Roles & Responsibilities */}
+        <div className="svasc-examcell-card" style={{ marginBottom: '40px' }}>
+          <h3>Roles and Responsibilities</h3>
+          <ul>
+            <li>Conduct internal and university examinations smoothly and efficiently.</li>
+            <li>Ensure transparency, confidentiality, and fairness in all examination processes.</li>
+            <li>Prepare and maintain examination records and reports.</li>
+            <li>Coordinate with departments regarding examination activities.</li>
+            <li>Distribute examination-related information to students and staff.</li>
+            <li>Ensure compliance with university rules and regulations.</li>
+            <li>Address examination-related grievances and provide necessary support.</li>
+            <li>Promote ethical practices and academic integrity.</li>
+          </ul>
+        </div>
+
+        {/* Members */}
+        <div className="svasc-examcell-card">
+          <h3>Exam Cell Members</h3>
+          <div className="svasc-table-wrapper">
+            <table className="svasc-table">
+              <thead>
+                <tr>
+                  <th>S. No</th>
+                  <th>Name of the Staff</th>
+                  <th>Department</th>
+                  <th>E-mail ID</th>
+                  <th>Mobile No</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><strong>Dr. P. Rajasekar</strong></td>
+                  <td>Management</td>
+                  <td><a href="mailto:rajasekar@svasc.org">rajasekar@svasc.org</a></td>
+                  <td><a href="tel:7871111105">7871111105</a></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><strong>Dr. A. Savitha</strong></td>
+                  <td>Commerce</td>
+                  <td><a href="mailto:savitha@svasc.org">savitha@svasc.org</a></td>
+                  <td><a href="tel:9788654463">9788654463</a></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><strong>Mr. L. Sridhar</strong></td>
+                  <td>Mathematics</td>
+                  <td><a href="mailto:sridhar@svasc.org">sridhar@svasc.org</a></td>
+                  <td><a href="tel:6369870746">6369870746</a></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><strong>Ms. D. Sathyaruba</strong></td>
+                  <td>BCA</td>
+                  <td><a href="mailto:sathyaruba@svasc.org">sathyaruba@svasc.org</a></td>
+                  <td><a href="tel:7395881163">7395881163</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

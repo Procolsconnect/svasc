@@ -525,3 +525,94 @@
         grid-gap: 15px;
     }
 }
+
+/* Custom formatting for structured HTML inside .copyArea */
+.copyArea h3 {
+    font-size: 14pt;
+    color: #0a1264;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border-left: 4px solid #facc15;
+    padding-left: 10px;
+    font-weight: 600;
+    float: left;
+    width: 100%;
+}
+
+.copyArea ul, .copyArea ol {
+    margin: 10px 0 20px 20px;
+    padding: 0;
+    float: left;
+    width: calc(100% - 20px);
+}
+
+.copyArea li {
+    font-size: 11pt;
+    line-height: 22pt;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.copyArea strong {
+    color: #111;
+}
+
+.copyArea .teamDetails {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid #e5e7eb;
+    float: left;
+    width: 100%;
+}
+
+.copyArea .teamDetails h3 {
+    margin-top: 0;
+}
+
+/* Eco Club Table & Table Wrapper Styling */
+.ecoClubTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 11pt;
+    float: left;
+}
+
+.ecoClubTable th {
+    background: #0a1264;
+    color: #ffffff;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.ecoClubTable td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #333;
+}
+
+.ecoClubTable tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.ecoClubTable a {
+    color: #0a1264;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.ecoClubTable a:hover {
+    text-decoration: underline;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    float: left;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
