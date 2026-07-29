@@ -1,13 +1,85 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import axios from 'axios';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
+const BASE_URL = 'http://localhost:5000';
+
+const defaultSlides = [
+    {
+        backgroundImage: 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg',
+        field1: 'Academic Excellence',
+        field2: 'Interactive Learning',
+        field3: 'Expert Faculty Members',
+        field4: 'Skill Based Curriculum',
+        field5: 'A-Grade Certification'
+    },
+    {
+        backgroundImage: 'https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg',
+        field1: '100% Placement Support',
+        field2: 'Mock Interview Sessions',
+        field3: 'Industry Collaboration',
+        field4: 'Top Recruiters Network',
+        field5: 'Career Guidance Cells'
+    },
+    {
+        backgroundImage: 'https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg',
+        field1: 'Vibrant Campus Life',
+        field2: 'Rising Stars Club',
+        field3: 'Annual Cultural Diwas',
+        field4: 'Elite Infrastructure',
+        field5: 'Sports & Arts Clubs'
+    },
+    {
+        backgroundImage: 'https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg',
+        field1: 'Modern Laboratory Facilities',
+        field2: 'Hi-Tech Research Centers',
+        field3: 'Advanced Smart Classrooms',
+        field4: 'Digitalized Library Access',
+        field5: 'Practical Skills First'
+    }
+];
+
 const ValuesCarousel = () => {
+    const [slides, setSlides] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchSlides = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/home/value-slides`);
+                if (response.data.success && response.data.data.length > 0) {
+                    const mapped = response.data.data.map(slide => {
+                        const cleanImg = slide.backgroundImage.replace(/^\/+/, '');
+                        const imgUrl = slide.backgroundImage.startsWith('http') ? slide.backgroundImage : `${BASE_URL}/${cleanImg}`;
+                        return {
+                            ...slide,
+                            backgroundImage: imgUrl
+                        };
+                    });
+                    setSlides(mapped);
+                } else {
+                    setSlides(defaultSlides);
+                }
+            } catch (error) {
+                console.error('Error fetching value slides:', error);
+                setSlides(defaultSlides);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchSlides();
+    }, []);
+
+    if (loading) {
+        return <div style={{ padding: '60px 0', textAlign: 'center', background: '#fff', color: '#333' }}>Loading Values...</div>;
+    }
+
     return (
         <div className="values-carousel-scope">
             <style>{`
@@ -293,8 +365,8 @@ const ValuesCarousel = () => {
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
-                loop={true}
-                slidesPerView={'auto'} /* Changed to auto to respect CSS width */
+                loop={slides.length > 2}
+                slidesPerView={'auto'}
                 coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
@@ -302,7 +374,7 @@ const ValuesCarousel = () => {
                     modifier: 1,
                     slideShadows: true,
                 }}
-                pagination={{ clickable: true }} /* Made proper object */
+                pagination={{ clickable: true }}
                 breakpoints={{
                     320: {
                         slidesPerView: 1.5
@@ -317,105 +389,17 @@ const ValuesCarousel = () => {
                 modules={[EffectCoverflow, Pagination]}
                 className="swiper"
             >
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-tonin-rocodromo.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Carlos Rubio</span>
-                        <span title="Photo">Josetxu López</span>
-                        <span title="Route">Toñin (7b)</span>
-                        <span title="Sector">El Rocodromo</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-normal-caliz.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Josetxu López</span>
-                        <span title="Photo">Uge Garcia</span>
-                        <span title="Route">Normal (Ae)</span>
-                        <span title="Sector">El Caliz</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-cumbre-totem.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Antonio, Aitor, Uge & Josefer</span>
-                        <span title="Photo">Josetxu López</span>
-                        <span title="Route">Sur Clasica (6a)</span>
-                        <span title="Sector">El Totem</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-oscar-raul-hueco-hoces2.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Aitor Saz</span>
-                        <span title="Photo">Tximo</span>
-                        <span title="Route">Oscar & Raul (6a)</span>
-                        <span title="Sector">Hueco de las Hoces</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-gallego-cueva-mora.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Jarutxi Mora</span>
-                        <span title="Photo">Fernando Bulnes</span>
-                        <span title="Route">Gallego (V+)</span>
-                        <span title="Sector">Cueva de la Mora</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-chimenea-tortuga.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Nacho Ruiz</span>
-                        <span title="Photo">Josetxu López</span>
-                        <span title="Route">Chimenea (6a)</span>
-                        <span title="Sector">La Tortuga</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-blues-ojos-bonitos-tres-coronas.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Marino</span>
-                        <span title="Photo">Josetxu López</span>
-                        <span title="Route">Blues de los ojos bonitos (6a+)</span>
-                        <span title="Sector">Tres Coronas</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-capuchon-sarcofago.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Josetxu & Uge</span>
-                        <span title="Photo">Antonio Montes</span>
-                        <span title="Route">El Capuchon (6a/A1)</span>
-                        <span title="Sector">El Sarcofago</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-rosario-cueva-mora.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Eloy Atajos</span>
-                        <span title="Photo">Josetxu López</span>
-                        <span title="Route">Rosario (Vº)</span>
-                        <span title="Sector">Cueva de la Mora</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-me-pesa-hasta-el-aire-dehesilla.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Indio</span>
-                        <span title="Photo">Jarutxi Mora</span>
-                        <span title="Route">Me pesa hasta el aire (A2/A3?)</span>
-                        <span title="Sector">Risco de la Dehesilla</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{ backgroundImage: 'url(https://cdn.josetxu.com/img/gp-anonima-tres-coronas.jpg)' }}>
-                    <div className="info">
-                        <span title="Climber">Krispin Talavera</span>
-                        <span title="Photo">Josetxu López</span>
-                        <span title="Route">Anónima (6c)</span>
-                        <span title="Sector">Tres Coronas</span>
-                        <span title="Zone">La Pedriza</span>
-                    </div>
-                </SwiperSlide>
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={slide._id || index} style={{ backgroundImage: `url(${slide.backgroundImage})` }}>
+                        <div className="info">
+                            <span title="Value 1">{slide.field1}</span>
+                            <span title="Value 2">{slide.field2}</span>
+                            <span title="Value 3">{slide.field3}</span>
+                            <span title="Value 4">{slide.field4}</span>
+                            <span title="Value 5">{slide.field5}</span>
+                        </div>
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </div>
     );

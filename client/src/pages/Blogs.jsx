@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Blogs.module.css';
 import Hero from '../components/Common/Hero';
+import axios from 'axios';
 
-const ProjectsPortfolio = () => {
-  const [projects] = useState([
+const BASE_URL = 'http://localhost:5000';
+
+const defaultBlogs = [
     {
       ID: "all",
       category: "All",
@@ -76,12 +78,65 @@ const ProjectsPortfolio = () => {
         { image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400", title: "Achievements" }
       ]
     }
-  ]);
+  ];
 
+const ProjectsPortfolio = () => {
+  const [projects, setProjects] = useState(defaultBlogs);
   const [selectedProject, setSelectedProject] = useState(null);
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
+  const [modalCard, setModalCard] = useState(null);
+  const [heroData, setHeroData] = useState({
+    title: 'SVASC College Blogs',
+    description: 'Discover the vibrant campus life at SVASC. From academic excellence to cultural celebrations, explore all the exciting blogs and stories.',
+    image: 'https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c'
+  });
   const scrollBackTo = useRef(0);
   const selectedAreaRef = useRef(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/api/page-heros/blogs`).then(res => {
+      if (res.data.success && res.data.data) {
+        const d = res.data.data;
+        const cleanImg = d.image ? d.image.replace(/^\/+/, '') : '';
+        setHeroData({
+          title: d.title || heroData.title,
+          description: d.description || heroData.description,
+          image: d.image ? (d.image.startsWith('http') ? d.image : `${BASE_URL}/${cleanImg}`) : heroData.image
+        });
+      }
+    }).catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/api/blogs`);
+        if (res.data.success && res.data.data.length > 0) {
+          const mapped = res.data.data.map(item => {
+            const cleanImg = item.bannerImage.replace(/^\/+/, '');
+            return {
+              ID: item._id,
+              category: item.category,
+              bImage: item.bannerImage.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
+              copy: item.description,
+              cards: item.cards.map(card => {
+                const cardClean = card.image.replace(/^\/+/, '');
+                return {
+                  title: card.title,
+                  description: card.description || "No description provided.",
+                  image: card.image.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`
+                };
+              })
+            };
+          });
+          setProjects(mapped);
+        }
+      } catch (err) {
+        console.error("Error fetching blogs", err);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   const selectProject = (projectId) => {
     const project = projects.find(p => p.ID === projectId);
@@ -158,9 +213,9 @@ const ProjectsPortfolio = () => {
     <div style={{ fontFamily: "'Open Sans', sans-serif", margin: 0, padding: 0, minHeight: '100vh' }}>
       {/* Hero Section */}
       <Hero
-        title="SVASC College Blogs"
-        description="Discover the vibrant campus life at SVASC. From academic excellence to cultural celebrations, explore all the exciting blogs and stories that make our college community special."
-        image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c"
+        title={heroData.title}
+        description={heroData.description}
+        image={heroData.image}
       />
 
       <h2 className={styles.blogsMainTitle}>
@@ -222,15 +277,30 @@ const ProjectsPortfolio = () => {
               <div key={index} className={styles.gameCard}>
                 <div
                   className={styles.gameCardCover}
-                  style={{ backgroundImage: `url(${card.image})` }}
+                  style={{ backgroundImage: `url(${card.image})`, cursor: 'pointer' }}
+                  onClick={(e) => { e.stopPropagation(); setModalCard(card); }}
                 >
-                  <div className={styles.cardTitle}>{card.title}</div>
+                  <div className={styles.cardContentOverlay}>
+                    <div className={styles.cardTitle}>{card.title}</div>
+                    <button className={styles.readMoreBtn}>Read More</button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         )}
       </div>
+
+      {modalCard && (
+        <div className={styles.cardModalOverlay} onClick={() => setModalCard(null)}>
+          <div className={styles.cardModalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeModalBtn} onClick={() => setModalCard(null)}>×</button>
+            <img src={modalCard.image} alt={modalCard.title} className={styles.modalImage} />
+            <h2 className={styles.modalTitle}>{modalCard.title}</h2>
+            <div className={styles.modalDesc}>{modalCard.description}</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

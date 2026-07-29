@@ -2,6 +2,48 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './CampusLife.module.css';
 import { useOutletContext } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
+import axios from 'axios';
+
+const BASE_URL = 'http://localhost:5000';
+
+const fallbackHero = {
+    image: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200",
+    title: "CAMPUS LIFE",
+    description: "Experience the vibrant student life, culture, sports, and activities on campus."
+};
+
+const fallbackGallery = [
+    { _id: 1, img: "https://assets.codepen.io/1159990/smart-watch.jpg", title: "Smart Watch", category: "Showcase" },
+    { _id: 2, img: "https://assets.codepen.io/1159990/camera-film.jpg", title: "Camera Film", category: "Showcase" },
+    { _id: 3, img: "https://assets.codepen.io/1159990/coffee.jpg", title: "Coffee", category: "Showcase" },
+    { _id: 4, img: "https://assets.codepen.io/1159990/phone.jpg", title: "Phone", category: "Showcase" },
+    { _id: 5, img: "https://assets.codepen.io/1159990/keyboard.jpg", title: "Keyboard", category: "Showcase" },
+    { _id: 6, img: "https://assets.codepen.io/1159990/wrist-watch.jpg", title: "Wrist Watch", category: "Showcase" }
+];
+
+const fallbackScroll = [
+    {
+        img: 'https://unsplash.it/450/800?image=508',
+        title: 'Scrolling half by half',
+        text: 'Made in pure #CSS and almost all is "old properties" method. And a bit imagination. Yes, the flexbox is old now.',
+    },
+    {
+        img: 'https://unsplash.it/450/800?image=817',
+        title: "I'm Kseso, a #obCSServer",
+        text: 'Ramajero Argonauta, Enredique Amanuense de #CSS.',
+    },
+    {
+        img: 'https://unsplash.it/450/800?image=948',
+        title: 'ξsCSS Blog',
+        text: '#impoCSSible inside EsCSS. A Spanish #CSS blog where the borders & limits of #CSS disappear.',
+        link: 'https://escss.blogspot.com',
+    },
+    {
+        img: 'https://unsplash.it/450/800?image=737',
+        title: '#impoCSSible is nothing',
+        text: 'You don´t need Javascript or #CSS processors either for almost 100% of what you want to do.',
+    }
+];
 
 const CampusLife = () => {
     const { setIsNavbarVisible } = useOutletContext();
@@ -9,22 +51,95 @@ const CampusLife = () => {
     const observerRef = useRef(null);
     const scrollRef = useRef(null);
 
+    const [heroData, setHeroData] = useState(fallbackHero);
+    const [galleryItems, setGalleryItems] = useState([]);
+    const [scrollItems, setScrollItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        // Intersection Observer for Navbar visibility
+        const fetchCampusLifeData = async () => {
+            try {
+                // Fetch Hero Config
+                try {
+                    const heroRes = await axios.get(`${BASE_URL}/api/page-heros/campus-life`);
+                    if (heroRes.data.success && heroRes.data.data) {
+                        const data = heroRes.data.data;
+                        const cleanImg = data.image.replace(/^\/+/, '');
+                        setHeroData({
+                            title: data.title || fallbackHero.title,
+                            description: data.description || fallbackHero.description,
+                            image: data.image.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
+                        });
+                    }
+                } catch (e) {
+                    console.log("Using fallback page hero for campus-life");
+                }
+
+                // Fetch Gallery Items
+                try {
+                    const galleryRes = await axios.get(`${BASE_URL}/api/campus-life/gallery`);
+                    if (galleryRes.data.success && galleryRes.data.data.length > 0) {
+                        const mapped = galleryRes.data.data.map(item => {
+                            const cleanImg = item.image.replace(/^\/+/, '');
+                            return {
+                                _id: item._id,
+                                img: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
+                                title: item.name,
+                                category: item.description
+                            };
+                        });
+                        setGalleryItems(mapped);
+                    } else {
+                        setGalleryItems(fallbackGallery);
+                    }
+                } catch (e) {
+                    setGalleryItems(fallbackGallery);
+                }
+
+                // Fetch Scroll Items
+                try {
+                    const scrollRes = await axios.get(`${BASE_URL}/api/campus-life/scroll-items`);
+                    if (scrollRes.data.success && scrollRes.data.data.length > 0) {
+                        const mapped = scrollRes.data.data.map(item => {
+                            const cleanImg = item.image.replace(/^\/+/, '');
+                            return {
+                                img: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
+                                title: item.title,
+                                text: item.text,
+                                link: item.link
+                            };
+                        });
+                        setScrollItems(mapped);
+                    } else {
+                        setScrollItems(fallbackScroll);
+                    }
+                } catch (e) {
+                    setScrollItems(fallbackScroll);
+                }
+
+            } catch (err) {
+                console.error("Error fetching campus-life page data", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCampusLifeData();
+    }, []);
+
+    useEffect(() => {
         const observerOptions = {
             threshold: 0,
-            rootMargin: '-10% 0px 0px 0px' // Trigger slightly before reaching the section
+            rootMargin: '-10% 0px 0px 0px'
         };
 
         const handleIntersect = (entries) => {
             const isMobile = window.innerWidth <= 768;
-
             entries.forEach((entry) => {
                 if (isMobile) {
                     setIsNavbarVisible(true);
                     return;
                 }
-
                 if (entry.isIntersecting) {
                     setIsNavbarVisible(false);
                 } else if (entry.boundingClientRect.top > 0) {
@@ -39,77 +154,28 @@ const CampusLife = () => {
 
         return () => {
             if (observerRef.current) observerRef.current.disconnect();
-            // Reset visibility when leaving the page
             setIsNavbarVisible(true);
         };
-    }, [setIsNavbarVisible]);
+    }, [setIsNavbarVisible, loading]);
 
     useEffect(() => {
-        // Gallery hover tracking
         const handleMouseMove = (e) => {
             setGalleryHoverPos({ x: e.clientX, y: e.clientY });
         };
-
         document.addEventListener('mousemove', handleMouseMove);
         return () => document.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
-    const galleryItems = [
-        { id: 1, img: "https://assets.codepen.io/1159990/smart-watch.jpg", title: "Smart Watch", category: "Showcase" },
-        { id: 2, img: "https://assets.codepen.io/1159990/camera-film.jpg", title: "Camera Film", category: "Showcase" },
-        { id: 3, img: "https://assets.codepen.io/1159990/coffee.jpg", title: "Coffee", category: "Showcase" },
-        { id: 4, img: "https://assets.codepen.io/1159990/phone.jpg", title: "Phone", category: "Showcase" },
-        { id: 5, img: "https://assets.codepen.io/1159990/keyboard.jpg", title: "Keyboard", category: "Showcase" },
-        { id: 6, img: "https://assets.codepen.io/1159990/wrist-watch.jpg", title: "Wrist Watch", category: "Showcase" },
-    ];
-
-    const scrollItems = [
-        {
-            img: 'https://unsplash.it/450/800?image=508',
-            title: 'Scrolling half by half',
-            text: 'Made in pure #CSS and almost all is "old properties" method. And a bit imagination. Yes, the flexbox is old now.',
-        },
-        {
-            img: 'https://unsplash.it/450/800?image=817',
-            title: "I'm Kseso, a #obCSServer",
-            text: 'Ramajero Argonauta, Enredique Amanuense de #CSS.',
-        },
-        {
-            img: 'https://unsplash.it/450/800?image=948',
-            title: 'ξsCSS Blog',
-            text: '#impoCSSible inside EsCSS. A Spanish #CSS blog where the borders & limits of #CSS disappear.',
-            link: 'https://escss.blogspot.com',
-        },
-        {
-            img: 'https://unsplash.it/450/800?image=737',
-            title: '#impoCSSible is nothing',
-            text: 'You don´t need Javascript or #CSS processors either for almost 100% of what you want to do.',
-        },
-        {
-            img: 'https://unsplash.it/450/800?image=870',
-            title: 'Idea from E.Bouças´s pen',
-            text: 'Without jQuery or Javascript, nor fixed position (bye IOs problems)',
-            link: 'https://codepen.io/eduardoboucas/full/qdaOWv/',
-        },
-        {
-            img: 'https://unsplash.it/450/800?image=743',
-            title: 'Images from unsplash.it',
-            text: 'Because it´s the best for demos. Thanks, guys!',
-        },
-        {
-            img: 'https://unsplash.it/450/800?image=452',
-            title: 'show the PEN. link the POST',
-            text: 'Por una web con mucho estilo, para argonautas con buen gusto.',
-            link: 'https://escss.blogspot.com/2017/08/scroll-half-by-half-pure-css.html',
-        },
-    ];
+    if (loading) {
+        return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#111' }}>Loading Campus Life...</div>;
+    }
 
     return (
         <div className={styles.campusLifePage}>
             <Hero
-                title="CAMPUS LIFE"
-                description="Experience the vibrant student life, culture, sports, and activities on campus."
-                image="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200"
+                title={heroData.title}
+                description={heroData.description}
+                image={heroData.image}
             />
 
             {/* INTRO SECTION */}
@@ -172,7 +238,7 @@ const CampusLife = () => {
                 <div className={styles.container}>
                     <div className={styles.grid}>
                         {galleryItems.map((item) => (
-                            <div key={item.id} className={`${styles.columnXs12} ${styles.columnMd4}`}>
+                            <div key={item._id} className={`${styles.columnXs12} ${styles.columnMd4}`}>
                                 <figure className={styles.imgContainer}>
                                     <img src={item.img} alt={item.title} />
                                     <figcaption className={styles.imgContent}>
@@ -208,7 +274,7 @@ const CampusLife = () => {
                                         <a href={item.link}>{item.title.split('. ')[1]}</a>
                                     </h2>
                                 ) : item.link ? (
-                                    <h2><a href={item.link}>{item.title}</a></h2>
+                                    <h2><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
                                 ) : (
                                     <h1>{item.title}</h1>
                                 )}

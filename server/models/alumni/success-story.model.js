@@ -1,22 +1,21 @@
-const mongoose = require('mongoose');
+const mongoose = require('../../fake-mongoose.js');
 
 const successStorySchema = new mongoose.Schema({
-    type: {
+    name: {
         type: String,
-        enum: ['text', 'image', 'video'],
         required: true
     },
-    content: {
+    role: {
         type: String,
-        required: function () {
-            return this.type === 'text' || this.type === 'video';
-        }
+        required: true
+    },
+    description: {
+        type: String,
+        required: false
     },
     image: {
         type: String,
-        required: function () {
-            return this.type === 'image';
-        }
+        required: false
     },
     order: {
         type: Number,

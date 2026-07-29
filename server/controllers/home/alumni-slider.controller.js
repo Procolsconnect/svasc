@@ -44,17 +44,11 @@ const getAlumniById = async (req, res) => {
 const createAlumni = async (req, res) => {
     try {
         const { subTitle, name, content, link } = req.body;
-        if (!req.file) {
-            return res.status(400).json({
-                success: false,
-                message: 'Image file is required'
-            });
-        }
-
+        
         // Automatically assign order based on current count
         const currentCount = await AlumniSliderService.getAlumniCount();
 
-        const imagePath = `/uploads/${req.file.filename}`;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
         const alumni = await AlumniSliderService.createAlumni({
             subTitle,
             name,

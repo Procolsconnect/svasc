@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../../fake-mongoose.js');
 
 const newsletterSchema = new mongoose.Schema({
     title: {

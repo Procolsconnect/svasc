@@ -4,7 +4,14 @@ const valueSlideController = require('../controllers/home/value-slide.controller
 const blogController = require('../controllers/home/blog.controller');
 const alumniSliderController = require('../controllers/home/alumni-slider.controller');
 const eventsController = require('../controllers/home/svasc-events.controller');
+const homeHeroSlideController = require('../controllers/home-hero-slide.controller');
 const upload = require('../middlewares/uploadMiddleware');
+
+// Hero Slide routes
+router.get('/hero-slides', homeHeroSlideController.getAllSlides);
+router.post('/hero-slides', upload.single('src'), homeHeroSlideController.createSlide);
+router.put('/hero-slides/:id', upload.single('src'), homeHeroSlideController.updateSlide);
+router.delete('/hero-slides/:id', homeHeroSlideController.deleteSlide);
 
 // Value Slide routes
 router.get('/value-slides', valueSlideController.getAllSlides);

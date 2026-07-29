@@ -43,26 +43,19 @@ const getEventMarqueeById = async (req, res) => {
 
 const createEventMarquee = async (req, res) => {
     try {
-        const { title, day, month, description } = req.body;
+        const { title, day, month, description, url, youtubeUrl } = req.body;
 
-        // Validate image upload
-        if (!req.file) {
-            return res.status(400).json({
-                success: false,
-                message: 'Event image is required'
-            });
-        }
-
-        // Automatically assign order based on current count
         const currentCount = await EventsMarqueeService.getEventMarqueeCount();
 
-        const imagePath = `/uploads/${req.file.filename}`;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
 
         const event = await EventsMarqueeService.createEventMarquee({
             title,
             day,
             month,
             description,
+            url: url || '#',
+            youtubeLink: youtubeUrl || '',
             image: imagePath,
             order: currentCount
         });
@@ -83,14 +76,16 @@ const createEventMarquee = async (req, res) => {
 const updateEventMarquee = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, day, month, description } = req.body;
+        const { title, day, month, description, url, youtubeUrl } = req.body;
         let updateData = { title, day, month, description };
+
+        if (url !== undefined) updateData.url = url;
+        if (youtubeUrl !== undefined) updateData.youtubeLink = youtubeUrl;
 
         // Handle image update
         if (req.file) {
             const oldEvent = await EventsMarqueeService.getEventMarqueeById(id);
             if (oldEvent && oldEvent.image) {
-                // Updated path to step back two levels to reach uploads
                 const oldFilePath = path.join(__dirname, '../..', 'uploads', path.basename(oldEvent.image));
                 if (fs.existsSync(oldFilePath)) {
                     fs.unlinkSync(oldFilePath);

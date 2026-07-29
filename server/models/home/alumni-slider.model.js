@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../../fake-mongoose.js');
 
 const alumniSliderSchema = new mongoose.Schema({
     subTitle: {

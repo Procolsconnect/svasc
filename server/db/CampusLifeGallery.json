@@ -1,0 +1,20 @@
+[
+  {
+    "name": "demo",
+    "description": "sample",
+    "image": "/uploads/image-1785287352170-258222573.jpeg",
+    "order": 0,
+    "_id": "ms5dzt70rfnz5ruxalf",
+    "createdAt": "2026-07-29T01:09:12.205Z",
+    "updatedAt": "2026-07-29T01:09:12.205Z"
+  },
+  {
+    "name": "Sample data",
+    "description": "Sample data",
+    "image": "/uploads/image-1785287419677-881299695.png",
+    "order": 0,
+    "_id": "ms5e19bjzukbhzjgr0m",
+    "createdAt": "2026-07-29T01:10:19.760Z",
+    "updatedAt": "2026-07-29T01:10:19.760Z"
+  }
+]

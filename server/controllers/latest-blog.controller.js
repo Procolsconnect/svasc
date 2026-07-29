@@ -6,10 +6,7 @@ class LatestBlogController {
     async createBlog(req, res) {
         try {
             const { title, date, link } = req.body;
-            if (!req.file) {
-                return res.status(400).json({ success: false, message: 'Blog image is required' });
-            }
-
+            
             const data = {
                 title,
                 date,

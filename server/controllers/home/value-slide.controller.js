@@ -22,21 +22,9 @@ const createSlide = async (req, res) => {
     try {
         const { field1, field2, field3, field4, field5 } = req.body;
 
-        if (!req.file) {
-            return res.status(400).json({
-                success: false,
-                message: 'Background image file is required'
-            });
-        }
-
-        if (!field1 || !field2 || !field3 || !field4 || !field5) {
-            return res.status(400).json({
-                success: false,
-                message: 'All fields (field1-5) are required'
-            });
-        }
-
-        const backgroundImage = `/uploads/${req.file.filename}`;
+        
+        
+        const backgroundImage = req.file ? `/uploads/${req.file.filename}` : null;
 
         const slide = await ValueSlideService.createSlide({
             backgroundImage,

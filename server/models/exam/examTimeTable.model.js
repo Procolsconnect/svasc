@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../../fake-mongoose.js');
 
 const examTimeTableSchema = new mongoose.Schema({
     title: {
@@ -6,11 +6,10 @@ const examTimeTableSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    category: {
+    examType: {
         type: String,
         required: true,
-        enum: ['bu', 'cia'],
-        lowercase: true
+        trim: true
     },
     file: {
         type: String,

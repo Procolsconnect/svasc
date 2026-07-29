@@ -6,10 +6,7 @@ class NewsletterController {
     async createNewsletter(req, res) {
         try {
             const { title } = req.body;
-            if (!req.file) {
-                return res.status(400).json({ success: false, message: 'PDF file is required' });
-            }
-
+            
             const data = {
                 title,
                 pdf: `uploads/${req.file.filename}`

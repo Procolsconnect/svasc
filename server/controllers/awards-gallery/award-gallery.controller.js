@@ -4,10 +4,7 @@ class AwardGalleryController {
     async createAward(req, res) {
         try {
             const { alt, category } = req.body;
-            if (!req.file) {
-                return res.status(400).json({ success: false, message: 'Image is required' });
-            }
-
+            
             const data = {
                 image: `uploads/${req.file.filename}`,
                 alt,
