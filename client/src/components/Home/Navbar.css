@@ -210,6 +210,14 @@
     border: 1px solid #eee;
 }
 
+.dropdown-menu.mega-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    min-width: 460px;
+    padding: 16px;
+}
+
 .dropdown-menu.show {
     opacity: 1;
     visibility: visible;
@@ -480,6 +488,12 @@
         overflow: hidden;
         transition: max-height 0.3s ease-out, opacity 0.3s ease;
         border: none;
+    }
+
+    .dropdown-menu.mega-menu {
+        display: block;
+        min-width: auto;
+        padding: 0;
     }
 
     .dropdown-menu.show {

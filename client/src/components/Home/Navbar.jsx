@@ -89,7 +89,7 @@ const Navbar = ({ className }) => {
                                         >
                                             {item.label} <span>▾</span>
                                         </div>
-                                        <div className={`dropdown-menu ${activeDropdown === index ? 'show' : ''}`}>
+                                        <div className={`dropdown-menu ${activeDropdown === index ? 'show' : ''} ${item.dropdown.length > 10 ? 'mega-menu' : ''}`}>
                                             {item.dropdown.map((subItem, subIndex) => (
                                                 <Link
                                                     key={subIndex}

@@ -33,6 +33,19 @@ import SmartClass from './components/Facilities/SmartClass';
 import Transport from './components/Facilities/Transport';
 import Laboratory from './components/Facilities/Laboratory';
 import LibraryPortal from './components/Facilities/LibraryPortal';
+import VoterLiteracyClub from './routes/voter-literacy-club';
+import RotaractClub from './routes/rotaract-club';
+import SwayamNptel from './routes/swayam-nptel';
+import ResearchDevelopmentCell from './routes/research-development-cell';
+import JuniorJciWing from './routes/junior-jci-wing';
+import InternalGrievancesCommittee from './routes/internal-grievances-committee';
+import InnovationEntrepreneurship from './routes/innovation-entrepreneurship';
+import FineArtsClub from './routes/fine-arts-club';
+import ConsumerProtectionClub from './routes/consumer-protection-club';
+import PlacementTrainingCell from './routes/placement-training-cell';
+import Iqac from './routes/iqac';
+import Nss from './routes/nss';
+
 function App() {
   return (
     <Router>
@@ -68,6 +81,18 @@ function App() {
             <Route path="/transport" element={<Transport />} />
             <Route path="/laboratory" element={<Laboratory />} />
             <Route path="/library" element={<LibraryPortal />} />
+            <Route path="/voter-literacy-club" element={<VoterLiteracyClub />} />
+            <Route path="/rotaract-club" element={<RotaractClub />} />
+            <Route path="/swayam-nptel" element={<SwayamNptel />} />
+            <Route path="/research-development-cell" element={<ResearchDevelopmentCell />} />
+            <Route path="/junior-jci-wing" element={<JuniorJciWing />} />
+            <Route path="/internal-grievances-committee" element={<InternalGrievancesCommittee />} />
+            <Route path="/innovation-entrepreneurship" element={<InnovationEntrepreneurship />} />
+            <Route path="/fine-arts-club" element={<FineArtsClub />} />
+            <Route path="/consumer-protection-club" element={<ConsumerProtectionClub />} />
+            <Route path="/placement-training-cell" element={<PlacementTrainingCell />} />
+            <Route path="/iqac" element={<Iqac />} />
+            <Route path="/nss" element={<Nss />} />
           </Route>
           <Route path="/admission" element={<Admission />} />
           <Route path="/admin" element={<AdminDashboard />} />

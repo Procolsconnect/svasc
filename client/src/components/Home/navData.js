@@ -7,7 +7,7 @@ export const navData = {
         { label: 'Examinations', path: '/exam' },
         { label: 'NAAC', path: '#' },
         { label: 'Activities', path: '/activities' },
-        { label: 'IQAC', path: '#' },
+        { label: 'IQAC', path: '/iqac' },
     ],
     bottomNav: [
         {
@@ -23,6 +23,16 @@ export const navData = {
                 { label: 'Secretary Message', path: '/secretary' },
                 { label: 'Principal Message', path: '/principal' },
                 { label: 'NewsLetter', path: '/news' },
+                { label: 'Voter\'s club vision & mission', path: '/voter-literacy-club' },
+                { label: 'Rotaract CLUB', path: '/rotaract-club' },
+                { label: 'NPTEL VISION', path: '/swayam-nptel' },
+                { label: 'R AND D CELL', path: '/research-development-cell' },
+                { label: 'JJCI VISION AND MISSION', path: '/junior-jci-wing' },
+                { label: 'INTERNAL GRIEVANCES COMMITTEE', path: '/internal-grievances-committee' },
+                { label: 'IIEDC VISION & MISSION', path: '/innovation-entrepreneurship' },
+                { label: 'FINE ARTS Staff name', path: '/fine-arts-club' },
+                { label: 'FINE ARTS Roles and Responsibilities', path: '/fine-arts-club' },
+                { label: 'CONSUMER PC VISION', path: '/consumer-protection-club' },
             ]
         },
         {
@@ -53,6 +63,7 @@ export const navData = {
             path: '/placement',
             dropdown: [
                 { label: 'Placement Cell', path: '/placement' },
+                { label: 'Club PLACEMENT CELL', path: '/placement-training-cell' },
                 { label: 'Statistics', path: '/statistics' },
             ]
         },
