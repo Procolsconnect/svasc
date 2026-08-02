@@ -225,7 +225,7 @@
 }
 
 .coreSection::before {
-    content: "Core Values";
+    content: "Objectives";
     position: absolute;
     top: 45%;
     left: 50%;

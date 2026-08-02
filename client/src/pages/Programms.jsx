@@ -98,9 +98,7 @@ const Schools = () => {
                 acronym: "SOAL",
                 programs: [
                     { title: "B.A. Tamil", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.A. English", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    ,
-
+                    { title: "B.A. English", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
                 ]
             },
             {
@@ -108,6 +106,13 @@ const Schools = () => {
                 acronym: "SODF",
                 programs: [
                     { title: "B.Sc Costume Design & Fashion", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            {
+                name: "School of Physical Education",
+                acronym: "SOPE",
+                programs: [
+                    { title: "Department of Physical Education", image: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
                 ]
             }
         ],

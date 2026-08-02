@@ -1305,3 +1305,66 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ===========================
+   Placement Tables Styling
+   =========================== */
+.placementTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 30px 0;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.placementTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.6rem;
+    text-align: left;
+    background: white;
+}
+
+.placementTable th {
+    background-color: var(--primary);
+    color: white;
+    padding: 16px 20px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.placementTable td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    font-size: 1.5rem;
+}
+
+.placementTable tr:last-child td {
+    border-bottom: none;
+}
+
+.placementTable tr:nth-child(even) td {
+    background-color: #f8fafc;
+}
+
+.placementTable tr:hover td {
+    background-color: #f1f5f9;
+}
+
+.placementTable td strong {
+    color: var(--primary);
+}
+
+.placementTable a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.placementTable a:hover {
+    text-decoration: underline;
+}

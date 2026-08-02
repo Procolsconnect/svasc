@@ -8,49 +8,61 @@ const Statistics = () => {
     }, []);
 
     const placementData = [
-        { year: '2020-21', companies: 84, registered: 612, placed: 584, offers: 642 },
-        { year: '2019-20', companies: 76, registered: 580, placed: 556, offers: 598 },
-        { year: '2018-19', companies: 72, registered: 545, placed: 521, offers: 565 },
-        { year: '2017-18', companies: 68, registered: 512, placed: 498, offers: 530 },
-        { year: '2016-17', companies: 65, registered: 480, placed: 462, offers: 495 },
-        { year: '2015-16', companies: 60, registered: 450, placed: 435, offers: 460 },
-        { year: '2014-15', companies: 55, registered: 420, placed: 405, offers: 425 },
-        { year: '2013-14', companies: 50, registered: 390, placed: 375, offers: 390 },
-        { year: '2012-13', companies: 45, registered: 360, placed: 342, offers: 355 },
-        { year: '2011-12', companies: 40, registered: 320, placed: 305, offers: 315 },
-        { year: '2010-11', companies: 35, registered: 280, placed: 265, offers: 275 },
-        { year: '2009-10', companies: 30, registered: 240, placed: 228, offers: 235 },
+        { year: '2025–2026', strength: 499, percentage: '83%' },
+        { year: '2024–2025', strength: 450, percentage: '80%' },
+        { year: '2023–2024', strength: 380, percentage: '78%' },
+        { year: '2022–2023', strength: 350, percentage: '72%' },
+        { year: '2021–2022', strength: 190, percentage: '61%' },
+    ];
+
+    const companyData = [
+        { sno: 1, name: 'TCS (Tata Consultancy Services)', offers: 48 },
+        { sno: 2, name: 'KGIS (KG Information Systems)', offers: 11 },
+        { sno: 3, name: 'MRF Tyres Pvt Ltd., Sriperumbudur', offers: 120 },
+        { sno: 4, name: 'TVS ES Pvt Ltd., Chennai', offers: 30 },
+        { sno: 5, name: 'Smartail Pvt Ltd., Chennai', offers: 11 },
+        { sno: 6, name: 'Nokia Network Pvt Ltd., Chennai', offers: 90 },
+        { sno: 7, name: 'Motherson Pvt Ltd., Chennai', offers: 22 },
+        { sno: 8, name: 'TATA Electronics, Hosur', offers: 70 },
+        { sno: 9, name: 'Jilaba Technologies Pvt Ltd., Chennai', offers: 1 },
+        { sno: 10, name: 'SCM Garments Pvt Ltd., Tirupur', offers: 15 },
+        { sno: 11, name: 'Muthoot Finance Pvt Ltd., Erode', offers: 46 },
+        { sno: 12, name: 'Foxconn, Chennai', offers: 60 },
+        { sno: 13, name: 'Unitech Plasto Pvt Ltd., Chennai', offers: 29 },
     ];
 
     const recruiters = [
-        { name: 'Tech Mahindra', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tech_Mahindra_Logo.svg/512px-Tech_Mahindra_Logo.svg.png' },
-        { name: 'Axis Bank', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Axis_Bank_logo.svg/512px-Axis_Bank_logo.svg.png' },
-        { name: 'HDFC Bank', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HDFC_Bank_Logo.svg/512px-HDFC_Bank_Logo.svg.png' },
-        { name: 'Sutherland', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Sutherland_Global_Services_Logo.svg/512px-Sutherland_Global_Services_Logo.svg.png' },
-        { name: 'Allsec Technologies', src: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Allsec_Technologies_logo.png/512px-Allsec_Technologies_logo.png' },
-        { name: 'Infosys', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/512px-Infosys_logo.svg.png' },
-        { name: 'TCS', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png' },
-        { name: 'Wipro', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Logo.svg/512px-Wipro_Logo.svg.png' },
-        { name: 'Cognizant', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cognizant_logo_2022.svg/512px-Cognizant_logo_2022.svg.png' },
-        { name: 'Capgemini', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Capgemini_201x_logo.svg/512px-Capgemini_201x_logo.svg.png' },
-        { name: 'IBM', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/512px-IBM_logo.svg.png' },
-        { name: 'Amazon', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/512px-Amazon_logo.svg.png' }
+        { name: "TCS", src: "/comapanies/tcs.jpg" },
+        { name: "MRF Tyres", src: "/comapanies/mrf.jpg" },
+        { name: "Nokia Networks", src: "/comapanies/nokia.png" },
+        { name: "Tata Electronics", src: "/comapanies/tata elctornics.jpg" },
+        { name: "Muthoot Finance", src: "/comapanies/muthoot finance.png" },
+        { name: "Foxconn", src: "/comapanies/foxconn.png" },
+        { name: "Motherson Group", src: "/comapanies/motherson.png" },
+        { name: "KGIS", src: "/comapanies/kgis.png" },
+        { name: "Smartail", src: "/comapanies/smarttail.png" },
+        { name: "Jilaba Technologies", src: "/comapanies/jilaba.png" },
+        { name: "SCM Garments", src: "/comapanies/scm.png" },
+        { name: "Clarus", src: "/comapanies/clarus.jpg" },
+        { name: "Cognizant", src: "/comapanies/cognicent.jpg" },
+        { name: "Rinex", src: "/comapanies/rinex.png" },
+        { name: "Sakthi Auto", src: "/comapanies/sakthiauto.png" },
+        { name: "SP Apparels", src: "/comapanies/spaperals.jpg" }
     ];
 
     const starPerformers = [
-        { name: 'Rahul Kumar', dept: 'DCFS', company: 'Crowe', domain: 'Cyber Security' },
-        { name: 'Priya Dharshini', dept: 'CSHM', company: 'Marriott', domain: 'Hospitality' },
-        { name: 'Sanjay S', dept: 'BCA', company: 'TCS', domain: 'ITES' },
-        { name: 'Anitha R', dept: 'B.Com', company: 'HDFC', domain: 'Banking' },
-        { name: 'Vijay A', dept: 'B.Sc CS', company: 'Infosys', domain: 'IT' },
+        { name: 'R. Tamilarasan', dept: 'III B.Com B', company: 'TCS', domain: 'Finance' },
+        { name: 'B. Devapriyan', dept: 'II B.Com (CA)', company: 'MRF Tyres', domain: 'Technical Sales' },
+        { name: 'V. Abinaya', dept: 'II B.Com (CA)', company: 'Muthoot Finance', domain: 'Banking & Advisory' },
+        { name: 'M. Dhivagar', dept: 'III B.Com (PA)', company: 'Nokia Network', domain: 'Operations' },
     ];
 
     return (
         <div className={styles.statisticsApp}>
             {/* Hero Section */}
             <Hero
-                title="Statistics"
-                description="Excellence • Discipline • Sportsmanship"
+                title="Placement Statistics"
+                description="Excellence • Success • Global Competence"
                 image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=90&fm=jpg"
             />
 
@@ -72,35 +84,62 @@ const Statistics = () => {
                             Our career development initiatives ensure that every student is equipped to meet the challenges of the global job market, resulting in consistently high placement records across diverse sectors.
                         </p>
                     </div>
-
                 </div>
             </section>
 
             {/* Placement Statistics Section */}
             <section className={styles.section}>
                 <div className={styles.container}>
-                    <h2 className={styles.sectionTitle}>Placement Statistics</h2>
+                    <h2 className={styles.sectionTitle}>Year-wise Placement Statistics</h2>
                     <div className={styles.tableWrapper}>
                         <table className={styles.table}>
                             <thead>
                                 <tr>
                                     <th>Academic Year</th>
-                                    <th>No. of Companies Visited</th>
-                                    <th>No. of Students Registered for Placement</th>
-                                    <th>No. of Students Placed</th>
-                                    <th>No. of Placement Offer Letters Received</th>
+                                    <th>Total Student Strength</th>
+                                    <th>Placement Percentage</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {placementData.map((data, index) => (
                                     <tr key={index}>
-                                        <td>{data.year}</td>
-                                        <td>{data.companies}</td>
-                                        <td>{data.registered}</td>
-                                        <td>{data.placed}</td>
-                                        <td>{data.offers}</td>
+                                        <td><strong>{data.year}</strong></td>
+                                        <td>{data.strength}</td>
+                                        <td><strong>{data.percentage}</strong></td>
                                     </tr>
                                 ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            {/* Company-wise Offers Section */}
+            <section className={styles.section}>
+                <div className={styles.container}>
+                    <h2 className={styles.sectionTitle}>Company-wise Placement Details (2025–2026)</h2>
+                    <div className={styles.tableWrapper}>
+                        <table className={styles.table}>
+                            <thead>
+                                <tr>
+                                    <th>S. No</th>
+                                    <th>Name of the Company</th>
+                                    <th>No. of Offers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {companyData.map((data, index) => (
+                                    <tr key={index}>
+                                        <td>{data.sno}</td>
+                                        <td style={{ textAlign: 'left', paddingLeft: '30px' }}>{data.name}</td>
+                                        <td><strong>{data.offers}</strong></td>
+                                    </tr>
+                                ))}
+                                <tr style={{ background: '#e2e8f0', fontWeight: 'bold' }}>
+                                    <td></td>
+                                    <td style={{ textAlign: 'left', paddingLeft: '30px' }}>Total No. of Offers Received</td>
+                                    <td>553</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -110,7 +149,7 @@ const Statistics = () => {
             {/* Top Recruiters Section */}
             <section className={`${styles.section} ${styles.bgSurface}`}>
                 <div className={styles.container}>
-                    <h2 className={styles.sectionTitle}>Top Recruiters (2018–2025)</h2>
+                    <h2 className={styles.sectionTitle}>Our Hiring Partners</h2>
                     <div className={styles.recruitersGrid}>
                         {recruiters.map((recruiter, index) => (
                             <div key={index} className={styles.recruiterCard}>
@@ -124,13 +163,13 @@ const Statistics = () => {
             {/* Star Performers Section */}
             <section className={styles.section}>
                 <div className={styles.container}>
-                    <h2 className={styles.sectionTitle}>Star Performers – Student Highlights</h2>
+                    <h2 className={styles.sectionTitle}>Placement Student Highlights</h2>
                     <div className={styles.tableWrapper}>
                         <table className={styles.table}>
                             <thead>
                                 <tr>
                                     <th>Student Name</th>
-                                    <th>Department</th>
+                                    <th>Department/Year</th>
                                     <th>Hiring Company</th>
                                     <th>Domain</th>
                                 </tr>
@@ -138,9 +177,9 @@ const Statistics = () => {
                             <tbody>
                                 {starPerformers.map((student, index) => (
                                     <tr key={index}>
-                                        <td>{student.name}</td>
+                                        <td><strong>{student.name}</strong></td>
                                         <td>{student.dept}</td>
-                                        <td>{student.company}</td>
+                                        <td><strong>{student.company}</strong></td>
                                         <td>{student.domain}</td>
                                     </tr>
                                 ))}
@@ -172,21 +211,21 @@ const Statistics = () => {
                         <div className={styles.categoryItem}>
                             <div className={styles.categoryIcon}>»</div>
                             <div className={styles.categoryText}>
-                                <strong>Banking & Finance:</strong> Axis Bank, HDFC Bank, ICICI Bank, IDBI
+                                <strong>Banking & Finance:</strong> Axis Bank, HDFC Bank, ICICI Bank, IDBI, Muthoot Finance
                             </div>
                         </div>
 
                         <div className={styles.categoryItem}>
                             <div className={styles.categoryIcon}>»</div>
                             <div className={styles.categoryText}>
-                                <strong>Hospitality:</strong> Hyatt, Radisson, Vivanta, Sterling, Hard Rock
+                                <strong>Hospitality:</strong> Marriott, Hyatt, Radisson, Vivanta, Sterling, Hard Rock
                             </div>
                         </div>
 
                         <div className={styles.categoryItem}>
                             <div className={styles.categoryIcon}>»</div>
                             <div className={styles.categoryText}>
-                                <strong>BPO/KPO & EdTech:</strong> Sutherland, [24]7.ai, Focus Edumatics
+                                <strong>Manufacturing & Electronics:</strong> Foxconn, Nokia Networks, MRF Tyres, Tata Electronics, Motherson
                             </div>
                         </div>
                     </div>

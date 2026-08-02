@@ -786,3 +786,144 @@ html {
     line-height: 1.3;
   }
 }
+
+/* ================= EXAM CELL STYLES ================= */
+.svasc-examcell-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+.svasc-examcell-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0a1346;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.svasc-examcell-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+  .svasc-examcell-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.svasc-examcell-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.svasc-examcell-card h3 {
+  font-size: 22px;
+  color: #0a1346;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f5b400;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.svasc-examcell-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.svasc-examcell-card ul, .svasc-examcell-card ol {
+  padding-left: 20px;
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.svasc-examcell-card li {
+  margin-bottom: 8px;
+}
+
+.svasc-examcell-motto {
+  background: #0a1346;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 40px 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.svasc-examcell-motto h3 {
+  font-size: 18px;
+  color: #f5b400;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.svasc-examcell-motto p {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  font-style: italic;
+}
+
+.svasc-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.svasc-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: white;
+}
+
+.svasc-table th {
+  background-color: #0a1346;
+  color: white;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.svasc-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #475569;
+  font-size: 14px;
+}
+
+.svasc-table tr:last-child td {
+  border-bottom: none;
+}
+
+.svasc-table tr:nth-child(even) td {
+  background-color: #f9fafb;
+}
+
+.svasc-table tr:hover td {
+  background-color: #f3f4f6;
+}
+
+.svasc-table a {
+  color: #0a1346;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.svasc-table a:hover {
+  text-decoration: underline;
+}

@@ -55,7 +55,7 @@ const Vision = () => {
                 {/* 1. VISION LANDING */}
                 <section className={`${styles.visionBlock} ${styles.sectionLanding}`} ref={addToBlocks}>
                     <figure className={styles.itemParallaxMedia}>
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/luca-bravo-189272.jpg" alt="Vision Background" />
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1200" alt="Fine Arts Landing" />
                     </figure>
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer}`}>
                         <div className={`${styles.landingContent} ${styles.centeredContent}`}>
@@ -70,12 +70,7 @@ const Vision = () => {
                         <div className={styles.centeredContent}>
                             <h2 className={`${styles.headSmall} ${styles.headCentered}`}>Our Aspiration</h2>
                             <p className={styles.copy}>
-                                To emerge as a center of excellence in arts and science education by nurturing
-                                intellectually competent, socially responsible, and ethically strong individuals.
-                            </p>
-                            <p className={styles.copy}>
-                                Empowering students with knowledge, creativity, critical thinking,
-                                and lifelong learning for global contribution.
+                                To inspire creativity, nurture artistic talent and promote cultural appreciation by providing a vibrant platform where students can explore, express and excel in diverse forms of art, contributing to personal growth and the enrichment of the college community.
                             </p>
                         </div>
                     </div>
@@ -84,41 +79,44 @@ const Vision = () => {
                 {/* 3. MISSION */}
                 <section className={styles.visionBlock} ref={addToBlocks}>
                     <figure className={styles.itemParallaxMedia}>
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/roberta-sorge-138285.jpg" alt="Mission Background" />
+                        <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=1200" alt="Fine Arts Mission" />
                     </figure>
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer}`}>
                         <div className={styles.centeredContent}>
-                            <h1 className={`${styles.headLarge} ${styles.headCentered}`}>MISSION</h1>
-                            <p className={`${styles.copy} ${styles.missionText}`}>
-                                Providing quality education through innovative teaching, experiential learning,
-                                industry-aligned curriculum, and holistic student development.
-                            </p>
+                            <h1 className={`${styles.headLarge} ${styles.headCentered}`} style={{ fontSize: '7vw' }}>MISSION</h1>
+                            <div className={`${styles.copy} ${styles.missionText}`} style={{ color: 'white', background: 'rgba(0,0,0,0.5)', padding: '30px', borderRadius: '12px', maxWidth: '700px' }}>
+                                <ul style={{ listStyleType: 'none', padding: 0, textAlign: 'left', margin: 0 }}>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Identify and nurture students' artistic talents.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Encourage participation in intercollegiate and national-level art competitions.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Promote creativity, innovation and aesthetic appreciation.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Provide opportunities for artistic expression through visual and performing arts.</li>
+                                    <li style={{ marginBottom: 0, fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Foster teamwork, leadership and communication skills through club activities.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* 4. CORE VALUES IMAGES */}
+                {/* 4. OBJECTIVES GRID */}
                 <section className={styles.visionBlock} ref={addToBlocks}>
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer} ${styles.imgGrid}`}>
 
                         <figure className={`${styles.imgGridItem} ${styles.typeRight}`}>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/andrew-branch-139678.jpg" alt="Integrity" />
+                            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800" alt="Performing Arts" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Integrity & Ethics</h2>
                                 <p className={styles.captionText}>
-                                    Commitment to honesty, moral values, accountability,
-                                    and ethical conduct in all academic pursuits.
+                                    We identify, nurture and develop student talents across visual, literary, and performing arts.
                                 </p>
                             </figcaption>
                         </figure>
 
                         <figure className={`${styles.imgGridItem} ${styles.typeLeft}`}>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/peter-hershey-112799.jpg" alt="Excellence" />
+                            <img src="https://images.unsplash.com/photo-1565192647048-f997eed87981?w=800" alt="Visual Arts" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Excellence & Inclusion</h2>
                                 <p className={styles.captionText}>
-                                    Fostering innovation, inclusivity, research culture,
-                                    social responsibility, and academic excellence.
+                                    Providing creative outlets for students to express ideas, emotions, and personal viewpoints.
                                 </p>
                             </figcaption>
                         </figure>
@@ -129,7 +127,7 @@ const Vision = () => {
                 {/* 5. END SECTION */}
                 <section className={`${styles.visionBlock} ${styles.sectionEnd}`} ref={addToBlocks}>
                     <figure className={styles.itemParallaxMedia}>
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/noah-silliman-141979.jpg" alt="Values Background" />
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1200" alt="Objectives Landing" />
                     </figure>
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer}`}>
                         <div className={`${styles.landingContent} ${styles.centeredContent}`}>
@@ -138,7 +136,7 @@ const Vision = () => {
                     </div>
                 </section>
 
-                {/* 6. DETAILED CORE VALUES */}
+                {/* 6. DETAILED CLUB OBJECTIVES */}
                 <section className={styles.coreSection}>
                     <div className={styles.smallHeading}>Our Core Values</div>
                     <div className={styles.mainHeading}>Core Values & Beliefs</div>
@@ -147,63 +145,50 @@ const Vision = () => {
                         <div className={styles.valueCircle}>
                             <div className={styles.icon}>
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M22 10L12 5 2 10l10 5 10-5z" />
-                                    <path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5" />
+                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#000" strokeWidth="2"/>
+                                    <path d="M12 8V16" stroke="#000" strokeWidth="2" strokeLinecap="round"/>
+                                    <path d="M8 12H16" stroke="#000" strokeWidth="2" strokeLinecap="round"/>
                                 </svg>
                             </div>
-                            <p>Academic<br />Excellence</p>
+                            <p>Identify & Nurture<br />Artistic Talents</p>
                         </div>
 
                         <div className={styles.valueCircle}>
                             <div className={styles.icon}>
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                                    <path d="M4 4h16v16H6.5A2.5 2.5 0 0 0 4 22z" />
+                                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M20 12h-1M4 12H3m3.343-5.657l.707.707m2.818 10.865a6.002 6.002 0 0011.664-2.222c0-3.313-2.686-6-6-6s-6 2.687-6 6c0 1.34.44 2.576 1.182 3.585z" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </div>
-                            <p>Access to Education<br />in Rural Areas</p>
+                            <p>Creative Platform<br />for Student Ideas</p>
                         </div>
 
                         <div className={styles.valueCircle}>
                             <div className={styles.icon}>
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M12 2C7 6 5 9 5 13a7 7 0 0 0 14 0c0-4-2-7-7-11z" />
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#000" strokeWidth="2"/>
                                 </svg>
                             </div>
-                            <p>Environmental<br />Sustainability</p>
+                            <p>Promote Art &<br />Culture Appreciation</p>
                         </div>
 
                         <div className={styles.valueCircle}>
                             <div className={styles.icon}>
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />
-                                    <path d="M6 22v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                                    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" stroke="#000" strokeWidth="2"/>
+                                    <path d="M16 2v4M8 2v4M3 10h18" stroke="#000" strokeWidth="2"/>
                                 </svg>
                             </div>
-                            <p>Inclusiveness, Service<br />and Empathy</p>
+                            <p>Workshops, Rallies<br />& Competitions</p>
                         </div>
 
                         <div className={styles.valueCircle}>
                             <div className={styles.icon}>
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3" />
-                                    <path d="M8 11c-1.7 0-3-1.3-3-3s1.3-3 3-3" />
-                                    <path d="M12 14c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z" />
+                                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="#000" strokeWidth="2"/>
+                                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="#000" strokeWidth="2"/>
                                 </svg>
                             </div>
-                            <p>Social<br />Responsibility</p>
-                        </div>
-
-                        <div className={styles.valueCircle}>
-                            <div className={styles.icon}>
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 3v18" />
-                                    <path d="M5 7h14" />
-                                    <path d="M7 7l-2 7a4 4 0 0 0 4 4" />
-                                    <path d="M17 7l2 7a4 4 0 0 1-4 4" />
-                                </svg>
-                            </div>
-                            <p>Ethicality</p>
+                            <p>State & National<br />Level Showcases</p>
                         </div>
                     </div>
                 </section>
