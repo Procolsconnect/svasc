@@ -24,6 +24,8 @@ import { Route as ResearchDevelopmentCellRouteImport } from './routes/research-d
 import { Route as RotaractClubRouteImport } from './routes/rotaract-club'
 import { Route as SwayamNptelRouteImport } from './routes/swayam-nptel'
 import { Route as VoterLiteracyClubRouteImport } from './routes/voter-literacy-club'
+import { Route as ExamCellRouteImport } from './routes/exam-cell'
+import { Route as RedRibbonClubRouteImport } from './routes/red-ribbon-club'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -102,6 +104,16 @@ const VoterLiteracyClubRoute = VoterLiteracyClubRouteImport.update({
   path: '/voter-literacy-club',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExamCellRoute = ExamCellRouteImport.update({
+  id: '/exam-cell',
+  path: '/exam-cell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RedRibbonClubRoute = RedRibbonClubRouteImport.update({
+  id: '/red-ribbon-club',
+  path: '/red-ribbon-club',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -119,6 +131,8 @@ export interface FileRoutesByFullPath {
   '/rotaract-club': typeof RotaractClubRoute
   '/swayam-nptel': typeof SwayamNptelRoute
   '/voter-literacy-club': typeof VoterLiteracyClubRoute
+  '/exam-cell': typeof ExamCellRoute
+  '/red-ribbon-club': typeof RedRibbonClubRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -136,6 +150,8 @@ export interface FileRoutesByTo {
   '/rotaract-club': typeof RotaractClubRoute
   '/swayam-nptel': typeof SwayamNptelRoute
   '/voter-literacy-club': typeof VoterLiteracyClubRoute
+  '/exam-cell': typeof ExamCellRoute
+  '/red-ribbon-club': typeof RedRibbonClubRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -154,6 +170,8 @@ export interface FileRoutesById {
   '/rotaract-club': typeof RotaractClubRoute
   '/swayam-nptel': typeof SwayamNptelRoute
   '/voter-literacy-club': typeof VoterLiteracyClubRoute
+  '/exam-cell': typeof ExamCellRoute
+  '/red-ribbon-club': typeof RedRibbonClubRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -173,6 +191,8 @@ export interface FileRouteTypes {
     | '/rotaract-club'
     | '/swayam-nptel'
     | '/voter-literacy-club'
+    | '/exam-cell'
+    | '/red-ribbon-club'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -190,6 +210,8 @@ export interface FileRouteTypes {
     | '/rotaract-club'
     | '/swayam-nptel'
     | '/voter-literacy-club'
+    | '/exam-cell'
+    | '/red-ribbon-club'
   id:
     | '__root__'
     | '/'
@@ -207,6 +229,8 @@ export interface FileRouteTypes {
     | '/rotaract-club'
     | '/swayam-nptel'
     | '/voter-literacy-club'
+    | '/exam-cell'
+    | '/red-ribbon-club'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -225,6 +249,8 @@ export interface RootRouteChildren {
   RotaractClubRoute: typeof RotaractClubRoute
   SwayamNptelRoute: typeof SwayamNptelRoute
   VoterLiteracyClubRoute: typeof VoterLiteracyClubRoute
+  ExamCellRoute: typeof ExamCellRoute
+  RedRibbonClubRoute: typeof RedRibbonClubRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -334,6 +360,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VoterLiteracyClubRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/exam-cell': {
+      id: '/exam-cell'
+      path: '/exam-cell'
+      fullPath: '/exam-cell'
+      preLoaderRoute: typeof ExamCellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/red-ribbon-club': {
+      id: '/red-ribbon-club'
+      path: '/red-ribbon-club'
+      fullPath: '/red-ribbon-club'
+      preLoaderRoute: typeof RedRibbonClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -353,6 +393,8 @@ const rootRouteChildren: RootRouteChildren = {
   RotaractClubRoute: RotaractClubRoute,
   SwayamNptelRoute: SwayamNptelRoute,
   VoterLiteracyClubRoute: VoterLiteracyClubRoute,
+  ExamCellRoute: ExamCellRoute,
+  RedRibbonClubRoute: RedRibbonClubRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

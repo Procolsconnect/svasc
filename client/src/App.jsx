@@ -45,6 +45,8 @@ import ConsumerProtectionClub from './routes/consumer-protection-club';
 import PlacementTrainingCell from './routes/placement-training-cell';
 import Iqac from './routes/iqac';
 import Nss from './routes/nss';
+import ExamCell from './routes/exam-cell';
+import RedRibbonClub from './routes/red-ribbon-club';
 
 function App() {
   return (
@@ -93,6 +95,8 @@ function App() {
             <Route path="/placement-training-cell" element={<PlacementTrainingCell />} />
             <Route path="/iqac" element={<Iqac />} />
             <Route path="/nss" element={<Nss />} />
+            <Route path="/exam-cell" element={<ExamCell />} />
+            <Route path="/red-ribbon-club" element={<RedRibbonClub />} />
           </Route>
           <Route path="/admission" element={<Admission />} />
           <Route path="/admin" element={<AdminDashboard />} />

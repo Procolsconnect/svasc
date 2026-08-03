@@ -388,13 +388,133 @@ const defaultActivities = [
       ]
     },
     {
+      ID: "antiDrug",
+      category: "Anti Drug Club",
+      bImage: "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=800",
+      copy: `
+        <div class="${styles.activitySection}">
+          <h3>Vision</h3>
+          <p>To build a campus free from substance abuse where every student chooses health, purpose, and a drug-free future.</p>
+          
+          <h3>Mission</h3>
+          <ol>
+            <li>Create awareness about the harmful effects of drugs through campaigns and workshops.</li>
+            <li>Empower students to make informed, healthy choices.</li>
+            <li>Provide peer support and guidance for those seeking help.</li>
+            <li>Collaborate with experts and authorities to promote a safe campus environment.</li>
+          </ol>
+
+          <h3>Objectives of Anti Drug Club</h3>
+          <ol>
+            <li><strong>Create Awareness:</strong> Conduct regular seminars, workshops, and campaigns to educate students about the physical, mental, and social effects of drug abuse.</li>
+            <li><strong>Prevent First Use:</strong> Equip students with life skills to resist peer pressure and make informed decisions through interactive sessions and role plays.</li>
+            <li><strong>Promote Healthy Alternatives:</strong> Encourage sports, arts, yoga, and cultural activities as positive outlets to reduce stress and prevent drug experimentation.</li>
+            <li><strong>Build Support Systems:</strong> Establish peer support groups and confidential counseling channels for students seeking help or information.</li>
+            <li><strong>Early Identification & Intervention:</strong> Train club members to identify early warning signs and guide at-risk students to professional help without stigma.</li>
+          </ol>
+
+          <div class="${styles.teamDetails}">
+            <h3>Committee Members</h3>
+            <p><strong>Coordinator:</strong> Mr. K. Manikandan, Physical Director</p>
+            <p><strong>Members:</strong></p>
+            <ol>
+              <li>Mr. V. Ashok Kumar, AP/English</li>
+              <li>Ms. M. Miruthila, AP/PG Commerce</li>
+              <li>Mr. D. Shyamsundar, AP/BCA</li>
+            </ol>
+          </div>
+        </div>
+      `,
+      cards: [
+        { image: "https://images.unsplash.com/photo-1574689049596-1e68e858db4c?w=400", title: "Awareness Campaign" },
+        { image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400", title: "Healthy Alternatives" },
+        { image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400", title: "Peer Support" }
+      ]
+    },
+    {
+      ID: "mediaCell",
+      category: "Media Cell",
+      bImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800",
+      copy: `
+        <div class="${styles.activitySection}">
+          <h3>Vision</h3>
+          <p>To create a connected digital world where people can communicate, collaborate, share knowledge, and access information instantly, fostering innovation, learning, and global relationships.</p>
+
+          <h3>Mission</h3>
+          <ul>
+            <li>To enable seamless communication among people across the world.</li>
+            <li>To provide a platform for sharing information, ideas, and experiences.</li>
+            <li>To support learning, collaboration, and community engagement.</li>
+          </ul>
+
+          <h3>Objectives</h3>
+          <p>The Social Media Cell aims to promote the college's activities, achievements, and events through various social media platforms. It serves as a bridge between the institution and students, alumni, parents, and the wider community by sharing timely and accurate information. The cell also works to enhance the college's visibility, strengthen its reputation, encourage student engagement, and showcase academic, cultural, and extracurricular accomplishments.</p>
+
+          <h3>Key Responsibilities</h3>
+          <ol>
+            <li><strong>Content Planning and Management:</strong> Develop and maintain a social media content calendar. Create, schedule, and publish engaging posts related to academics, events, achievements, admissions, and campus life.</li>
+            <li><strong>Promotion of College Activities:</strong> Publicize seminars, workshops, cultural events, sports activities, placement drives, and other college programs. Highlight student achievements, faculty accomplishments, and institutional milestones.</li>
+            <li><strong>Coordination with Departments:</strong> Collect updates, photographs, videos, and announcements from various departments and clubs. Coordinate with faculty, student coordinators, and event organizers.</li>
+            <li><strong>Social Media Engagement:</strong> Monitor comments, messages, and mentions on official social media accounts. Respond to queries professionally and encourage positive engagement.</li>
+            <li><strong>Brand Representation:</strong> Maintain a positive and professional image of the college on all social media platforms. Ensure consistency in logos, messaging, and visual identity.</li>
+            <li><strong>Compliance and Ethics:</strong> Adhere to college policies, copyright regulations, and privacy requirements. Obtain necessary permissions before posting photographs or videos.</li>
+            <li><strong>Performance Monitoring:</strong> Track social media metrics such as reach, engagement, followers, and campaign performance.</li>
+            <li><strong>Account Security:</strong> Maintain the confidentiality of account credentials and report any security issues immediately.</li>
+          </ol>
+
+          <h3>Expected Outcomes</h3>
+          <ul>
+            <li>Increased visibility of the college and its programs.</li>
+            <li>Enhanced engagement with prospective students, parents, alumni, and stakeholders.</li>
+            <li>Timely dissemination of accurate information.</li>
+            <li>Strong and positive online reputation for the institution.</li>
+          </ul>
+
+          <div class="${styles.teamDetails}">
+            <h3>Conditions & Resolution</h3>
+            <p>The committee approved the above roles and responsibilities for Social Media Coordinators. All content shared on social media must be accurate, professional, and approved by the principal. Posts should uphold the college's values, respect privacy, and avoid offensive or misleading content.</p>
+          </div>
+        </div>
+      `,
+      cards: [
+        { image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400", title: "Social Media Outreach" },
+        { image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=400", title: "Content Creation" },
+        { image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400", title: "Analytics & Engagement" }
+      ]
+    },
+    {
       ID: "clubs",
       category: "College Clubs",
       bImage: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800",
       copy: `<p>Our college hosts various clubs including Fine Arts Club, Eco Club, and Creativity Club. The Fine Arts Club celebrated Teachers' Day 2025 and conducted Tamil cultural programs. The Felicitation Ceremony honored school teachers who received the Tamil Nadu Government Dr. Radhakrishnan Award.</p> <p>The Eco Club creates environmental awareness through plantation drives, water conservation, waste management, and organizing nature trails in wildlife sanctuaries. The Consumer Protection Club participated in "Mock Court" competition and bagged a Special Prize.</p><p>The Creativity Club nurtures artistic skills and connects with the larger art community. The Entrepreneurship Development Cell organized a two-day workshop on "Life Skills Development" for all UG students in November 2022.</p>`,
       cards: [
         { image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400", title: "Fine Arts Club" },
-        { image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400", title: "Eco Club" },
+        { image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400", title: "Eco Club", description: `
+          <div class="${styles.modalDescContent}">
+            <h3 style="color:var(--gold); margin-top:0;">Vision</h3>
+            <p>To create an environmentally conscious and sustainable campus by inspiring students to protect nature, conserve resources, and promote eco-friendly practices.</p>
+            <h3 style="color:var(--gold);">Mission</h3>
+            <ul style="padding-left: 20px;">
+              <li>To develop environmental awareness among students and staff.</li>
+              <li>To encourage active participation in environmental conservation activities.</li>
+              <li>To promote sustainable practices such as waste management, energy conservation, and tree plantation.</li>
+              <li>To create responsible citizens committed to protecting the environment.</li>
+            </ul>
+            <h3 style="color:var(--gold);">Objectives</h3>
+            <ol style="padding-left: 20px;">
+              <li>To create awareness about environmental issues such as pollution, climate change, and biodiversity.</li>
+              <li>To encourage students to participate in tree plantation and campus greening.</li>
+              <li>To promote waste segregation, recycling, and proper waste management.</li>
+              <li>To conserve natural resources like water and electricity.</li>
+              <li>To organize seminars, rallies, and awareness campaigns.</li>
+            </ol>
+            <h3 style="color:var(--gold);">Composition of Eco Club</h3>
+            <ul style="padding-left: 20px;">
+              <li><strong>Coordinator:</strong> Mrs. K.S. MALATHI (6383021694)</li>
+              <li><strong>Members:</strong> Mrs. M. KAVITHA, Mr. P. KARTHIKEYAN, Mrs. K. GAYATHRI, L. MOHAN, M. SUBINRAJ, R. SUDHARSHAN, T. MUNEESHWARAN</li>
+            </ul>
+          </div>
+        ` },
         { image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400", title: "Creativity Club" },
         { image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400", title: "Life Skills Workshop" }
       ]
@@ -616,7 +736,7 @@ const ProjectsPortfolio = () => {
             <button className={styles.closeModalBtn} onClick={() => setModalCard(null)}>×</button>
             <img src={modalCard.image} alt={modalCard.title} className={styles.modalImage} />
             <h2 className={styles.modalTitle}>{modalCard.title}</h2>
-            <div className={styles.modalDesc}>{modalCard.description}</div>
+            <div className={styles.modalDesc} dangerouslySetInnerHTML={{ __html: modalCard.description || '' }} />
           </div>
         </div>
       )}

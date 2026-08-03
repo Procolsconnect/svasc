@@ -983,6 +983,181 @@ export const pages: PageDef[] = [
       },
     ],
   },
+  {
+    slug: "/exam-cell",
+    nav: "Exam Cell",
+    title: "Exam Cell",
+    hero: "Exam Cell",
+    intro: "Upholding Integrity, Ensuring Transparency, Driving Excellence.",
+    image: "students",
+    motto: "Upholding Integrity, Ensuring Transparency, Driving Excellence",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Overview",
+        body: [
+          "The Examination Cell at SVASC College of Arts and Science is the central authoritative body responsible for the seamless planning, execution, and management of all academic evaluations. Serving as the vital bridge between the college and the affiliated university, the Exam Cell ensures that every assessment process is conducted with the highest degree of academic integrity and administrative efficiency.",
+          "Our dedicated team works tirelessly to implement robust evaluation mechanisms, securely manage student records, and foster a disciplined environment that enables students to demonstrate their true academic potential without any administrative hurdles."
+        ]
+      },
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "We strive to conduct examinations fairly, securely, and efficiently, thereby supporting the holistic development of knowledgeable, ethical, and highly responsible graduates who are prepared to face global challenges.",
+          "We envision an evaluation framework that is entirely transparent and technologically advanced, ensuring that academic merit is the sole determinant of success."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Mission",
+        items: [
+          "To conduct both internal and university examinations in a highly transparent, systematic, and organized manner.",
+          "To provide timely, student-centric examination services, ensuring that timetables, notifications, and results are published promptly.",
+          "To maintain absolute confidentiality, precision, and accuracy in all examination-related activities and documentation.",
+          "To integrate modern digital technologies and software solutions for more effective and error-free examination management.",
+          "To uphold rigorous ethics, prevent malpractices, and instill a strong sense of academic integrity among the student community."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Primary Objectives",
+        items: [
+          "To ensure the smooth execution of internal assessments, practical exams, and final external university examinations without any disruptions.",
+          "To guarantee strict fairness and transparency in all evaluation processes, building trust among students and faculty members.",
+          "To coordinate closely with academic departments to publish accurate examination schedules, seating arrangements, and result declarations on time.",
+          "To systematically maintain and archive sensitive examination records, academic transcripts, and official documentation securely.",
+          "To deliver quick, effective, and responsive support services to address the examination-related queries of students and staff members.",
+          "To strictly enforce disciplinary guidelines inside examination halls to entirely prevent academic malpractices.",
+          "To support a culture of continuous learning, self-assessment, and sustained academic excellence throughout the academic year.",
+          "To ensure 100% compliance with all statutory rules, regulations, and guidelines mandated by Bharathiar University."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Core Functionality",
+        items: [
+          "Strategic planning, scheduling, and conducting of all internal model examinations and end-semester university examinations.",
+          "Meticulous preparation of detailed examination timetables, dynamic seating arrangements, and invigilation duty charts for faculty.",
+          "Securing and maintaining the strict confidentiality of question papers, answer scripts, and official examination records.",
+          "Efficient processing of student examination applications, fee collections, and verification of eligibility criteria.",
+          "Timely generation and distribution of student hall tickets and official examination notifications.",
+          "Updating and maintaining comprehensive digital and physical student examination records.",
+          "Deploying flying squads and invigilators to prevent malpractices and maintain an atmosphere of strict discipline during exams.",
+          "Acting as the primary liaison coordinating with Bharathiar University regarding syllabus changes, examination protocols, and administrative matters."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Roles and Responsibilities",
+        items: [
+          "Conduct internal and university examinations smoothly, ensuring an entirely stress-free environment for the candidates.",
+          "Enforce transparency, confidentiality, and absolute fairness in every step of the examination process.",
+          "Prepare, verify, and maintain all necessary examination records, attendance sheets, and academic performance reports.",
+          "Coordinate seamlessly with all academic departments to align teaching schedules with internal assessment activities.",
+          "Distribute crucial examination-related information, circulars, and university updates promptly to students and faculty members.",
+          "Ensure total compliance with the complex regulatory frameworks and guidelines established by the affiliated university.",
+          "Promptly address, investigate, and resolve examination-related grievances submitted by students to provide necessary administrative support.",
+          "Promote ethical practices, character development, and academic integrity as core values of the institution."
+        ]
+      },
+      {
+        kind: "members",
+        title: "Exam Cell Members",
+        items: [
+          { name: "Dr. P. Rajasekar", role: "Exam Cell Member", extra: "Management", email: "rajasekar@svasc.org", phone: "7871111105" },
+          { name: "Dr. A. Savitha", role: "Exam Cell Member", extra: "Commerce", email: "savitha@svasc.org", phone: "9788654463" },
+          { name: "Mr. L. Sridhar", role: "Exam Cell Member", extra: "Mathematics", email: "sridhar@svasc.org", phone: "6369870746" },
+          { name: "Ms. D. Sathyaruba", role: "Exam Cell Member", extra: "BCA", email: "sathyaruba@svasc.org", phone: "7395881163" }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/red-ribbon-club",
+    nav: "Red Ribbon Club",
+    title: "Red Ribbon Club",
+    hero: "Red Ribbon Club",
+    intro: "Empowering youth to lead a healthy, informed, and responsible life.",
+    image: "campus",
+    motto: "Serve with Compassion, Act with Purpose",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Overview",
+        body: [
+          "The Red Ribbon Club (RRC) at SVASC is a vibrant and highly active student movement dedicated to raising awareness about public health issues, specifically focusing on HIV/AIDS prevention, blood donation, and youth empowerment. We believe that the youth are the most powerful catalysts for social change, and through the RRC, we channel their energy toward creating a healthier, more compassionate society.",
+          "By engaging in continuous community outreach, health seminars, and peer-education programs, the club equips young minds with the necessary life skills and scientific knowledge to protect themselves and actively contribute to the well-being of the nation."
+        ]
+      },
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "Our vision is to empower young people to lead a healthy, deeply informed, and socially responsible life by promoting widespread awareness on HIV/AIDS, encouraging regular voluntary blood donation, fostering healthy lifestyle choices, advocating for gender equality, and building social responsibility.",
+          "We strive to contribute to the creation of a stigma-free, inclusive, and healthy society where every individual is treated with dignity and compassion."
+        ]
+      },
+      {
+        kind: "prose",
+        title: "Mission",
+        body: [
+          "To passionately educate and motivate the youth through structured awareness programs, peer-led education initiatives, mega voluntary blood donation camps, and comprehensive life skills training.",
+          "We conduct continuous health campaigns and dedicated community outreach activities that promote HIV/AIDS prevention, encourage positive health practices, and build profound compassion towards people living with HIV."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Objectives of RRC",
+        items: [
+          "To promote extensive awareness about HIV/AIDS, Sexually Transmitted Infections (STIs), and critical preventive measures among the youth.",
+          "To encourage consistent voluntary blood donation and create widespread awareness about the life-saving importance of safe blood donation practices.",
+          "To develop healthy lifestyles and essential life skills designed to prevent risky behaviours and substance abuse among college students.",
+          "To actively eliminate social stigma and discrimination against people living with HIV/AIDS through scientific education, open dialogue, and community sensitization.",
+          "To promote gender equality, mutual respect, and responsible social behaviour among the youth in all aspects of life.",
+          "To systematically organize impactful health education programmes, public awareness rallies, expert seminars, interactive workshops, and targeted health campaigns.",
+          "To foster a strong peer education network so that trained students can effectively educate, mentor, and support their fellow students.",
+          "To develop robust leadership qualities, exceptional teamwork, personal discipline, and a deep sense of social responsibility among volunteers.",
+          "To collaborate actively with government bodies, NGOs, and global health organizations in implementing effective HIV/AIDS prevention and health promotion programmes.",
+          "To build a dynamic generation of socially responsible youth who are deeply committed to public health, community welfare, and progressive national development."
+        ]
+      },
+      {
+        kind: "prose",
+        title: "Impact and Future Goals",
+        body: [
+          "These foundational objectives help shape our dedicated Red Ribbon Club volunteers into highly knowledgeable, compassionate, responsible, and socially committed young citizens.",
+          "Our volunteers do not just learn; they actively contribute to HIV/AIDS prevention, drive regional health promotion initiatives, and ensure sustainable community well-being."
+        ]
+      },
+      {
+        kind: "members",
+        title: "Committee Members",
+        items: [
+          { name: "Mr. C. SURESH", role: "COORDINATOR", extra: "MATHEMATICS", email: "sureshc@svasc.org", phone: "7904617100" },
+          { name: "Mr. A. ARUN KUMAR", role: "MEMBER", extra: "ENGLISH", email: "arunkmar@svasc.org", phone: "9524914269" },
+          { name: "Ms. S. MYVIZHI", role: "MEMBER", extra: "TAMIL", email: "myvizhi@svasc.org", phone: "9597188105" },
+          { name: "Ms. S. SHANMUGAPRIYA", role: "MEMBER", extra: "CHEMISTRY", email: "lllavenil2022@gmail.com", phone: "9342465615" }
+        ]
+      },
+      {
+        kind: "members",
+        title: "Students Volunteers",
+        items: [
+          { name: "S. BHAVANI", role: "MEMBER", extra: "III B.Sc MATHS", email: "s.bha900@gmail.com", phone: "9080132883" },
+          { name: "K. RITHIKA", role: "MEMBER", extra: "I B.Sc MATHS", email: "rithuma2008@gmail.com", phone: "9080132843" },
+          { name: "S. POONTHAMIL", role: "MEMBER", extra: "III.B.Sc CHEMISTRY", email: "poonthamil63@gmail.com", phone: "9942088938" },
+          { name: "T. SARATH", role: "MEMBER", extra: "III.B.Sc CHEMISTRY", email: "ss6051633@gmail.com", phone: "9360423585" },
+          { name: "R. SOUNDHARARAJAN", role: "MEMBER", extra: "III.B.Sc CHEMISTRY", email: "soundhrsoundhar717@gmail.com", phone: "6369991750" },
+          { name: "S. KRISHNAN", role: "MEMBER", extra: "I BBA", email: "krishnanskrishnan09@gmail.com", phone: "6385158176" },
+          { name: "S. SACHIN", role: "MEMBER", extra: "I BBA", email: "sachin161804@gmail.com", phone: "6379329975" },
+          { name: "A. KAVIN", role: "MEMBER", extra: "I BBA", email: "kavin7639783594@gmail.com", phone: "7639783594" },
+          { name: "S. VAISHNAVI", role: "MEMBER", extra: "II BBA", email: "vaishnavivisowndar@gmail.com", phone: "8940735696" },
+          { name: "M. DEVADHARSHINI", role: "MEMBER", extra: "II BBA", email: "ddvadhashinideva@gmail.com", phone: "9994180233" }
+        ]
+      }
+    ]
+  }
 ];
 
 export const pageBySlug = (slug: string) => pages.find((p) => p.slug === slug)!;

@@ -118,7 +118,7 @@ const Admission = () => {
                         {/* Logo Section */}
                         <div className={styles.logoContainer}>
                             <div className={styles.logoIconBg}>
-                                <img src="/kalvippaathai.jpeg" alt="SVASC Logo" />
+                                <img src="/SVCAS-Logo.png" alt="SVASC Logo" />
                             </div>
                             <div className={styles.logoText}>
                                 <span className={styles.logoMain}>Shree Venkateshwara</span>
@@ -196,7 +196,7 @@ const Admission = () => {
                         <div className={styles.mobileMenuHeader}>
                             <div className={styles.logoContainer}>
                                 <div className={styles.logoIconBg}>
-                                    <img src="/kalvippaathai.jpeg" alt="SVASC Logo" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+                                    <img src="/SVCAS-Logo.png" alt="SVASC Logo" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
                                 </div>
                                 <div className={styles.logoText}>
                                     <span className={styles.logoMain}>SVASC</span>

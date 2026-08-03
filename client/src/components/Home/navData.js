@@ -30,8 +30,9 @@ export const navData = {
                 { label: 'JJCI VISION AND MISSION', path: '/junior-jci-wing' },
                 { label: 'INTERNAL GRIEVANCES COMMITTEE', path: '/internal-grievances-committee' },
                 { label: 'IIEDC VISION & MISSION', path: '/innovation-entrepreneurship' },
-                { label: 'FINE ARTS Staff name', path: '/fine-arts-club' },
-                { label: 'FINE ARTS Roles and Responsibilities', path: '/fine-arts-club' },
+                { label: 'Fine Arts Club', path: '/fine-arts-club' },
+                { label: 'Exam Cell', path: '/exam-cell' },
+                { label: 'Red Ribbon Club', path: '/red-ribbon-club' },
                 { label: 'CONSUMER PC VISION', path: '/consumer-protection-club' },
             ]
         },

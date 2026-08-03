@@ -45,7 +45,7 @@ export function CellPage({ page }: { page: PageDef }) {
                       }}
                     >
                       {page.motto}{" "}
-                      <span style={{ color: "oklch(0.6 0.01 80)" }}>✦</span>
+                      <img src="/SVCAS-Logo.png" alt="SVASC Logo" style={{ height: "18px", display: "inline-block", verticalAlign: "middle", margin: "0 10px" }} />
                     </span>
                   ))}
                 </div>

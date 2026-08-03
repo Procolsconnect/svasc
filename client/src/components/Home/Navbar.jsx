@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Logo from './SVCAS-Logo.jpg';
+// import Logo from './SVCAS-Logo.jpg'; // Removed to use public PNG
 import { navData } from './navData';
 
 const Navbar = ({ className }) => {
@@ -36,7 +36,7 @@ const Navbar = ({ className }) => {
                 <Link to="/" onClick={() => setIsMenuOpen(false)}>
                     {/* LEFT */}
                     <div className="left">
-                        <img src={Logo} alt="SVASC Logo" />
+                        <img src="/SVCAS-Logo.png" alt="SVASC Logo" />
                         <div className="college-text">
                             <h1>SHREE VENKATESHWARA</h1>
                             <h2>ARTS & SCIENCE (Co-Education)</h2>
