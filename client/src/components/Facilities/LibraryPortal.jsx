@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { ArrowRight, ChevronRight, BookOpen, Clock, Award, ShieldAlert, Users, Image as ImageIcon } from 'lucide-react';
 import styles from './LibraryPortal.module.css';
 import Hero from '../Common/Hero';
@@ -15,54 +16,42 @@ const LibraryPortal = () => {
         { id: 5, src: "/library_images/image34.jpeg", rotation: "rotate-2", translateY: "-translate-y-1" },
     ];
 
-    const libraryActivities = [
-        {
-            title: "Library Orientation Program",
-            date: "18 June 2025 – 26 June 2025",
-            desc: "The Department of library conducted a library orientation program for the students. During the sessions, the librarian and library staff explained all the library services in detail and provided live demonstrations on DELNET, OPAC, and digital resources to help students utilize e-resources effectively.",
-            images: ["/library_images/image1.png", "/library_images/image2.jpeg"]
-        },
-        {
-            title: "Reading Skill Training Program",
-            date: "01 August 2025",
-            desc: "This training program actively engaged students in understanding the value of reading books. It provided tips on building a continuous reading habit and improving comprehension and reading speed.",
-            images: ["/library_images/image3.jpeg", "/library_images/image4.jpeg"]
-        },
-        {
-            title: "Book Fair Trip",
-            date: "11 August 2025",
-            desc: "Organized by the Department of library, this trip encouraged reading habits by providing students a direct opportunity to browse and purchase books across multiple academic and general genres.",
-            images: ["/library_images/image5.jpeg", "/library_images/image6.jpeg"]
-        },
-        {
-            title: "Seminar on “Search Beyond Algorithms” & Book Fair",
-            date: "03 February 2026 – 05 February 2026",
-            desc: "A seminar on 'search beyond algorithms' and a three-day book fair were organized with Chief Guest Mr. S. Karthikeyan. The event drew over 3,500 students and highlighted books on national leaders and syllabus-supporting text materials.",
-            images: ["/library_images/image7.jpeg", "/library_images/image8.jpeg"]
-        },
-        {
-            title: "Librarian's Day Celebration",
-            date: "12 August 2025",
-            desc: "Commemorated by highlighting the importance of daily reading habits. The program helped foster a deeper interest in books and academic research among both staff and student communities.",
-            images: ["/library_images/image9.jpeg", "/library_images/image10.jpeg"]
-        }
-    ];
+    const [activities, setActivities] = useState(libraryActivitiesData);
+    const [students, setStudents] = useState(studentAwardsData);
+    const [staff, setStaff] = useState(staffAwardsData);
+    const [nonStaff, setNonStaff] = useState(nonStaffAwardsData);
 
-    const studentAwards = [
-        { name: "Deepak Ram A", class: "II B.Com CA", src: "/library_images/image11.jpeg" },
-        { name: "Gokula Kannan", class: "II B.Com CA", src: "/library_images/image12.png" },
-        { name: "Nagamoorthi", class: "II B.Com CA", src: "/library_images/image13.png" }
-    ];
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const activitiesRes = await axios.get('http://localhost:5000/api/library-activities');
+                if (activitiesRes.data.data && activitiesRes.data.data.length > 0) {
+                    setActivities(activitiesRes.data.data.map(a => ({
+                        ...a,
+                        images: [
+                            a.image1 && a.image1.startsWith('http') ? a.image1 : `http://localhost:5000/${a.image1?.replace(/^\\/+/, '')}`,
+                            a.image2 && a.image2.startsWith('http') ? a.image2 : `http://localhost:5000/${a.image2?.replace(/^\\/+/, '')}`
+                        ].filter(Boolean)
+                    })));
+                }
 
-    const staffAwards = [
-        { name: "Dr. S. Rajeswari", role: "Assistant Professor", dept: "English", src: "/library_images/image14.png" },
-        { name: "Ms. G. Nandhini", role: "Assistant Professor", dept: "Tamil", src: "/library_images/image15.jpeg" },
-        { name: "Mrs. R. Pushpa", role: "Assistant Professor", dept: "Tamil", src: "/library_images/image16.png" }
-    ];
-
-    const nonStaffAwards = [
-        { name: "C. Andavar", role: "Microbiology Lab Technician", src: "/library_images/image17.jpeg" }
-    ];
+                const awardsRes = await axios.get('http://localhost:5000/api/library-awards');
+                if (awardsRes.data.data && awardsRes.data.data.length > 0) {
+                    const awards = awardsRes.data.data.map(a => ({
+                        ...a,
+                        src: a.image && a.image.startsWith('http') ? a.image : `http://localhost:5000/${a.image?.replace(/^\\/+/, '')}`
+                    }));
+                    
+                    setStudents(awards.filter(a => a.category === 'Student').map(a => ({ ...a, class: a.designation })));
+                    setStaff(awards.filter(a => a.category === 'Faculty').map(a => ({ ...a, role: a.designation, dept: a.department })));
+                    setNonStaff(awards.filter(a => a.category === 'NonTeaching').map(a => ({ ...a, role: a.designation })));
+                }
+            } catch (error) {
+                console.error("Error fetching library data:", error);
+            }
+        };
+        fetchData();
+    }, []);
 
     const newsClippings = [
         "/library_images/image18.png",
@@ -343,7 +332,7 @@ const LibraryPortal = () => {
                         <h2 className={styles.howItWorksTitle} style={{ marginBottom: '50px' }}>Department of Library Activities</h2>
                         
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
-                            {libraryActivities.map((activity, index) => (
+                            {activities.map((activity, index) => (
                                 <div key={index} style={{
                                     background: 'white',
                                     borderRadius: '16px',
@@ -384,7 +373,7 @@ const LibraryPortal = () => {
                         {/* Students Section */}
                         <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Student Recipients</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '60px' }}>
-                            {studentAwards.map((student, i) => (
+                            {students.map((student, i) => (
                                 <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px' }}>
                                     <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #fb923c', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
                                         <img src={student.src} alt={student.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -400,7 +389,7 @@ const LibraryPortal = () => {
                         {/* Staff Section */}
                         <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Faculty Recipients</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '60px' }}>
-                            {staffAwards.map((staff, i) => (
+                            {staff.map((staff, i) => (
                                 <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px' }}>
                                     <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #2b3990', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
                                         <img src={staff.src} alt={staff.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -417,7 +406,7 @@ const LibraryPortal = () => {
                         {/* Non-Staff Section */}
                         <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Non-Teaching Staff Recipient</h3>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            {nonStaffAwards.map((staff, i) => (
+                            {nonStaff.map((staff, i) => (
                                 <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px', maxWidth: '350px', width: '100%' }}>
                                     <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #2b3990', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
                                         <img src={staff.src} alt={staff.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

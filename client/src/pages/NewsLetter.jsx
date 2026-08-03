@@ -40,18 +40,19 @@ const NewsLetter = () => {
                     {loading ? (
                         <div className="text-center py-10">Loading newsletters...</div>
                     ) : (
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {newsletters.length > 0 ? (
                                 newsletters.map((item) => (
-                                    <a
-                                        key={item._id}
-                                        href={`${BASE_URL}/${item.pdf.replace(/^\/+/, '')}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className='content'
-                                    >
-                                        {item.title} &#8594;
-                                    </a>
+                                    <div key={item._id} className="newsletter-card shadow-lg rounded-lg overflow-hidden border border-gray-100 flex flex-col items-center bg-white">
+                                        <img 
+                                            src={`${BASE_URL}/${item.pdf ? item.pdf.replace(/^\/+/, '') : ''}`} 
+                                            alt={item.title} 
+                                            className="w-full h-auto object-cover max-h-96"
+                                        />
+                                        <div className="p-4 w-full text-center bg-gray-50">
+                                            <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+                                        </div>
+                                    </div>
                                 ))
                             ) : (
                                 <div className="col-span-full text-center py-10 text-gray-500">

@@ -8,10 +8,22 @@ export const FormGroup = ({ label, children }) => (
   </div>
 );
 
-export const FormInput = ({ type = 'text', label, ...props }) => {
-  const inputElement = type === 'textarea' 
-    ? <textarea className={styles.input} rows={4} {...props} />
-    : <input type={type} className={styles.input} {...props} />;
+export const FormInput = ({ type = 'text', label, options, ...props }) => {
+  let inputElement;
+
+  if (type === 'textarea') {
+    inputElement = <textarea className={styles.input} rows={4} {...props} />;
+  } else if (type === 'select') {
+    inputElement = (
+      <select className={styles.input} {...props}>
+        {options && options.map((opt, i) => (
+          <option key={i} value={opt.value}>{opt.label}</option>
+        ))}
+      </select>
+    );
+  } else {
+    inputElement = <input type={type} className={styles.input} {...props} />;
+  }
 
   if (label) {
     return (

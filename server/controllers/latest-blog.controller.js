@@ -11,7 +11,7 @@ class LatestBlogController {
                 title,
                 date,
                 link,
-                image: `uploads/${req.file.filename}`
+                image: req.file ? `uploads/${req.file.filename}` : ''
             };
 
             const blog = await latestBlogService.createBlog(data);

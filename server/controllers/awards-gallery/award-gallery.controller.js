@@ -6,7 +6,7 @@ class AwardGalleryController {
             const { alt, category } = req.body;
             
             const data = {
-                image: `uploads/${req.file.filename}`,
+                image: req.file ? `uploads/${req.file.filename}` : '',
                 alt,
                 category
             };

@@ -9,7 +9,7 @@ class NewsletterController {
             
             const data = {
                 title,
-                pdf: `uploads/${req.file.filename}`
+                pdf: req.file ? `uploads/${req.file.filename}` : ''
             };
 
             const newsletter = await newsletterService.createNewsletter(data);

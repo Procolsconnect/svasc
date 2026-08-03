@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, ArrowRightCircle } from 'lucide-react';
+import axios from 'axios';
 import styles from './AboutSVASC.module.css';
 import Hero from '../components/Common/Hero';
 
@@ -260,34 +261,69 @@ const TestimonialsSection = () => {
 };
 
 // ================= AWARDS SECTION COMPONENT =================
-const AwardsSection = () => (
-    <section className={styles.awardsSection}>
-        <div className={styles.awardsLogoContainer}>
-            <div className={styles.awardsLogo}>
-                <span>S</span>
-                <span>V</span>
-                <div className={styles.awardsLogoTriangle}></div>
-                <span>S</span>
-                <span>C</span>
-            </div>
-        </div>
+const AwardsSection = () => {
+    const [certifications, setCertifications] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-        <h2 className={styles.awardsTitle}>AWARDS AND CERTIFICATION</h2>
-        <div className={styles.awardsScrollContainer}>
-            <div className={styles.awardsCardsScroll}>
-                {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((num, i) => (
-                    <div key={i} className={styles.awardCard}>
-                        <img src={`https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${num}`} alt={`Certificate ${num}`} />
-                    </div>
-                ))}
+    useEffect(() => {
+        const fetchCertifications = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/about/certifications');
+                if (response.data.success) {
+                    setCertifications(response.data.data);
+                }
+            } catch (error) {
+                console.error('Error fetching certifications:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchCertifications();
+    }, []);
+
+    const displayData = certifications.length > 0 ? certifications : [1, 2, 3, 4, 5, 6, 7];
+
+    return (
+        <section className={styles.awardsSection}>
+            <div className={styles.awardsLogoContainer}>
+                <div className={styles.awardsLogo}>
+                    <span>S</span>
+                    <span>V</span>
+                    <div className={styles.awardsLogoTriangle}></div>
+                    <span>S</span>
+                    <span>C</span>
+                </div>
             </div>
-        </div>
-    </section>
-);
+
+            <h2 className={styles.awardsTitle}>AWARDS AND CERTIFICATION</h2>
+            <div className={styles.awardsScrollContainer}>
+                <div className={styles.awardsCardsScroll}>
+                    {displayData.map((item, i) => (
+                        <div key={i} className={styles.awardCard}>
+                            <img 
+                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : `http://localhost:5000/${item.image.replace(/^\/+/, '')}`} 
+                                alt={`Certificate ${i + 1}`} 
+                            />
+                        </div>
+                    ))}
+                    {/* Duplicate for infinite scroll effect */}
+                    {displayData.map((item, i) => (
+                        <div key={`dup-${i}`} className={styles.awardCard}>
+                            <img 
+                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : `http://localhost:5000/${item.image.replace(/^\/+/, '')}`} 
+                                alt={`Certificate ${i + 1}`} 
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // ================= TEACHER AWARDS COMPONENT =================
 const TeacherAwardsSection = () => {
-    const awardData = {
+    const defaultAwardData = {
         '2010': [
             ["Sevai Kalappani Selvar Virudhu", "Dr. M. Jasmine Priya"],
             ["Chithirai kavi", "Dr. M. Jasmine Priya"],
@@ -304,7 +340,35 @@ const TeacherAwardsSection = () => {
         '2021': [["Azadi Ka Amrit Award", "Dr. M. Jasmine Priya"]]
     };
 
-    const [selectedYear, setSelectedYear] = useState(2010);
+    const [awardData, setAwardData] = useState({});
+    const [selectedYear, setSelectedYear] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchTeacherAwards = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/about/teacher-awards/grouped');
+                if (response.data.success && Object.keys(response.data.data).length > 0) {
+                    setAwardData(response.data.data);
+                    setSelectedYear(parseInt(Object.keys(response.data.data)[0]));
+                } else {
+                    setAwardData(defaultAwardData);
+                    setSelectedYear(2010);
+                }
+            } catch (error) {
+                console.error('Error fetching teacher awards:', error);
+                setAwardData(defaultAwardData);
+                setSelectedYear(2010);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchTeacherAwards();
+    }, []);
+
+    if (loading) return <div className="text-center py-10">Loading Teacher Awards...</div>;
+
+    const currentAwards = awardData[selectedYear] || [];
 
     return (
         <section className={styles.teacherAwardsSection}>
@@ -313,7 +377,7 @@ const TeacherAwardsSection = () => {
 
                 {/* Year Tabs */}
                 <div className={styles.yearTabs}>
-                    {Object.keys(awardData).map((year) => (
+                    {Object.keys(awardData).sort((a, b) => b - a).map((year) => (
                         <button
                             key={year}
                             onClick={() => setSelectedYear(parseInt(year))}
@@ -335,13 +399,18 @@ const TeacherAwardsSection = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {awardData[selectedYear].map((row, index) => (
+                            {currentAwards.map((row, index) => (
                                 <tr key={index} className={index % 2 === 1 ? styles.tableBodyRowEven : ''}>
                                     <td className={styles.tableBodyCell}>{index + 1}</td>
-                                    <td className={styles.tableBodyCell}>{row[0]}</td>
-                                    <td className={styles.tableBodyCell}>{row[1]}</td>
+                                    <td className={styles.tableBodyCell}>{Array.isArray(row) ? row[0] : row.awardName}</td>
+                                    <td className={styles.tableBodyCell}>{Array.isArray(row) ? row[1] : row.facultyName}</td>
                                 </tr>
                             ))}
+                            {currentAwards.length === 0 && (
+                                <tr>
+                                    <td colSpan="3" className="text-center py-4">No awards found for this year.</td>
+                                </tr>
+                            )}
                         </tbody>
                     </table>
                 </div>

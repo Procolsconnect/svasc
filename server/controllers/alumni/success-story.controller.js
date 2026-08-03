@@ -33,6 +33,8 @@ const createStory = async (req, res) => {
 
         if (req.file) {
             storyData.image = `/uploads/${req.file.filename}`;
+        } else {
+            storyData.image = '';
         }
 
         const story = await SuccessStoryService.createStory(storyData);

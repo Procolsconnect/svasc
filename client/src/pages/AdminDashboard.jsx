@@ -8,6 +8,11 @@ import ExamsTab from '../components/Admin/Tabs/ExamsTab';
 import ActivitiesTab from '../components/Admin/Tabs/ActivitiesTab';
 import BlogsTab from '../components/Admin/Tabs/BlogsTab';
 import EventsTab from '../components/Admin/Tabs/EventsTab';
+import AboutTab from '../components/Admin/Tabs/AboutTab';
+import NewsletterTab from '../components/Admin/Tabs/NewsletterTab';
+import AwardsGalleryTab from '../components/Admin/Tabs/AwardsGalleryTab';
+import LibraryActivitiesTab from '../components/Admin/Tabs/LibraryActivitiesTab';
+import LibraryAwardsTab from '../components/Admin/Tabs/LibraryAwardsTab';
 
 const tabs = [
   { label: 'Home', component: <HomeTab /> },
@@ -18,6 +23,11 @@ const tabs = [
   { label: 'Activities', component: <ActivitiesTab /> },
   { label: 'Blogs', component: <BlogsTab /> },
   { label: 'Events', component: <EventsTab /> },
+  { label: 'About SVASC', component: <AboutTab /> },
+  { label: 'Newsletter', component: <NewsletterTab /> },
+  { label: 'Awards & Achievements', component: <AwardsGalleryTab /> },
+  { label: 'Library Activities', component: <LibraryActivitiesTab /> },
+  { label: 'Library Awards', component: <LibraryAwardsTab /> },
 ];
 
 const AdminDashboard = () => {

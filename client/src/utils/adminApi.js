@@ -15,11 +15,18 @@ export const saveAdminData = async (endpoint, id, formData, fileKey) => {
     ? `${BASE_URL}${endpoint}/${id}`
     : (id ? `${BASE_URL}${endpoint}/${id}` : `${BASE_URL}${endpoint}`);
 
+  const fileKeys = Array.isArray(fileKey) ? fileKey : [fileKey];
+
   const data = new FormData();
   Object.keys(formData).forEach(key => {
-    if (key === fileKey && formData[key] instanceof File) {
-      data.append(key, formData[key]);
-    } else if (key !== fileKey && key !== '_id' && key !== 'createdAt' && key !== 'updatedAt' && key !== '__v') {
+    if (fileKeys.includes(key)) {
+      if (formData[key] instanceof File) {
+        data.append(key, formData[key]);
+      } else if (typeof formData[key] === 'string' && formData[key].trim() !== '') {
+        // It's an existing image string, pass it along
+        data.append(key, formData[key]);
+      }
+    } else if (key !== '_id' && key !== 'createdAt' && key !== 'updatedAt' && key !== '__v') {
       if (Array.isArray(formData[key])) {
         data.append(key, JSON.stringify(formData[key]));
       } else if (formData[key] !== null && formData[key] !== undefined) {
@@ -28,7 +35,8 @@ export const saveAdminData = async (endpoint, id, formData, fileKey) => {
     }
   });
 
-  const res = await axios({ method, url, data, headers: { 'Content-Type': 'multipart/form-data' } });
+  // Let the browser set the Content-Type with the correct boundary for FormData
+  const res = await axios({ method, url, data });
   return res.data;
 };
 

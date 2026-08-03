@@ -15,6 +15,8 @@ const latestBlogRoutes = require('./latest-blog.route');
 const sportsRoutes = require('./sports.route');
 const campusLifeRoutes = require('./campus-life.route');
 const pageHeroRoutes = require('./page-hero.route');
+const libraryActivityRoutes = require('./library-activity.route');
+const libraryAwardRoutes = require('./library-award.route');
 
 router.use('/alumni', alumniRoutes);
 router.use('/home', homeRoutes);
@@ -30,5 +32,7 @@ router.use('/latest-blog', latestBlogRoutes);
 router.use('/sports', sportsRoutes);
 router.use('/campus-life', campusLifeRoutes);
 router.use('/page-heros', pageHeroRoutes);
+router.use('/library-activities', libraryActivityRoutes);
+router.use('/library-awards', libraryAwardRoutes);
 
 module.exports = router;
