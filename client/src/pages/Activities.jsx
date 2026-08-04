@@ -518,8 +518,183 @@ const defaultActivities = [
         { image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400", title: "Creativity Club" },
         { image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400", title: "Life Skills Workshop" }
       ]
+    },
+    {
+      ID: "collegeClub",
+      category: "College Club",
+      bImage: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
+      copy: `
+        <div class="${styles.activitySection}">
+          <p>SVASC College Clubs provide a vibrant platform for students to explore their interests, develop leadership skills, and engage in holistic learning beyond the classroom. Each club is student-driven with faculty mentorship, fostering creativity, teamwork, and personal growth.</p>
+
+          <h3>Vision</h3>
+          <p>To nurture well-rounded students who excel academically and contribute meaningfully to society through active club participation, peer learning, and community engagement.</p>
+
+          <h3>Mission</h3>
+          <ul>
+            <li>To provide platforms for students to discover and develop their talents.</li>
+            <li>To foster leadership, teamwork, communication, and organizational skills.</li>
+            <li>To encourage innovation, creativity, and entrepreneurial thinking.</li>
+            <li>To bridge the gap between academics and real-world experience.</li>
+          </ul>
+
+          <h3>Our Clubs</h3>
+          <ol>
+            <li><strong>Literary Club:</strong> Promotes reading, writing, debate, elocution, and critical thinking among students. Organizes book discussions, essay competitions, and inter-collegiate literary events.</li>
+            <li><strong>Fine Arts Club:</strong> Nurtures artistic talent through painting, sculpture, folk art, and cultural programs. Celebrated Teachers' Day and organized Tamil cultural events with special felicitation ceremonies.</li>
+            <li><strong>Eco Club:</strong> Creates environmental awareness through plantation drives, water conservation campaigns, and nature trails. Actively promotes sustainable living practices on campus.</li>
+            <li><strong>Creativity Club:</strong> Encourages students to explore innovative ideas in design, digital media, photography, and arts. Connects students with the broader creative community.</li>
+            <li><strong>Consumer Protection Club:</strong> Educates students about consumer rights and participated in Mock Court competitions, winning a Special Prize.</li>
+            <li><strong>Entrepreneurship Development Cell (EDC):</strong> Organized two-day workshops on Life Skills Development for all UG students. Fosters startup thinking, business planning, and self-employment skills.</li>
+          </ol>
+
+          <h3>Objectives</h3>
+          <ol>
+            <li>To provide a co-curricular platform for students to develop skills beyond academics.</li>
+            <li>To cultivate leadership, communication, creativity, and problem-solving abilities.</li>
+            <li>To conduct inter-departmental and inter-collegiate competitions, seminars, and workshops.</li>
+            <li>To promote cultural awareness, environmental responsibility, and social consciousness.</li>
+            <li>To encourage student-led initiatives, events, and community outreach programs.</li>
+          </ol>
+        </div>
+      `,
+      cards: [
+        {
+          image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400",
+          title: "Literary Club",
+          description: `<p>The Literary Club promotes reading, writing, debate, and elocution among students. It organizes book discussions, essay and poetry competitions, and inter-collegiate literary events to develop critical thinking and communication skills.</p>`
+        },
+        {
+          image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400",
+          title: "Fine Arts Club",
+          description: `<p>The Fine Arts Club nurtures artistic talent through painting, sculpture, and cultural programs. It celebrated Teachers' Day 2025 and organized Tamil cultural events with a special felicitation ceremony for award-winning school teachers.</p>`
+        },
+        {
+          image: "https://images.unsplash.com/photo-1553484771-371a605b060b?w=400",
+          title: "Entrepreneurship Development Cell",
+          description: `<p>The EDC fosters startup thinking and self-employment skills. It organized a two-day workshop on "Life Skills Development" for all UG students, bridging the gap between academic knowledge and real-world entrepreneurial success.</p>`
+        }
+      ]
+    },
+    {
+      ID: "svascCells",
+      category: "SVASC Cells",
+      bImage: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800",
+      copy: `
+        <div class="${styles.activitySection}">
+          <p>SVASC Cells are specialized institutional bodies designed to address specific student welfare, social, and developmental needs. Each cell operates with a dedicated team of faculty coordinators and student volunteers to implement focused programs and initiatives.</p>
+
+          <h3>Vision</h3>
+          <p>To build a safe, inclusive, empowered, and digitally connected campus community through specialized institutional cells that address the diverse needs of students, faculty, and the broader society.</p>
+
+          <h3>Mission</h3>
+          <ul>
+            <li>To empower women with knowledge, leadership, and social responsibility.</li>
+            <li>To promote a drug-free campus through awareness and peer support programs.</li>
+            <li>To enhance the college's digital presence and community engagement through social media.</li>
+            <li>To provide a responsive grievance mechanism for all campus stakeholders.</li>
+          </ul>
+
+          <h3>Our Cells</h3>
+          <ol>
+            <li><strong>Women Empowerment Cell (WEC):</strong> Promotes gender equality, women's rights, leadership, and safety. Conducted awareness programs on Menstrual Hygiene Management and observed International Day of Elimination of Violence against Women.</li>
+            <li><strong>Anti Drug Cell:</strong> Creates awareness about the harmful effects of substance abuse through campaigns, workshops, and peer support systems. Encourages healthy alternatives like sports and cultural activities.</li>
+            <li><strong>Social Media Cell / Media Cell:</strong> Manages the college's online presence, promotes campus events, achievements, and academic milestones through professional social media content. Ensures transparent communication with students, parents, and stakeholders.</li>
+            <li><strong>Career Guidance Cell:</strong> Provides career counseling, aptitude training, competitive exam guidance, and personality development to help students make informed career choices.</li>
+          </ol>
+
+          <h3>Objectives</h3>
+          <ol>
+            <li>To promote gender equality, student safety, and inclusive education on campus.</li>
+            <li>To create drug-free awareness and provide confidential peer support mechanisms.</li>
+            <li>To enhance the institution's digital reputation and community outreach.</li>
+            <li>To guide students in academic and career decision-making through mentoring and counseling.</li>
+            <li>To ensure timely reporting and resolution of student welfare concerns.</li>
+          </ol>
+        </div>
+      `,
+      cards: [
+        {
+          image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+          title: "Women Empowerment Cell",
+          description: `<p>The WEC promotes gender equality, women's rights, legal literacy, self-defense, and leadership. Key programs include Menstrual Hygiene Management awareness and rural women empowerment initiatives at Naathipalayam village.</p>`
+        },
+        {
+          image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400",
+          title: "Media Cell",
+          description: `<p>The Social Media Cell manages the college's online presence across platforms. It promotes events, achievements, and institutional milestones through professional content creation, ensuring accurate and timely information reaches all stakeholders.</p>`
+        },
+        {
+          image: "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=400",
+          title: "Anti Drug Cell",
+          description: `<p>The Anti Drug Cell builds a campus free from substance abuse through awareness campaigns, workshops, peer counseling, and promoting healthy alternatives like sports and cultural activities. Empowers students to make informed, drug-free choices.</p>`
+        }
+      ]
+    },
+    {
+      ID: "committee",
+      category: "Committee",
+      bImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
+      copy: `
+        <div class="${styles.activitySection}">
+          <p>SVASC College constitutes various statutory and institutional committees in accordance with UGC guidelines and Tamil Nadu government regulations. These committees ensure transparency, accountability, student welfare, and institutional quality across all departments and functions.</p>
+
+          <h3>Vision</h3>
+          <p>To establish a fair, transparent, and student-centric institution governed by effective committees that uphold academic integrity, student welfare, gender equality, and continuous quality improvement.</p>
+
+          <h3>Mission</h3>
+          <ul>
+            <li>To ensure compliance with statutory guidelines and regulatory requirements.</li>
+            <li>To provide a fair and confidential mechanism for addressing student grievances.</li>
+            <li>To maintain institutional quality and promote continuous improvement.</li>
+            <li>To uphold discipline, ethics, and a safe campus environment for all stakeholders.</li>
+          </ul>
+
+          <h3>Key Committees</h3>
+          <ol>
+            <li><strong>Internal Complaints Committee (ICC):</strong> Addresses complaints related to sexual harassment, gender discrimination, and workplace misconduct. Ensures a safe and respectful environment for all students and staff as per the POSH Act 2013.</li>
+            <li><strong>Grievance Redressal Committee:</strong> Provides a structured platform for students to raise academic, administrative, and personal grievances. Ensures prompt, fair, and confidential resolution of all complaints.</li>
+            <li><strong>IQAC – Internal Quality Assurance Cell:</strong> Monitors and enhances academic standards, teaching quality, research initiatives, and institutional performance. Prepares the college for NAAC accreditation and quality benchmarking.</li>
+            <li><strong>Anti Ragging Committee:</strong> Implements anti-ragging measures, receives complaints, investigates incidents, and promotes a ragging-free campus culture as per UGC and Tamil Nadu Government regulations.</li>
+            <li><strong>Examination Committee:</strong> Oversees internal and university examination scheduling, invigilation duties, result declarations, and maintains confidentiality and integrity of the examination process.</li>
+          </ol>
+
+          <h3>Objectives</h3>
+          <ol>
+            <li>To ensure fair and transparent implementation of institutional policies and regulatory guidelines.</li>
+            <li>To address and resolve student and staff grievances promptly and impartially.</li>
+            <li>To promote gender equality, personal safety, and dignified treatment for all campus members.</li>
+            <li>To continuously improve academic quality, infrastructure, and student support services.</li>
+            <li>To maintain proper documentation, committee minutes, and compliance reports for statutory authorities.</li>
+          </ol>
+
+          <div class="${styles.teamDetails}">
+            <h3>Discipline & Anti-Ragging Committee</h3>
+            <p><strong>Chairperson:</strong> Mr. G. Gowtham, CEO</p>
+            <p><strong>Coordinator:</strong> Dr. Chi. Nanjappa, Vice-Principal</p>
+          </div>
+        </div>
+      `,
+      cards: [
+        {
+          image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400",
+          title: "Internal Complaints Committee",
+          description: `<p>The ICC addresses complaints related to sexual harassment, gender discrimination, and workplace misconduct as per the POSH Act 2013. It ensures a safe, respectful, and harassment-free environment for all students and staff on campus.</p>`
+        },
+        {
+          image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400",
+          title: "Grievance Redressal Committee",
+          description: `<p>The Grievance Redressal Committee provides a structured, confidential platform for students to raise academic, administrative, and personal concerns. All complaints are handled promptly, fairly, and impartially by the designated committee members.</p>`
+        },
+        {
+          image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400",
+          title: "IQAC – Quality Assurance Cell",
+          description: `<p>The Internal Quality Assurance Cell (IQAC) monitors academic standards, teaching quality, research initiatives, and institutional performance. It prepares the college for NAAC accreditation and drives a culture of continuous quality improvement across all departments.</p>`
+        }
+      ]
     }
   ];
+
 
 const ProjectsPortfolio = () => {
   const [projects, setProjects] = useState(defaultActivities);
