@@ -101,12 +101,14 @@
     font-size: 12px;
     font-weight: 600;
     color: #2f2f2f;
+    margin-left: 10px;
 }
 
 .header .college-text span {
     font-size: 13px;
     font-weight: 600;
     color: #2f2f2f;
+    margin-left: 10px;
 }
 
 .header .college-text .college-affiliation {
@@ -166,6 +168,7 @@
     gap: 20px;
     width: 100%;
     justify-content: flex-end;
+    transform: translateX(15px);
 }
 
 /* INLINE DROPDOWN */

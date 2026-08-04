@@ -37,6 +37,7 @@
     width: 48%;
 }
 
+
 .project.shrunk {
     pointer-events: none;
     height: 0 !important;
@@ -474,6 +475,7 @@
     .project:nth-child(2) {
         width: 48%;
     }
+
 
     .selectedArea.opened .copyArea,
     .selectedArea.opened .cardContainer {

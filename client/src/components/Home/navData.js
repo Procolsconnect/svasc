@@ -23,17 +23,7 @@ export const navData = {
                 { label: 'Secretary Message', path: '/secretary' },
                 { label: 'Principal Message', path: '/principal' },
                 { label: 'NewsLetter', path: '/news' },
-                { label: 'Voter\'s club vision & mission', path: '/voter-literacy-club' },
-                { label: 'Rotaract CLUB', path: '/rotaract-club' },
-                { label: 'NPTEL VISION', path: '/swayam-nptel' },
-                { label: 'R AND D CELL', path: '/research-development-cell' },
-                { label: 'JJCI VISION AND MISSION', path: '/junior-jci-wing' },
                 { label: 'INTERNAL GRIEVANCES COMMITTEE', path: '/internal-grievances-committee' },
-                { label: 'IIEDC VISION & MISSION', path: '/innovation-entrepreneurship' },
-                { label: 'Fine Arts Club', path: '/fine-arts-club' },
-                { label: 'Exam Cell', path: '/exam-cell' },
-                { label: 'Red Ribbon Club', path: '/red-ribbon-club' },
-                { label: 'CONSUMER PC VISION', path: '/consumer-protection-club' },
             ]
         },
         {
