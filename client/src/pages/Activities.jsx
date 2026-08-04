@@ -356,9 +356,52 @@ const defaultActivities = [
       `,
       cards: [
         {
-          image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400",
+          image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
           title: "Internal Grievances Committee",
-          link: "/internal-grievances-committee"
+          description: `<p>Ensuring every voice at SVASC is heard, every concern is addressed with fairness, and every stakeholder feels safe, respected and protected by a just institutional system.</p>
+          <h3 style="color:var(--gold);">Vision</h3>
+          <p>'To create a fair, transparent, inclusive and grievance-free institutional environment by ensuring timely, impartial and effective redressal of grievances, thereby promoting justice, dignity and harmony among all stakeholders.' This vision reflects SVASC's unwavering commitment to being an institution where no student, faculty member or staff feels powerless when facing injustice.</p>
+          <p>The Internal Grievances Committee at SVASC College is more than a procedural body — it is a guardian of institutional integrity. We believe that a college community where concerns can be raised safely, investigated thoroughly and resolved justly is one where academic excellence truly flourishes. Our committee embodies the principle that fairness and education are inseparable.</p>
+          <h3 style="color:var(--gold);">Mission</h3>
+          <ol style="padding-left: 20px;">
+            <li>Provide a universally accessible, operationally transparent and practically effective grievance redressal mechanism that every student, faculty member and staff can use without hesitation or fear of consequence.</li>
+            <li>Guarantee the prompt, thorough and strictly unbiased resolution of all grievances — maintaining absolute confidentiality of the complainant's identity and the investigation process throughout.</li>
+            <li>Uphold the foundational principles of natural justice, equality before institutional authority and full accountability of decision-makers — ensuring no grievance is dismissed without proper inquiry.</li>
+            <li>Cultivate and protect a safe, mutually respectful and deeply harmonious campus atmosphere by actively addressing and effectively mitigating the root causes of recurring conflicts and common grievances.</li>
+          </ol>
+          <h3 style="color:var(--gold);">Grievance Mechanisms</h3>
+          <ol style="padding-left: 20px;">
+            <li><strong>Academic Grievances:</strong> Address and resolve issues related directly to the core educational experience. This includes disputes concerning teaching quality, unfair internal assessment methods, delayed examination schedules, evaluation anomalies, academic discrimination, and denial of rightful academic resources.</li>
+            <li><strong>Administrative Grievances:</strong> Resolve non-academic operational issues that affect student and staff welfare. This involves addressing complaints regarding unreasonable fee collection practices, delays or errors in scholarship disbursements, withholding of necessary certificates, and arbitrary institutional rule enforcement.</li>
+            <li><strong>Harassment & Misconduct:</strong> Provide a strict, zero-tolerance resolution pathway for serious behavioral violations. This mechanism tackles complaints regarding any form of ragging, caste-based or religious discrimination, bullying, intimidation, and inappropriate conduct by peers or staff.</li>
+            <li><strong>Infrastructure & Facilities:</strong> Ensure the physical and digital campus environment meets necessary standards. Students can raise concerns regarding the poor maintenance of classrooms, inadequate library resources, unhygienic hostel conditions, substandard canteen food, and lack of functional sanitation or safety facilities.</li>
+          </ol>
+          <div class="${styles.teamDetails || 'team-details'}">
+            <h3 style="color:var(--gold);">Committee Members</h3>
+            <div class="${styles.tableWrapper || 'table-wrapper'}">
+              <table class="${styles.ecoClubTable || 'eco-club-table'}">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Name of Faculty</th>
+                    <th>Designation</th>
+                    <th>Mobile Number</th>
+                    <th>Email ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Dr. N. Thangamani</td><td>Coordinator</td><td><a href="tel:9842718105">9842718105</a></td><td><a href="mailto:thangamanin@svasc.org">thangamanin@svasc.org</a></td></tr>
+                  <tr><td>2</td><td>Mr. L. Sakthivel</td><td>Member</td><td><a href="tel:9942469695">9942469695</a></td><td><a href="mailto:sakthivell@svasc.org">sakthivell@svasc.org</a></td></tr>
+                  <tr><td>3</td><td>Dr. D. Dhanalaxmi</td><td>Member</td><td><a href="tel:7373977309">7373977309</a></td><td><a href="mailto:dhanalaxmi@svasc.org">dhanalaxmi@svasc.org</a></td></tr>
+                  <tr><td>4</td><td>Mr. V. Prabhu</td><td>Member</td><td><a href="tel:9976313175">9976313175</a></td><td><a href="mailto:prabhuv@svasc.org">prabhuv@svasc.org</a></td></tr>
+                  <tr><td>5</td><td>Ms. T. Poomani</td><td>Member</td><td><a href="tel:9791443428">9791443428</a></td><td><a href="mailto:poomanit@svasc.org">poomanit@svasc.org</a></td></tr>
+                  <tr><td>6</td><td>Sona P (II BBA)</td><td>Student Member</td><td><a href="tel:8870197793">8870197793</a></td><td><a href="mailto:sivap4610@gmail.com">sivap4610@gmail.com</a></td></tr>
+                  <tr><td>7</td><td>Ramya D (I B.Sc Maths)</td><td>Student Member</td><td><a href="tel:9080760460">9080760460</a></td><td><a href="mailto:ramyaramyad4@gmail.com">ramyaramyad4@gmail.com</a></td></tr>
+                  <tr><td>8</td><td>Sri Mathi L P (I B.Sc Maths)</td><td>Student Member</td><td><a href="tel:9791873133">9791873133</a></td><td><a href="mailto:sm3439974@gmail.com">sm3439974@gmail.com</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>`
         },
         {
           image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400",
