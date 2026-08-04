@@ -39,8 +39,9 @@ const Navbar = ({ className }) => {
                         <img src="/SVCAS-Logo.png" alt="SVASC Logo" />
                         <div className="college-text">
                             <h1>SHREE VENKATESHWARA</h1>
-                            <h2>ARTS & SCIENCE (Co-Education)</h2>
-                            <span>COLLEGE</span>
+                            <h2>ARTS &amp; SCIENCE (Co-Education) COLLEGE</h2>
+                            <span className="college-affiliation">Affiliated to the Bharathiar University, Coimbatore, Tamilnadu.</span>
+                            <span className="college-recognition">Recognized u/s 2(f) of the UGC Act, 1956</span>
                         </div>
                     </div>
                 </Link>

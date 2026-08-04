@@ -83,11 +83,21 @@ const Footer = () => {
                                     </Link>
                                 </div>
                                 <div className={styles.footerText}>
-                                    <p>
-                                        SHREE VENKATESHWARA ARTS & SCIENCE (Co-Education) College
-                                        Othakuthirai, Gobichettipalayam - 638455, Erode Dt, Tamilnadu.
-                                        Recognized by Government of Tamilnadu. Affiliated by Bharathiar University,
-                                        Coimbatore, Tamilnadu.
+                                    <p style={{ marginBottom: '6px' }}>
+                                        <strong style={{ display: 'block', fontSize: '15px', color: '#0a1f44', fontWeight: '800', letterSpacing: '0.3px', lineHeight: '1.5' }}>
+                                            SHREE VENKATESHWARA<br />
+                                            ARTS &amp; SCIENCE (Co-Education) COLLEGE
+                                        </strong>
+                                    </p>
+                                    <p style={{ marginBottom: '4px', fontSize: '13px', color: '#c8860a', fontWeight: '600', fontStyle: 'italic', lineHeight: '1.6' }}>
+                                        Affiliated to the Bharathiar University, Coimbatore, Tamilnadu.
+                                    </p>
+                                    <p style={{ marginBottom: '16px', fontSize: '12.5px', color: '#c8860a', fontWeight: '500', fontStyle: 'italic' }}>
+                                        Recognized u/s 2(f) of the UGC Act, 1956
+                                    </p>
+                                    <p style={{ fontSize: '14px', color: '#6c757d', lineHeight: '1.8' }}>
+                                        Othakuthirai, Gobichettipalayam – 638455,<br />
+                                        Erode Dt, Tamilnadu.
                                     </p>
                                 </div>
                                 <div className={styles.footerSocialIcon}>
