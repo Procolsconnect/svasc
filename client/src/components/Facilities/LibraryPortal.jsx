@@ -16,10 +16,10 @@ const LibraryPortal = () => {
         { id: 5, src: "/library_images/image34.jpeg", rotation: "rotate-2", translateY: "-translate-y-1" },
     ];
 
-    const [activities, setActivities] = useState(libraryActivitiesData);
-    const [students, setStudents] = useState(studentAwardsData);
-    const [staff, setStaff] = useState(staffAwardsData);
-    const [nonStaff, setNonStaff] = useState(nonStaffAwardsData);
+    const [activities, setActivities] = useState([]);
+    const [students, setStudents] = useState([]);
+    const [staff, setStaff] = useState([]);
+    const [nonStaff, setNonStaff] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,8 +29,8 @@ const LibraryPortal = () => {
                     setActivities(activitiesRes.data.data.map(a => ({
                         ...a,
                         images: [
-                            a.image1 && a.image1.startsWith('http') ? a.image1 : `http://localhost:5000/${a.image1?.replace(/^\\/+/, '')}`,
-                            a.image2 && a.image2.startsWith('http') ? a.image2 : `http://localhost:5000/${a.image2?.replace(/^\\/+/, '')}`
+                            a.image1 && a.image1.startsWith('http') ? a.image1 : `http://localhost:5000/${a.image1?.replace(/^\/+/, '')}`,
+                            a.image2 && a.image2.startsWith('http') ? a.image2 : `http://localhost:5000/${a.image2?.replace(/^\/+/, '')}`
                         ].filter(Boolean)
                     })));
                 }
@@ -39,7 +39,7 @@ const LibraryPortal = () => {
                 if (awardsRes.data.data && awardsRes.data.data.length > 0) {
                     const awards = awardsRes.data.data.map(a => ({
                         ...a,
-                        src: a.image && a.image.startsWith('http') ? a.image : `http://localhost:5000/${a.image?.replace(/^\\/+/, '')}`
+                        src: a.image && a.image.startsWith('http') ? a.image : `http://localhost:5000/${a.image?.replace(/^\/+/, '')}`
                     }));
                     
                     setStudents(awards.filter(a => a.category === 'Student').map(a => ({ ...a, class: a.designation })));

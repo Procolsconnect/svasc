@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CrudManager from '../CrudManager';
-import FormInput from '../FormInput';
-import FileUploader from '../FileUploader';
+import { FormInput, FileUploader } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
 
 const LibraryAwardsTab = () => {
