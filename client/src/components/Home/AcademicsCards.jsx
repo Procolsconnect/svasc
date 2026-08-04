@@ -37,55 +37,57 @@ const AcademicsCards = () => {
                     <div className="container">
                         <div className="cc-row">
 
-                            {/* Card 1 — Bharathiar University Affiliation */}
+                            {/* Card 1 — Skill-Focused Learning */}
                             <div className="card-column">
                                 <div className="card-details">
                                     <div className="card-icons">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
-                                            <path d="M32 6L4 20l28 14 28-14L32 6z"/>
-                                            <path d="M4 20v18"/>
-                                            <path d="M12 24v14c0 5 8 10 20 10s20-5 20-10V24"/>
-                                            <circle cx="4" cy="38" r="2" fill="#111" stroke="none"/>
-                                            <path d="M4 40l2 6"/>
+                                            <circle cx="32" cy="20" r="10"/>
+                                            <path d="M14 54c0-9.9 8.1-18 18-18s18 8.1 18 18"/>
+                                            <path d="M44 10l4-4m0 0l4 4m-4-4v12"/>
+                                            <path d="M28 20h8"/>
+                                            <path d="M32 16v8"/>
                                         </svg>
                                     </div>
-                                    <h3><a href="/about">Bharathiar University Affiliated</a></h3>
-                                    <p>Proudly affiliated to Bharathiar University, Coimbatore — one of Tamil Nadu's premier universities — ensuring nationally recognized degrees and strong academic credibility.</p>
-                                    <a className="read-more-btn" href="/about"><i className="fa-solid fa-angles-right"></i></a>
+                                    <h3><a href="/academics">Skill-Focused Learning</a></h3>
+                                    <p>Industry-aligned curriculum, hands-on training, and expert mentorship help students build real-world skills that make them job-ready from day one of graduation.</p>
+                                    <a className="read-more-btn" href="/academics"><i className="fa-solid fa-angles-right"></i></a>
                                 </div>
                             </div>
 
-                            {/* Card 2 — UGC 2(f) Recognition */}
+                            {/* Card 2 — Hi-Tech Laboratories */}
                             <div className="card-column">
                                 <div className="card-details">
                                     <div className="card-icons">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
-                                            <rect x="8" y="8" width="48" height="36" rx="3"/>
-                                            <path d="M20 44v8"/>
-                                            <path d="M44 44v8"/>
-                                            <path d="M14 52h36"/>
-                                            <polyline points="22,24 28,30 42,18"/>
+                                            <path d="M24 8v20L10 50a4 4 0 003.6 5.7h36.8A4 4 0 0054 50L40 28V8"/>
+                                            <line x1="20" y1="8" x2="44" y2="8"/>
+                                            <circle cx="26" cy="44" r="3" fill="#111" stroke="none"/>
+                                            <circle cx="36" cy="38" r="2" fill="#111" stroke="none"/>
+                                            <circle cx="40" cy="48" r="2" fill="#111" stroke="none"/>
                                         </svg>
                                     </div>
-                                    <h3><a href="/about">UGC Recognized u/s 2(f)</a></h3>
-                                    <p>Recognized under Section 2(f) of the UGC Act, 1956 — affirming institutional credibility, eligibility for central government grants, and commitment to quality higher education standards.</p>
-                                    <a className="read-more-btn" href="/about"><i className="fa-solid fa-angles-right"></i></a>
+                                    <h3><a href="/facilities">Hi-Tech Laboratories</a></h3>
+                                    <p>State-of-the-art computer labs, science labs, and a fully automated digital library give students access to the latest tools and technology for practical, research-driven education.</p>
+                                    <a className="read-more-btn" href="/facilities"><i className="fa-solid fa-angles-right"></i></a>
                                 </div>
                             </div>
 
-                            {/* Card 3 — Placement Support */}
+                            {/* Card 3 — Campus Life & Placements */}
                             <div className="card-column">
                                 <div className="card-details">
                                     <div className="card-icons">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
-                                            <rect x="8" y="22" width="48" height="34" rx="3"/>
-                                            <path d="M22 22V16a10 10 0 0120 0v6"/>
-                                            <line x1="32" y1="34" x2="32" y2="44"/>
-                                            <line x1="27" y1="39" x2="37" y2="39"/>
+                                            <path d="M16 8h32l-6 18H22L16 8z"/>
+                                            <path d="M22 26c0 5.5 4.5 10 10 10s10-4.5 10-10"/>
+                                            <path d="M32 36v12"/>
+                                            <path d="M20 48h24"/>
+                                            <path d="M28 48l-4 8"/>
+                                            <path d="M36 48l4 8"/>
                                         </svg>
                                     </div>
-                                    <h3><a href="/placement">100% Placement Support</a></h3>
-                                    <p>Our dedicated Placement Cell connects students with top industry recruiters through career guidance, mock interviews, skill development workshops, and strong corporate tie-ups.</p>
+                                    <h3><a href="/placement">Vibrant Campus & Placements</a></h3>
+                                    <p>A lively campus with sports, cultural clubs, and annual events — combined with a dedicated Placement Cell that actively connects students with top companies across Tamil Nadu and beyond.</p>
                                     <a className="read-more-btn" href="/placement"><i className="fa-solid fa-angles-right"></i></a>
                                 </div>
                             </div>
