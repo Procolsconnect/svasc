@@ -655,19 +655,15 @@ const ProjectsPortfolio = () => {
 
     const heights = {};
     projects.forEach((project, index) => {
-      const baseWidth = index < 2 ? (winWidth * 0.48 - 20) : (winWidth * 0.23 - 20);
+      const baseWidth = (winWidth * 0.3133 - 20); // updated for 3 cards per row
       let height;
 
-      if (index < 2) {
+      if (midRange) {
+        height = baseWidth * 0.5;
+      } else if (smallRange) {
         height = baseWidth;
       } else {
-        if (midRange) {
-          height = baseWidth * 0.5;
-        } else if (smallRange) {
-          height = baseWidth;
-        } else {
-          height = baseWidth * 1.5;
-        }
+        height = (winWidth * 0.23 - 20) * 1.5; // matches the exact height calculation that was used for the 3rd card previously
       }
       heights[project.ID] = height;
     });
