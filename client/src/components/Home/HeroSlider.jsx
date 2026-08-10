@@ -14,15 +14,15 @@ const pauseSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewB
 const fallbackSlides = [
     {
         type: 'video',
-        src: './College Dron.mp4',
+        src: '/hero.mp4',
         title: 'Welcome to SVGI <br />Group of Institutions',
         description: 'Transforming knowledge into real-world impact, Shree Vengadeshwara empowers you with skills for a thriving career. Your future-ready education starts here..',
         link: '#',
         linkLabel: 'Explore'
     },
     {
-        type: 'image',
-        src: './WhatsApp Image 2025-07-31 at 17.54.07_0eeece1f.jpg',
+        type: 'video',
+        src: './College Dron 1.mp4',
         title: 'Skill-Focused & Actionable',
         description: '"Beyond the classroom, into your career. We bridge theory with practice, ensuring you gain the essential skills employers demand."',
         link: '#',
@@ -30,7 +30,7 @@ const fallbackSlides = [
     },
     {
         type: 'image',
-        src: './sky clg.jpg',
+        src: './svgi1.jpg',
         title: '"Pedagogy" The method and practice of teaching',
         description: 'A place for higher learning, sometimes part of a university.',
         link: '#',
@@ -38,8 +38,8 @@ const fallbackSlides = [
         alignLeft: true
     },
     {
-        type: 'video',
-        src: 'https://videos.pexels.com/video-files/5495781/5495781-uhd_2560_1080_30fps.mp4',
+        type: 'image',
+        src: 'svgi2.jpg    ',
         title: 'Beach Video',
         description: 'Another video slide slowed down.',
         link: '#',
@@ -61,7 +61,7 @@ const HeroSlider = () => {
                 if (response.data.success && response.data.data.length > 0) {
                     const mapped = response.data.data.map(slide => {
                         const cleanSrc = slide.src.replace(/^\/+/, '');
-                        const slideSrc = slide.src.startsWith('http') || slide.src.startsWith('.') ? slide.src : `${BASE_URL}/${cleanSrc}`;
+                        const slideSrc = slide.src.startsWith('http') || slide.src.startsWith('.') || slide.src.startsWith('/') ? slide.src : `${BASE_URL}/${cleanSrc}`;
                         return {
                             ...slide,
                             src: slideSrc
@@ -223,7 +223,20 @@ const HeroSlider = () => {
                             <div className="item">
                                 {slide.type === 'video' ? (
                                     <div className="video">
-                                        <video autoPlay loop muted playsInline key={slide.src}>
+                                        <video
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            key={slide.src}
+                                            onError={(e) => {
+                                                if (e.target.src !== window.location.origin + '/hero.mp4' && !e.target.dataset.fallbackTried) {
+                                                    e.target.dataset.fallbackTried = 'true';
+                                                    e.target.src = '/hero.mp4';
+                                                    e.target.load();
+                                                }
+                                            }}
+                                        >
                                             <source src={slide.src} type="video/mp4" />
                                         </video>
                                     </div>
