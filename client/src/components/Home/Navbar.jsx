@@ -40,8 +40,8 @@ const Navbar = ({ className }) => {
                         <div className="college-text">
                             <h1>SHREE VENKATESHWARA</h1>
                             <h2>ARTS &amp; SCIENCE (Co-Education) COLLEGE</h2>
-                            <span className="college-affiliation">Affiliated to the Bharathiar University, Coimbatore, Tamilnadu.</span>
                             <span className="college-recognition">Recognized u/s 2(f) of the UGC Act, 1956</span>
+                            <span className="college-affiliation">Affiliated to the Bharathiar University, Coimbatore.</span>
                         </div>
                     </div>
                 </Link>
