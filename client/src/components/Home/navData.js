@@ -54,7 +54,7 @@ export const navData = {
             path: '/placement',
             dropdown: [
                 { label: 'Placement Cell', path: '/placement' },
-                { label: 'Club PLACEMENT CELL', path: '/placement-training-cell' },
+                { label: 'Placement & training Cell', path: '/placement-training-cell' },
                 { label: 'Statistics', path: '/statistics' },
             ]
         },

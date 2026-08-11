@@ -90,10 +90,10 @@ const Footer = () => {
                                         </strong>
                                     </p>
                                     <p style={{ marginBottom: '4px', fontSize: '13px', color: '#c8860a', fontWeight: '600', fontStyle: 'italic', lineHeight: '1.6' }}>
-                                        Affiliated to the Bharathiar University, Coimbatore, Tamilnadu.
+                                        Recognized u/s 2(f) of the UGC Act, 1956
                                     </p>
                                     <p style={{ marginBottom: '16px', fontSize: '12.5px', color: '#c8860a', fontWeight: '500', fontStyle: 'italic' }}>
-                                        Recognized u/s 2(f) of the UGC Act, 1956
+                                        Affiliated to the Bharathiar University, Coimbatore.
                                     </p>
                                     <p style={{ fontSize: '14px', color: '#6c757d', lineHeight: '1.8' }}>
                                         Othakuthirai, Gobichettipalayam – 638455,<br />
