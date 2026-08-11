@@ -15,7 +15,7 @@ const fallbackSlides = [
     {
         type: 'video',
         src: '/hero.mp4',
-        title: 'Welcome to SVGI <br />Group of Institutions',
+        title: 'Welcome to SVASC <br />Group of Institutions',
         description: 'Transforming knowledge into real-world impact, Shree Vengadeshwara empowers you with skills for a thriving career. Your future-ready education starts here..',
         link: '#',
         linkLabel: 'Explore'

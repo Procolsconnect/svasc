@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { programDetailsData } from '../data/programDetailsData';
 import styles from './ProgramDetails.module.css';
-import { ChevronRight, MessageSquare, ChevronsRight } from 'lucide-react';
+import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, Tag, Maximize2 } from 'lucide-react';
 
 const ProgramDetails = () => {
     const { id } = useParams();
     const program = programDetailsData[id];
 
+    const [activeCategory, setActiveCategory] = useState('All');
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
+        setActiveCategory('All');
+        setSelectedImageIndex(null);
     }, [id]);
 
     if (!program) {
@@ -25,10 +30,22 @@ const ProgramDetails = () => {
         );
     }
 
+    const galleryItems = program.gallery || [];
+    const categories = ['All', ...Array.from(new Set(galleryItems.map(item => item.category)))];
+
+    const filteredGallery = activeCategory === 'All'
+        ? galleryItems
+        : galleryItems.filter(item => item.category === activeCategory);
+
+    const openLightbox = (index) => setSelectedImageIndex(index);
+    const closeLightbox = () => setSelectedImageIndex(null);
+    const prevImage = () => setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : filteredGallery.length - 1));
+    const nextImage = () => setSelectedImageIndex((prev) => (prev < filteredGallery.length - 1 ? prev + 1 : 0));
+
     return (
         <div className={styles.wrapper}>
             {/* HERO SECTION */}
-            <header className={styles.hero} style={{ backgroundImage: `url(${program.heroImage})` }}>
+            <header className={styles.hero} style={{ backgroundImage: `url("${program.heroImage}")` }}>
                 <div className={styles.heroOverlay}>
                     <div className={styles.heroContent}>
                         <h1>{program.title}</h1>
@@ -198,6 +215,90 @@ const ProgramDetails = () => {
                             </div>
                         </div>
                     </section>
+                )}
+
+                {/* DEPARTMENT ACTIVITIES & PHOTO GALLERY */}
+                {galleryItems.length > 0 && (
+                    <section className={styles.gallerySection}>
+                        <div className={styles.container}>
+                            <div className={styles.galleryHeader}>
+                                <h2>Department Activities & Photo Gallery</h2>
+                                <p>Highlights of Workshops, Seminars, Industrial Visits, Guest Lectures & Celebrations</p>
+                            </div>
+
+                            {/* Category Filter Tabs */}
+                            {categories.length > 2 && (
+                                <div className={styles.filterTabs}>
+                                    {categories.map((cat) => (
+                                        <button
+                                            key={cat}
+                                            className={`${styles.filterTab} ${activeCategory === cat ? styles.activeFilterTab : ''}`}
+                                            onClick={() => setActiveCategory(cat)}
+                                        >
+                                            {cat}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Gallery Grid */}
+                            <div className={styles.galleryGrid}>
+                                {filteredGallery.map((item, idx) => (
+                                    <div key={idx} className={styles.galleryCard} onClick={() => openLightbox(idx)}>
+                                        <div className={styles.galleryImageWrapper}>
+                                            <img src={item.image} alt={item.title} />
+                                            <div className={styles.galleryOverlay}>
+                                                <Maximize2 size={24} className={styles.zoomIcon} />
+                                            </div>
+                                            <span className={styles.categoryBadge}>
+                                                <Tag size={12} /> {item.category}
+                                            </span>
+                                        </div>
+                                        <div className={styles.galleryCardContent}>
+                                            {item.date && (
+                                                <span className={styles.eventDate}>
+                                                    <Calendar size={13} /> {item.date}
+                                                </span>
+                                            )}
+                                            <h3>{item.title}</h3>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* LIGHTBOX MODAL */}
+                {selectedImageIndex !== null && filteredGallery[selectedImageIndex] && (
+                    <div className={styles.lightboxModal} onClick={closeLightbox}>
+                        <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+                            <button className={styles.closeBtn} onClick={closeLightbox} aria-label="Close modal">
+                                <X size={28} />
+                            </button>
+                            <button className={styles.prevBtn} onClick={prevImage} aria-label="Previous photo">
+                                <ChevronLeft size={36} />
+                            </button>
+                            <div className={styles.lightboxImageContainer}>
+                                <img
+                                    src={filteredGallery[selectedImageIndex].image}
+                                    alt={filteredGallery[selectedImageIndex].title}
+                                />
+                                <div className={styles.lightboxCaption}>
+                                    <h3>{filteredGallery[selectedImageIndex].title}</h3>
+                                    <div className={styles.lightboxMeta}>
+                                        <span><Tag size={14} /> {filteredGallery[selectedImageIndex].category}</span>
+                                        {filteredGallery[selectedImageIndex].date && (
+                                            <span><Calendar size={14} /> {filteredGallery[selectedImageIndex].date}</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                            <button className={styles.nextBtn} onClick={nextImage} aria-label="Next photo">
+                                <ChevronRight size={36} />
+                            </button>
+                        </div>
+                    </div>
                 )}
 
                 {/* FAQ SECTION */}

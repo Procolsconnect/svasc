@@ -616,8 +616,8 @@ export const programDetailsData = {
     },
     "bsc-chemistry": {
         title: "B.Sc. Chemistry",
-        heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: "/chemistry/INTERNATIONAL SEMINAR-17.07.2026  (4).jpeg",
+        aboutImage: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(1).jpeg",
         about: "The Department of Chemistry was established in 2020. It lays a strong foundation for future researchers and professionals by imparting knowledge of essential chemical and physical principles. The department equips students with theoretical foundations, practical skills, scientific integrity, and hands-on laboratory experience to excel in diverse career paths and advanced studies.",
         vision: "Emerges as a centre of excellence in undergraduate chemistry education, where students develop into competent professionals equipped with strong theoretical foundations, practical skills, and scientific integrity to excel in diverse career paths.",
         mission: [
@@ -645,13 +645,105 @@ export const programDetailsData = {
             "Maintain academic records and ensure quality assurance.",
             "Promote innovation, entrepreneurship, and environmental sustainability."
         ],
-        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilitiesImage: "/chemistry/WORKSHOP-CONCEPTUALISATION OF HAND SANITIZER 19.09.2024 (3).jpeg",
         facilities: [
-            "State-of-the-art computer laboratories",
-            "WiFi Enabled Campus",
-            "Well Equipped Laboratories",
+            "State-of-the-art chemical & analytical laboratories",
+            "Modern Spectrophotometers & Distillation Units",
+            "Well-Equipped Safety & Fume Hood Systems",
             "ICT Enabled Smart Classrooms",
-            "Electronic Library"
+            "Departmental Reference Library & E-Learning Portal"
+        ],
+        gallery: [
+            {
+                title: "International Seminar on Advanced Chemistry",
+                date: "17.07.2026",
+                category: "Seminar",
+                image: "/chemistry/INTERNATIONAL SEMINAR-17.07.2026  (4).jpeg"
+            },
+            {
+                title: "National Science Day Celebration",
+                date: "27.02.2026",
+                category: "Science Day",
+                image: "/chemistry/NATIONAL SCIENCE DAY CELEBRATION 27.02.2026 (4).jpeg"
+            },
+            {
+                title: "Department Educational Field Trip",
+                date: "23.01.2026",
+                category: "Industrial Visit",
+                image: "/chemistry/EDUCATIONAL TRIP 23.01.2026 (2).jpeg"
+            },
+            {
+                title: "MoU Signing with Rani Chemical Industry",
+                date: "28.01.2025",
+                category: "MoU & Collaboration",
+                image: "/chemistry/RANI CHEMICAL MOU 28.01 (2).jpeg"
+            },
+            {
+                title: "Hands-on Workshop: Green Chemistry in Textile Industry",
+                date: "16.10.2025",
+                category: "Workshop",
+                image: "/chemistry/WORKSHOP -GREEN CHEMISTRTY IN TEXTILE CHEMISTRY16.10.2025 (4).jpeg"
+            },
+            {
+                title: "Industrial Visit to Chemical Research Laboratory",
+                date: "26.09.2025",
+                category: "Industrial Visit",
+                image: "/chemistry/INDUSTRIAL VISIT 26.9.2025 (2).jpeg"
+            },
+            {
+                title: "Practical Workshop: Synthesis & Conceptualisation of Hand Sanitizer",
+                date: "19.09.2024",
+                category: "Workshop",
+                image: "/chemistry/WORKSHOP-CONCEPTUALISATION OF HAND SANITIZER 19.09.2024 (3).jpeg"
+            },
+            {
+                title: "Workshop on Cosmetic Formulation & Deterioration",
+                date: "25.09.2024",
+                category: "Workshop",
+                image: "/chemistry/WORKSHOP-VIRTUAL & COSMETIC DETERIORATION-25.09 (3).jpeg"
+            },
+            {
+                title: "State Level Webinar: Phytochemistry & Plant Chemistry",
+                date: "02.08.2024",
+                category: "Webinar",
+                image: "/chemistry/WEBINAR-PLANT CHEMISTRY-02.08 (1).jpeg"
+            },
+            {
+                title: "Guest Lecture: Chemistry for a Sustainable Future",
+                date: "2024",
+                category: "Guest Lecture",
+                image: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(1).jpeg"
+            },
+            {
+                title: "Association Inauguration & Guest Lecture",
+                date: "2024",
+                category: "Guest Lecture",
+                image: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(2).jpg"
+            },
+            {
+                title: "Career Navigation in Chemistry Session",
+                date: "21.02.2025",
+                category: "Career Guidance",
+                image: "/chemistry/ASSOCIATION INAUGURATION -CAREER NAVIGATION IN CHEMISTRY-21.02 (2).jpeg"
+            },
+            {
+                title: "Interactive Session on Chemistry Career Paths",
+                date: "21.02.2025",
+                category: "Career Guidance",
+                image: "/chemistry/ASSOCIATION INAUGURATION -CAREER NAVIGATION IN CHEMISTRY-21.02 (4).jpeg"
+            },
+            {
+                title: "Association Inauguration: Chemistry in Everyday Life",
+                date: "08.08.2024",
+                category: "Association Event",
+                image: "/chemistry/ASSOCIATION INAGURATION-CHEMISTRY IN EVERY DAY LIFE-08.08 (2).jpeg"
+            },
+            {
+                title: "Association Inauguration: Sirippom Siragai Virippom",
+                date: "26.09.2024",
+                category: "Association Event",
+                image: "/chemistry/ASSOCIATION INAUGURATION-SIRIPPOM SIRAGAI VIRIPPOM 26.09 (2).jpeg"
+            }
         ],
         careerOpportunities: [
             { title: "Chemist & Analytical Chemist" },
