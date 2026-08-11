@@ -31,7 +31,7 @@ const ProgramDetails = () => {
     }
 
     const galleryItems = program.gallery || [];
-    const categories = ['All', ...Array.from(new Set(galleryItems.map(item => item.category)))];
+    const categories = ['All', ...Array.from(new Set(galleryItems.map(item => item.category).filter(Boolean)))];
 
     const filteredGallery = activeCategory === 'All'
         ? galleryItems
@@ -250,9 +250,11 @@ const ProgramDetails = () => {
                                             <div className={styles.galleryOverlay}>
                                                 <Maximize2 size={24} className={styles.zoomIcon} />
                                             </div>
-                                            <span className={styles.categoryBadge}>
-                                                <Tag size={12} /> {item.category}
-                                            </span>
+                                            {item.category && (
+                                                <span className={styles.categoryBadge}>
+                                                    <Tag size={12} /> {item.category}
+                                                </span>
+                                            )}
                                         </div>
                                         <div className={styles.galleryCardContent}>
                                             {item.date && (
@@ -286,12 +288,16 @@ const ProgramDetails = () => {
                                 />
                                 <div className={styles.lightboxCaption}>
                                     <h3>{filteredGallery[selectedImageIndex].title}</h3>
-                                    <div className={styles.lightboxMeta}>
-                                        <span><Tag size={14} /> {filteredGallery[selectedImageIndex].category}</span>
-                                        {filteredGallery[selectedImageIndex].date && (
-                                            <span><Calendar size={14} /> {filteredGallery[selectedImageIndex].date}</span>
-                                        )}
-                                    </div>
+                                    {(filteredGallery[selectedImageIndex].category || filteredGallery[selectedImageIndex].date) && (
+                                        <div className={styles.lightboxMeta}>
+                                            {filteredGallery[selectedImageIndex].category && (
+                                                <span><Tag size={14} /> {filteredGallery[selectedImageIndex].category}</span>
+                                            )}
+                                            {filteredGallery[selectedImageIndex].date && (
+                                                <span><Calendar size={14} /> {filteredGallery[selectedImageIndex].date}</span>
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                             <button className={styles.nextBtn} onClick={nextImage} aria-label="Next photo">

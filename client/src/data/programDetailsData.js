@@ -134,6 +134,60 @@ export const programDetailsData = {
             { title: "Cloud Solutions Architect & DevOps Engineer" },
             { title: "AI / Machine Learning Engineer & Data Engineer" }
         ],
+        gallery: [
+            {
+                title: "Association Inauguration & Freshers Day Celebration",
+                image: "/Bca/ASSOCIATION INAUGURATION AND FRESHERS DAY - 22.08.2024/1-1024x656.jpeg"
+            },
+            {
+                title: "Freshers Day Cultural & Welcome Event",
+                image: "/Bca/ASSOCIATION INAUGURATION AND FRESHERS DAY - 22.08.2024/3-1024x655.jpeg"
+            },
+            {
+                title: "Teachers Day Celebration at BCA Department",
+                image: "/Bca/TEACHERS DAY CELEBRATION - 05.09.2024/1726313530626-1024x461.jpg"
+            },
+            {
+                title: "Placement Training: Unlocking Potential for Tech Careers",
+                image: "/Bca/Unlocking Potential The Power of Preparation for Placement/IMG-20241017-WA0110-1024x768.jpg"
+            },
+            {
+                title: "Aytha Poojai Celebrations at BCA Department",
+                image: "/Bca/Aytha Poojai Celebration - 10-10-2024/IMG_20241010_153153-1024x461.jpg"
+            },
+            {
+                title: "IoT Masterclass: Connect, Innovate & Automate",
+                image: "/Bca/Workshop on IoT Masterclass Connect, Innovate, Automate/WhatsApp-Image-2025-01-21-at-12.19.59-PM-1024x576.jpeg"
+            },
+            {
+                title: "Practical Hands-on Session on IoT & Automation",
+                image: "/Bca/Workshop on IoT Masterclass Connect, Innovate, Automate/WhatsApp-Image-2025-01-21-at-12.20.00-PM-1024x576.jpeg"
+            },
+            {
+                title: "Enriching 3-Day Industrial Visit to Kerala",
+                image: "/Bca/Enriching Three-Day Industrial Visit to Kerala for BCA (2022-2025) Batch/IMG-20250124-WA0004-768x576.jpg"
+            },
+            {
+                title: "Guest Lecture: Navigating Career Paths & Industry Demands",
+                image: "/Bca/Navigating Career Paths and Industry Demands/IMG-20250206-WA00721-1024x576.jpg"
+            },
+            {
+                title: "InterCollegiate Technical Meet - Digital Dynamo 2K25",
+                image: "/Bca/InterCollegiate Meet - Digital Dynamo2K25/post.jpg"
+            },
+            {
+                title: "Association Valedictory & Farewell Day Celebration",
+                image: "/Bca/ASSOCIATION VALEDICTORY & FAREWELL DAY CELEBRATION/IMG-20250228-WA0058-1024x681.jpg"
+            },
+            {
+                title: "Farewell Function & Student Achievement Awards",
+                image: "/Bca/ASSOCIATION VALEDICTORY & FAREWELL DAY CELEBRATION/IMG-20250405-WA0135-1024x576.jpg"
+            },
+            {
+                title: "Department Technical Exhibition & Student Showcase",
+                image: "/Bca/IMG-20240723-WA0030-1024x576.jpg"
+            }
+        ],
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
             { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
@@ -256,6 +310,32 @@ export const programDetailsData = {
             { sNo: 5, name: "Mr. R. SELVAKUMAR", qualification: "M.COM., M.PHIL., B.Ed., B.L." },
             { sNo: 6, name: "Mrs. S. RAMYADEVI", qualification: "M.COM., M.PHIL., MBA." },
             { sNo: 7, name: "Ms. K. SUSITHRA", qualification: "MBA." }
+        ],
+        gallery: [
+            {
+                title: "Association Inaugural & Freshers Day Celebration",
+                image: "/ugcommerce/Association Inaugural & Freshers Day on 31.07.2025.jpg"
+            },
+            {
+                title: "Association Valedictory & Farewell Day Celebration",
+                image: "/ugcommerce/Association Valedictory & Farewell Day10.04.2025.jpg"
+            },
+            {
+                title: "Legal Awareness Programme on Consequences of Drug Abuse",
+                image: "/ugcommerce/Legal Awareness Programme on Consequences of Drug Abuse on 10.03.2026.jpg"
+            },
+            {
+                title: "Personality Development & Career Guidance Program",
+                image: "/ugcommerce/PERSONALITY DEVELOPMENT AND CAREER GUIDANCE PROGRAM  18.09.2025.jpg"
+            },
+            {
+                title: "Training Programme: Achievement is Possible",
+                image: '/ugcommerce/Training Programme entitled Achievement is possible on 04.03.2026.jpg'
+            },
+            {
+                title: "Awareness Session on Banking, Saving and Investment",
+                image: "/ugcommerce/Awareness on banking, saving and Investment on 23.01.2026.jpg"
+            }
         ],
         faqs: [
             { question: "Can I pursue CA after B.Com?", answer: "Yes, B.Com is an excellent foundation for pursuing CA, CS, or CMA." }
@@ -454,6 +534,32 @@ export const programDetailsData = {
             { sNo: 5, name: "Mrs.U.Gowthami", qualification: "MCA., Dip in Travel & Tourism., M.PHIL., (Ph.D)" },
             { sNo: 6, name: "Dr.K.Suresh Kumar", qualification: "M.COM., M.PHIL., PGDCA., Ph.D." },
             { sNo: 7, name: "Mrs.K.V.Ranjani", qualification: "M.COM (CA)., B.Ed." }
+        ],
+        gallery: [
+            {
+                title: "Association Inauguration & Freshers Day Celebration",
+                image: "/commerce(ca)/Association Inauguration & freshers day 15.07.2026.jpg"
+            },
+            {
+                title: "Freshers Day Event & Orientation",
+                image: "/commerce(ca)/Association Inauguration &Fresher_s Day-31.07.2025.jpg"
+            },
+            {
+                title: "Association Valedictory & Farewell Day Function",
+                image: "/commerce(ca)/Association Valedictory & Farewell Day 10.04.2026.jpg"
+            },
+            {
+                title: "Career Guidance & Skill Development Program",
+                image: "/commerce(ca)/CAREER GUIDANCE PROGRAM 19.09.2025.jpg"
+            },
+            {
+                title: "Extension Activity & Community Outreach",
+                image: "/commerce(ca)/EXTENSION ACTIVITY 19.12.2025.jpg"
+            },
+            {
+                title: "Legal Awareness Programme on Cyberbullying & Online Harassment",
+                image: "/commerce(ca)/Legal Awareness Programme on Cyberbullying and online Harassment on 10.03.2026.jpg"
+            }
         ],
         faqs: [
             { question: "Is coding required for B.Com(CA)?", answer: "Basic programming knowledge is taught as part of the application of software in business." }
@@ -656,92 +762,62 @@ export const programDetailsData = {
         gallery: [
             {
                 title: "International Seminar on Advanced Chemistry",
-                date: "17.07.2026",
-                category: "Seminar",
                 image: "/chemistry/INTERNATIONAL SEMINAR-17.07.2026  (4).jpeg"
             },
             {
                 title: "National Science Day Celebration",
-                date: "27.02.2026",
-                category: "Science Day",
                 image: "/chemistry/NATIONAL SCIENCE DAY CELEBRATION 27.02.2026 (4).jpeg"
             },
             {
                 title: "Department Educational Field Trip",
-                date: "23.01.2026",
-                category: "Industrial Visit",
                 image: "/chemistry/EDUCATIONAL TRIP 23.01.2026 (2).jpeg"
             },
             {
                 title: "MoU Signing with Rani Chemical Industry",
-                date: "28.01.2025",
-                category: "MoU & Collaboration",
                 image: "/chemistry/RANI CHEMICAL MOU 28.01 (2).jpeg"
             },
             {
                 title: "Hands-on Workshop: Green Chemistry in Textile Industry",
-                date: "16.10.2025",
-                category: "Workshop",
                 image: "/chemistry/WORKSHOP -GREEN CHEMISTRTY IN TEXTILE CHEMISTRY16.10.2025 (4).jpeg"
             },
             {
                 title: "Industrial Visit to Chemical Research Laboratory",
-                date: "26.09.2025",
-                category: "Industrial Visit",
                 image: "/chemistry/INDUSTRIAL VISIT 26.9.2025 (2).jpeg"
             },
             {
                 title: "Practical Workshop: Synthesis & Conceptualisation of Hand Sanitizer",
-                date: "19.09.2024",
-                category: "Workshop",
                 image: "/chemistry/WORKSHOP-CONCEPTUALISATION OF HAND SANITIZER 19.09.2024 (3).jpeg"
             },
             {
                 title: "Workshop on Cosmetic Formulation & Deterioration",
-                date: "25.09.2024",
-                category: "Workshop",
                 image: "/chemistry/WORKSHOP-VIRTUAL & COSMETIC DETERIORATION-25.09 (3).jpeg"
             },
             {
                 title: "State Level Webinar: Phytochemistry & Plant Chemistry",
-                date: "02.08.2024",
-                category: "Webinar",
                 image: "/chemistry/WEBINAR-PLANT CHEMISTRY-02.08 (1).jpeg"
             },
             {
                 title: "Guest Lecture: Chemistry for a Sustainable Future",
-                date: "2024",
-                category: "Guest Lecture",
                 image: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(1).jpeg"
             },
             {
                 title: "Association Inauguration & Guest Lecture",
-                date: "2024",
-                category: "Guest Lecture",
                 image: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(2).jpg"
             },
             {
                 title: "Career Navigation in Chemistry Session",
-                date: "21.02.2025",
-                category: "Career Guidance",
                 image: "/chemistry/ASSOCIATION INAUGURATION -CAREER NAVIGATION IN CHEMISTRY-21.02 (2).jpeg"
             },
             {
                 title: "Interactive Session on Chemistry Career Paths",
-                date: "21.02.2025",
-                category: "Career Guidance",
                 image: "/chemistry/ASSOCIATION INAUGURATION -CAREER NAVIGATION IN CHEMISTRY-21.02 (4).jpeg"
             },
             {
                 title: "Association Inauguration: Chemistry in Everyday Life",
-                date: "08.08.2024",
-                category: "Association Event",
                 image: "/chemistry/ASSOCIATION INAGURATION-CHEMISTRY IN EVERY DAY LIFE-08.08 (2).jpeg"
             },
             {
                 title: "Association Inauguration: Sirippom Siragai Virippom",
-                date: "26.09.2024",
-                category: "Association Event",
                 image: "/chemistry/ASSOCIATION INAUGURATION-SIRIPPOM SIRAGAI VIRIPPOM 26.09 (2).jpeg"
             }
         ],

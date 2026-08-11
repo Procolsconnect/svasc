@@ -695,9 +695,10 @@
 
 .galleryCard {
     background: white;
-    border-radius: 1.2rem;
+    border-radius: 0;
+    border: 1px solid #e2e8f0;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.08);
+    box-shadow: 0 4px 18px rgba(0, 33, 75, 0.06);
     transition: all 0.35s ease;
     cursor: pointer;
     display: flex;
@@ -705,14 +706,15 @@
 }
 
 .galleryCard:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 33, 75, 0.18);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 33, 75, 0.16);
+    border-color: #021f4b;
 }
 
 .galleryImageWrapper {
     position: relative;
     width: 100%;
-    height: 220px;
+    height: 230px;
     overflow: hidden;
     background: #eef2f5;
 }
@@ -725,7 +727,7 @@
 }
 
 .galleryCard:hover .galleryImageWrapper img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 .galleryOverlay {
@@ -745,9 +747,10 @@
 
 .zoomIcon {
     color: white;
-    background: rgba(245, 180, 0, 0.9);
+    background: #021f4b;
+    border: 1.5px solid #f5b400;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     width: 44px;
     height: 44px;
@@ -757,13 +760,12 @@
     position: absolute;
     top: 12px;
     left: 12px;
-    background: rgba(2, 31, 75, 0.85);
+    background: rgba(2, 31, 75, 0.9);
     color: #ffffff;
-    backdrop-filter: blur(4px);
     font-size: 1.2rem;
     font-weight: 600;
     padding: 0.4rem 1rem;
-    border-radius: 20px;
+    border-radius: 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -771,11 +773,18 @@
 }
 
 .galleryCardContent {
-    padding: 2rem;
+    padding: 1.6rem 1.8rem;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem;
     flex-grow: 1;
+    background: #ffffff;
+    border-top: 3px solid #021f4b;
+    transition: border-color 0.3s ease;
+}
+
+.galleryCard:hover .galleryCardContent {
+    border-top-color: #f5b400;
 }
 
 .eventDate {
@@ -788,10 +797,10 @@
 }
 
 .galleryCardContent h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #021f4b;
-    line-height: 1.4;
+    line-height: 1.45;
     margin: 0;
 }
 

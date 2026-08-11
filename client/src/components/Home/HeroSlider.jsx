@@ -15,37 +15,13 @@ const fallbackSlides = [
     {
         type: 'video',
         src: '/hero.mp4',
-        title: 'Welcome to SVASC <br />Group of Institutions',
+        title: 'Welcome to SVASC <br />Arts and Science College',
         description: 'Transforming knowledge into real-world impact, Shree Vengadeshwara empowers you with skills for a thriving career. Your future-ready education starts here..',
         link: '#',
         linkLabel: 'Explore'
     },
-    {
-        type: 'image',
-        src: './WhatsApp Image 2025-07-31 at 17.54.07_0eeece1f.jpg',
-        title: 'Skill-Focused & Actionable',
-        description: '"Beyond the classroom, into your career. We bridge theory with practice, ensuring you gain the essential skills employers demand."',
-        link: '#',
-        linkLabel: 'Learn More'
-    },
-    {
-        type: 'image',
-        src: './sky clg.jpg',
-        title: '"Pedagogy" The method and practice of teaching',
-        description: 'A place for higher learning, sometimes part of a university.',
-        link: '#',
-        linkLabel: 'See More',
-        alignLeft: true
-    },
-    {
-        type: 'video',
-        src: 'https://videos.pexels.com/video-files/5495781/5495781-uhd_2560_1080_30fps.mp4',
-        title: 'Beach Video',
-        description: 'Another video slide slowed down.',
-        link: '#',
-        linkLabel: 'Dive In',
-        alignLeft: true
-    }
+   
+    
 ];
 
 const HeroSlider = () => {

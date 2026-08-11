@@ -30,9 +30,9 @@ export const navData = {
             label: 'Programmes',
             path: '/programms',
             dropdown: [
-                { label: 'Undergraduate', path: '/programms' },
-                { label: 'Postgraduate', path: '/programms' },
-                { label: 'Ph.D', path: '/programms' },
+                { label: 'Undergraduate', path: '/programms?type=ug' },
+                { label: 'Postgraduate', path: '/programms?type=pg' },
+                { label: 'Ph.D', path: '/programms?type=phd' },
             ]
         },
         {

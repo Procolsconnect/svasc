@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Programms.module.css';
 import { ArrowRight, ChevronRight, GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
 
 const slugify = (text) => {
@@ -17,6 +17,7 @@ const slugify = (text) => {
 
 const Schools = () => {
     const schoolSectionRef = useRef(null);
+    const location = useLocation();
 
     const [activeTab, setActiveTab] = useState(() => {
         return sessionStorage.getItem('activeTab') || "UG Programmes";
@@ -27,15 +28,39 @@ const Schools = () => {
     });
 
     useEffect(() => {
-        // Scroll to the school section if we are returning from a detail page
-        const savedTab = sessionStorage.getItem('activeTab');
-        if (savedTab && schoolSectionRef.current) {
-            // Small delay to ensure the page has rendered enough for scroll calculations
-            setTimeout(() => {
-                schoolSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+        const searchParams = new URLSearchParams(location.search);
+        const typeParam = searchParams.get('type') || searchParams.get('tab');
+
+        if (typeParam) {
+            const lower = typeParam.toLowerCase();
+            let matchedTab = null;
+            if (lower.includes('pg') || lower.includes('post')) {
+                matchedTab = "PG Programmes";
+            } else if (lower.includes('phd') || lower.includes('ph.d')) {
+                matchedTab = "Ph.D";
+            } else if (lower.includes('ug') || lower.includes('under')) {
+                matchedTab = "UG Programmes";
+            }
+
+            if (matchedTab) {
+                setActiveTab(matchedTab);
+                setActiveSchoolIndex(0);
+                if (schoolSectionRef.current) {
+                    setTimeout(() => {
+                        schoolSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+                    }, 150);
+                }
+            }
+        } else {
+            // Scroll to the school section if we are returning from a detail page
+            const savedTab = sessionStorage.getItem('activeTab');
+            if (savedTab && schoolSectionRef.current) {
+                setTimeout(() => {
+                    schoolSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
         }
-    }, []);
+    }, [location.search]);
 
     useEffect(() => {
         sessionStorage.setItem('activeTab', activeTab);
