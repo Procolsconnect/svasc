@@ -10,6 +10,7 @@ import Programms from './pages/Programms';
 import ProgramDetails from './pages/ProgramDetails';
 import Events from './pages/Events';
 import Activities from './pages/Activities';
+import DynamicClubDetail from './pages/DynamicClubDetail';
 import Placement from './pages/Placement';
 import Statistics from './pages/Statistics';
 import AboutSVASC from './pages/AboutSVASC';
@@ -70,6 +71,8 @@ function App() {
             <Route path="/programms" element={<Programms />} />
             <Route path="/program/:id" element={<ProgramDetails />} />
             <Route path="/activities" element={<Activities />} />
+            <Route path="/activities/:category" element={<Activities />} />
+            <Route path="/activities/:category/:slug" element={<DynamicClubDetail />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/exam" element={<Exam />} />

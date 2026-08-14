@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Activities.module.css';
 import Hero from '../components/Common/Hero';
 import axios from 'axios';
@@ -11,6 +11,7 @@ import { defaultActivities } from '../data/activitiesData';
 
 const ProjectsPortfolio = () => {
   const navigate = useNavigate();
+  const { category: categoryParam } = useParams();
   const [projects, setProjects] = useState(defaultActivities);
   const [selectedProject, setSelectedProject] = useState(null);
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
@@ -49,7 +50,7 @@ const ProjectsPortfolio = () => {
               category: item.category,
               bImage: item.bannerImage.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
               copy: item.description,
-                  cards: item.cards.map(card => {
+              cards: item.cards.map(card => {
                 const cardClean = card.image.replace(/^\/+/, '');
                 return {
                   title: card.title,
@@ -69,21 +70,53 @@ const ProjectsPortfolio = () => {
     fetchActivities();
   }, []);
 
+  const getProjectFromParam = (param) => {
+    if (!param) return null;
+    const p = param.toLowerCase().trim().replace(/[^a-z0-9]+/g, '');
+    return projects.find((item) => {
+      const id = item.ID.toLowerCase();
+      const cat = item.category.toLowerCase().replace(/[^a-z0-9]+/g, '');
+      if (p === 'club' || p === 'clubs' || p === 'collegeclub' || p === 'collegeclubs') return id === 'collegeclub' || cat.includes('club');
+      if (p === 'cell' || p === 'cells' || p === 'svasccells' || p === 'svasccell') return id === 'svasccells' || cat.includes('cell');
+      if (p === 'committee' || p === 'committees') return id === 'committee' || cat.includes('committee');
+      return id === p || cat === p;
+    });
+  };
+
+  const getSlugFromProject = (project) => {
+    if (!project) return '';
+    const id = project.ID.toLowerCase();
+    if (id === 'collegeclub') return 'college-club';
+    if (id === 'svasccells') return 'svasc-cells';
+    if (id === 'committee') return 'committee';
+    return project.category.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+  };
+
+  // Synchronize categoryParam with active project state
+  useEffect(() => {
+    if (categoryParam) {
+      const match = getProjectFromParam(categoryParam);
+      if (match) {
+        setSelectedProject(match.ID);
+        setHighlightedContent(match);
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 300);
+      }
+    } else {
+      setSelectedProject(null);
+    }
+  }, [categoryParam, projects]);
+
   const selectProject = (projectId) => {
     const project = projects.find(p => p.ID === projectId);
 
     if (selectedProject === projectId) {
-      setSelectedProject(null);
-      setTimeout(() => {
-        window.scrollTo({ top: scrollBackTo.current, behavior: 'smooth' });
-      }, 1600);
-    } else {
+      navigate('/activities');
+    } else if (project) {
       scrollBackTo.current = window.scrollY;
-      setSelectedProject(projectId);
-      setHighlightedContent(project);
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 800);
+      const slug = getSlugFromProject(project);
+      navigate(`/activities/${slug}`);
     }
   };
 
@@ -93,8 +126,8 @@ const ProjectsPortfolio = () => {
     const smallRange = winWidth < 720;
 
     const heights = {};
-    projects.forEach((project, index) => {
-      const baseWidth = (winWidth * 0.3133 - 20); // updated for 3 cards per row
+    projects.forEach((project) => {
+      const baseWidth = (winWidth * 0.3133 - 20);
       let height;
 
       if (midRange) {
@@ -102,7 +135,7 @@ const ProjectsPortfolio = () => {
       } else if (smallRange) {
         height = baseWidth;
       } else {
-        height = (winWidth * 0.23 - 20) * 1.5; // matches the exact height calculation that was used for the 3rd card previously
+        height = (winWidth * 0.23 - 20) * 1.5;
       }
       heights[project.ID] = height;
     });
@@ -116,7 +149,6 @@ const ProjectsPortfolio = () => {
     return () => window.removeEventListener('resize', calculateHeights);
   }, []);
 
-  // Reset scroll position when a project is opened
   useEffect(() => {
     if (selectedProject && selectedAreaRef.current) {
       selectedAreaRef.current.scrollTop = 0;
