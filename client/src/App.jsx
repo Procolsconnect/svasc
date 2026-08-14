@@ -47,6 +47,16 @@ import Iqac from './routes/iqac';
 import Nss from './routes/nss';
 import ExamCell from './routes/exam-cell';
 import RedRibbonClub from './routes/red-ribbon-club';
+import LiteraryClub from './routes/literary-club';
+import EcoClub from './routes/eco-club';
+import AntiDrugClub from './routes/anti-drug-club';
+import YouthRedCross from './routes/youth-red-cross';
+import WomenEmpowermentCell from './routes/women-empowerment-cell';
+import MediaCell from './routes/media-cell';
+import AntiRaggingCell from './routes/anti-ragging-cell';
+import GrievanceRedressalCommittee from './routes/grievance-redressal-committee';
+import PhysicalEducation from './routes/physical-education';
+import EntrepreneurshipDevelopmentCell from './routes/entrepreneurship-development-cell';
 
 function App() {
   return (
@@ -97,6 +107,16 @@ function App() {
             <Route path="/nss" element={<Nss />} />
             <Route path="/exam-cell" element={<ExamCell />} />
             <Route path="/red-ribbon-club" element={<RedRibbonClub />} />
+            <Route path="/literary-club" element={<LiteraryClub />} />
+            <Route path="/eco-club" element={<EcoClub />} />
+            <Route path="/anti-drug-club" element={<AntiDrugClub />} />
+            <Route path="/youth-red-cross" element={<YouthRedCross />} />
+            <Route path="/women-empowerment-cell" element={<WomenEmpowermentCell />} />
+            <Route path="/media-cell" element={<MediaCell />} />
+            <Route path="/anti-ragging-cell" element={<AntiRaggingCell />} />
+            <Route path="/grievance-redressal-committee" element={<GrievanceRedressalCommittee />} />
+            <Route path="/physical-education" element={<PhysicalEducation />} />
+            <Route path="/entrepreneurship-development-cell" element={<EntrepreneurshipDevelopmentCell />} />
           </Route>
           <Route path="/admission" element={<Admission />} />
           <Route path="/admin" element={<AdminDashboard />} />

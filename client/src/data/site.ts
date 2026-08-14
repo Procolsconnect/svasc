@@ -20,7 +20,7 @@ export type PageDef = {
   title: string;
   hero: string;
   intro: string;
-  image: "campus’ | ’students’ | ’service’ | ’seminar";
+  image: "campus" | "students" | "service" | "seminar";
   motto?: string;
   blocks: Block[];
 };
@@ -1154,6 +1154,455 @@ export const pages: PageDef[] = [
           { name: "A. KAVIN", role: "MEMBER", extra: "I BBA", email: "kavin7639783594@gmail.com", phone: "7639783594" },
           { name: "S. VAISHNAVI", role: "MEMBER", extra: "II BBA", email: "vaishnavivisowndar@gmail.com", phone: "8940735696" },
           { name: "M. DEVADHARSHINI", role: "MEMBER", extra: "II BBA", email: "ddvadhashinideva@gmail.com", phone: "9994180233" }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/literary-club",
+    nav: "Literary Club",
+    title: "Literary Club",
+    hero: "Literary Club",
+    intro: "Promoting reading, writing, debate, elocution, and critical thinking among students to cultivate strong communication and literary excellence.",
+    image: "seminar",
+    motto: "Reading, Writing, Reflection",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "To build a vibrant community of passionate readers, eloquent speakers, and creative writers who engage deeply with literature and articulate ideas with clarity, confidence, and impact.",
+          "The Literary Club envisions a campus where words empower, literature inspires, and critical thinking guides academic and personal leadership."
+        ]
+      },
+      {
+        kind: "prose",
+        title: "Mission",
+        body: [
+          "To provide a creative forum for students to develop literary skills, encourage critical analysis of contemporary and classic literature, and organize inter-collegiate competitions that foster intellectual growth.",
+          "Through regular workshops, book reviews, and public speaking forums, we empower students to articulate their thoughts effectively."
+        ]
+      },
+      {
+        kind: "numbered",
+        title: "Objectives",
+        items: [
+          "Promote reading habits, creative writing, and literary appreciation among students across all disciplines.",
+          "Organize structured book discussions, poetry recitations, and essay competitions.",
+          "Conduct elocution, debate, and quiz competitions to hone communication and critical reasoning skills.",
+          "Encourage student participation in inter-collegiate, regional, and national literary festivals."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/eco-club",
+    nav: "Eco Club",
+    title: "Eco Club",
+    hero: "Eco Club",
+    intro: "Creating an environmentally conscious and sustainable campus by inspiring students to protect nature, conserve resources, and promote eco-friendly practices.",
+    image: "service",
+    motto: "Go Green, Save Earth",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "To create an environmentally conscious and sustainable campus by inspiring students to protect nature, conserve resources, and promote eco-friendly practices."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Mission",
+        items: [
+          "To develop environmental awareness among students and staff.",
+          "To encourage active participation in environmental conservation activities.",
+          "To promote sustainable practices such as waste management, energy conservation, and tree plantation.",
+          "To create responsible citizens committed to protecting the environment."
+        ]
+      },
+      {
+        kind: "numbered",
+        title: "Objectives of the Eco Club",
+        items: [
+          "To create awareness about environmental issues such as pollution, climate change, and biodiversity conservation.",
+          "To encourage students to participate in tree plantation and campus greening activities.",
+          "To promote waste segregation, recycling, and proper waste management.",
+          "To conserve natural resources like water and electricity.",
+          "To organize seminars, workshops, rallies, and awareness campaigns on environmental protection.",
+          "To celebrate environmental days such as World Environment Day and Earth Day.",
+          "To encourage the use of eco-friendly products and reduce plastic usage.",
+          "To develop leadership, teamwork, and social responsibility among students.",
+          "To make the college campus clean, green, and sustainable."
+        ]
+      },
+      {
+        kind: "cards",
+        title: "Role of the Eco Club & Responsibilities",
+        items: [
+          { title: "Environmental Awareness", body: "Organize awareness programs, rallies, and campaigns on environmental conservation." },
+          { title: "Tree Plantation", body: "Conduct tree plantation drives and ensure proper care of planted trees." },
+          { title: "Waste Management", body: "Promote waste segregation, recycling, composting, and reduction of plastic use." },
+          { title: "Water Conservation", body: "Create awareness on saving water and organize activities like rainwater harvesting campaigns." },
+          { title: "Energy Conservation", body: "Encourage energy-saving practices such as switching off lights and using renewable energy." },
+          { title: "Clean Campus Initiative", body: "Organize campus and community cleanliness drives to maintain a clean environment." },
+          { title: "Biodiversity Conservation", body: "Protect local flora and fauna by conducting biodiversity surveys and awareness activities." },
+          { title: "Climate Change Awareness", body: "Educate students about climate change, its impacts, and sustainable practices." }
+        ]
+      },
+      {
+        kind: "members",
+        title: "Composition of Eco Club",
+        items: [
+          { name: "Mrs. K. S. MALATHI", role: "Coordinator", phone: "6383021694", email: "malathiks@svac.org" },
+          { name: "Mrs. M. KAVITHA", role: "Member", phone: "8012470308", email: "Kavitha@svasc.org" },
+          { name: "Mr. P. KARTHIKEYAN", role: "Member", phone: "9840083468", email: "karthikeyanp@svasc.org" },
+          { name: "Mrs. K. GAYATHRI", role: "Member", phone: "9171934382", email: "gayathrik@svasc.org" },
+          { name: "L. MOHAN", role: "Student Member", phone: "7904960075", email: "janakidevippm@gmail.com" },
+          { name: "M. SUBINRAJ", role: "Student Member", phone: "8681890021", email: "subinraj2708@gmail.com" },
+          { name: "R. SUDHARSHAN", role: "Student Member", phone: "967744410", email: "sudharshan28092007@gmail.com" },
+          { name: "T. MUNEESHWARAN", role: "Student Member", phone: "6369085370", email: "Mugi13106@gmail.com" }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/anti-drug-club",
+    nav: "Anti Drug Club",
+    title: "Anti Drug Club",
+    hero: "Anti Drug Club",
+    intro: "Building a campus free from substance abuse where every student chooses health, purpose, and a drug-free future.",
+    image: "campus",
+    motto: "Say No to Drugs, Say Yes to Life",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "To build a campus free from substance abuse where every student chooses health, purpose, and a drug-free future."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Mission",
+        items: [
+          "Create awareness about the harmful effects of drugs through campaigns and workshops.",
+          "Empower students to make informed, healthy choices.",
+          "Provide peer support and guidance for those seeking help.",
+          "Collaborate with experts and authorities to promote a safe campus environment."
+        ]
+      },
+      {
+        kind: "numbered",
+        title: "Objectives of Anti Drug Club",
+        items: [
+          "Create Awareness: Conduct regular seminars, workshops, and campaigns to educate students about the physical, mental, and social effects of drug abuse.",
+          "Prevent First Use: Equip students with life skills to resist peer pressure and make informed decisions through interactive sessions and role plays.",
+          "Promote Healthy Alternatives: Encourage sports, arts, yoga, and cultural activities as positive outlets to reduce stress and prevent drug experimentation.",
+          "Build Support Systems: Establish peer support groups and confidential counseling channels for students seeking help or information.",
+          "Early Identification & Intervention: Train club members to identify early warning signs and guide at-risk students to professional help without stigma."
+        ]
+      },
+      {
+        kind: "members",
+        title: "Composition of Anti Drug Club",
+        items: [
+          { name: "Mr. K. Manikandan", role: "Coordinator", extra: "Physical Director" },
+          { name: "Mr. V. Ashok Kumar", role: "Member", extra: "AP / English" },
+          { name: "Ms. M. Miruthila", role: "Member", extra: "AP / PG Commerce" },
+          { name: "Mr. D. Shyamsundar", role: "Member", extra: "AP / BCA" }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/youth-red-cross",
+    nav: "Youth Red Cross",
+    title: "Youth Red Cross",
+    hero: "Youth Red Cross",
+    intro: "Health, Service, Friendship — mobilizing youth to inspire humanitarian activities and alleviate human suffering.",
+    image: "service",
+    motto: "Health, Service, Friendship",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "To inspire and empower young people to become responsible, compassionate, and active citizens who serve humanity, promote health, uphold human dignity, and contribute to building a peaceful and resilient society."
+        ]
+      },
+      {
+        kind: "prose",
+        title: "Mission",
+        body: [
+          "To mobilize and empower youth through voluntary service, health education, first aid training, blood donation awareness, disaster preparedness, and community welfare activities, guided by the Fundamental Principles of the Red Cross."
+        ]
+      },
+      {
+        kind: "numbered",
+        title: "Objectives of YRC",
+        items: [
+          "Promote health and hygiene through awareness programs and healthy lifestyle practices.",
+          "Develop the spirit of humanitarian service and voluntary action among youth.",
+          "Provide first aid and emergency care training to prepare volunteers for emergencies.",
+          "Encourage voluntary blood donation and create awareness about the importance of safe blood.",
+          "Prepare youth for disaster response and support relief and rehabilitation activities.",
+          "Develop leadership qualities, discipline, teamwork, and social responsibility.",
+          "Serve vulnerable and needy communities without discrimination based on race, religion, caste, gender, or nationality.",
+          "Promote peace, friendship, and national integration through community service.",
+          "Encourage environmental protection through tree plantation, cleanliness drives, and conservation activities.",
+          "Uphold the Fundamental Principles of the Red Cross—Humanity, Impartiality, Neutrality, Independence, Voluntary Service, Unity, and Universality."
+        ]
+      },
+      {
+        kind: "members",
+        title: "YRC Committee Members",
+        items: [
+          { name: "Mr. C. SURESH", role: "Coordinator", extra: "MATHEMATICS", phone: "7904617100", email: "sureshc@svasc.org" },
+          { name: "Mr. A. ARUN KUMAR", role: "Member", extra: "ENGLISH", phone: "9524914269", email: "arunkmar@svasc.org" },
+          { name: "Ms. S. MYVIZHI", role: "Member", extra: "TAMIL", phone: "9597188105", email: "myvizhi@svasc.org" },
+          { name: "Ms. S. SHANMUGAPRIYA", role: "Member", extra: "CHEMISTRY", phone: "9342465615", email: "lllavenil2022@gmail.com" }
+        ]
+      },
+      {
+        kind: "members",
+        title: "YRC Student Volunteers",
+        items: [
+          { name: "M. PAVITHRAN", role: "Student Member", extra: "III B.Sc MATHS", phone: "6374534078", email: "ppavi0624@gmail.com" },
+          { name: "K. RITHIKA", role: "Student Member", extra: "I B.Sc MATHS", phone: "9080132843", email: "rithuma2008@gmail.com" },
+          { name: "S. ABI", role: "Student Member", extra: "III B.Sc CHEMISTRY", phone: "8667394661", email: "abisasikumar86@gmail.com" },
+          { name: "M. KEERTHANA", role: "Student Member", extra: "III B.Sc CHEMISTRY", phone: "9952303653", email: "keerthanam212007@gmail.com" },
+          { name: "K. DENCY", role: "Student Member", extra: "III B.Sc CHEMISTRY", phone: "9345333857", email: "dencykumar2007@gmail.com" },
+          { name: "P. HARINI", role: "Student Member", extra: "III B.Sc CHEMISTRY", phone: "7810052964", email: "harini082007@gmail.com" },
+          { name: "S. AMARNATH", role: "Student Member", extra: "II BBA", phone: "985996477", email: "amarnathbk271@gmail.com" },
+          { name: "M. GREESAN", role: "Student Member", extra: "II BBA", phone: "8760884306", email: "raghulgreesano@gmail.com" },
+          { name: "M. DHARANIDHARAN", role: "Student Member", extra: "II BBA", phone: "7200883235", email: "dharanidharan5254350@gmail.com" },
+          { name: "A. LLIYOUSHPAM", role: "Student Member", extra: "II BBA", phone: "9025885221", email: "nancylillynancyy@gmail.com" }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/women-empowerment-cell",
+    nav: "WEC",
+    title: "Women Empowerment Cell",
+    hero: "Women Empowerment Cell",
+    intro: "Empowering women with knowledge, leadership, confidence, and social responsibility to foster an equitable and progressive society.",
+    image: "students",
+    motto: "Empower Woman, Empower Future",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "To empower women with knowledge, leadership, confidence, and social responsibility, enabling them to become self-reliant individuals who contribute to an equitable and progressive society."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Mission",
+        items: [
+          "To promote leadership and personality development among women.",
+          "To create awareness about gender equality, women's rights, and legal protection.",
+          "To provide skill development and career-oriented training.",
+          "To organize programs for physical, mental, and social well-being.",
+          "To foster a safe, inclusive, and respectful academic environment."
+        ]
+      },
+      {
+        kind: "numbered",
+        title: "Objectives of Women Empowerment Cell",
+        items: [
+          "To promote self-confidence, leadership qualities, and decision-making skills among girl students.",
+          "To create awareness about gender equality, women's rights, legal literacy, health, safety, and self-defense.",
+          "To enhance employability through skill development, entrepreneurship, career guidance, and personality development programmes.",
+          "To encourage the active participation of women in academic, co-curricular, cultural, sports, and community service activities.",
+          "To empower women to become independent, socially responsible, and confident individuals while ensuring a safe, inclusive, and supportive campus environment."
+        ]
+      },
+      {
+        kind: "cards",
+        title: "Expected Outcomes & Key Roles",
+        items: [
+          { title: "Self-Confidence & Leadership", body: "Students develop confidence, leadership qualities, communication skills, and decision-making abilities." },
+          { title: "Awareness of Rights", body: "Increased understanding of gender equality, women's rights, legal provisions, cyber safety, health, hygiene, and self-defense." },
+          { title: "Improved Employability", body: "Students acquire career-oriented skills, entrepreneurial abilities, and professional competencies that enhance employability." },
+          { title: "Safe & Inclusive Campus Environment", body: "Promotion of a gender-sensitive, respectful, and discrimination-free campus where women feel safe and supported." }
+        ]
+      },
+      {
+        kind: "members",
+        title: "WEC Committee Members",
+        items: [
+          { name: "Dr. R. Senthilrani", role: "Coordinator", phone: "9952137812", email: "senthilranir@svasc.org" },
+          { name: "Mrs. B. Kanchanadevi", role: "Member", phone: "7904853505", email: "kanchanadevibcs08@svasc.org" },
+          { name: "Mrs. H. S. Prabha Shankar", role: "Member", phone: "9789441141", email: "Prabhahs2242@gmail.com" },
+          { name: "Mrs. R. J. Sadhana", role: "Member", phone: "6358210577", email: "sadhana@svasc.org" },
+          { name: "Gobika. S", role: "Student Member", extra: "II BBA", phone: "9344088546", email: "gobika7332@gmail.com" },
+          { name: "Sivaranjani S", role: "Student Member", extra: "II B.Sc CDF", phone: "6382486286", email: "jayarani3864@gmail.com" },
+          { name: "Dharani P", role: "Student Member", extra: "II B.Sc CS (AI&DS)", phone: "9600890463", email: "dharadharu24@gmail.com" },
+          { name: "Gracy S", role: "Student Member", extra: "II B.Sc CS (AI&DS)", phone: "9360555676", email: "gracygrace131@gmail.com" }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/media-cell",
+    nav: "Media Cell",
+    title: "Social Media & Media Cell",
+    hero: "Media Cell",
+    intro: "Managing SVASC's digital presence and community engagement through transparent communication, event coverage, and creative storytelling.",
+    image: "seminar",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "To create a connected digital world where people can communicate, collaborate, share knowledge, and access information instantly, fostering innovation, learning, and global relationships."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Mission",
+        items: [
+          "To enable seamless communication among people across the world.",
+          "To provide a platform for sharing information, ideas, and experiences.",
+          "To support learning, collaboration, and community engagement."
+        ]
+      },
+      {
+        kind: "numbered",
+        title: "Objectives of Media Cell",
+        items: [
+          "Promote the college's activities, achievements, and events through social media platforms.",
+          "Serve as a bridge between the institution, students, alumni, parents, and the wider community.",
+          "Ensure timely and transparent communication of academic milestones and campus news."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/anti-ragging-cell",
+    nav: "Anti Ragging",
+    title: "Anti Ragging Cell & Committee",
+    hero: "Anti Ragging Cell",
+    intro: "Fostering a safe, disciplined, inclusive, and ragging-free campus environment that promotes ethical values and mutual respect.",
+    image: "campus",
+    motto: "Zero Tolerance to Ragging",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Vision",
+        body: [
+          "To foster a safe, disciplined, inclusive, and ragging-free campus environment that promotes ethical values, mutual respect, and holistic development among students."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Mission",
+        items: [
+          "To maintain discipline and uphold the rules and regulations of the institution.",
+          "To prevent ragging through awareness, vigilance, and strict implementation of anti-ragging measures.",
+          "To promote self-discipline, responsibility, and ethical conduct among students."
+        ]
+      },
+      {
+        kind: "numbered",
+        title: "Objectives",
+        items: [
+          "To maintain discipline and ensure adherence to institutional rules.",
+          "To prevent ragging and create awareness about its harmful physical, psychological, and legal consequences.",
+          "To provide a safe, secure, inclusive environment for all new and continuing students."
+        ]
+      },
+      {
+        kind: "members",
+        title: "Key Leadership",
+        items: [
+          { name: "Mr. G. Gowtham", role: "Chairperson", extra: "CEO" },
+          { name: "Dr. Chi. Nanjappa", role: "Coordinator", extra: "Vice-Principal" }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/grievance-redressal-committee",
+    nav: "Grievance Redressal",
+    title: "Grievance Redressal Committee",
+    hero: "Grievance Redressal",
+    intro: "Providing a structured, confidential platform for students to raise academic, administrative, and personal concerns.",
+    image: "campus",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Overview",
+        body: [
+          "The Grievance Redressal Committee provides a structured, confidential platform for students to raise academic, administrative, and personal concerns. All complaints are handled promptly, fairly, and impartially by designated committee members."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Core Functions",
+        items: [
+          "Receive and evaluate student complaints regarding academic, administrative, or facility issues.",
+          "Conduct impartial inquiries maintaining absolute confidentiality.",
+          "Recommend prompt corrective measures to administration."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/physical-education",
+    nav: "Sports & PE",
+    title: "Department of Physical Education",
+    hero: "Physical Education",
+    intro: "Empowering athletes and sports enthusiasts through rigorous coaching, state-of-the-art facilities, and competitive excellence.",
+    image: "students",
+    motto: "Fit Body, Focused Mind",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Overview",
+        body: [
+          "Our college students actively participate in various sports tournaments including Kabaddi, Weight Lifting, Kho-Kho, Chess, Silambam, Football, Cricket, and Volleyball at inter-collegiate, university, and national levels.",
+          "The Physical Education department provides rigorous training and coaching apart from theory classes to enlighten students about the rules of games. Students have bagged winning records at inter-departmental, inter-collegiate, University and National level.",
+          "Our college has excellent sports facilities with routine physical exercises, yoga and meditation which strengthens the concentration and contribution of players."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Key Features & Facilities",
+        items: [
+          "Professional coaching for team and individual sports.",
+          "Regular physical exercises, yoga, and meditation sessions.",
+          "Annual inter-departmental sports meet and athletic events.",
+          "Excellent sports infrastructure and training equipment."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "/entrepreneurship-development-cell",
+    nav: "EDC",
+    title: "Entrepreneurship Development Cell",
+    hero: "Entrepreneurship Development Cell",
+    intro: "Fostering startup thinking, business planning, self-employment skills, and entrepreneurial leadership.",
+    image: "seminar",
+    blocks: [
+      {
+        kind: "prose",
+        title: "Overview",
+        body: [
+          "The Entrepreneurship Development Cell (EDC) fosters startup thinking and self-employment skills across all academic departments. It organizes structured workshops on Life Skills Development, business planning, financial literacy, and pitching — bridging the gap between academic knowledge and real-world entrepreneurial success."
+        ]
+      },
+      {
+        kind: "list",
+        title: "Objectives",
+        items: [
+          "Encourage creative ideas and startup planning among students.",
+          "Conduct workshops on business modeling, financial literacy, and pitching.",
+          "Connect student innovators with incubators and funding schemes."
         ]
       }
     ]

@@ -15,7 +15,6 @@ const ProjectsPortfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
   const [projectHeights, setProjectHeights] = useState({});
-  const [modalCard, setModalCard] = useState(null);
   const [heroData, setHeroData] = useState({
     title: 'SVASC Campus Activities',
     description: 'Explore the comprehensive range of student support services, clubs, and developmental programs at SVASC.',
@@ -50,12 +49,13 @@ const ProjectsPortfolio = () => {
               category: item.category,
               bImage: item.bannerImage.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
               copy: item.description,
-              cards: item.cards.map(card => {
+                  cards: item.cards.map(card => {
                 const cardClean = card.image.replace(/^\/+/, '');
                 return {
                   title: card.title,
                   description: card.description || "No description provided.",
-                  image: card.image.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`
+                  image: card.image.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`,
+                  link: card.link || `/${card.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
                 };
               })
             };
@@ -134,6 +134,35 @@ const ProjectsPortfolio = () => {
     return classes.join(' ');
   };
 
+  const getCardTargetLink = (card) => {
+    if (card.link) return card.link;
+    const titleLower = card.title.toLowerCase();
+    if (titleLower.includes('voter')) return '/voter-literacy-club';
+    if (titleLower.includes('rotaract')) return '/rotaract-club';
+    if (titleLower.includes('red ribbon')) return '/red-ribbon-club';
+    if (titleLower.includes('jci')) return '/junior-jci-wing';
+    if (titleLower.includes('consumer')) return '/consumer-protection-club';
+    if (titleLower.includes('fine art')) return '/fine-arts-club';
+    if (titleLower.includes('anti drug')) return '/anti-drug-club';
+    if (titleLower.includes('eco')) return '/eco-club';
+    if (titleLower.includes('literary')) return '/literary-club';
+    if (titleLower.includes('women')) return '/women-empowerment-cell';
+    if (titleLower.includes('media')) return '/media-cell';
+    if (titleLower.includes('ragging')) return '/anti-ragging-cell';
+    if (titleLower.includes('research') || titleLower.includes('r and d')) return '/research-development-cell';
+    if (titleLower.includes('exam')) return '/exam-cell';
+    if (titleLower.includes('swayam') || titleLower.includes('nptel')) return '/swayam-nptel';
+    if (titleLower.includes('innovation') || titleLower.includes('iiedc')) return '/innovation-entrepreneurship';
+    if (titleLower.includes('internal grievance')) return '/internal-grievances-committee';
+    if (titleLower.includes('grievance')) return '/grievance-redressal-committee';
+    if (titleLower.includes('iqac')) return '/iqac';
+    if (titleLower.includes('youth red cross') || titleLower.includes('yrc')) return '/youth-red-cross';
+    if (titleLower.includes('physical education') || titleLower.includes('sports')) return '/physical-education';
+    if (titleLower.includes('nss')) return '/nss';
+    if (titleLower.includes('entrepreneurship') || titleLower.includes('edc')) return '/entrepreneurship-development-cell';
+    return `/${titleLower.replace(/[^a-z0-9]+/g, '-')}`;
+  };
+
   return (
     <div style={{ fontFamily: "'Open Sans', sans-serif", margin: 0, padding: 0, minHeight: '100vh' }}>
       <Hero
@@ -204,11 +233,8 @@ const ProjectsPortfolio = () => {
                   style={{ backgroundImage: `url(${card.image})`, cursor: 'pointer' }}
                   onClick={(e) => { 
                     e.stopPropagation(); 
-                    if (card.link) {
-                      navigate(card.link);
-                    } else {
-                      setModalCard(card);
-                    }
+                    const targetLink = getCardTargetLink(card);
+                    navigate(targetLink);
                   }}
                 >
                   <div className={styles.cardContentOverlay}>
@@ -221,34 +247,9 @@ const ProjectsPortfolio = () => {
           </div>
         )}
       </div>
-
-      {modalCard && (
-        <div className={styles.cardModalOverlay} onClick={() => setModalCard(null)}>
-          <div className={styles.cardModalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeModalBtn} onClick={() => setModalCard(null)} aria-label="Close modal">
-              ×
-            </button>
-
-            {modalCard.image && (
-              <div className={styles.modalHeroSection}>
-                <img src={modalCard.image} alt={modalCard.title} className={styles.modalImage} />
-                <div className={styles.modalHeroOverlay} />
-                <div className={styles.modalHeroBadge}>SVASC · CAMPUS CLUB & CELL</div>
-              </div>
-            )}
-
-            <div className={styles.modalHeaderInfo}>
-              <span className={styles.modalEyebrow}>SVASC ACTIVITIES</span>
-              <h2 className={styles.modalTitle}>{modalCard.title}</h2>
-              <div className={styles.modalTitleDivider} />
-            </div>
-
-            <div className={styles.modalDesc} dangerouslySetInnerHTML={{ __html: modalCard.description || '' }} />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
 
 export default ProjectsPortfolio;
+
