@@ -612,64 +612,337 @@
     border-radius: 8px;
     border: 1px solid #e5e7eb;
 }
-/* Modal Styles */
+/* Modal Styles - Luxury Dark & Gold (/nss & /fine-arts-club aesthetic) */
 .cardModalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(5, 10, 24, 0.82);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99999;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  animation: fadeInModal 0.3s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+  }
 }
 
 .cardModalContent {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 90%;
+  background: #0d172e;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  max-width: 880px;
+  width: 100%;
   position: relative;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  text-align: left;
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.85), 0 0 40px rgba(212, 175, 55, 0.12);
   max-height: 90vh;
   overflow-y: auto;
+  padding: 0 0 36px 0;
+  color: #f1f5f9;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.5) #0b1329;
+  animation: scaleUpModal 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUpModal {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cardModalContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cardModalContent::-webkit-scrollbar-track {
+  background: #0b1329;
+  border-radius: 8px;
+}
+
+.cardModalContent::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+}
+
+.cardModalContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.7);
 }
 
 .closeModalBtn {
   position: absolute;
-  top: 15px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 28px;
+  top: 16px;
+  right: 16px;
+  background: rgba(13, 23, 46, 0.85);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  color: #d4af37;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
   cursor: pointer;
-  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(6px);
+  line-height: 1;
+}
+
+.closeModalBtn:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+  color: #0d172e;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.modalHeroSection {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .modalImage {
   width: 100%;
-  max-height: 300px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  object-position: center;
+  transition: transform 0.8s ease;
+}
+
+.cardModalContent:hover .modalImage {
+  transform: scale(1.03);
+}
+
+.modalHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0d172e 0%, rgba(13, 23, 46, 0.4) 60%, transparent 100%);
+}
+
+.modalHeroBadge {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  background: rgba(13, 23, 46, 0.85);
+  color: #e5c158;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modalHeaderInfo {
+  padding: 24px 32px 10px 32px;
+}
+
+.modalEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #d4af37;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .modalTitle {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #2c3e50;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.modalTitleDivider {
+  height: 3px;
+  width: 70px;
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+  border-radius: 2px;
+  margin-bottom: 16px;
 }
 
 .modalDesc {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.88);
   text-align: left;
+  padding: 0 32px;
+}
+
+/* Modal Content Styling for Headings, Lists, Tables & Cards */
+.modalDesc h3,
+.modalDescContent h3 {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(18px, 2.2vw, 22px) !important;
+  color: #e5c158 !important;
+  margin-top: 28px !important;
+  margin-bottom: 14px !important;
+  border-left: 3px solid #d4af37 !important;
+  padding-left: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  float: none !important;
+  width: auto !important;
+}
+
+.modalDesc p,
+.modalDescContent p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.modalDesc ul,
+.modalDesc ol,
+.modalDescContent ul,
+.modalDescContent ol {
+  margin: 12px 0 20px 0;
+  padding-left: 24px;
+  color: rgba(255, 255, 255, 0.85);
+  float: none;
+  width: 100%;
+}
+
+.modalDesc li,
+.modalDescContent li {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 10px;
+}
+
+.modalDesc strong,
+.modalDescContent strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Tables inside Modal */
+.modalDesc table,
+.modalDescContent table,
+.modalDesc .ecoClubTable,
+.modalDesc .eco-club-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  background: rgba(10, 18, 36, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  float: none;
+}
+
+.modalDesc th,
+.modalDescContent th,
+.modalDesc .ecoClubTable th,
+.modalDesc .eco-club-table th {
+  background: linear-gradient(135deg, #1b2a4a 0%, #111d35 100%);
+  color: #d4af37;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.modalDesc td,
+.modalDescContent td,
+.modalDesc .ecoClubTable td,
+.modalDesc .eco-club-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+}
+
+.modalDesc tr:nth-child(even),
+.modalDescContent tr:nth-child(even),
+.modalDesc .ecoClubTable tr:nth-child(even),
+.modalDesc .eco-club-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modalDesc tr:hover,
+.modalDescContent tr:hover,
+.modalDesc .ecoClubTable tr:hover,
+.modalDesc .eco-club-table tr:hover {
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.modalDesc a,
+.modalDescContent a {
+  color: #f3e5ab;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.modalDesc a:hover,
+.modalDescContent a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.modalDesc .tableWrapper,
+.modalDesc .table-wrapper,
+.modalDescContent .tableWrapper,
+.modalDescContent .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  float: none;
+}
+
+.modalDesc .teamDetails,
+.modalDesc .team-details,
+.modalDescContent .teamDetails,
+.modalDescContent .team-details {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 28px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+  float: none;
+  width: 100%;
 }
 
 .cardContentOverlay {
