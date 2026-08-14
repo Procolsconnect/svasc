@@ -3,8 +3,8 @@ import Hero from '../components/Common/Hero'
 import axios from 'axios'
 import './NewsLetter.css'
 
-const API_URL = 'http://localhost:5000/api/newsletter';
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+const API_URL = `${BASE_URL}/api/newsletter`;
 
 const NewsLetter = () => {
     const [newsletters, setNewsletters] = useState([]);

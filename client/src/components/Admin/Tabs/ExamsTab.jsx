@@ -6,7 +6,7 @@ import { FormInput, FileUploader, FormGroup } from '../FormInput';
 import { fetchAdminData, deleteAdminData } from '../../../utils/adminApi';
 import styles from '../CrudManager.module.css';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const ExamsTab = () => {
   const [timetables, setTimetables] = useState([]);

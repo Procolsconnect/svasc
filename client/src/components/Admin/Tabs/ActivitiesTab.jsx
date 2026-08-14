@@ -6,7 +6,7 @@ import { fetchAdminData, deleteAdminData } from '../../../utils/adminApi';
 import styles from '../CrudManager.module.css';
 import { Plus, Trash2 } from 'lucide-react';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 // Builds FormData exactly as the backend controller expects:
 // - bannerImage (file)

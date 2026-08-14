@@ -5,7 +5,7 @@ import Eventhero from './Eventhero'
 import Hero from '../components/Common/Hero';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
     title: "Events",

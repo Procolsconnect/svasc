@@ -4,8 +4,8 @@ import { ChevronsDown } from 'lucide-react';
 import Hero from '../components/Common/Hero';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/awards-gallery';
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+const API_URL = `${BASE_URL}/api/awards-gallery`;
 
 const categoryTitles = {
     academic: "Academic Certificates",

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './CrudManager.module.css';
 import { Plus, Edit2, Trash2, X } from 'lucide-react';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const CrudManager = ({ 
   title, 

@@ -4,7 +4,7 @@ import './Exam.css';
 import Hero from '../components/Common/Hero';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
     image: "https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c",

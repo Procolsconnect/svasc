@@ -5,6 +5,8 @@ import { FormInput, FileUploader } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
 import axios from 'axios';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 const AboutTab = () => {
   const [certifications, setCertifications] = useState([]);
   const [teacherAwards, setTeacherAwards] = useState([]);
@@ -13,13 +15,11 @@ const AboutTab = () => {
     try {
       const [certRes, awardsRes] = await Promise.allSettled([
         fetchAdminData('/api/about/certifications'),
-        fetchAdminData('/api/about/teacher-awards') // using the non-grouped route for the admin table
+        fetchAdminData('/api/about/teacher-awards')
       ]);
-      if (certRes.status === 'fulfilled') setCertifications(certRes.value || []);
-      if (awardsRes.status === 'fulfilled') setTeacherAwards(awardsRes.value || []);
-    } catch (err) {
-      console.error('Error loading about page data', err);
-    }
+      if (certRes.status === 'fulfilled' && certRes.value) setCertifications(certRes.value);
+      if (awardsRes.status === 'fulfilled' && awardsRes.value) setTeacherAwards(awardsRes.value);
+    } catch (e) { console.error(e); }
   };
 
   useEffect(() => { loadData(); }, []);
@@ -43,9 +43,9 @@ const AboutTab = () => {
         };
         
         if (id) {
-            await axios.put(`http://localhost:5000/api/about/teacher-awards/${id}`, payload);
+            await axios.put(`${BASE_URL}/api/about/teacher-awards/${id}`, payload);
         } else {
-            await axios.post(`http://localhost:5000/api/about/teacher-awards`, payload);
+            await axios.post(`${BASE_URL}/api/about/teacher-awards`, payload);
         }
     } catch(err) {
         console.error(err);
@@ -77,7 +77,7 @@ const AboutTab = () => {
             <FileUploader
               label="Certificate Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-              previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}

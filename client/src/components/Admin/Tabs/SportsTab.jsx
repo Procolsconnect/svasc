@@ -4,6 +4,8 @@ import CrudManager from '../CrudManager';
 import { FormInput, FileUploader } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 const SportsTab = () => {
   const [houses, setHouses] = useState([]);
 
@@ -46,7 +48,7 @@ const SportsTab = () => {
             <FileUploader
               label="House Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-              previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}

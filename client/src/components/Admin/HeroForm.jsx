@@ -3,6 +3,8 @@ import { FormGroup, FormInput, FileUploader } from './FormInput';
 import { fetchAdminData, saveAdminData } from '../../utils/adminApi';
 import styles from './CrudManager.module.css';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 const HeroForm = ({ pageKey, title = "Hero Section" }) => {
   const [formData, setFormData] = useState({ title: '', description: '', image: null });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,7 +37,7 @@ const HeroForm = ({ pageKey, title = "Hero Section" }) => {
       if (formData.image instanceof File) {
         fd.append('image', formData.image);
       }
-      const url = `http://localhost:5000/api/page-heros/${pageKey}`;
+      const url = `${BASE_URL}/api/page-heros/${pageKey}`;
       const res = await fetch(url, { method: 'PUT', body: fd });
       if (!res.ok) throw new Error('Server error');
       alert("Hero section updated successfully!");
@@ -65,7 +67,7 @@ const HeroForm = ({ pageKey, title = "Hero Section" }) => {
         <FileUploader 
           label="Hero Image"
           onChange={(e) => setFormData({...formData, image: e.target.files[0]})} 
-          previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+          previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
         />
         <div>
           <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>

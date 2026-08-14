@@ -3,6 +3,8 @@ import CrudManager from '../CrudManager';
 import { FormInput, FormGroup, FileUploader } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 const HomeTab = () => {
   const [heroSlides, setHeroSlides] = useState([]);
   const [valueSlides, setValueSlides] = useState([]);
@@ -86,7 +88,7 @@ const HomeTab = () => {
               label={formData.type === 'video' ? "Upload Video" : "Upload Image"}
               accept={formData.type === 'video' ? "video/*" : "image/*"}
               onChange={(e) => setFormData({...formData, src: e.target.files[0]})} 
-              previewUrl={typeof formData.src === 'string' ? `http://localhost:5000/${formData.src.replace(/^\/+/, '')}` : (formData.src ? URL.createObjectURL(formData.src) : null)}
+              previewUrl={typeof formData.src === 'string' ? `${BASE_URL}/${formData.src.replace(/^\/+/, '')}` : (formData.src ? URL.createObjectURL(formData.src) : null)}
             />
           </>
         )}
@@ -112,7 +114,7 @@ const HomeTab = () => {
             <FileUploader 
               label="Background Image"
               onChange={(e) => setFormData({...formData, backgroundImage: e.target.files[0]})} 
-              previewUrl={typeof formData.backgroundImage === 'string' ? `http://localhost:5000/${formData.backgroundImage.replace(/^\/+/, '')}` : (formData.backgroundImage ? URL.createObjectURL(formData.backgroundImage) : null)}
+              previewUrl={typeof formData.backgroundImage === 'string' ? `${BASE_URL}/${formData.backgroundImage.replace(/^\/+/, '')}` : (formData.backgroundImage ? URL.createObjectURL(formData.backgroundImage) : null)}
             />
           </>
         )}
@@ -138,7 +140,7 @@ const HomeTab = () => {
             <FileUploader 
               label="Blog Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})} 
-              previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}
@@ -164,7 +166,7 @@ const HomeTab = () => {
             <FileUploader 
               label="Alumni Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})} 
-              previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}
@@ -191,7 +193,7 @@ const HomeTab = () => {
             <FileUploader 
               label="Event Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})} 
-              previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}

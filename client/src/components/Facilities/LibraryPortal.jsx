@@ -4,6 +4,8 @@ import { ArrowRight, ChevronRight, BookOpen, Clock, Award, ShieldAlert, Users, I
 import styles from './LibraryPortal.module.css';
 import Hero from '../Common/Hero';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 const LibraryPortal = () => {
     const [activeBook, setActiveBook] = useState(null);
 
@@ -24,22 +26,22 @@ const LibraryPortal = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const activitiesRes = await axios.get('http://localhost:5000/api/library-activities');
+                const activitiesRes = await axios.get(`${BASE_URL}/api/library-activities`);
                 if (activitiesRes.data.data && activitiesRes.data.data.length > 0) {
                     setActivities(activitiesRes.data.data.map(a => ({
                         ...a,
                         images: [
-                            a.image1 && a.image1.startsWith('http') ? a.image1 : `http://localhost:5000/${a.image1?.replace(/^\/+/, '')}`,
-                            a.image2 && a.image2.startsWith('http') ? a.image2 : `http://localhost:5000/${a.image2?.replace(/^\/+/, '')}`
+                            a.image1 && a.image1.startsWith('http') ? a.image1 : `${BASE_URL}/${a.image1?.replace(/^\/+/, '')}`,
+                            a.image2 && a.image2.startsWith('http') ? a.image2 : `${BASE_URL}/${a.image2?.replace(/^\/+/, '')}`
                         ].filter(Boolean)
                     })));
                 }
 
-                const awardsRes = await axios.get('http://localhost:5000/api/library-awards');
+                const awardsRes = await axios.get(`${BASE_URL}/api/library-awards`);
                 if (awardsRes.data.data && awardsRes.data.data.length > 0) {
                     const awards = awardsRes.data.data.map(a => ({
                         ...a,
-                        src: a.image && a.image.startsWith('http') ? a.image : `http://localhost:5000/${a.image?.replace(/^\/+/, '')}`
+                        src: a.image && a.image.startsWith('http') ? a.image : `${BASE_URL}/${a.image?.replace(/^\/+/, '')}`
                     }));
                     
                     setStudents(awards.filter(a => a.category === 'Student').map(a => ({ ...a, class: a.designation })));

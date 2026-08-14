@@ -4,7 +4,7 @@ import { useOutletContext } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
     image: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200",

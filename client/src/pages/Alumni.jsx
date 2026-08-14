@@ -4,7 +4,7 @@ import { FaPlay, FaPause, FaEnvelope, FaPhone, FaGraduationCap, FaBook, FaUsers 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
     image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/30256/jungleBG.jpg',

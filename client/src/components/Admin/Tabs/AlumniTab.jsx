@@ -5,7 +5,7 @@ import CrudManager from '../CrudManager';
 import { FormInput, FileUploader } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const AlumniTab = () => {
   const [risingStars, setRisingStars] = useState([]);

@@ -4,6 +4,8 @@ import axios from 'axios';
 import styles from './AboutSVASC.module.css';
 import Hero from '../components/Common/Hero';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 // ================= HERO SECTION COMPONENT =================
 const HeroSection = () => (
 
@@ -268,7 +270,7 @@ const AwardsSection = () => {
     useEffect(() => {
         const fetchCertifications = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/about/certifications');
+                const response = await axios.get(`${BASE_URL}/api/about/certifications`);
                 if (response.data.success) {
                     setCertifications(response.data.data);
                 }
@@ -301,7 +303,7 @@ const AwardsSection = () => {
                     {displayData.map((item, i) => (
                         <div key={i} className={styles.awardCard}>
                             <img 
-                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : `http://localhost:5000/${item.image.replace(/^\/+/, '')}`} 
+                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : `${BASE_URL}/${item.image.replace(/^\/+/, '')}`} 
                                 alt={`Certificate ${i + 1}`} 
                             />
                         </div>
@@ -310,7 +312,7 @@ const AwardsSection = () => {
                     {displayData.map((item, i) => (
                         <div key={`dup-${i}`} className={styles.awardCard}>
                             <img 
-                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : `http://localhost:5000/${item.image.replace(/^\/+/, '')}`} 
+                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : `${BASE_URL}/${item.image.replace(/^\/+/, '')}`} 
                                 alt={`Certificate ${i + 1}`} 
                             />
                         </div>
@@ -347,7 +349,7 @@ const TeacherAwardsSection = () => {
     useEffect(() => {
         const fetchTeacherAwards = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/about/teacher-awards/grouped');
+                const response = await axios.get(`${BASE_URL}/api/about/teacher-awards/grouped`);
                 if (response.data.success && Object.keys(response.data.data).length > 0) {
                     setAwardData(response.data.data);
                     setSelectedYear(parseInt(Object.keys(response.data.data)[0]));

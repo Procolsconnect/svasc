@@ -4,6 +4,8 @@ import CrudManager from '../CrudManager';
 import { FormInput, FileUploader, FormGroup } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 const EventsTab = () => {
   const [gridEvents, setGridEvents] = useState([]);
   const [marqueeEvents, setMarqueeEvents] = useState([]);
@@ -62,7 +64,7 @@ const EventsTab = () => {
             <FileUploader
               label="Event Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-              previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}
@@ -97,7 +99,7 @@ const EventsTab = () => {
             <FileUploader
               label="Event Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-              previewUrl={typeof formData.image === 'string' ? `http://localhost:5000/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}

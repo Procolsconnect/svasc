@@ -5,7 +5,7 @@ import 'swiper/css/bundle'; // Import all swiper styles
 import './HeroSlider.css';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 // Custom Icons as components or strings
 const playSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;

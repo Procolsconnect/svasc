@@ -4,6 +4,8 @@ import CrudManager from '../CrudManager';
 import { FormInput, FileUploader } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
 const NewsletterTab = () => {
   const [newsletters, setNewsletters] = useState([]);
 
@@ -47,7 +49,7 @@ const NewsletterTab = () => {
             <FileUploader
               label="Newsletter Image"
               onChange={(e) => setFormData({...formData, file: e.target.files[0]})}
-              previewUrl={typeof formData.file === 'string' ? `http://localhost:5000/${formData.file.replace(/^\/+/, '')}` : (formData.file ? URL.createObjectURL(formData.file) : (formData.pdf ? `http://localhost:5000/${formData.pdf.replace(/^\/+/, '')}` : null))}
+              previewUrl={typeof formData.file === 'string' ? `${BASE_URL}/${formData.file.replace(/^\/+/, '')}` : (formData.file ? URL.createObjectURL(formData.file) : (formData.pdf ? `${BASE_URL}/${formData.pdf.replace(/^\/+/, '')}` : null))}
             />
           </>
         )}

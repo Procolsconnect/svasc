@@ -3,7 +3,7 @@ import Hero from '../components/Common/Hero';
 import styles from './Sports.module.css';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
     image: "https://images.unsplash.com/photo-1438109491414-7198515b166b?q=90&fm=jpg",
