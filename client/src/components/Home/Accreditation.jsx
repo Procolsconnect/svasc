@@ -1,5 +1,8 @@
 import React from 'react';
 import './Accreditation.css';
+import ugcLogo from '../../assets/UGC_India_Logo.png';
+import buLogo from '../../assets/bu_logo_icon.png';
+import svgiLogo from '../../assets/svgi_logo.jpeg';
 
 const Accreditation = () => {
     return (
@@ -13,32 +16,32 @@ const Accreditation = () => {
             <div className="cards">
                 <div className="card">
                     <img
-                        src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop"
+                        src={ugcLogo}
                         alt="UGC Recognition"
                     />
                     <div className="card-content">
-                        <h3>UGCRecognition</h3>
-                        <p> SVASC – (University Grants Commission) UGCrecognized colleges in coimbatore,under the sections of 2(f) & 12(B)</p>
+                        <h3>UGC Recognition</h3>
+                        <p>Our institution is recognized by the University Grants Commission (UGC) under Section 2(f) of the UGC Act, 1956.</p>
                     </div>
                 </div>
                 <div className="card">
                     <img
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
+                        src={buLogo}
                         alt="Affiliated to Bharathiar University"
                     />
                     <div className="card-content">
-                        <h3>Under Bharathiar University</h3>
-                        <p> SVASC College Of Arts And Science- Affiliated to Bharathiar University College in Coimbatore</p>
+                        <h3>Affiliated to Bharathiar University</h3>
+                        <p>Affiliated to Bharathiar University, Coimbatore, ensuring academic standards and a recognized university framework.</p>
                     </div>
                 </div>
                 <div className="card">
                     <img
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop"
-                        alt="NAAC A+ Accreditation"
+                        src={svgiLogo}
+                        alt="Shree Vengadeshwara Group of Institutions"
                     />
                     <div className="card-content">
-                        <h3>NAAC A+ Accreditation</h3>
-                        <p> SVASC has been accredited by the National Assessment and Accreditation Counci with an A+ grade</p>
+                        <h3>Shree Vengadeshwara Group of Institutions</h3>
+                        <p>SVASC is under the Shree Vengadeshwara Group of Institutions, dedicated to academic excellence and holistic student development.</p>
                     </div>
                 </div>
             </div>
