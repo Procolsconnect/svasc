@@ -12,33 +12,39 @@ const Accreditation = () => {
             <span className="bg-watermark">SVASC</span>
             <div className="cards">
                 <div className="card">
-                    <img
-                        src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop"
-                        alt="UGC Recognition"
-                    />
+                    <div className="card-img-wrapper">
+                        <img
+                            src="/SVCAS-Logo.jpg"
+                            alt="UGC Recognition"
+                        />
+                    </div>
                     <div className="card-content">
-                        <h3>UGCRecognition</h3>
-                        <p> SVASC – (University Grants Commission) UGCrecognized colleges in coimbatore,under the sections of 2(f) & 12(B)</p>
+                        <h3>UGC Recognition</h3>
+                        <p>SVASC – (University Grants Commission) UGC recognized college in Coimbatore, under sections 2(f) &amp; 12(B)</p>
                     </div>
                 </div>
                 <div className="card">
-                    <img
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
-                        alt="Affiliated to Bharathiar University"
-                    />
+                    <div className="card-img-wrapper">
+                        <img
+                            src="/bharathiar-university.png"
+                            alt="Affiliated to Bharathiar University"
+                        />
+                    </div>
                     <div className="card-content">
                         <h3>Under Bharathiar University</h3>
-                        <p> SVASC College Of Arts And Science- Affiliated to Bharathiar University College in Coimbatore</p>
+                        <p>SVASC College Of Arts And Science – Affiliated to Bharathiar University, Coimbatore</p>
                     </div>
                 </div>
                 <div className="card">
-                    <img
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop"
-                        alt="NAAC A+ Accreditation"
-                    />
+                    <div className="card-img-wrapper">
+                        <img
+                            src="/NACC.png"
+                            alt="NAAC A+ Accreditation"
+                        />
+                    </div>
                     <div className="card-content">
                         <h3>NAAC A+ Accreditation</h3>
-                        <p> SVASC has been accredited by the National Assessment and Accreditation Counci with an A+ grade</p>
+                        <p>SVASC has been accredited by the National Assessment and Accreditation Council with an A+ grade</p>
                     </div>
                 </div>
             </div>

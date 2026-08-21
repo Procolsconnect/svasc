@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function AcademicProgramsHero() {
   return (
@@ -150,15 +151,15 @@ export default function AcademicProgramsHero() {
         </p>
 
         <div className="links-container">
-          <a href="#" className="program-link">
+          <Link to="/programms?type=ug" className="program-link">
             Undergraduate Programmes <span className="arrow">→</span>
-          </a>
-          <a href="#" className="program-link">
+          </Link>
+          <Link to="/programms?type=pg" className="program-link">
             Postgraduate Programmes <span className="arrow">→</span>
-          </a>
-          <a href="#" className="program-link">
+          </Link>
+          <Link to="/programms?type=phd" className="program-link">
             Ph.D Programmes <span className="arrow">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
