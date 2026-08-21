@@ -214,118 +214,16 @@ const ValuesCarousel = () => {
             filter: invert(1);
         }
 
-        .values-carousel-scope .info span:before,
-        .values-carousel-scope .info span:after {
+        .values-carousel-scope .info span:before {
             content: "";
             position: absolute;
-            left: 0;
-            top: 0;
-            background: #fff8;
-            height: 100%;
-            max-width: 2em;
-        }
-
-        /* Icons - using nth-child selectors scoped */
-        .values-carousel-scope .info span:nth-child(1):before {
-            background: radial-gradient(circle at 50% 50%, var(--dark) 2px, #fff0 3px 150%);
-            width: 7px;
-            height: 6px;
-            border-radius: 100% 100% 100% 40%;
-            left: 16px;
-            top: 2px;
-            border: 3px solid var(--dark);
-            border-top-color: #fff0;
-            background-repeat: no-repeat;
-            transform: rotate(29deg);
-        }
-
-        .values-carousel-scope .info span:nth-child(1):after {
-            background: linear-gradient(180deg, var(--dark) 1px, #fff0 1px 150%);
-            width: 4px;
-            height: 7px;
-            border-radius: 100% 50% 100% 0%;
-            left: 15px;
-            top: 13px;
-            border: 3px solid var(--dark);
-            border-bottom-color: #fff0;
-            background-repeat: no-repeat;
-            transform: rotate(-1deg);
-        }
-
-        .values-carousel-scope .info span:nth-child(2):before {
-            background: radial-gradient(circle at 50% 42%, var(--dark) 2px, #fff0 3px 4px, var(--dark) 5px 100%);
-            width: 20px;
-            height: 13px;
-            left: 11px;
-            top: 8px;
-            border-radius: 2px;
-        }
-
-        .values-carousel-scope .info span:nth-child(2):after {
-            border: 10px solid #fff0;
-            border-width: 0px 2px 4px 2px;
-            border-bottom-color: var(--dark);
-            width: 10px;
-            background: #fff0;
-            height: 0px;
-            left: 14px;
-            top: 5px;
-        }
-
-        /* Simplified gradients for better React compatibility in string literals */
-        .values-carousel-scope .info span:nth-child(3):before {
-            width: 22px;
-            height: 22px;
-            left: 11px;
-            top: 3px;
-            background: 
-                radial-gradient(circle at 60% 50%, var(--dark) 1px, #fff0 2px 100%),
-                radial-gradient(circle at 37% 70%, var(--dark) 1px, #fff0 2px 100%),
-                radial-gradient(circle at 52% 64%, var(--dark) 1px, #fff0 2px 100%),
-                radial-gradient(circle at 45% 42%, var(--dark) 1px, #fff0 2px 100%),
-                radial-gradient(circle at 49% 25%, var(--dark) 1px, #fff0 2px 100%),
-                radial-gradient(circle at 61% 15%, var(--dark) 1px, #fff0 2px 100%),
-                radial-gradient(circle at 18% 84%, #fff0 1px, var(--dark) 2px 3px, #fff0 4px 100%),
-                radial-gradient(circle at 85% 16%, #fff0 1px, var(--dark) 2px 3px, #fff0 4px 100%);
-        }
-
-        .values-carousel-scope .info span:nth-child(4):before {
-            border: 10px solid #fff0;
-            height: 0;
-            border-bottom-color: var(--dark);
-            border-width: 0 6px 10px 6px;
-            left: 12px;
-            top: 10px;
-            background: #fff0;
-        }
-
-        .values-carousel-scope .info span:nth-child(4):after {
-            border: 10px solid #fff0;
-            height: 0;
-            border-bottom-color: var(--dark);
-            border-width: 0 6px 15px 6px;
-            left: 18px;
-            top: 5px;
-            background: #fff0;
-        }
-
-        .values-carousel-scope .info span:nth-child(5):before {
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            left: 13px;
-            top: 3px;
-            background: radial-gradient(circle at 50% 50%, var(--dark) 2px, #fff0 3px 4px, var(--dark) 5px 100%);
-        }
-
-        .values-carousel-scope .info span:nth-child(5):after {
-            border: 10px solid #fff0;
-            height: 0;
-            border-top-color: var(--dark);
-            border-width: 8px 6px 0 6px;
-            left: 15px;
-            top: 16px;
-            background: #fff0;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--dark);
+            border-radius: 50%;
         }
 
         /* Responsive adjustments for mobile */

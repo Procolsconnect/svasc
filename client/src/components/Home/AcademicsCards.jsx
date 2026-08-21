@@ -23,7 +23,8 @@ const AcademicsCards = () => {
 
                         <div className="academics-right">
                             <p className="academics-text">
-                                SVASC College is one of the top-ranked arts and science colleges in Erode that focuses on practical learning and building critical thinking skills. We provide an inclusive and supportive environment where students from all backgrounds can succeed. Our strong emphasis on ethical values, leadership, and overall development prepares students for successful and meaningful careers. With a commitment to sustainability and community growth, SVASC offers a welcoming campus for your higher education journey.
+                                Shree Venkateshwara Arts and Science (Co-Education) College (SVASC) is a growing institution dedicated to providing quality higher education in a supportive and inclusive learning environment. SVASC is committed to maintaining academic standards and nurturing the potential of every student.
+                                With a strong focus on practical learning, critical thinking, ethical values, leadership, and holistic development, we empower students to build knowledge, confidence, and essential skills for their future careers. Our student-centred approach encourages learners to explore their interests, develop their talents, and become responsible contributors to society.
                             </p>
                         </div>
 
@@ -41,12 +42,12 @@ const AcademicsCards = () => {
                             <div className="card-column">
                                 <div className="card-details">
                                     <div className="card-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
-                                            <circle cx="32" cy="20" r="10"/>
-                                            <path d="M14 54c0-9.9 8.1-18 18-18s18 8.1 18 18"/>
-                                            <path d="M44 10l4-4m0 0l4 4m-4-4v12"/>
-                                            <path d="M28 20h8"/>
-                                            <path d="M32 16v8"/>
+                                        {/* Graduation Cap — Skill-Focused Learning */}
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#0f1c6f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
+                                            <path d="M8 24l24-12 24 12-24 12L8 24z" fill="#0f1c6f" fillOpacity="0.15" stroke="#0f1c6f"/>
+                                            <path d="M20 30v10c0 5 5.4 9 12 9s12-4 12-9V30" stroke="#0f1c6f" strokeWidth="2.5"/>
+                                            <path d="M56 24v12" stroke="#b8860b" strokeWidth="2.5"/>
+                                            <circle cx="56" cy="38" r="2" fill="#b8860b"/>
                                         </svg>
                                     </div>
                                     <h3><a href="/academics">Skill-Focused Learning</a></h3>
@@ -59,12 +60,14 @@ const AcademicsCards = () => {
                             <div className="card-column">
                                 <div className="card-details">
                                     <div className="card-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
-                                            <path d="M24 8v20L10 50a4 4 0 003.6 5.7h36.8A4 4 0 0054 50L40 28V8"/>
-                                            <line x1="20" y1="8" x2="44" y2="8"/>
-                                            <circle cx="26" cy="44" r="3" fill="#111" stroke="none"/>
-                                            <circle cx="36" cy="38" r="2" fill="#111" stroke="none"/>
-                                            <circle cx="40" cy="48" r="2" fill="#111" stroke="none"/>
+                                        {/* Computer / Lab Monitor — Hi-Tech Laboratories */}
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#0f1c6f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
+                                            <rect x="6" y="8" width="52" height="34" rx="3" fill="#0f1c6f" fillOpacity="0.1" stroke="#0f1c6f"/>
+                                            <line x1="6" y1="34" x2="58" y2="34" stroke="#0f1c6f"/>
+                                            <line x1="32" y1="42" x2="32" y2="54" stroke="#b8860b" strokeWidth="2.5"/>
+                                            <line x1="20" y1="54" x2="44" y2="54" stroke="#b8860b" strokeWidth="2.5"/>
+                                            <polyline points="16,20 22,26 16,32" stroke="#b8860b" strokeWidth="2"/>
+                                            <line x1="26" y1="32" x2="36" y2="32" stroke="#0f1c6f" strokeWidth="2"/>
                                         </svg>
                                     </div>
                                     <h3><a href="/facilities">Hi-Tech Laboratories</a></h3>
@@ -77,13 +80,17 @@ const AcademicsCards = () => {
                             <div className="card-column">
                                 <div className="card-details">
                                     <div className="card-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
-                                            <path d="M16 8h32l-6 18H22L16 8z"/>
-                                            <path d="M22 26c0 5.5 4.5 10 10 10s10-4.5 10-10"/>
-                                            <path d="M32 36v12"/>
-                                            <path d="M20 48h24"/>
-                                            <path d="M28 48l-4 8"/>
-                                            <path d="M36 48l4 8"/>
+                                        {/* Campus Building — Vibrant Campus & Placements */}
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#0f1c6f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
+                                            <rect x="8" y="22" width="20" height="34" fill="#0f1c6f" fillOpacity="0.1" stroke="#0f1c6f"/>
+                                            <rect x="28" y="10" width="28" height="46" fill="#0f1c6f" fillOpacity="0.07" stroke="#0f1c6f"/>
+                                            <line x1="8" y1="56" x2="56" y2="56" stroke="#0f1c6f"/>
+                                            <rect x="33" y="28" width="8" height="8" fill="#b8860b" fillOpacity="0.5" stroke="#b8860b" strokeWidth="1.5"/>
+                                            <rect x="45" y="28" width="8" height="8" fill="#b8860b" fillOpacity="0.5" stroke="#b8860b" strokeWidth="1.5"/>
+                                            <rect x="33" y="40" width="8" height="8" fill="#b8860b" fillOpacity="0.5" stroke="#b8860b" strokeWidth="1.5"/>
+                                            <rect x="45" y="40" width="8" height="8" fill="#b8860b" fillOpacity="0.5" stroke="#b8860b" strokeWidth="1.5"/>
+                                            <rect x="12" y="30" width="7" height="7" stroke="#b8860b" strokeWidth="1.5"/>
+                                            <rect x="12" y="42" width="7" height="7" stroke="#b8860b" strokeWidth="1.5"/>
                                         </svg>
                                     </div>
                                     <h3><a href="/placement">Vibrant Campus & Placements</a></h3>
