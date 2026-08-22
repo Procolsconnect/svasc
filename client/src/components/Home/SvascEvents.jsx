@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './SvascEvents.css';
 
@@ -128,7 +129,7 @@ const SvascEvents = () => {
                             <h1>{event.title}</h1>
                             <h2>{event.subtitle}</h2>
                             <p>{event.description}</p>
-                            <p className="read-more"><a href={event.link || '#'}>Read More</a></p>
+                            <p className="read-more"><Link to="/events">Read More</Link></p>
                         </div>
                     </div>
                 ))}

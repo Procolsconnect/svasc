@@ -312,3 +312,7 @@
         height: 200px;
     }
 }
+
+.news__item-link:hover .readmore-arrow {
+    transform: translateX(5px);
+}

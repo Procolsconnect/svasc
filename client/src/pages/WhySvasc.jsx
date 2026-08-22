@@ -34,16 +34,22 @@ const WhySvasc = () => {
     ];
 
     const hiringPartners = [
-        { name: 'TCS', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg' },
-        { name: 'Wipro', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
-        { name: 'Cognizant', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Cognizant_logo_2022.svg' },
-        { name: 'Dell', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg' },
-        { name: 'Axis Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg' },
-        { name: 'Infosys', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Infosys_logo.svg' },
-        { name: 'HCL', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/HCL_Technologies_logo.svg' },
-        { name: 'Accenture', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Accenture_logo.svg' },
-        { name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/IBM_logo.svg' },
-        { name: 'Capgemini', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Capgemini_Logo.svg' },
+        { name: 'TCS', logo: '/comapanies/tcs.jpg' },
+        { name: 'MRF Tyres', logo: '/comapanies/mrf.jpg' },
+        { name: 'Nokia Networks', logo: '/comapanies/nokia.png' },
+        { name: 'Tata Electronics', logo: '/comapanies/tata elctornics.jpg' },
+        { name: 'Muthoot Finance', logo: '/comapanies/muthoot finance.png' },
+        { name: 'Foxconn', logo: '/comapanies/foxconn.png' },
+        { name: 'Motherson Group', logo: '/comapanies/motherson.png' },
+        { name: 'KGIS', logo: '/comapanies/kgis.png' },
+        { name: 'Smartail', logo: '/comapanies/smarttail.png' },
+        { name: 'Jilaba Technologies', logo: '/comapanies/jilaba.png' },
+        { name: 'SCM Garments', logo: '/comapanies/scm.png' },
+        { name: 'Clarus', logo: '/comapanies/clarus.jpg' },
+        { name: 'Cognizant', logo: '/comapanies/cognicent.jpg' },
+        { name: 'Rinex', logo: '/comapanies/rinex.png' },
+        { name: 'Sakthi Auto', logo: '/comapanies/sakthiauto.png' },
+        { name: 'SP Apparels', logo: '/comapanies/spaperals.jpg' }
     ];
 
     return (

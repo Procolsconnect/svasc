@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import axios from 'axios';
@@ -99,7 +100,7 @@ const BlogSection = () => {
                         SVASC <br />
                         <span>Insightful Blogs</span>
                     </h2>
-                    <a href="/blogs">View All Stories</a>
+                    <Link to="/blogs">View All Stories</Link>
                 </div>
 
                 {/* Slider */}
@@ -135,17 +136,22 @@ const BlogSection = () => {
                     >
                         {blogs.map((blog, idx) => (
                             <SwiperSlide key={blog._id || idx} className="news-slider__item">
-                                <div className="news__item">
-                                    <div className="news-date">
-                                        <span className="news-date__title">{blog.day}</span>
-                                        <span>{blog.month}</span>
+                                <Link to="/blogs" className="news__item-link" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                                    <div className="news__item">
+                                        <div className="news-date">
+                                            <span className="news-date__title">{blog.day}</span>
+                                            <span>{blog.month}</span>
+                                        </div>
+                                        <div className="news__title">{blog.title}</div>
+                                        <p className="news__txt">{blog.description}</p>
+                                        <div className="news-readmore" style={{ color: '#0E2A5A', fontWeight: '600', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                            Read More <span style={{ transition: 'transform 0.2s' }} className="readmore-arrow">→</span>
+                                        </div>
+                                        <div className="news__img">
+                                            <img src={blog.image} alt={blog.title} loading="lazy" />
+                                        </div>
                                     </div>
-                                    <div className="news__title">{blog.title}</div>
-                                    <p className="news__txt">{blog.description}</p>
-                                    <div className="news__img">
-                                        <img src={blog.image} alt={blog.title} loading="lazy" />
-                                    </div>
-                                </div>
+                                </Link>
                             </SwiperSlide>
                         ))}
                     </Swiper>

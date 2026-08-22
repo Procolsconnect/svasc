@@ -4,12 +4,22 @@ import hero6Image from '../../assets/HERO6.jpg';
 
 const PlacementSections = () => {
     const logos = [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/2560px-Infosys_logo.svg.png",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/2560px-Tata_Consultancy_Services_Logo.svg.png",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/2560px-Wipro_Primary_Logo_Color_RGB.svg.png",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png"
+        "/comapanies/tcs.jpg",
+        "/comapanies/mrf.jpg",
+        "/comapanies/nokia.png",
+        "/comapanies/tata elctornics.jpg",
+        "/comapanies/muthoot finance.png",
+        "/comapanies/foxconn.png",
+        "/comapanies/motherson.png",
+        "/comapanies/kgis.png",
+        "/comapanies/smarttail.png",
+        "/comapanies/jilaba.png",
+        "/comapanies/scm.png",
+        "/comapanies/clarus.jpg",
+        "/comapanies/cognicent.jpg",
+        "/comapanies/rinex.png",
+        "/comapanies/sakthiauto.png",
+        "/comapanies/spaperals.jpg"
     ];
 
     return (
