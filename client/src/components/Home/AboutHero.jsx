@@ -1,5 +1,8 @@
 import React from 'react';
 import './AboutHero.css';
+import img1 from '../../assets/home1.jpg';
+import img2 from '../../assets/home3.jpg';
+import img3 from '../../assets/DJI_0216 copy 4.JPG';
 
 const AboutHero = () => {
     return (
@@ -17,11 +20,9 @@ const AboutHero = () => {
                     <a href="#" className="btn btn--outline">Learn more ↓</a>
                 </div>
                 <div className="hero-img-box">
-                    <img
-                        src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/hero.png"
-                        alt="Campus Life"
-                        className="hero-img"
-                    />
+                    <img src={img1} alt="Campus View 1" className="hero-img-1" />
+                    <img src={img2} alt="Campus View 2" className="hero-img-2" />
+                    <img src={img3} alt="Campus View 3" className="hero-img-3" />
                 </div>
             </div>
         </section>

@@ -31,7 +31,7 @@
 /* Banner Section */
 .placement-banner-section {
     height: 90vh;
-    background-image: url(https://i.ibb.co/ZKP4dVv/main-banner2.jpg);
+    background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 0, 0, 0.6)), url(../../assets/home5.jpg);
     background-position: top center;
     background-size: cover;
     background-attachment: fixed;
@@ -49,13 +49,14 @@
 }
 
 .placement-banner-info h6 {
-    color: #003366;
+    color: #ffc70b;
     font-weight: 700;
     text-align: center;
     font-size: 2rem;
 }
 
 .placement-banner-info h1 {
+    color: #ffffff;
     font-size: 46px;
     font-weight: 600;
     margin-top: 20px;
@@ -63,7 +64,7 @@
 }
 
 .placement-banner-info p {
-    color: #606060;
+    color: #e0e0e0;
     margin-bottom: 30px;
     font-weight: 300;
     line-clamp: 3;

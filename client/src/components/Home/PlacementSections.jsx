@@ -1,5 +1,6 @@
 import React from 'react';
 import './PlacementSections.css';
+import hero6Image from '../../assets/HERO6.jpg';
 
 const PlacementSections = () => {
     const logos = [
@@ -76,7 +77,7 @@ const PlacementSections = () => {
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="placement-why-choose-us-section greybg py-5">
+            <section className="placement-why-choose-us-section bg-white py-5">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
@@ -87,7 +88,7 @@ const PlacementSections = () => {
                                     <p className='text-center'>SVASC College is a Best arts and science college Erode offers dynamic programs in arts and science, including specialized courses in computer applications, catering science, and augmented reality (AR).</p>
                                 </div>
                                 <div className="placement-choose-us-img">
-                                    <img src="https://i.ibb.co/N6Fx4ng/choose.png" alt="Why choose us" />
+                                    <img src={hero6Image} alt="Why choose us" />
                                     <div className="placement-choose-icon">
                                         <a href="#"><span><i className="fas fa-play-circle"></i></span></a>
                                     </div>

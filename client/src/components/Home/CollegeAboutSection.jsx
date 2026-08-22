@@ -1,5 +1,7 @@
 import React from 'react';
 import './CollegeAboutSection.css';
+import home4Img from '../../assets/home4.JPG';
+import djiImg from '../../assets/DJI_0589.JPG';
 
 const CollegeAboutSection = () => {
     return (
@@ -40,12 +42,22 @@ const CollegeAboutSection = () => {
                         </div>
                     </div>
 
-                    {/* RIGHT IMAGE */}
-                    <div className="col-lg-6 text-center mt-4 mt-lg-0">
-                        <img
-                            src="https://images.pexels.com/photos/3184428/pexels-photo-3184428.jpeg"
-                            className="svasc-about-image"
-                            alt="College Students" />
+                    {/* RIGHT IMAGES COMPOSITION */}
+                    <div className="col-lg-6 mt-4 mt-lg-0 svasc-about-images-wrapper">
+                        <div className="svasc-image-composition">
+                            {/* Decorative background shape */}
+                            <div className="svasc-decorative-shape"></div>
+                            
+                            <img
+                                src={djiImg}
+                                className="svasc-about-image-main"
+                                alt="College Campus" />
+                                
+                            <img
+                                src={home4Img}
+                                className="svasc-about-image-overlay"
+                                alt="Excellence in Education" />
+                        </div>
                     </div>
 
                 </div>
