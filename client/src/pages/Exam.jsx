@@ -3,19 +3,23 @@ import { Calendar, CheckCircle2, MoreHorizontal, ArrowUpRight, X } from 'lucide-
 import './Exam.css';
 import Hero from '../components/Common/Hero';
 import axios from 'axios';
+import examHeroImage from '../assets/exam hero.JPG';
+import exam1Image from '../assets/exam1.jpg';
+import exam3Image from '../assets/exam3.jpg';
+import exam4Image from '../assets/exam4.jpg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
-    image: "https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c",
+    image: examHeroImage,
     title: "SVASC Examination",
     description: "Stay updated with examination schedules, notifications, and important announcements."
 };
 
 const fallbackConfig = {
-    image1: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1000&auto=format&fit=crop",
-    image2: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000&auto=format&fit=crop",
-    image3: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1000&auto=format&fit=crop",
+    image1: exam1Image,
+    image2: exam3Image,
+    image3: exam4Image,
     floatingTitle: "Semester Exams",
     floatingDateRange: "Jan 20 - Feb 05",
     floatingSubjects: "6 Papers",
