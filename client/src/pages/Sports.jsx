@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Hero from '../components/Common/Hero';
 import styles from './Sports.module.css';
 import axios from 'axios';
+import sportsHeroImage from '../assets/sporthero.jpg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
-    image: "https://images.unsplash.com/photo-1438109491414-7198515b166b?q=90&fm=jpg",
+    image: sportsHeroImage,
     title: "SVASC Sports",
     description: "Excellence • Discipline • Sportsmanship"
 };
