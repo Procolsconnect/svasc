@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Hero from '../components/Common/Hero';
 import styles from './Sports.module.css';
 import axios from 'axios';
-import sportsHeroImage from '../assets/sporthero.jpg';
+import sportsHeroImage from '../assets/sporthero1.jpg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
