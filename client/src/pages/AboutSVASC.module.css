@@ -798,10 +798,11 @@
 }
 
 .awardsLogoTriangle {
-    width: 1em;
-    aspect-ratio: 1 / 0.866;
-    background-color: #111;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    width: 1.5em;
+    aspect-ratio: 1 / 1;
+    background-color: black;
+    border: 0.05em solid black;
+    border-radius: 0.1em;
     transform: translateY(-0.05em);
     background-image: url('https://images.unsplash.com/photo-1603739355965-e4106f83fe64?w=1400');
     background-size: cover;

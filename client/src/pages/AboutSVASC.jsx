@@ -154,8 +154,8 @@ const AboutSection = () => (
 const CampusLifeSection = () => {
     const images = [
         home5,
-        dji0587,
         about3,
+        dji0587,
         about4,
         about5
     ];
