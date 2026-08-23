@@ -228,10 +228,10 @@
     z-index: 20;
     pointer-events: none;
     text-align: center;
-    /* Fade in on load, then powdery dissolve after 5s */
+    /* Fade in on load, then powdery dissolve after 8s */
     animation: 
         butterfly-fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards,
-        powdery-dissolve 2s cubic-bezier(0.25, 1, 0.5, 1) 5s forwards;
+        powdery-dissolve 2s cubic-bezier(0.25, 1, 0.5, 1) 8s forwards;
 }
 
 .butterfly-text-container h1 {
