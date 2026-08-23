@@ -797,15 +797,15 @@
     color: #111;
 }
 
-.awardsLogoTriangle {
-    width: 1.5em;
+.awardsLogoCenterImage {
+    width: 1.15em;
     aspect-ratio: 1 / 1;
-    background-color: black;
-    border: 0.05em solid black;
-    border-radius: 0.1em;
-    transform: translateY(-0.05em);
-    background-image: url('https://images.unsplash.com/photo-1603739355965-e4106f83fe64?w=1400');
-    background-size: cover;
+    background-color: white;
+    border: 0.06em solid black;
+    border-radius: 0.15em;
+    transform: translateY(-0.03em);
+    background-size: 85%;
+    background-repeat: no-repeat;
     background-position: center;
 }
 

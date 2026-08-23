@@ -300,7 +300,7 @@ const AwardsSection = () => {
                 <div className={styles.awardsLogo}>
                     <span>S</span>
                     <span>V</span>
-                    <div className={styles.awardsLogoTriangle} style={{ backgroundImage: `url(${svgiLogo})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundColor: 'transparent' }}></div>
+                    <div className={styles.awardsLogoCenterImage} style={{ backgroundImage: `url(${svgiLogo})` }}></div>
                     <span>S</span>
                     <span>C</span>
                 </div>
