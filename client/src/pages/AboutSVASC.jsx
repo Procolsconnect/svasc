@@ -6,6 +6,12 @@ import Hero from '../components/Common/Hero';
 import aboutHeroImg from '../assets/Abouthero.jpg';
 import aboutUsImg from '../assets/aboutus.jpg';
 import about2Img from '../assets/about2.png';
+import home5 from '../assets/home5.jpg';
+import dji0587 from '../assets/DJI_0587.JPG';
+import about3 from '../assets/about3.jpg';
+import about4 from '../assets/about4.jpg';
+import about5 from '../assets/about5.jpg';
+import svgiLogo from '../assets/svgi_logo.jpeg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -147,11 +153,11 @@ const AboutSection = () => (
 // ================= CAMPUS LIFE SECTION COMPONENT =================
 const CampusLifeSection = () => {
     const images = [
-        "https://images.unsplash.com/photo-1596495577886-d920f1f5b929",
-        "https://images.unsplash.com/photo-1559757175-5703e72d3e03",
-        "https://images.unsplash.com/photo-1596495577980-2b1f7c9a00c3",
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-        "https://images.unsplash.com/photo-1560264280-5856b2be19f6"
+        home5,
+        dji0587,
+        about3,
+        about4,
+        about5
     ];
 
     return (
@@ -180,7 +186,7 @@ const CampusLifeSection = () => {
                             className={styles.campusLifeImage}
                             style={{ transform: `rotate(${rotations[i]}deg) translateY(${translates[i]}px)`, zIndex: i === 2 ? 30 : (i === 1 || i === 3 ? 20 : 10) }}
                         >
-                            <img src={`${id}?auto=format&fit=crop&w=600&q=80`} alt="Campus" />
+                            <img src={id} alt="Campus" />
                         </div>
                     );
                 })}
@@ -294,7 +300,7 @@ const AwardsSection = () => {
                 <div className={styles.awardsLogo}>
                     <span>S</span>
                     <span>V</span>
-                    <div className={styles.awardsLogoTriangle}></div>
+                    <div className={styles.awardsLogoTriangle} style={{ backgroundImage: `url(${svgiLogo})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundColor: 'transparent' }}></div>
                     <span>S</span>
                     <span>C</span>
                 </div>
