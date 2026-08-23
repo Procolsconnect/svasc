@@ -194,7 +194,8 @@ const HeroSlider = () => {
         <div className="wrapper-slider">
             {/* Animated Butterfly Text Overlay */}
             <div className="butterfly-text-container">
-                <h1>Welcome to <span className="svasc-yellow">SVASC</span></h1>
+                <h1 className="hero-main-title">Welcome to <span className="svasc-yellow">SVASC Erode</span></h1>
+                <p className="hero-sub-title">Empowering Minds Through Quality Education</p>
             </div>
 
             <div className="swiper main-slider" ref={sliderRef}>
