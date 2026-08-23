@@ -8,6 +8,10 @@ const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 import { defaultActivities } from '../data/activitiesData';
 import campusHeroImg from '../assets/campushero.jpg';
+import clubImg from '../assets/club.jpg';
+import cellImg from '../assets/cell.JPG';
+import commitiesImg from '../assets/commities.JPG';
+
 const ProjectsPortfolio = () => {
   const navigate = useNavigate();
   const { category: categoryParam } = useParams();
@@ -43,11 +47,18 @@ const ProjectsPortfolio = () => {
         const res = await axios.get(`${BASE_URL}/api/activities`);
         if (res.data.success && res.data.data.length > 0) {
           const mapped = res.data.data.map(item => {
-            const cleanImg = item.bannerImage.replace(/^\/+/, '');
+            const cleanImg = item.bannerImage ? item.bannerImage.replace(/^\/+/, '') : '';
+            
+            let overrideImg = null;
+            const catLower = item.category.toLowerCase();
+            if (catLower.includes("svasc cells") || catLower === "svasc cells") overrideImg = clubImg;
+            else if (catLower.includes("committee") || catLower === "committee") overrideImg = commitiesImg;
+            else if (catLower.includes("college club") || catLower === "college club") overrideImg = cellImg;
+
             return {
               ID: item._id,
               category: item.category,
-              bImage: item.bannerImage.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
+              bImage: overrideImg || (item.bannerImage?.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`),
               copy: item.description,
               cards: item.cards.map(card => {
                 const cardClean = card.image.replace(/^\/+/, '');
