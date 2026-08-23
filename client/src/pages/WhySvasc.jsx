@@ -11,6 +11,11 @@ import 'swiper/css/navigation';
 import styles from './WhySvasc.module.css';
 import Hero from '../components/Common/Hero';
 
+import whyImg from '../assets/why.jpg';
+import why1Img from '../assets/why1.jpg';
+import why2Img from '../assets/why2.JPG';
+import why3Img from '../assets/why3.jpg';
+
 const WhySvasc = () => {
     const [prevEl, setPrevEl] = React.useState(null);
     const [nextEl, setNextEl] = React.useState(null);
@@ -57,7 +62,7 @@ const WhySvasc = () => {
             <Hero
                 title="Why SVASC?"
                 description="Located in ERODE, SVASC College of Arts and Science is a NAAC-accredited institution known for its industry-aligned programs and student-centric approach."
-                image="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+                image={whyImg}
             />
             {/* ================= HERO SECTION ================= */}
             <section className={styles.hero}>
@@ -65,13 +70,13 @@ const WhySvasc = () => {
                     <div className={styles.heroContent}>
                         <div className={styles.heroImages}>
                             <div className={`${styles.imageWrapper} ${styles.fadeInUp}`} style={{ animationDelay: '0.1s' }}>
-                                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=900&fit=crop" alt="Students studying" />
+                                <img src={why3Img} alt="Students studying" />
                             </div>
                             <div className={`${styles.imageWrapper} ${styles.fadeInUp}`} style={{ animationDelay: '0.3s' }}>
-                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" alt="Student working" />
+                                <img src={why2Img} alt="Student working" />
                             </div>
                             <div className={`${styles.imageWrapper} ${styles.fadeInUp}`} style={{ animationDelay: '0.5s' }}>
-                                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&h=400&fit=crop" alt="Students collaborating" />
+                                <img src={why1Img} alt="Students collaborating" />
                             </div>
                         </div>
 
