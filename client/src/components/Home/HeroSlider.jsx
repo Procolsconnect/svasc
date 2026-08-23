@@ -192,6 +192,11 @@ const HeroSlider = () => {
 
     return (
         <div className="wrapper-slider">
+            {/* Animated Butterfly Text Overlay */}
+            <div className="butterfly-text-container">
+                <h1>Welcome to <span className="svasc-yellow">SVASC</span></h1>
+            </div>
+
             <div className="swiper main-slider" ref={sliderRef}>
                 <div className="swiper-wrapper">
                     {slides.map((slide, index) => (

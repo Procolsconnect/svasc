@@ -218,3 +218,64 @@
         font-size: 1.4rem;
     }
 }
+
+/* ================= BUTTERFLY ANIMATION STYLES ================= */
+.butterfly-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    pointer-events: none;
+    text-align: center;
+    /* Fade in on load, then powdery dissolve after 5s */
+    animation: 
+        butterfly-fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+        powdery-dissolve 2s cubic-bezier(0.25, 1, 0.5, 1) 5s forwards;
+}
+
+.butterfly-text-container h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+}
+
+.svasc-yellow {
+    color: #FFD700;
+}
+
+@keyframes butterfly-fade-in {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes powdery-dissolve {
+    0% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate(-50%, -50%) scale(1);
+        letter-spacing: 0px;
+    }
+    40% {
+        opacity: 0.6;
+        filter: blur(8px);
+        transform: translate(-50%, -55%) scale(1.05);
+        letter-spacing: 4px;
+    }
+    100% {
+        opacity: 0;
+        filter: blur(25px);
+        transform: translate(-50%, -70%) scale(1.15);
+        letter-spacing: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .butterfly-text-container h1 {
+        font-size: 3rem;
+    }
+}
