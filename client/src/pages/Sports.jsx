@@ -141,6 +141,7 @@ const SVASCSports = () => {
                 title={heroData.title}
                 description={heroData.description}
                 image={heroData.image}
+                bgPosition="center 30%"
             />
 
             {/* ABOUT SECTION */}

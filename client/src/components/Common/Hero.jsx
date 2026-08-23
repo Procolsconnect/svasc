@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
-const Hero = ({ title, description, image, animateTitle = true }) => {
+const Hero = ({ title, description, image, animateTitle = true, bgPosition = 'center' }) => {
     const [typedText, setTypedText] = useState('');
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Hero = ({ title, description, image, animateTitle = true }) => {
     }, [title, animateTitle]);
 
     return (
-        <div className="svasc-common-hero" style={{ backgroundImage: `url(${image})` }}>
+        <div className="svasc-common-hero" style={{ backgroundImage: `url(${image})`, backgroundPosition: bgPosition }}>
             <div className="svasc-common-hero-overlay"></div>
             <div className="svasc-common-hero-content">
                 <h1 className="svasc-common-hero-title">
