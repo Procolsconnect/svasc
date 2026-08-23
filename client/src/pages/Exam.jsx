@@ -7,6 +7,7 @@ import examHeroImage from '../assets/exam hero.JPG';
 import exam1Image from '../assets/exam1.jpg';
 import exam3Image from '../assets/exam3.jpg';
 import exam4Image from '../assets/exam4.jpg';
+import buLogo from '../assets/bu_logo_icon.png';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -296,7 +297,7 @@ const SVASCExamination = () => {
             <div className="svasc-header">
                 <div className="svasc-header-container">
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/en/8/86/Sri_Vasavi_College_logo.png"
+                        src="/SVCAS-Logo.png"
                         alt="SVASC Logo"
                         className="svasc-header-logo"
                     />
@@ -314,7 +315,7 @@ const SVASCExamination = () => {
                     </div>
 
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/en/3/3b/Bharathiar_University_logo.png"
+                        src={buLogo}
                         alt="BU Logo"
                         className="svasc-header-logo"
                     />
