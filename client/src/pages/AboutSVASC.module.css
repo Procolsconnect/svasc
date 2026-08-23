@@ -137,8 +137,8 @@
 
 .heroImageWrapper img {
     width: 25vw;
-    height: auto;
-    object-fit: contain;
+    aspect-ratio: 2.8 / 4;
+    object-fit: cover;
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
     /* ARCH SHAPE */
@@ -149,6 +149,7 @@
 @media (max-width: 768px) {
     .heroImageWrapper img {
         width: 50vw;
+        aspect-ratio: 2.8 / 4;
     }
 }
 
@@ -247,20 +248,16 @@
     position: relative;
     width: 100%;
     max-width: 30rem;
-    height: 100vh;
-    /* Perfect for laptop as per user */
+    height: auto; /* Changed from 100vh to maintain perfect aspect ratio */
     aspect-ratio: 3 / 4;
     border-radius: 20rem 20rem 0 0;
     /* ARCH SHAPE matching HTML rounded-t-[10rem] */
     overflow: hidden;
-    background-color: #f3f4f6;
-    /* gray-100 */
+    background-color: transparent; /* Remove background in case of transparent PNG */
     border-top: 1px solid #d1d5db;
     border-left: 1px solid #d1d5db;
     border-right: 1px solid #d1d5db;
-    /* border-x border-t border-gray-300 */
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    /* shadow-2xl */
     margin-bottom: -1px;
 }
 
