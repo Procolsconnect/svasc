@@ -248,16 +248,20 @@
     position: relative;
     width: 100%;
     max-width: 30rem;
-    height: auto; /* Changed from 100vh to maintain perfect aspect ratio */
+    height: 100vh;
+    /* Perfect for laptop as per user */
     aspect-ratio: 3 / 4;
     border-radius: 20rem 20rem 0 0;
     /* ARCH SHAPE matching HTML rounded-t-[10rem] */
     overflow: hidden;
-    background-color: transparent; /* Remove background in case of transparent PNG */
+    background-color: #f3f4f6;
+    /* gray-100 */
     border-top: 1px solid #d1d5db;
     border-left: 1px solid #d1d5db;
     border-right: 1px solid #d1d5db;
+    /* border-x border-t border-gray-300 */
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* shadow-2xl */
     margin-bottom: -1px;
 }
 
