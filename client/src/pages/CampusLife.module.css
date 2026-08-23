@@ -53,16 +53,14 @@
 
 .imageBox {
     position: relative;
-    padding-bottom: 50px;
-    padding-top: 30px;
-    margin-right: 20px;
+    padding-bottom: 120px;
+    padding-right: 70px;
 }
 
 .mainImage {
-    width: 85%;
-    margin-left: 15%;
+    width: 100%;
     display: block;
-    border-radius: 8px;
+    border-radius: 4px;
     position: relative;
     z-index: 2;
     height: auto;
@@ -70,15 +68,14 @@
 }
 
 .overlayImage {
-    width: 65%;
+    width: 100%;
     display: block;
-    border-radius: 8px;
+    border-radius: 4px;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: -90px;
+    right: -10px;
     z-index: 3;
-    border: 10px solid #fff;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
 }
 
@@ -89,13 +86,13 @@
 .imageBox::before {
     content: "";
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: -20px;
+    left: -20px;
     width: 140px;
     height: 140px;
     background: #f4b706;
     z-index: 1;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .extraContent {
