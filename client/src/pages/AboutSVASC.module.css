@@ -794,6 +794,9 @@
     font-size: clamp(6rem, 15vw, 12rem);
     font-weight: 950;
     letter-spacing: 0.02em;
+    color: #111;
+}
+
 .awardsLogoTriangleWrapper {
     position: relative;
     width: 1.5em;
