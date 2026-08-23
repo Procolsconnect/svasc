@@ -7,8 +7,7 @@ import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 import { defaultActivities } from '../data/activitiesData';
-
-
+import campusHeroImg from '../assets/campushero.jpg';
 const ProjectsPortfolio = () => {
   const navigate = useNavigate();
   const { category: categoryParam } = useParams();
@@ -19,7 +18,7 @@ const ProjectsPortfolio = () => {
   const [heroData, setHeroData] = useState({
     title: 'SVASC Campus Activities',
     description: 'Explore the comprehensive range of student support services, clubs, and developmental programs at SVASC.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400'
+    image: campusHeroImg
   });
   const scrollBackTo = useRef(0);
   const selectedAreaRef = useRef(null);
@@ -32,7 +31,7 @@ const ProjectsPortfolio = () => {
         setHeroData({
           title: d.title || heroData.title,
           description: d.description || heroData.description,
-          image: d.image ? (d.image.startsWith('http') ? d.image : `${BASE_URL}/${cleanImg}`) : heroData.image
+          image: d.image ? (d.image.startsWith('http') ? d.image : `${BASE_URL}/${cleanImg}`) : campusHeroImg
         });
       }
     }).catch(() => {});
