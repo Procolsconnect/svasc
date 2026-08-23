@@ -211,8 +211,6 @@ const HeroSlider = () => {
                                 <div className="parent-text">
                                     <div className={`info-text ${slide.alignLeft ? 'align-left' : ''}`}>
                                         <h2 dangerouslySetInnerHTML={{ __html: slide.title }}></h2>
-                                        <p>{slide.description}</p>
-                                        <a href={slide.link || '#'}>{slide.linkLabel || 'Explore'}</a>
                                     </div>
                                 </div>
                             </div>
