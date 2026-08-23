@@ -3,6 +3,9 @@ import { ArrowRight, ArrowRightCircle } from 'lucide-react';
 import axios from 'axios';
 import styles from './AboutSVASC.module.css';
 import Hero from '../components/Common/Hero';
+import aboutHeroImg from '../assets/Abouthero.jpg';
+import aboutUsImg from '../assets/aboutus.jpg';
+import about2Img from '../assets/about2.png';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -13,7 +16,7 @@ const HeroSection = () => (
         <Hero
             title="About SVASC"
             description="Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values."
-            image="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
+            image={aboutHeroImg}
         />
         <section className={`${styles.heroContainer} max-w-[170rem] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative`}>
 
@@ -43,8 +46,8 @@ const HeroSection = () => (
             {/* Right Image */}
             <div className={styles.heroImageWrapper}>
                 <img
-                    src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
-                    alt="Traveler"
+                    src={aboutUsImg}
+                    alt="Welcome to SVASC"
                 />
                 <div className={styles.heroImageGradient}></div>
             </div>
@@ -75,7 +78,7 @@ const EmpoweringLeadersSection = () => (
                 <div className={styles.empoweringImageContainer}>
                     <div className={styles.empoweringImageWrapper}>
                         <img
-                            src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80"
+                            src={about2Img}
                             alt="SVASC Campus"
                         />
                         <div className={styles.empoweringImageOverlay}></div>
