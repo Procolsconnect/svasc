@@ -13,7 +13,7 @@
     position: relative;
     z-index: 10;
     padding-top: 5rem;
-    padding-bottom: 8rem;
+    padding-bottom: 1rem;
     padding-left: 5rem;
 }
 
@@ -132,7 +132,32 @@
     position: relative;
     display: flex;
     justify-content: center;
+}
 
+.heroImageWrapper::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    width: 140px;
+    height: 140px;
+    background-image: radial-gradient(#F1A501 20%, transparent 20%);
+    background-size: 20px 20px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.heroImageWrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    background-color: #F1A501;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.2;
 }
 
 .heroImageWrapper img {
@@ -173,7 +198,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding-bottom: 8rem;
-    padding-top: 5rem;
+    padding-top: 0rem;
     padding-left: 3rem;
     padding-right: 0rem;
     overflow: hidden;
