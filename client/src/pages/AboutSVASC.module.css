@@ -794,19 +794,27 @@
     font-size: clamp(6rem, 15vw, 12rem);
     font-weight: 950;
     letter-spacing: 0.02em;
-    color: #111;
+.awardsLogoTriangleWrapper {
+    position: relative;
+    width: 1.5em;
+    aspect-ratio: 1 / 0.866;
+    background-color: black;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform: translateY(-0.05em);
+    margin: 0 0.05em;
 }
 
-.awardsLogoCenterImage {
-    width: 1.15em;
-    aspect-ratio: 1 / 1;
+.awardsLogoTriangleInner {
+    position: absolute;
+    top: 6%;
+    left: 4.5%;
+    right: 4.5%;
+    bottom: 2%;
     background-color: white;
-    border: 0.06em solid black;
-    border-radius: 0.15em;
-    transform: translateY(-0.03em);
-    background-size: 85%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-size: 65%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center 70%;
 }
 
 .awardsTitle {
