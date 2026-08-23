@@ -3,11 +3,14 @@ import styles from './CampusLife.module.css';
 import { useOutletContext } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
 import axios from 'axios';
+import heroImage from '../assets/DJI_0595.JPG';
+import campusImage from '../assets/campus.jpg';
+import campusHeroImage from '../assets/campushero.jpg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackHero = {
-    image: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200",
+    image: heroImage,
     title: "CAMPUS LIFE",
     description: "Experience the vibrant student life, culture, sports, and activities on campus."
 };
@@ -204,7 +207,8 @@ const CampusLife = () => {
                     </div>
 
                     <div className={styles.imageBox}>
-                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200" alt="Campus Life" />
+                        <img src={campusImage} alt="Campus Life" className={styles.mainImage} />
+                        <img src={campusHeroImage} alt="Campus Activities" className={styles.overlayImage} />
                     </div>
                 </div>
 
