@@ -292,7 +292,7 @@
 }
 
 .curveDown#curve1 {
-    background-image: url("https://66.media.tumblr.com/2ac360864a7fc2938e827a93810bf6e3/tumblr_ndiav7B84f1ql3m8no1_1280.png");
+    background-image: url("../assets/DJI_0216 copy 4.JPG");
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: -13vw;
@@ -301,7 +301,7 @@
 
 .curveUp#curve2 {
     background-color: rgba(0, 0, 0, .3);
-    background-image: url("https://66.media.tumblr.com/b751fa1b7a9cd321e440744896f9808e/tumblr_nnlhqanRSi1qlo56to1_1280.png");
+    background-image: url("../assets/why4.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
