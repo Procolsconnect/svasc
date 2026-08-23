@@ -1,10 +1,13 @@
 import styles from '../pages/Activities.module.css';
+import clubImg from '../assets/club.jpg';
+import cellImg from '../assets/cell.JPG';
+import commitiesImg from '../assets/commities.JPG';
 
 export const defaultActivities = [
   {
     ID: "collegeClub",
     category: "College Club",
-    bImage: "/cell.JPG",
+    bImage: cellImg,
     copy: `
       <div class="${styles.activitySection}">
         <p>SVASC College Clubs provide a vibrant platform for students to explore their interests, develop leadership skills, and engage in holistic learning beyond the classroom. Each club is student-driven with faculty mentorship, fostering creativity, teamwork, and personal growth.</p>
@@ -106,7 +109,7 @@ export const defaultActivities = [
   {
     ID: "svascCells",
     category: "SVASC Cells",
-    bImage: "/club.jpg",
+    bImage: clubImg,
     copy: `
       <div class="${styles.activitySection}">
         <p>SVASC Cells are specialized institutional bodies designed to address specific student welfare, social, and developmental needs. Each cell operates with a dedicated team of faculty coordinators and student volunteers to implement focused programs and initiatives.</p>
@@ -189,7 +192,7 @@ export const defaultActivities = [
   {
     ID: "committee",
     category: "Committee",
-    bImage: "/commities.JPG",
+    bImage: commitiesImg,
     copy: `
       <div class="${styles.activitySection}">
         <p>SVASC College constitutes various statutory and institutional committees in accordance with UGC guidelines and Tamil Nadu government regulations. These committees ensure transparency, accountability, student welfare, and institutional quality across all departments and functions.</p>
