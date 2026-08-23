@@ -10,7 +10,7 @@
 .item {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     overflow: hidden;
     opacity: 0;
     transform: scale(1.02);
@@ -27,7 +27,6 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -201,7 +200,7 @@
 /* ================= MOBILE STYLES ================= */
 @media (max-width: 768px) {
     .item {
-        height: calc(100svh - 65px);
+        height: 60vh;
         /* Modern solution for mobile height, accounts for navbar */
     }
 

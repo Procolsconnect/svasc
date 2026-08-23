@@ -208,11 +208,6 @@ const HeroSlider = () => {
                                         <img src={slide.src} alt={slide.title} />
                                     </picture>
                                 )}
-                                <div className="parent-text">
-                                    <div className={`info-text ${slide.alignLeft ? 'align-left' : ''}`}>
-                                        <h2 dangerouslySetInnerHTML={{ __html: slide.title }}></h2>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     ))}
