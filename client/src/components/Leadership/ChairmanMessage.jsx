@@ -1,6 +1,7 @@
 import React from 'react';
 import Leadership from './Leadership';
 import styles from './Leadership.module.css';
+import chairImg from '../../assets/chair.jpg';
 
 import Hero from '../Common/Hero';
 
@@ -10,13 +11,13 @@ const DirectorMessage = () => {
             <Hero
                 title="Chairman's Message"
                 description="Innovation in education and shaping the future of our students."
-                image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+                image={chairImg}
             />
             <Leadership
                 designation="Chairman"
                 name="Thiru. P. VENKATACHALAM"
                 qualification="Qualifications"
-                image="https://via.placeholder.com/400x500" // Placeholder image
+                image={chairImg}
                 quote="Innovation in education is the key to unlocking the potential of the next generation."
             >
                 <p className={styles.introText}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Leadership from './Leadership';
 import styles from './Leadership.module.css';
+import principalImg from '../../assets/principal.png';
 
 import Hero from '../Common/Hero';
 
@@ -10,13 +11,13 @@ const PrincipalProfile = () => {
             <Hero
                 title="Principal's Message"
                 description="A welcome note and vision from Dr. A. Mohanasundaram, Principal of SVASC."
-                image="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+                image={principalImg}
             />
             <Leadership
                 designation="Principal"
                 name="Dr. A. MOHANASUNDARAM"
                 qualification="M.Com., M.Phil., MA., MBA., PGDHRM., PGDCA., Ph.D"
-                image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+                image={principalImg}
                 quote="I wish you all a happy learning experience on the campus and wonderful camaraderie in the spirit of universal brotherhood and mutual academic benefit and progress."
             >
                 <p className={styles.introText}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Leadership from './Leadership';
 import styles from './Leadership.module.css';
+import secuImg from '../../assets/secu.jpg';
 
 import Hero from '../Common/Hero';
 
@@ -10,13 +11,13 @@ const SecretaryMessage = () => {
             <Hero
                 title="Secretary's Message"
                 description="Our vision and commitment to excellence by Thiru. A. Sengottaiyan, Secretary of SVASC."
-                image="https://images.unsplash.com/photo-1523050853064-8521a308975b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+                image={secuImg}
             />
             <Leadership
                 designation="Secretary"
                 name="Thiru. K.C. KARUPANAN"
                 qualification="Educationist & Philanthropist"
-                image="https://via.placeholder.com/400x500" // Placeholder image
+                image={secuImg}
                 quote="Our mission is to provide quality education that empowers students to become responsible citizens and future leaders."
             >
                 <p className={styles.introText}>
