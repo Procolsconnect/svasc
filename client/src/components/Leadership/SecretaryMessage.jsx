@@ -2,6 +2,7 @@ import React from 'react';
 import Leadership from './Leadership';
 import styles from './Leadership.module.css';
 import secuImg from '../../assets/secu.jpg';
+import svascVideo from '../../assets/svascved.mp4';
 
 import Hero from '../Common/Hero';
 
@@ -11,7 +12,7 @@ const SecretaryMessage = () => {
             <Hero
                 title="Secretary's Message"
                 description="Our vision and commitment to excellence by Thiru. A. Sengottaiyan, Secretary of SVASC."
-                image={secuImg}
+                video={svascVideo}
             />
             <Leadership
                 designation="Secretary"

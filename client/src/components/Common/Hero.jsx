@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
-const Hero = ({ title, description, image, animateTitle = true, bgPosition = 'center' }) => {
+const Hero = ({ title, description, image, video, animateTitle = true, bgPosition = 'center' }) => {
     const [typedText, setTypedText] = useState('');
 
     useEffect(() => {
@@ -25,7 +25,12 @@ const Hero = ({ title, description, image, animateTitle = true, bgPosition = 'ce
     }, [title, animateTitle]);
 
     return (
-        <div className="svasc-common-hero" style={{ backgroundImage: `url(${image})`, backgroundPosition: bgPosition }}>
+        <div className="svasc-common-hero" style={!video ? { backgroundImage: `url(${image})`, backgroundPosition: bgPosition } : {}}>
+            {video && (
+                <video autoPlay loop muted playsInline className="svasc-common-hero-video">
+                    <source src={video} type="video/mp4" />
+                </video>
+            )}
             <div className="svasc-common-hero-overlay"></div>
             <div className="svasc-common-hero-content">
                 <h1 className="svasc-common-hero-title">

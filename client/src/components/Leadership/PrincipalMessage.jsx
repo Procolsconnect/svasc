@@ -2,6 +2,7 @@ import React from 'react';
 import Leadership from './Leadership';
 import styles from './Leadership.module.css';
 import principalImg from '../../assets/principal.png';
+import svascVideo from '../../assets/svascved.mp4';
 
 import Hero from '../Common/Hero';
 
@@ -10,13 +11,13 @@ const PrincipalProfile = () => {
         <>
             <Hero
                 title="Principal's Message"
-                description="A welcome note and vision from Dr. A. Mohanasundaram, Principal of SVASC."
-                image={principalImg}
+                description="A welcome note and vision from Dr. R. Ramkumar, Principal of SVASC."
+                video={svascVideo}
             />
             <Leadership
                 designation="Principal"
-                name="Dr. A. MOHANASUNDARAM"
-                qualification="M.Com., M.Phil., MA., MBA., PGDHRM., PGDCA., Ph.D"
+                name="Dr. R. RAMKUMAR"
+                qualification="MCA.,M.Phil.,Ph.D.,"
                 image={principalImg}
                 quote="I wish you all a happy learning experience on the campus and wonderful camaraderie in the spirit of universal brotherhood and mutual academic benefit and progress."
             >

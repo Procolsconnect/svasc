@@ -2,6 +2,7 @@ import React from 'react';
 import Leadership from './Leadership';
 import styles from './Leadership.module.css';
 import chairImg from '../../assets/chair.jpg';
+import svascVideo from '../../assets/svascved.mp4';
 
 import Hero from '../Common/Hero';
 
@@ -11,7 +12,7 @@ const DirectorMessage = () => {
             <Hero
                 title="Chairman's Message"
                 description="Innovation in education and shaping the future of our students."
-                image={chairImg}
+                video={svascVideo}
             />
             <Leadership
                 designation="Chairman"
