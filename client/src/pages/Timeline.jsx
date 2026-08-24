@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hero from '../components/Common/Hero';
 import './Timeline.css';
+import mileImg from '../assets/mile.jpg';
 
 const TimelineEvent = ({ year, title, description, date, isOrange = true, isLeft = false, isCenter = false, isSmallDate = false }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -130,7 +131,7 @@ export default function Timeline() {
       <Hero
         title="Historical Milestones"
         description="Explore the journey of Shree Venkateshwara Educational Institutions, growing from 147 students in 2004 to over 12,085+ students today."
-        image="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+        image={mileImg}
       />
 
       <div className="container" style={{ marginTop: '2rem' }}>
