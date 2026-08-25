@@ -17,7 +17,7 @@ export function Hero({
 }: {
   title: string;
   subtitle: string;
-  image?: HeroImage;
+  image?: HeroImage | string;
   eyebrow?: string;
   priority?: boolean;
 }) {
@@ -34,10 +34,15 @@ export function Hero({
     return () => window.clearInterval(id);
   }, [title]);
 
+  const imgSrc =
+    typeof image === "string" && (image.startsWith("/") || image.startsWith("http"))
+      ? image
+      : images[image as HeroImage] ?? images.campus;
+
   return (
     <header className="relative isolate flex min-h-[72vh] items-center justify-center overflow-hidden">
       <img
-        src={images[image]}
+        src={imgSrc}
         alt=""
         aria-hidden="true"
         width={1920}

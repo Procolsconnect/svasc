@@ -6,13 +6,22 @@ export type Member = {
   extra?: string;
 };
 
+export type GalleryItem = {
+  title: string;
+  category?: string;
+  date?: string;
+  image: string;
+  description?: string;
+};
+
 export type Block =
   | { kind: "prose"; title?: string; body: string[] }
   | { kind: "list"; title: string; items: string[] }
   | { kind: "numbered"; title: string; items: string[] }
   | { kind: "cards"; title: string; items: { title: string; body: string }[] }
   | { kind: "members"; title: string; items: Member[] }
-  | { kind: "plan"; title: string; items: { when: string; label: string; body: string }[] };
+  | { kind: "plan"; title: string; items: { when: string; label: string; body: string }[] }
+  | { kind: "gallery"; title: string; subtitle?: string; items: GalleryItem[] };
 
 export type PageDef = {
   slug: string;
@@ -20,7 +29,8 @@ export type PageDef = {
   title: string;
   hero: string;
   intro: string;
-  image: "campus" | "students" | "service" | "seminar";
+  image: "campus" | "students" | "service" | "seminar" | string;
+  customImage?: string;
   motto?: string;
   blocks: Block[];
 };
@@ -1388,7 +1398,8 @@ export const pages: PageDef[] = [
     title: "Women Empowerment Cell",
     hero: "Women Empowerment Cell",
     intro: "Empowering women with knowledge, leadership, confidence, and social responsibility to foster an equitable and progressive society.",
-    image: "students",
+    image: "/wec/wec1.jpg",
+    customImage: "/wec/wec1.jpg",
     motto: "Empower Woman, Empower Future",
     blocks: [
       {
@@ -1428,6 +1439,83 @@ export const pages: PageDef[] = [
           { title: "Awareness of Rights", body: "Increased understanding of gender equality, women's rights, legal provisions, cyber safety, health, hygiene, and self-defense." },
           { title: "Improved Employability", body: "Students acquire career-oriented skills, entrepreneurial abilities, and professional competencies that enhance employability." },
           { title: "Safe & Inclusive Campus Environment", body: "Promotion of a gender-sensitive, respectful, and discrimination-free campus where women feel safe and supported." }
+        ]
+      },
+      {
+        kind: "gallery",
+        title: "Activities & Photo Gallery",
+        subtitle: "Glimpses of dynamic seminars, awareness drives, skill training, and student empowerment initiatives organized by the Women Empowerment Cell.",
+        items: [
+          {
+            title: "WEC Leadership & Inaugural Session",
+            category: "Leadership & Inauguration",
+            date: "Academic Year 2024–2025",
+            image: "/wec/wec1.jpg",
+            description: "Orientation and motivational assembly empowering young women to cultivate self-confidence, leadership values, and career ambition."
+          },
+          {
+            title: "Health & Adolescent Wellness Awareness Program",
+            category: "Health & Hygiene",
+            date: "10.07.2025",
+            image: "/wec/Health Awareness Program 10.7.25.png",
+            description: "Specialized health counseling session covering physical well-being, dietary nutrition, and personal hygiene for female students."
+          },
+          {
+            title: "Women Safety & Legal Rights Awareness Programme",
+            category: "Safety & Legal Rights",
+            date: "18.10.2024",
+            image: "/wec/SAFETY AND AWARENESS  18.10. 2024 -1.jpg",
+            description: "In-depth workshop educating participants on constitutional rights, cyber security, campus safety norms, and legal helpline support."
+          },
+          {
+            title: "Awareness Campaign on Prevention of Sexual Harassment",
+            category: "Awareness & Competition",
+            date: "17.10.2025",
+            image: "/wec/Sexual Harassment And Violence Against Women & Girls-competition 17.10.25.png",
+            description: "Inter-departmental oratorical, essay, and poster competition championing zero-tolerance against harassment and violence against women."
+          },
+          {
+            title: "Special Health Awareness & Guidance Session",
+            category: "Health & Hygiene",
+            date: "24.09.2024",
+            image: "/wec/health awareness program 24.9.24.jpg",
+            description: "Medical expert lecture providing actionable guidance on mental wellness, fitness routines, and stress management."
+          },
+          {
+            title: "Interactive Health & Wellness Workshop",
+            category: "Health & Hygiene",
+            date: "24.09.2024",
+            image: "/wec/health awareness program 24.9.24.jpg 2.jpg",
+            description: "Hands-on wellness workshop focused on preventive healthcare, holistic nutrition, and emotional resilience."
+          },
+          {
+            title: "Infosys Springboard Skill Training Programme",
+            category: "Skill Development",
+            date: "01.09.2025 – 13.09.2025",
+            image: "/wec/infosys trainning 1.9.25-13.9.25-1.png",
+            description: "Intensive 13-day career-oriented digital training and soft-skills certification conducted in collaboration with Infosys Springboard."
+          },
+          {
+            title: "National Webinar on Women Empowerment & Career Growth",
+            category: "Webinars & Seminars",
+            date: "03.03.2025",
+            image: "/wec/webinar 3.3.2025.jpg",
+            description: "Virtual conference featuring prominent women achievers discussing entrepreneurship, equal opportunity, and professional leadership."
+          },
+          {
+            title: "WEC Student Development & Interactive Forum",
+            category: "Student Forum",
+            date: "Academic Session",
+            image: "/wec/wec2.jpg",
+            description: "Peer discussion forum and collaborative activities fostering teamwork, public speaking, and community involvement."
+          },
+          {
+            title: "WEC Awareness Drive & Student Felicitation",
+            category: "Felicitation & Outreach",
+            date: "Campus Outreach",
+            image: "/wec/wec3.jpg",
+            description: "Felicitation ceremony recognizing outstanding student volunteers and student leaders contributing to WEC mission."
+          }
         ]
       },
       {

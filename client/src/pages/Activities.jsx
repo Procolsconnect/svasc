@@ -223,7 +223,7 @@ const ProjectsPortfolio = () => {
             key={project.ID}
             className={getProjectClass(project.ID)}
             style={{
-              backgroundImage: `url(${project.bImage})`,
+              backgroundImage: `url("${typeof project.bImage === 'string' ? encodeURI(project.bImage) : project.bImage}")`,
               height: projectHeights[project.ID] || '50px'
             }}
             onClick={() => selectProject(project.ID)}
@@ -244,7 +244,7 @@ const ProjectsPortfolio = () => {
         ref={selectedAreaRef}
         className={`${styles.selectedArea} ${selectedProject ? styles.opened : ''}`}
       >
-        <h1 style={{ backgroundImage: `url(${highlightedContent.bImage})` }}>
+        <h1 style={{ backgroundImage: `url("${typeof highlightedContent.bImage === 'string' ? encodeURI(highlightedContent.bImage) : highlightedContent.bImage}")` }}>
           <span>{highlightedContent.category}</span>
         </h1>
         <div
@@ -272,7 +272,7 @@ const ProjectsPortfolio = () => {
               <div key={index} className={styles.gameCard}>
                 <div
                   className={styles.gameCardCover}
-                  style={{ backgroundImage: `url(${card.image})`, cursor: 'pointer' }}
+                  style={{ backgroundImage: `url("${typeof card.image === 'string' ? encodeURI(card.image) : card.image}")`, cursor: 'pointer' }}
                   onClick={(e) => { 
                     e.stopPropagation(); 
                     const targetLink = getCardTargetLink(card);

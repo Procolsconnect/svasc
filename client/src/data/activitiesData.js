@@ -2,6 +2,8 @@ import styles from '../pages/Activities.module.css';
 import clubImg from '../assets/club.jpg';
 import cellImg from '../assets/cell.JPG';
 import commitiesImg from '../assets/commities.JPG';
+import sportheroImg from '../assets/sporthero1.jpg';
+import examImg from '../assets/exam1.jpg';
 
 export const defaultActivities = [
   {
@@ -45,61 +47,61 @@ export const defaultActivities = [
     `,
     cards: [
       {
-        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400",
+        image: "/commerce(ca)/CAREER GUIDANCE PROGRAM 19.09.2025.jpg",
         title: "Literary Club",
         description: "Promotes reading, writing, debate, and elocution among students.",
         link: "/literary-club"
       },
       {
-        image: "https://images.unsplash.com/photo-1553484771-371a605b060b?w=400",
+        image: "/ugcommerce/PERSONALITY DEVELOPMENT AND CAREER GUIDANCE PROGRAM  18.09.2025.jpg",
         title: "Entrepreneurship Development Cell",
         description: "Fosters startup thinking, business planning, and self-employment skills.",
         link: "/entrepreneurship-development-cell"
       },
       {
-        image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400",
+        image: "/Bca/Aytha Poojai Celebration - 10-10-2024/IMG_20241010_153153-1024x461.jpg",
         title: "Fine Arts Club",
         description: "Nurtures artistic talent, visual and performing arts, and cultural pride.",
         link: "/fine-arts-club"
       },
       {
-        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400",
+        image: "/commerce(ca)/EXTENSION ACTIVITY 19.12.2025.jpg",
         title: "Rotaract Club",
         description: "Transforming student leaders through community service and global impact.",
         link: "/rotaract-club"
       },
       {
-        image: "https://images.unsplash.com/photo-1579389083395-5db4f36db01b?w=400",
+        image: "/wec/health awareness program 24.9.24.jpg 2.jpg",
         title: "Red Ribbon Club",
         description: "Empowering youth through public health awareness and voluntary blood donation.",
         link: "/red-ribbon-club"
       },
       {
-        image: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=400",
+        image: "/wec/SAFETY AND AWARENESS  18.10. 2024 -1.jpg",
         title: "Voter's Club",
         description: "Transforming eligible students into informed, ethical, and empowered voters.",
         link: "/voter-literacy-club"
       },
       {
-        image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400",
+        image: "/ugcommerce/Training Programme entitled Achievement is possible on 04.03.2026.jpg",
         title: "Junior JCI Wing",
         description: "Developing active leadership, communication skills, and social responsibility.",
         link: "/junior-jci-wing"
       },
       {
-        image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400",
+        image: "/ugcommerce/Awareness on banking, saving and Investment on 23.01.2026.jpg",
         title: "Consumer Protection Club",
         description: "Educating students about legal consumer rights, FSSAI quality, and digital safety.",
         link: "/consumer-protection-club"
       },
       {
-        image: "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=400",
+        image: "/ugcommerce/Legal Awareness Programme on Consequences of Drug Abuse on 10.03.2026.jpg",
         title: "Anti Drug Club",
         description: "Building a campus free from substance abuse with health and purpose.",
         link: "/anti-drug-club"
       },
       {
-        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400",
+        image: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(1).jpeg",
         title: "Eco Club",
         description: "Creating an environmentally conscious campus with green initiatives.",
         link: "/eco-club"
@@ -146,43 +148,43 @@ export const defaultActivities = [
     `,
     cards: [
       {
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+        image: "/wec/wec1.jpg",
         title: "Women Empowerment Cell",
         description: "Empowering women with leadership, rights awareness, and self-reliance.",
         link: "/women-empowerment-cell"
       },
       {
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400",
+        image: "/Bca/InterCollegiate Meet - Digital Dynamo2K25/post.jpg",
         title: "Media Cell",
         description: "Managing campus digital communications, achievements, and social media outreach.",
         link: "/media-cell"
       },
       {
-        image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400",
+        image: "/commerce(ca)/Legal Awareness Programme on Cyberbullying and online Harassment on 10.03.2026.jpg",
         title: "Anti Ragging Cell",
         description: "Fostering a safe, disciplined, inclusive, and ragging-free campus environment.",
         link: "/anti-ragging-cell"
       },
       {
-        image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400",
+        image: "/chemistry/INTERNATIONAL SEMINAR-17.07.2026  (4).jpeg",
         title: "R and D Cell",
         description: "Promoting scholarly inquiry, research funding, publications, and patents.",
         link: "/research-development-cell"
       },
       {
-        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400",
+        image: examImg,
         title: "Exam Cell",
         description: "Managing internal and university evaluation, timetables, and academic integrity.",
         link: "/exam-cell"
       },
       {
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400",
+        image: "/Bca/Workshop on IoT Masterclass Connect, Innovate, Automate/WhatsApp-Image-2025-01-21-at-12.19.59-PM-1024x576.jpeg",
         title: "SWAYAM / NPTEL",
         description: "IIT/IISc digital education chapter empowering online certification excellence.",
         link: "/swayam-nptel"
       },
       {
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400",
+        image: "/wec/infosys trainning 1.9.25-13.9.25-1.png",
         title: "Innovation & Entrepreneurship Cell",
         description: "Transforming students into job creators through incubation, mentorship, and startups.",
         link: "/innovation-entrepreneurship"
@@ -230,37 +232,37 @@ export const defaultActivities = [
     `,
     cards: [
       {
-        image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
+        image: "/wec/SAFETY AND AWARENESS  18.10. 2024 -1.jpg",
         title: "Internal Grievances Committee",
         description: "Ensuring every voice is heard with fairness, dignity, and confidential redressal.",
         link: "/internal-grievances-committee"
       },
       {
-        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400",
+        image: "/commerce(ca)/Legal Awareness Programme on Cyberbullying and online Harassment on 10.03.2026.jpg",
         title: "Grievance Redressal Committee",
         description: "Structured platform for prompt resolution of academic and administrative concerns.",
         link: "/grievance-redressal-committee"
       },
       {
-        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400",
+        image: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(2).jpg",
         title: "IQAC – Quality Assurance Cell",
         description: "Driving academic excellence, institutional benchmarking, and NAAC quality standards.",
         link: "/iqac"
       },
       {
-        image: "https://images.unsplash.com/photo-1574689049596-1e68e858db4c?w=400",
+        image: "/wec/Health Awareness Program 10.7.25.png",
         title: "Youth Red Cross",
         description: "Humanitarian service, first aid training, blood donation, and youth empowerment.",
         link: "/youth-red-cross"
       },
       {
-        image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400",
+        image: sportheroImg,
         title: "Physical Education",
         description: "Rigorous sports training, tournaments, yoga, meditation, and athletic facilities.",
         link: "/physical-education"
       },
       {
-        image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400",
+        image: "/wec/wec3.jpg",
         title: "National Service Scheme",
         description: "Building youth character through community service, rural immersion, and patriotism.",
         link: "/nss"

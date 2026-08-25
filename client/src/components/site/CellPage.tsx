@@ -14,7 +14,16 @@ const imgMap = { campus, students, service, seminar };
 export function CellPage({ page }: { page: PageDef }) {
   const idx = pages.findIndex((p) => p.slug === page.slug);
   const next = pages[(idx + 1) % pages.length] ?? page;
-  const pageImg = imgMap[page.image];
+  const pageImg =
+    page.customImage ||
+    (typeof page.image === "string" && (page.image.startsWith("/") || page.image.startsWith("http"))
+      ? page.image
+      : imgMap[page.image as keyof typeof imgMap] || students);
+  const nextImg =
+    next.customImage ||
+    (typeof next.image === "string" && (next.image.startsWith("/") || next.image.startsWith("http"))
+      ? next.image
+      : imgMap[next.image as keyof typeof imgMap] || campus);
 
   return (
     <div style={{ fontSize: "16px", fontFamily: "'Jost', system-ui, sans-serif" }}>
@@ -22,7 +31,7 @@ export function CellPage({ page }: { page: PageDef }) {
         <Hero
           title={page.hero}
           subtitle={page.intro}
-          image={page.image}
+          image={pageImg}
           eyebrow={`SVASC · ${page.nav}`}
         />
 
@@ -238,7 +247,7 @@ export function CellPage({ page }: { page: PageDef }) {
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage: `url(${imgMap[next.image]})`,
+              backgroundImage: `url(${nextImg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               opacity: 0.05,
