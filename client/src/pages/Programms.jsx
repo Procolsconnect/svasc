@@ -6,6 +6,12 @@ import Hero from '../components/Common/Hero';
 import ugpgHeroImg from '../assets/ugpghero.jpg';
 import ugImg from '../assets/ug.jpg';
 import ugpgImg from '../assets/ugpg.jpg';
+import cdfImg from '../assets/cdf.jpg';
+import lab1Img from '../assets/lab1.jpg';
+import lab2Img from '../assets/lab2.jpg';
+import lab4Img from '../assets/lab4.jpg';
+import sportsImg from '../assets/sports1.jpg';
+import teachingImg from '../assets/teaching.jpg';
 
 const slugify = (text) => {
     return text
