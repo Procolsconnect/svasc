@@ -3,6 +3,9 @@ import styles from './Programms.module.css';
 import { ArrowRight, ChevronRight, GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
+import ugpgHeroImg from '../assets/ugpghero.jpg';
+import ugImg from '../assets/ug.jpg';
+import ugpgImg from '../assets/ugpg.jpg';
 
 const slugify = (text) => {
     return text
@@ -196,7 +199,7 @@ const Schools = () => {
             <Hero
                 title="ACADEMIC PROGRAMS"
                 description="Discover world-class education and gain the skills to shape the future."
-                image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c"
+                image={ugpgHeroImg}
             />
 
             {/* NEW PROGRAM SECTION */}
@@ -208,14 +211,14 @@ const Schools = () => {
                             <div className={styles.imageGrid}>
                                 <div className={`${styles.imageWrapper} ${styles.staggerUp}`}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2670&auto"
+                                        src={ugImg}
                                         alt="SVASC Campus"
                                         className={styles.sectionImage}
                                     />
                                 </div>
                                 <div className={`${styles.imageWrapper} ${styles.staggerDown}`}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2670&auto=format&fit=crop"
+                                        src={ugpgImg}
                                         alt="SVASC Students"
                                         className={styles.sectionImage}
                                     />
