@@ -3,15 +3,9 @@ import styles from './Programms.module.css';
 import { ArrowRight, ChevronRight, GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
-import heroSeminarImg from '../assets/hero-seminar.jpg';
-import campusImg from '../assets/campus1.jpg';
-import studentsImg from '../assets/hero-students.jpg';
-import cdfImg from '../assets/cdf.jpg';
-import lab1Img from '../assets/lab1.jpg';
-import lab2Img from '../assets/lab2.jpg';
-import lab4Img from '../assets/lab4.jpg';
-import sportsImg from '../assets/sports1.jpg';
-import teachingImg from '../assets/teaching.jpg';
+import ugpgHeroImg from '../assets/ugpghero.jpg';
+import ugImg from '../assets/ug.jpg';
+import ugpgImg from '../assets/ugpg.jpg';
 
 const slugify = (text) => {
     return text
@@ -205,7 +199,7 @@ const Schools = () => {
             <Hero
                 title="ACADEMIC PROGRAMS"
                 description="Discover world-class education and gain the skills to shape the future."
-                image={heroSeminarImg}
+                image={ugpgHeroImg}
             />
 
             {/* NEW PROGRAM SECTION */}
@@ -217,14 +211,14 @@ const Schools = () => {
                             <div className={styles.imageGrid}>
                                 <div className={`${styles.imageWrapper} ${styles.staggerUp}`}>
                                     <img
-                                        src={campusImg}
+                                        src={ugImg}
                                         alt="SVASC Campus"
                                         className={styles.sectionImage}
                                     />
                                 </div>
                                 <div className={`${styles.imageWrapper} ${styles.staggerDown}`}>
                                     <img
-                                        src={studentsImg}
+                                        src={ugpgImg}
                                         alt="SVASC Students"
                                         className={styles.sectionImage}
                                     />

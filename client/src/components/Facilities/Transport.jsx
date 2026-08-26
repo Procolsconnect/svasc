@@ -2,6 +2,10 @@ import React from 'react';
 import { MapPin } from 'lucide-react';
 import styles from './Transport.module.css';
 import Hero from '../Common/Hero';
+import busVideo from '../../assets/bus.mp4';
+import bus1Img from '../../assets/bus1.jpg';
+import bus2Img from '../../assets/bus2.jpg';
+import bus3Img from '../../assets/bus3.jpg';
 
 const Transport = () => {
     const routes = [
@@ -15,7 +19,7 @@ const Transport = () => {
             <Hero
                 title="Free Bus Transport"
                 description="Safe and comfortable commuting for all students"
-                image="https://i.postimg.cc/fb3LJyMy/7e0c056d-1e23-4d9b-965a-ace6639bfc08.jpg"
+                video={busVideo}
             />
             <div className={styles.transportContainer}>
                 <div className={styles.container}>
@@ -36,7 +40,7 @@ const Transport = () => {
                         <figure className={styles.galleryFrame}>
                             <img
                                 className={styles.galleryImg}
-                                src="https://i.postimg.cc/fb3LJyMy/7e0c056d-1e23-4d9b-965a-ace6639bfc08.jpg"
+                                src={bus1Img}
                                 alt="SVASC college bus"
                             />
                         </figure>
@@ -44,7 +48,7 @@ const Transport = () => {
                         <figure className={styles.galleryFrame}>
                             <img
                                 className={styles.galleryImg}
-                                src="https://i.postimg.cc/k5SwpV7B/f5c73360-ab37-4273-b7e6-22af5ef1e154.jpg"
+                                src={bus2Img}
                                 alt="College transport facility"
                             />
                             <div className={styles.bigText}>
@@ -55,7 +59,7 @@ const Transport = () => {
                         <figure className={styles.galleryFrame}>
                             <img
                                 className={styles.galleryImg}
-                                src="https://i.postimg.cc/W1CX8mLB/IMG-6732.jpg"
+                                src={bus3Img}
                                 alt="Student bus service"
                             />
                         </figure>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ArrowRight, ChevronRight, BookOpen, Clock, Award, ShieldAlert, Users, Image as ImageIcon } from 'lucide-react';
 import styles from './LibraryPortal.module.css';
 import Hero from '../Common/Hero';
+import libraryImg from '../../assets/library.JPG';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -90,7 +91,7 @@ const LibraryPortal = () => {
             <Hero
                 title="SVASC Library Portal"
                 description="Your gateway to a world of knowledge and intellectual growth"
-                image="/library_images/image32.png"
+                image={libraryImg}
             />
             <div className={styles.pageWrapper}>
                 {/* Global Background Texture */}
