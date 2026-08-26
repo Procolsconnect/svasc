@@ -3,6 +3,15 @@ import styles from './Programms.module.css';
 import { ArrowRight, ChevronRight, GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
+import heroSeminarImg from '../assets/hero-seminar.jpg';
+import campusImg from '../assets/campus1.jpg';
+import studentsImg from '../assets/hero-students.jpg';
+import cdfImg from '../assets/cdf.jpg';
+import lab1Img from '../assets/lab1.jpg';
+import lab2Img from '../assets/lab2.jpg';
+import lab4Img from '../assets/lab4.jpg';
+import sportsImg from '../assets/sports1.jpg';
+import teachingImg from '../assets/teaching.jpg';
 
 const slugify = (text) => {
     return text
@@ -111,10 +120,10 @@ const Schools = () => {
                 name: "School of Sciences",
                 acronym: "SOHS",
                 programs: [
-                    { title: "B.Sc. Physics", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc. Chemistry", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Sc. Physics", image: lab1Img },
+                    { title: "B.Sc. Chemistry", image: lab2Img },
                     { title: "B.Sc. Mathematics", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc. Microbiology", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Sc. Microbiology", image: lab4Img },
 
                 ]
             },
@@ -122,7 +131,7 @@ const Schools = () => {
                 name: "School of Arts & Languages",
                 acronym: "SOAL",
                 programs: [
-                    { title: "B.A. Tamil", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.A. Tamil", image: teachingImg },
                     { title: "B.A. English", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
                 ]
             },
@@ -130,14 +139,14 @@ const Schools = () => {
                 name: "School of Design & Fashion",
                 acronym: "SODF",
                 programs: [
-                    { title: "B.Sc Costume Design & Fashion", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "B.Sc Costume Design & Fashion", image: cdfImg }
                 ]
             },
             {
                 name: "School of Physical Education",
                 acronym: "SOPE",
                 programs: [
-                    { title: "Department of Physical Education", image: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "Department of Physical Education", image: sportsImg }
                 ]
             }
         ],
@@ -147,7 +156,7 @@ const Schools = () => {
                 acronym: "SCS",
                 programs: [
                     { title: "M.Sc. Computer Science", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "M.Sc Microbiology", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "M.Sc Microbiology", image: lab4Img },
 
                 ]
             },
@@ -156,7 +165,7 @@ const Schools = () => {
                 acronym: "SCS",
                 programs: [
                     { title: "M.A English", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "M.A Tamil", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "M.A Tamil", image: teachingImg },
 
                 ]
             },
@@ -173,7 +182,7 @@ const Schools = () => {
                 name: "Research & Development",
                 acronym: "R&D",
                 programs: [
-                    { title: "Ph.D. Tamil", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "Ph.D. Tamil", image: teachingImg },
                     { title: "Ph.D. English", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
 
                 ]
@@ -196,7 +205,7 @@ const Schools = () => {
             <Hero
                 title="ACADEMIC PROGRAMS"
                 description="Discover world-class education and gain the skills to shape the future."
-                image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c"
+                image={heroSeminarImg}
             />
 
             {/* NEW PROGRAM SECTION */}
@@ -208,14 +217,14 @@ const Schools = () => {
                             <div className={styles.imageGrid}>
                                 <div className={`${styles.imageWrapper} ${styles.staggerUp}`}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2670&auto"
+                                        src={campusImg}
                                         alt="SVASC Campus"
                                         className={styles.sectionImage}
                                     />
                                 </div>
                                 <div className={`${styles.imageWrapper} ${styles.staggerDown}`}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2670&auto=format&fit=crop"
+                                        src={studentsImg}
                                         alt="SVASC Students"
                                         className={styles.sectionImage}
                                     />

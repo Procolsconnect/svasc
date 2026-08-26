@@ -1,5 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Vision.module.css';
+import exam4Img from '../assets/exam4.jpg';
+import heroCampusImg from '../assets/home5.jpg';
+import drawing from '../assets/drawing.jpg'
+import teaching from '../assets/teaching.jpg'
+import lab3 from '../assets/lab3.jpg'
 
 const Vision = () => {
     const contentRef = useRef(null);
@@ -55,7 +60,7 @@ const Vision = () => {
                 {/* 1. VISION LANDING */}
                 <section className={`${styles.visionBlock} ${styles.sectionLanding}`} ref={addToBlocks}>
                     <figure className={styles.itemParallaxMedia}>
-                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1200" alt="Fine Arts Landing" />
+                        <img src={exam4Img} alt="Vision Hero" />
                     </figure>
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer}`}>
                         <div className={`${styles.landingContent} ${styles.centeredContent}`}>
@@ -79,7 +84,7 @@ const Vision = () => {
                 {/* 3. MISSION */}
                 <section className={styles.visionBlock} ref={addToBlocks}>
                     <figure className={styles.itemParallaxMedia}>
-                        <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=1200" alt="Fine Arts Mission" />
+                        <img src={heroCampusImg} alt="SVASC Mission" />
                     </figure>
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer}`}>
                         <div className={styles.centeredContent}>
@@ -102,7 +107,7 @@ const Vision = () => {
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer} ${styles.imgGrid}`}>
 
                         <figure className={`${styles.imgGridItem} ${styles.typeRight}`}>
-                            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800" alt="Performing Arts" />
+                            <img src={teaching} alt="Performing Arts" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Integrity & Ethics</h2>
                                 <p className={styles.captionText}>
@@ -112,7 +117,7 @@ const Vision = () => {
                         </figure>
 
                         <figure className={`${styles.imgGridItem} ${styles.typeLeft}`}>
-                            <img src="https://images.unsplash.com/photo-1565192647048-f997eed87981?w=800" alt="Visual Arts" />
+                            <img src={lab3} />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Excellence & Inclusion</h2>
                                 <p className={styles.captionText}>
@@ -127,7 +132,7 @@ const Vision = () => {
                 {/* 5. END SECTION */}
                 <section className={`${styles.visionBlock} ${styles.sectionEnd}`} ref={addToBlocks}>
                     <figure className={styles.itemParallaxMedia}>
-                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1200" alt="Objectives Landing" />
+                        <img src={drawing} alt="Objectives Landing" />
                     </figure>
                     <div className={`${styles.itemParallaxContent} ${styles.flexContainer}`}>
                         <div className={`${styles.landingContent} ${styles.centeredContent}`}>

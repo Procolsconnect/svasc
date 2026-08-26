@@ -1061,8 +1061,8 @@ export const programDetailsData = {
     },
     "bsc-costume-design-fashion": {
         title: "B.Sc Costume Design & Fashion",
-        heroImage: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: "../src/assets/cdf.jpg",
+        aboutImage: "../src/assets/cdf2.jpg",
         about: "The Department of Costume Design and Fashion, established in 2019, is committed to nurturing creative, skilled, and industry-ready fashion professionals through quality education that integrates theoretical knowledge with practical training. The curriculum provides comprehensive learning in costume design, garment construction, textile science, fashion illustration, apparel production, and computer-aided design (CAD). The department is equipped with well-established laboratories to provide students with hands-on training, technical competence, and foster innovation.",
         vision: "To become a center of excellence in costume design and fashion education, empowering students to lead the global fashion industry with creativity, innovation and sustainability.",
         mission: [
