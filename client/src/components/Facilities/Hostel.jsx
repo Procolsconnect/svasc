@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Hostel.module.css';
 import { Sparkles, Scale, ShieldCheck, Star, Quote, Plus, PlayCircle } from 'lucide-react';
 import Hero from '../Common/Hero';
+import hostelImg from '../../assets/hostel.jpg';
 
 const Hostel = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -35,7 +36,7 @@ const Hostel = () => {
       <Hero
         title="SVASC Hostel"
         description="A Safe, Respectful, and Comfortable Living Environment"
-        image="https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=2070&auto=format&fit=crop"
+        image={hostelImg}
       />
 
       {/* ORIGINAL HERO SECTION RESTORED */}
@@ -71,7 +72,7 @@ const Hostel = () => {
          
           <div className={styles.heroImage}>
             <img
-              src="https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=2070&auto=format&fit=crop"
+              src={hostelImg}
               alt="SVASC Hostel"
             />
 
@@ -126,7 +127,7 @@ const Hostel = () => {
             <div className={styles.aboutImageWrapper}>
               <div className={styles.aboutImageBorder}></div>
               <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop"
+                src={hostelImg}
                 alt="SVASC Girls Hostel"
                 className={styles.aboutImage}
               />

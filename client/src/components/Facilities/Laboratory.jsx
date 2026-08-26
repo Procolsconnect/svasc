@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Laboratory.module.css';
 import Hero from '../Common/Hero';
+import labheroImg from '../../assets/labhero.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -173,7 +174,7 @@ const Laboratory = () => {
             <Hero
                 title="Research & Laboratories"
                 description="State-of-the-art facilities for practical learning and innovation"
-                image="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=80"
+                image={labheroImg}
             />
             <div ref={containerRef} className={styles.laboratoryContainer}>
 
