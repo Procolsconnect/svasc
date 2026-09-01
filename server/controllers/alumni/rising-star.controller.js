@@ -1,6 +1,5 @@
 const RisingStarService = require('../../services/alumni/rising-star.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getAllStars = async (req, res) => {
     try {
@@ -11,46 +10,57 @@ const getAllStars = async (req, res) => {
             message: "Rising Stars fetched successfully"
         });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ success: false, message: error.message });
     }
 };
 
 const createStar = async (req, res) => {
     try {
-        const { name, degree } = req.body;
+        const { name, degree, video: textVideo } = req.body;
         
-        const videoPath = req.file ? `/uploads/${req.file.filename}` : null;
-        const star = await RisingStarService.createStar({ name, degree, video: videoPath });
+        let videoUrl = textVideo || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/rising-stars');
+            videoUrl = uploadResult.secure_url;
+        }
+
+        if (!name || !degree || !videoUrl) {
+            return res.status(400).json({
+                success: false,
+                message: 'Name, degree, and video are required'
+            });
+        }
+
+        const star = await RisingStarService.createStar({ name, degree, video: videoUrl });
         res.status(201).json({
             success: true,
             data: star,
             message: "Rising Star created successfully"
         });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ success: false, message: error.message });
     }
 };
 
 const updateStar = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, degree } = req.body;
-        let updateData = { name, degree };
+        const { name, degree, video: textVideo } = req.body;
+        let updateData = {};
+
+        if (name) updateData.name = name;
+        if (degree) updateData.degree = degree;
 
         if (req.file) {
-            const oldStar = await RisingStarService.getStarById(id);
-            if (oldStar && oldStar.video) {
-                const oldFilePath = path.join(__dirname, '..', 'uploads', path.basename(oldStar.video));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.video = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/rising-stars');
+            updateData.video = uploadResult.secure_url;
+        } else if (textVideo !== undefined && textVideo !== '') {
+            updateData.video = textVideo;
         }
 
         const updatedStar = await RisingStarService.updateStar(id, updateData);
         if (!updatedStar) {
-            return res.status(404).json({ message: "Rising Star not found" });
+            return res.status(404).json({ success: false, message: "Rising Star not found" });
         }
         res.status(200).json({
             success: true,
@@ -58,7 +68,7 @@ const updateStar = async (req, res) => {
             message: "Rising Star updated successfully"
         });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ success: false, message: error.message });
     }
 };
 
@@ -67,14 +77,14 @@ const deleteStar = async (req, res) => {
         const { id } = req.params;
         const deletedStar = await RisingStarService.deleteStar(id);
         if (!deletedStar) {
-            return res.status(404).json({ message: "Rising Star not found" });
+            return res.status(404).json({ success: false, message: "Rising Star not found" });
         }
         res.status(200).json({
             success: true,
             message: 'Rising Star deleted successfully'
         });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ success: false, message: error.message });
     }
 };
 

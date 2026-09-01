@@ -11,8 +11,8 @@ const getHeroByPage = async (pageKey) => {
 const updateOrCreateHero = async (pageKey, data) => {
     return await PageHero.findOneAndUpdate(
         { pageKey },
-        { ...data, pageKey },
-        { new: true, upsert: true }
+        { $set: { ...data, pageKey } },
+        { new: true, upsert: true, setDefaultsOnInsert: true }
     );
 };
 

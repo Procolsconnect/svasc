@@ -1,6 +1,5 @@
 const SuccessStoryService = require('../../services/alumni/success-story.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getAllStories = async (req, res) => {
     try {
@@ -20,7 +19,7 @@ const getAllStories = async (req, res) => {
 
 const createStory = async (req, res) => {
     try {
-        const { name, role, description, order } = req.body;
+        const { name, role, description, order, image: textImage } = req.body;
 
         if (!name || !role) {
             return res.status(400).json({
@@ -29,13 +28,19 @@ const createStory = async (req, res) => {
             });
         }
 
-        let storyData = { name, role, description, order: order || 0 };
-
+        let imageUrl = textImage || '';
         if (req.file) {
-            storyData.image = `/uploads/${req.file.filename}`;
-        } else {
-            storyData.image = '';
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/success-stories');
+            imageUrl = uploadResult.secure_url;
         }
+
+        const storyData = {
+            name,
+            role,
+            description: description || '',
+            image: imageUrl,
+            order: order ? parseInt(order, 10) : 0
+        };
 
         const story = await SuccessStoryService.createStory(storyData);
         res.status(201).json({
@@ -54,23 +59,19 @@ const createStory = async (req, res) => {
 const updateStory = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, role, description, order } = req.body;
+        const { name, role, description, order, image: textImage } = req.body;
         let updateData = {};
 
         if (name) updateData.name = name;
         if (role) updateData.role = role;
         if (description !== undefined) updateData.description = description;
-        if (order !== undefined) updateData.order = order;
+        if (order !== undefined) updateData.order = parseInt(order, 10);
 
         if (req.file) {
-            const oldStory = await SuccessStoryService.getStoryById(id);
-            if (oldStory && oldStory.image) {
-                const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldStory.image));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.image = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/success-stories');
+            updateData.image = uploadResult.secure_url;
+        } else if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
         }
 
         const updatedStory = await SuccessStoryService.updateStory(id, updateData);

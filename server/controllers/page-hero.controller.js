@@ -1,6 +1,5 @@
 const PageHeroService = require('../services/page-hero.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../middlewares/uploadMiddleware');
 
 const getAllHeroes = async (req, res) => {
     try {
@@ -36,18 +35,17 @@ const getHeroByPage = async (req, res) => {
 const updateOrCreateHero = async (req, res) => {
     try {
         const { pageKey } = req.params;
-        const { title, description } = req.body;
-        const updateData = { title, description };
+        const { title, description, image: textImage } = req.body;
+        const updateData = {};
+
+        if (title !== undefined) updateData.title = title;
+        if (description !== undefined) updateData.description = description;
 
         if (req.file) {
-            const oldHero = await PageHeroService.getHeroByPage(pageKey);
-            if (oldHero && oldHero.image) {
-                const oldFilePath = path.join(__dirname, '..', 'uploads', path.basename(oldHero.image));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.image = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/page-heros');
+            updateData.image = uploadResult.secure_url;
+        } else if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
         }
 
         const hero = await PageHeroService.updateOrCreateHero(pageKey, updateData);

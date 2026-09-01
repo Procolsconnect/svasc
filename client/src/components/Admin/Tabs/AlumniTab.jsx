@@ -88,7 +88,7 @@ const AlumniTab = () => {
               label="Upload Video"
               accept="video/*"
               onChange={(e) => setFormData({...formData, video: e.target.files[0]})}
-              previewUrl={typeof formData.video === 'string' ? `${BASE_URL}/${formData.video.replace(/^\/+/, '')}` : (formData.video ? URL.createObjectURL(formData.video) : null)}
+              previewUrl={typeof formData.video === 'string' ? (formData.video.startsWith('http') ? formData.video : `${BASE_URL}/${formData.video.replace(/^\/+/, '')}`) : (formData.video ? URL.createObjectURL(formData.video) : null)}
             />
           </>
         )}
@@ -113,7 +113,7 @@ const AlumniTab = () => {
             <FileUploader
               label="Photo"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? (formData.image.startsWith('http') ? formData.image : `${BASE_URL}/${formData.image.replace(/^\/+/, '')}`) : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
           </>
         )}

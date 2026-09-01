@@ -9,7 +9,8 @@ const pageHeroSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: true
+        required: false,
+        default: ''
     },
     title: {
         type: String,

@@ -136,25 +136,30 @@ const Alumni = () => {
                 // 3. Fetch Success Stories
                 try {
                     const storiesRes = await axios.get(`${BASE_URL}/api/alumni/success-stories`);
-                    if (storiesRes.data.success && storiesRes.data.data.length > 0) {
+                    if (storiesRes.data.success && storiesRes.data.data && storiesRes.data.data.length > 0) {
                         const stories = storiesRes.data.data.map((item, idx) => {
-                            if (item.type === 'image' && item.image) {
+                            if (item.image) {
                                 const cleanImg = item.image.replace(/^\/+/, '');
                                 return {
                                     type: 'img',
                                     src: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
+                                    name: item.name,
+                                    role: item.role,
+                                    description: item.description,
                                     id: item._id || idx
                                 };
-                            } else if (item.type === 'video') {
+                            } else if (item.name || item.description) {
                                 return {
-                                    type: 'iframe',
-                                    src: item.content,
+                                    type: 'card',
+                                    name: item.name,
+                                    role: item.role,
+                                    description: item.description,
                                     id: item._id || idx
                                 };
                             } else {
                                 return {
                                     type: 'text',
-                                    content: item.content,
+                                    content: item.name || `${idx + 1}`,
                                     id: item._id || idx
                                 };
                             }
@@ -248,20 +253,10 @@ const Alumni = () => {
     };
 
     // ================= CAROUSEL LOGIC =================
-    const carouselItems = [
-        { type: 'text', content: '1', id: 1 },
-        { type: 'img', src: 'http://farm9.staticflickr.com/8337/8234123289_2b23aeaf06.jpg', id: 2 },
-        { type: 'img', src: 'http://farm9.staticflickr.com/8337/8234711202_831b23a2b7.jpg', id: 3 },
-        { type: 'iframe', src: 'https://www.youtube.com/embed/szIEr2F61DU?enablejsapi=1', id: 4 },
-        { type: 'iframe', src: 'https://player.vimeo.com/video/19464611?api=1', id: 5 },
-        { type: 'img', src: 'http://woofie2.pixiq.com/files/cache/20030323_img_7465_3072_x_2048_619x413.jpg', id: 6 },
-        { type: 'img', src: 'http://www.mishes.com/wp-content/uploads/2011/12/FlickrMonday07.jpg', id: 7 }
-    ];
-
     // State tracks the *index* of the item that is currently in the "main-pos"
     const [mainIndex, setMainIndex] = useState(0);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-    const totalItems = carouselItems.length;
+    const totalItems = successStories.length;
 
     // Listen for iframe postMessages from YouTube & Vimeo to pause/resume autoSwap
     useEffect(() => {
@@ -572,7 +567,46 @@ const Alumni = () => {
                                                 marginTop: '1.15em'
                                             }}>{item.content}</p>
                                         )}
-                                        {item.type === 'img' && <img src={item.src} alt="Success Story" />}
+                                        {item.type === 'img' && (
+                                            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                                                <img src={item.src} alt={item.name || "Success Story"} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                {(item.name || item.role) && (
+                                                    <div style={{
+                                                        position: 'absolute',
+                                                        bottom: 0,
+                                                        left: 0,
+                                                        right: 0,
+                                                        padding: '1.5rem',
+                                                        background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)',
+                                                        color: '#fff',
+                                                        textAlign: 'left'
+                                                    }}>
+                                                        <h4 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 'bold' }}>{item.name}</h4>
+                                                        <p style={{ margin: '0.3rem 0 0 0', fontSize: '1.1rem', opacity: 0.9 }}>{item.role}</p>
+                                                        {item.description && <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>"{item.description}"</p>}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                        {item.type === 'card' && (
+                                            <div style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                background: 'linear-gradient(135deg, #0a1264, #1b357d)',
+                                                color: '#fff',
+                                                padding: '2.5rem',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                textAlign: 'center',
+                                                borderRadius: '8px'
+                                            }}>
+                                                <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{item.name}</h3>
+                                                <h5 style={{ fontSize: '1.2rem', color: '#ffb703', marginBottom: '1rem' }}>{item.role}</h5>
+                                                {item.description && <p style={{ fontSize: '1.1rem', fontStyle: 'italic', opacity: 0.9 }}>"{item.description}"</p>}
+                                            </div>
+                                        )}
                                         {item.type === 'iframe' && (
                                             <iframe
                                                 src={item.src}

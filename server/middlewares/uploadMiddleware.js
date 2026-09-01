@@ -25,22 +25,29 @@ const upload = multer({
   fileFilter: fileFilter,
 });
 
-// 2. Cloudinary Upload Helper (Supports Images, Videos, PDFs)
 const uploadToCloudinary = (fileBuffer, folder = 'svasc') => {
   return new Promise((resolve, reject) => {
+    if (!fileBuffer || !Buffer.isBuffer(fileBuffer)) {
+      return reject(new Error('Invalid file buffer for upload'));
+    }
+
     const uploadStream = cloudinary.uploader.upload_stream(
       {
         folder: folder,
         resource_type: 'auto', // Automatically handles image / video / raw (pdf)
+        timeout: 120000,
       },
       (error, result) => {
-        if (result) {
-          resolve(result);
-        } else {
-          reject(error);
+        if (error) {
+          return reject(error);
         }
+        resolve(result);
       }
     );
+
+    uploadStream.on('error', (err) => {
+      reject(err);
+    });
 
     Readable.from(fileBuffer).pipe(uploadStream);
   });
