@@ -6,9 +6,27 @@ const getAllActivities = async () => {
     return await Activities.find().sort({ order: 1, createdAt: -1 });
 };
 
-const getActivityById = async (id) => {
-    return await Activities.findById(id);
+const getActivityById = async (idOrSlug) => {
+    try {
+        if (idOrSlug.match(/^[0-9a-fA-F]{24}$/)) {
+            const byId = await Activities.findById(idOrSlug);
+            if (byId) return byId;
+        }
+    } catch (e) {}
+
+    // Find by category match
+    const clean = idOrSlug.toLowerCase().replace(/[-_]/g, ' ');
+    const byCategory = await Activities.findOne({
+        $or: [
+            { category: new RegExp(`^${idOrSlug}$`, 'i') },
+            { category: new RegExp(clean, 'i') },
+            { 'cards.title': new RegExp(`^${idOrSlug}$`, 'i') },
+            { 'cards.title': new RegExp(clean, 'i') }
+        ]
+    });
+    return byCategory;
 };
+
 
 const getActivityCount = async () => {
     return await Activities.countDocuments();
