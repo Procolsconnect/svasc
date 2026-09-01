@@ -1,13 +1,13 @@
 const HomeHeroSlideService = require('../services/home-hero-slide.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../middlewares/uploadMiddleware');
 
 const getAllSlides = async (req, res) => {
     try {
         const slides = await HomeHeroSlideService.getAllSlides();
         res.status(200).json({
             success: true,
-            data: slides
+            data: slides,
+            message: "Home Hero Slides fetched successfully"
         });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
@@ -16,18 +16,25 @@ const getAllSlides = async (req, res) => {
 
 const createSlide = async (req, res) => {
     try {
-        const { type, title, description, link, linkLabel, alignLeft, order } = req.body;
+        const { type, title, description, link, linkLabel, alignLeft, order, src: textSrc } = req.body;
         
-        const src = req.file ? `/uploads/${req.file.filename}` : null;
+        let mediaSrc = textSrc || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/hero-slides');
+            mediaSrc = uploadResult.secure_url;
+        }
+
+        let mediaType = type || (mediaSrc.match(/\.(mp4|webm|ogg|mov)$/i) ? 'video' : 'image');
+
         const slide = await HomeHeroSlideService.createSlide({
-            type,
-            src,
-            title,
-            description,
-            link,
-            linkLabel,
-            alignLeft: alignLeft === 'true',
-            order: order ? parseInt(order) : 0
+            type: mediaType,
+            src: mediaSrc,
+            title: title || '',
+            description: description || '',
+            link: link || '#',
+            linkLabel: linkLabel || 'Explore',
+            alignLeft: alignLeft === 'true' || alignLeft === true,
+            order: order !== undefined ? parseInt(order, 10) : 0
         });
 
         res.status(201).json({
@@ -43,25 +50,25 @@ const createSlide = async (req, res) => {
 const updateSlide = async (req, res) => {
     try {
         const { id } = req.params;
-        const { type, title, description, link, linkLabel, alignLeft, order } = req.body;
+        const { type, title, description, link, linkLabel, alignLeft, order, src: textSrc } = req.body;
         const updateData = {};
-        if (type) updateData.type = type;
-        if (title) updateData.title = title;
+        
+        if (type !== undefined) updateData.type = type;
+        if (title !== undefined) updateData.title = title;
         if (description !== undefined) updateData.description = description;
         if (link !== undefined) updateData.link = link;
         if (linkLabel !== undefined) updateData.linkLabel = linkLabel;
-        if (alignLeft !== undefined) updateData.alignLeft = alignLeft === 'true';
-        if (order !== undefined) updateData.order = parseInt(order);
+        if (alignLeft !== undefined) updateData.alignLeft = alignLeft === 'true' || alignLeft === true;
+        if (order !== undefined) updateData.order = parseInt(order, 10);
 
         if (req.file) {
-            const oldSlide = await HomeHeroSlideService.getSlideById(id);
-            if (oldSlide && oldSlide.src) {
-                const oldFilePath = path.join(__dirname, '..', 'uploads', path.basename(oldSlide.src));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/hero-slides');
+            updateData.src = uploadResult.secure_url;
+            if (!type) {
+                updateData.type = req.file.mimetype.startsWith('video/') || uploadResult.secure_url.match(/\.(mp4|webm|ogg|mov)$/i) ? 'video' : 'image';
             }
-            updateData.src = `/uploads/${req.file.filename}`;
+        } else if (textSrc !== undefined && textSrc !== '') {
+            updateData.src = textSrc;
         }
 
         const updatedSlide = await HomeHeroSlideService.updateSlide(id, updateData);
@@ -101,3 +108,4 @@ module.exports = {
     updateSlide,
     deleteSlide
 };
+

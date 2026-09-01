@@ -3,7 +3,7 @@ import Swiper from 'swiper';
 import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css/bundle'; // Import all swiper styles
 import './HeroSlider.css';
-import axios from 'axios';
+import { getHeroSlides } from '../../services/homeService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -20,8 +20,15 @@ const fallbackSlides = [
         link: '#',
         linkLabel: 'Explore'
     },
-   
-    
+    {
+        type: 'video',
+        src: '/College Dron.mp4',
+        title: 'Empowering Minds Through Quality Education',
+        description: 'Providing world-class learning experiences and state-of-the-art campus infrastructure.',
+        link: '#',
+        linkLabel: 'Explore'
+    },
+
 ];
 
 const HeroSlider = () => {
@@ -33,14 +40,21 @@ const HeroSlider = () => {
     useEffect(() => {
         const fetchSlides = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}/api/home/hero-slides`);
-                if (response.data.success && response.data.data.length > 0) {
-                    const mapped = response.data.data.map(slide => {
-                        const cleanSrc = slide.src.replace(/^\/+/, '');
-                        const slideSrc = slide.src.startsWith('http') || slide.src.startsWith('.') ? slide.src : `${BASE_URL}/${cleanSrc}`;
+                const response = await getHeroSlides();
+                const rawSlides = response?.data || (Array.isArray(response) ? response : []);
+
+                if (rawSlides.length > 0) {
+                    const mapped = rawSlides.map(slide => {
+                        let slideSrc = slide.src || '';
+                        if (slideSrc && !slideSrc.startsWith('http') && !slideSrc.startsWith('./') && !slideSrc.startsWith('/')) {
+                            slideSrc = `${BASE_URL}/${slideSrc.replace(/^\/+/, '')}`;
+                        } else if (slideSrc && slideSrc.startsWith('/uploads/')) {
+                            slideSrc = `${BASE_URL}/${slideSrc.replace(/^\/+/, '')}`;
+                        }
                         return {
                             ...slide,
-                            src: slideSrc
+                            src: slideSrc || '/hero.mp4',
+                            type: slide.type || (slideSrc.match(/\.(mp4|webm|ogg|mov)$/i) ? 'video' : 'image')
                         };
                     });
                     setSlides(mapped);
@@ -48,7 +62,7 @@ const HeroSlider = () => {
                     setSlides(fallbackSlides);
                 }
             } catch (error) {
-                console.error('Error fetching hero slides:', error);
+                console.error('Error fetching hero slides:', error.message || error);
                 setSlides(fallbackSlides);
             } finally {
                 setLoading(false);

@@ -52,13 +52,14 @@ const HomeTab = () => {
         title="Home Hero Slides"
         data={heroSlides}
         columns={[
+          { key: 'order', label: 'Order', type: 'text' },
           { key: 'title', label: 'Title', type: 'text' },
           { key: 'type', label: 'Type', type: 'text' },
-          { key: 'src', label: 'Media', type: 'image' }
+          { key: 'src', label: 'Media', type: 'media' }
         ]}
         onSave={(data, id) => handleSave('/api/home/hero-slides', 'src', data, id)}
         onDelete={(id) => handleDelete('/api/home/hero-slides', id)}
-        initialFormState={{ type: 'image', title: '', description: '', link: '#', linkLabel: 'Explore', src: null }}
+        initialFormState={{ type: 'image', title: '', description: '', link: '#', linkLabel: 'Explore', order: 0, src: null }}
         renderForm={(formData, setFormData) => (
           <>
             <FormGroup label="Media Type">
@@ -66,14 +67,14 @@ const HomeTab = () => {
                 className="input" 
                 value={formData.type} 
                 onChange={(e) => setFormData({...formData, type: e.target.value})}
-                style={{ padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }}
+                style={{ padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px', width: '100%' }}
               >
                 <option value="image">Image</option>
                 <option value="video">Video</option>
               </select>
             </FormGroup>
             <FormInput 
-              label="Title" 
+              label="Title (e.g. Welcome to SVASC)" 
               value={formData.title} 
               onChange={(e) => setFormData({...formData, title: e.target.value})} 
               required 
@@ -84,11 +85,22 @@ const HomeTab = () => {
               value={formData.description} 
               onChange={(e) => setFormData({...formData, description: e.target.value})} 
             />
+            <FormInput 
+              label="Display Order (e.g. 1, 2, 3)" 
+              type="number"
+              value={formData.order ?? 0} 
+              onChange={(e) => setFormData({...formData, order: e.target.value})} 
+            />
+            <FormInput 
+              label="Action Link (e.g. # or /programms)" 
+              value={formData.link || '#'} 
+              onChange={(e) => setFormData({...formData, link: e.target.value})} 
+            />
             <FileUploader 
-              label={formData.type === 'video' ? "Upload Video" : "Upload Image"}
+              label={formData.type === 'video' ? "Upload Video (mp4, webm)" : "Upload Image (jpg, png, webp)"}
               accept={formData.type === 'video' ? "video/*" : "image/*"}
               onChange={(e) => setFormData({...formData, src: e.target.files[0]})} 
-              previewUrl={typeof formData.src === 'string' ? `${BASE_URL}/${formData.src.replace(/^\/+/, '')}` : (formData.src ? URL.createObjectURL(formData.src) : null)}
+              previewUrl={typeof formData.src === 'string' ? (formData.src.startsWith('http') || formData.src.startsWith('.') ? formData.src : `${BASE_URL}/${formData.src.replace(/^\/+/, '')}`) : (formData.src ? URL.createObjectURL(formData.src) : null)}
             />
           </>
         )}
@@ -98,12 +110,14 @@ const HomeTab = () => {
         title="Unique Values"
         data={valueSlides}
         columns={[
+          { key: 'order', label: 'Order', type: 'text' },
           { key: 'field1', label: 'Point 1', type: 'text' },
+          { key: 'field2', label: 'Point 2', type: 'text' },
           { key: 'backgroundImage', label: 'Background', type: 'image' }
         ]}
         onSave={(data, id) => handleSave('/api/home/value-slides', 'backgroundImage', data, id)}
         onDelete={(id) => handleDelete('/api/home/value-slides', id)}
-        initialFormState={{ field1: '', field2: '', field3: '', field4: '', field5: '', backgroundImage: null }}
+        initialFormState={{ field1: '', field2: '', field3: '', field4: '', field5: '', order: 0, backgroundImage: null }}
         renderForm={(formData, setFormData) => (
           <>
             <FormInput label="Point 1" value={formData.field1} onChange={(e) => setFormData({...formData, field1: e.target.value})} required />
@@ -111,10 +125,17 @@ const HomeTab = () => {
             <FormInput label="Point 3" value={formData.field3} onChange={(e) => setFormData({...formData, field3: e.target.value})} required />
             <FormInput label="Point 4" value={formData.field4} onChange={(e) => setFormData({...formData, field4: e.target.value})} required />
             <FormInput label="Point 5" value={formData.field5} onChange={(e) => setFormData({...formData, field5: e.target.value})} required />
+            <FormInput 
+              label="Display Order (e.g. 1, 2, 3)" 
+              type="number"
+              value={formData.order ?? 0} 
+              onChange={(e) => setFormData({...formData, order: e.target.value})} 
+            />
             <FileUploader 
-              label="Background Image"
+              label="Background Image (jpg, png, webp)"
+              accept="image/*"
               onChange={(e) => setFormData({...formData, backgroundImage: e.target.files[0]})} 
-              previewUrl={typeof formData.backgroundImage === 'string' ? `${BASE_URL}/${formData.backgroundImage.replace(/^\/+/, '')}` : (formData.backgroundImage ? URL.createObjectURL(formData.backgroundImage) : null)}
+              previewUrl={typeof formData.backgroundImage === 'string' ? (formData.backgroundImage.startsWith('http') || formData.backgroundImage.startsWith('.') ? formData.backgroundImage : `${BASE_URL}/${formData.backgroundImage.replace(/^\/+/, '')}`) : (formData.backgroundImage ? URL.createObjectURL(formData.backgroundImage) : null)}
             />
           </>
         )}

@@ -1,6 +1,5 @@
 const ValueSlideService = require('../../services/home/value-slide.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getAllSlides = async (req, res) => {
     try {
@@ -20,19 +19,22 @@ const getAllSlides = async (req, res) => {
 
 const createSlide = async (req, res) => {
     try {
-        const { field1, field2, field3, field4, field5 } = req.body;
+        const { field1, field2, field3, field4, field5, backgroundImage: textBg, order } = req.body;
 
-        
-        
-        const backgroundImage = req.file ? `/uploads/${req.file.filename}` : null;
+        let backgroundImage = textBg || 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/value-slides');
+            backgroundImage = uploadResult.secure_url;
+        }
 
         const slide = await ValueSlideService.createSlide({
             backgroundImage,
-            field1,
-            field2,
-            field3,
-            field4,
-            field5
+            field1: field1 || '',
+            field2: field2 || '',
+            field3: field3 || '',
+            field4: field4 || '',
+            field5: field5 || '',
+            order: order !== undefined ? parseInt(order, 10) : undefined
         });
 
         res.status(201).json({
@@ -51,25 +53,21 @@ const createSlide = async (req, res) => {
 const updateSlide = async (req, res) => {
     try {
         const { id } = req.params;
-        const { field1, field2, field3, field4, field5, order } = req.body;
+        const { field1, field2, field3, field4, field5, order, backgroundImage: textBg } = req.body;
 
         const updateData = {};
-        if (field1) updateData.field1 = field1;
-        if (field2) updateData.field2 = field2;
-        if (field3) updateData.field3 = field3;
-        if (field4) updateData.field4 = field4;
-        if (field5) updateData.field5 = field5;
-        if (order !== undefined) updateData.order = order;
+        if (field1 !== undefined) updateData.field1 = field1;
+        if (field2 !== undefined) updateData.field2 = field2;
+        if (field3 !== undefined) updateData.field3 = field3;
+        if (field4 !== undefined) updateData.field4 = field4;
+        if (field5 !== undefined) updateData.field5 = field5;
+        if (order !== undefined) updateData.order = parseInt(order, 10);
 
         if (req.file) {
-            const oldSlide = await ValueSlideService.getSlideById(id);
-            if (oldSlide && oldSlide.backgroundImage) {
-                const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldSlide.backgroundImage));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.backgroundImage = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/value-slides');
+            updateData.backgroundImage = uploadResult.secure_url;
+        } else if (textBg !== undefined && textBg !== '') {
+            updateData.backgroundImage = textBg;
         }
 
         const updatedSlide = await ValueSlideService.updateSlide(id, updateData);
@@ -120,3 +118,4 @@ module.exports = {
     updateSlide,
     deleteSlide
 };
+

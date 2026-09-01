@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import axios from 'axios';
+import { getValueSlides } from '../../services/homeService';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -52,11 +52,13 @@ const ValuesCarousel = () => {
     useEffect(() => {
         const fetchSlides = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}/api/home/value-slides`);
-                if (response.data.success && response.data.data.length > 0) {
-                    const mapped = response.data.data.map(slide => {
-                        const cleanImg = slide.backgroundImage.replace(/^\/+/, '');
-                        const imgUrl = slide.backgroundImage.startsWith('http') ? slide.backgroundImage : `${BASE_URL}/${cleanImg}`;
+                const response = await getValueSlides();
+                const rawSlides = response?.data || (Array.isArray(response) ? response : []);
+
+                if (rawSlides.length > 0) {
+                    const mapped = rawSlides.map(slide => {
+                        const cleanImg = (slide.backgroundImage || '').replace(/^\/+/, '');
+                        const imgUrl = slide.backgroundImage?.startsWith('http') ? slide.backgroundImage : `${BASE_URL}/${cleanImg}`;
                         return {
                             ...slide,
                             backgroundImage: imgUrl
@@ -67,7 +69,7 @@ const ValuesCarousel = () => {
                     setSlides(defaultSlides);
                 }
             } catch (error) {
-                console.error('Error fetching value slides:', error);
+                console.error('Error fetching value slides:', error.message || error);
                 setSlides(defaultSlides);
             } finally {
                 setLoading(false);

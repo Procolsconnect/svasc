@@ -35,17 +35,22 @@ export const FormInput = ({ type = 'text', label, options, ...props }) => {
   return inputElement;
 };
 
-export const FileUploader = ({ label, onChange, previewUrl, accept = "image/*" }) => (
-  <FormGroup label={label}>
-    <input type="file" accept={accept} onChange={onChange} className={styles.fileInput} />
-    {previewUrl && (
-      <div className={styles.previewContainer}>
-        {accept.includes('video') ? (
-           <video src={previewUrl} controls className={styles.preview} />
-        ) : (
-           <img src={previewUrl} alt="Preview" className={styles.preview} />
-        )}
-      </div>
-    )}
-  </FormGroup>
-);
+export const FileUploader = ({ label, onChange, previewUrl, accept = "image/*" }) => {
+  const isVideo = accept.includes('video') || (typeof previewUrl === 'string' && previewUrl.match(/\.(mp4|webm|ogg|mov)$/i));
+
+  return (
+    <FormGroup label={label}>
+      <input type="file" accept={accept} onChange={onChange} className={styles.fileInput} />
+      {previewUrl && (
+        <div className={styles.previewContainer}>
+          {isVideo ? (
+            <video src={previewUrl} controls className={styles.preview} style={{ maxHeight: '180px', width: '100%', objectFit: 'contain' }} />
+          ) : (
+            <img src={previewUrl} alt="Preview" className={styles.preview} onError={(e) => { e.target.style.display = 'none'; }} />
+          )}
+        </div>
+      )}
+    </FormGroup>
+  );
+};
+

@@ -51,17 +51,47 @@ const CrudManager = ({
 
   const renderCell = (item, column) => {
     const value = item[column.key];
-    if (column.type === 'image') {
-      const imgUrl = value && value.startsWith('http') ? value : `${BASE_URL}/${value?.replace(/^\/+/, '')}`;
-      return <img src={imgUrl} alt="thumbnail" className={styles.thumbnail} onError={(e) => e.target.style.display = 'none'} />;
+    if (column.type === 'image' || column.type === 'media') {
+      if (!value) return <span style={{ color: '#999', fontSize: '12px' }}>No Media</span>;
+      const mediaUrl = (typeof value === 'string' && (value.startsWith('http') || value.startsWith('.'))) 
+        ? value 
+        : `${BASE_URL}/${String(value).replace(/^\/+/, '')}`;
+      
+      const isVideo = item.type === 'video' || (typeof value === 'string' && value.match(/\.(mp4|webm|ogg|mov)$/i));
+      
+      if (isVideo) {
+        return (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <video 
+              src={mediaUrl} 
+              className={styles.thumbnail} 
+              muted 
+              preload="metadata"
+              onError={(e) => { e.target.style.display = 'none'; }} 
+            />
+            <span className={styles.badge} style={{ fontSize: '10px', padding: '2px 6px', background: '#3b82f6', color: '#fff', borderRadius: '4px' }}>Video</span>
+          </div>
+        );
+      }
+
+      return (
+        <img 
+          src={mediaUrl} 
+          alt="thumbnail" 
+          className={styles.thumbnail} 
+          onError={(e) => { 
+            e.target.src = 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg'; 
+          }} 
+        />
+      );
     }
     if (column.type === 'video') {
-      return <span className={styles.badge}>Video</span>;
+      return <span className={styles.badge} style={{ background: '#3b82f6', color: '#fff', padding: '2px 8px', borderRadius: '4px' }}>Video</span>;
     }
     if (column.type === 'text') {
-       return <span className={styles.truncate}>{value}</span>;
+       return <span className={styles.truncate}>{value || '-'}</span>;
     }
-    return value;
+    return value || '-';
   };
 
   return (

@@ -1,38 +1,50 @@
 [
   {
-    "backgroundImage": "/uploads/backgroundImage-1785282479461-10010933.png",
-    "field1": "point 1",
-    "field2": "point 2",
-    "field3": "point 3",
-    "field4": "point 5",
-    "field5": "point 5",
+    "backgroundImage": "https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg",
+    "field1": "Academic Excellence",
+    "field2": "Interactive Learning",
+    "field3": "Expert Faculty Members",
+    "field4": "Skill Based Curriculum",
+    "field5": "A-Grade Certification",
     "order": 1,
-    "_id": "ms5b3dec3ngs9x3cbpq",
-    "createdAt": "2026-07-28T23:47:59.508Z",
-    "updatedAt": "2026-07-28T23:47:59.514Z"
+    "_id": "val_slide_001",
+    "createdAt": "2026-08-30T10:00:00.000Z",
+    "updatedAt": "2026-08-30T10:00:00.000Z"
   },
   {
-    "backgroundImage": "/uploads/backgroundImage-1785282557035-955914946.png",
-    "field1": "Point 1",
-    "field2": "Point 1",
-    "field3": "Point 1",
-    "field4": "Point 1",
-    "field5": "Point 1",
+    "backgroundImage": "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg",
+    "field1": "100% Placement Support",
+    "field2": "Mock Interview Sessions",
+    "field3": "Industry Collaboration",
+    "field4": "Top Recruiters Network",
+    "field5": "Career Guidance Cells",
     "order": 2,
-    "_id": "ms5b518rbx9oa9a31h7",
-    "createdAt": "2026-07-28T23:49:17.067Z",
-    "updatedAt": "2026-07-28T23:49:17.067Z"
+    "_id": "val_slide_002",
+    "createdAt": "2026-08-30T10:00:00.000Z",
+    "updatedAt": "2026-08-30T10:00:00.000Z"
   },
   {
-    "backgroundImage": "/uploads/backgroundImage-1785282582607-951483131.png",
-    "field1": "Point 1",
-    "field2": "Point 1",
-    "field3": "Point 1",
-    "field4": "Point 1",
-    "field5": "Point 1",
+    "backgroundImage": "https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg",
+    "field1": "Vibrant Campus Life",
+    "field2": "Rising Stars Club",
+    "field3": "Annual Cultural Diwas",
+    "field4": "Elite Infrastructure",
+    "field5": "Sports & Arts Clubs",
     "order": 3,
-    "_id": "ms5b5kzgwixfpbrfjtf",
-    "createdAt": "2026-07-28T23:49:42.652Z",
-    "updatedAt": "2026-07-28T23:49:42.657Z"
+    "_id": "val_slide_003",
+    "createdAt": "2026-08-30T10:00:00.000Z",
+    "updatedAt": "2026-08-30T10:00:00.000Z"
+  },
+  {
+    "backgroundImage": "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg",
+    "field1": "Modern Laboratory Facilities",
+    "field2": "Hi-Tech Research Centers",
+    "field3": "Advanced Smart Classrooms",
+    "field4": "Digitalized Library Access",
+    "field5": "Practical Skills First",
+    "order": 4,
+    "_id": "val_slide_004",
+    "createdAt": "2026-08-30T10:00:00.000Z",
+    "updatedAt": "2026-08-30T10:00:00.000Z"
   }
 ]
