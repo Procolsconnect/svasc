@@ -3,7 +3,8 @@ import axios from 'axios';
 import HeroForm from '../HeroForm';
 import CrudManager from '../CrudManager';
 import { FormInput, FileUploader } from '../FormInput';
-import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
+import { fetchAdminData, deleteAdminData } from '../../../utils/adminApi';
+import { uploadDirectToCloudinary } from '../../../utils/cloudinaryDirectUpload';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -11,6 +12,8 @@ const AlumniTab = () => {
   const [risingStars, setRisingStars] = useState([]);
   const [successStories, setSuccessStories] = useState([]);
   const [rankHolders, setRankHolders] = useState([]);
+  const [videoProgress, setVideoProgress] = useState(0);
+  const [isUploadingVideo, setIsUploadingVideo] = useState(false);
 
   const loadData = async () => {
     try {
@@ -29,34 +32,88 @@ const AlumniTab = () => {
 
   useEffect(() => { loadData(); }, []);
 
-  // Rising Star: backend uses { name, degree, video }
+  // Rising Star: Direct client-to-Cloudinary upload for instant speed!
   const handleSaveRisingStar = async (formData, id) => {
-    const data = new FormData();
-    data.append('name', formData.name || '');
-    data.append('degree', formData.degree || '');
-    if (formData.video instanceof File) data.append('video', formData.video);
-    const url = id ? `${BASE_URL}/api/alumni/rising-stars/${id}` : `${BASE_URL}/api/alumni/rising-stars`;
-    const res = await fetch(url, { method: id ? 'PUT' : 'POST', body: data });
-    if (!res.ok) { const e = await res.json(); throw new Error(e.message); }
+    let videoUrl = formData.video;
+
+    if (formData.video instanceof File) {
+      setIsUploadingVideo(true);
+      setVideoProgress(0);
+      try {
+        videoUrl = await uploadDirectToCloudinary(
+          formData.video,
+          'svasc/alumni/rising-stars',
+          (pct) => setVideoProgress(pct)
+        );
+      } finally {
+        setIsUploadingVideo(false);
+      }
+    }
+
+    if (!videoUrl) {
+      throw new Error("Please select a video file or provide a video URL.");
+    }
+
+    const res = await axios({
+      method: id ? 'put' : 'post',
+      url: id ? `${BASE_URL}/api/alumni/rising-stars/${id}` : `${BASE_URL}/api/alumni/rising-stars`,
+      data: {
+        name: formData.name || '',
+        degree: formData.degree || '',
+        video: videoUrl
+      }
+    });
+
+    if (!res.data.success) {
+      throw new Error(res.data.message || 'Failed to save Rising Star');
+    }
     loadData();
   };
 
-  // Success Story: backend uses { name, role, description, image }
+  // Success Story: Direct client-to-Cloudinary upload for photos
   const handleSaveStory = async (formData, id) => {
-    await saveAdminData('/api/alumni/success-stories', id, formData, 'image');
+    let imageUrl = formData.image;
+
+    if (formData.image instanceof File) {
+      imageUrl = await uploadDirectToCloudinary(
+        formData.image,
+        'svasc/alumni/success-stories'
+      );
+    }
+
+    const res = await axios({
+      method: id ? 'put' : 'post',
+      url: id ? `${BASE_URL}/api/alumni/success-stories/${id}` : `${BASE_URL}/api/alumni/success-stories`,
+      data: {
+        name: formData.name || '',
+        role: formData.role || '',
+        description: formData.description || '',
+        image: imageUrl || ''
+      }
+    });
+
+    if (!res.data.success) {
+      throw new Error(res.data.message || 'Failed to save Success Story');
+    }
     loadData();
   };
 
-  // Rank Holder: backend uses { name, degree, rank, year } — text only, no file
+  // Rank Holder: backend uses { name, degree, rank, year }
   const handleSaveRankHolder = async (formData, id) => {
-    const data = new FormData();
-    data.append('name', formData.name || '');
-    data.append('degree', formData.degree || '');
-    data.append('rank', formData.rank || '');
-    data.append('year', formData.year || '');
-    const url = id ? `${BASE_URL}/api/alumni/rank-holders/${id}` : `${BASE_URL}/api/alumni/rank-holders`;
-    const res = await fetch(url, { method: id ? 'PUT' : 'POST', body: data });
-    if (!res.ok) { const e = await res.json(); throw new Error(e.message); }
+    const res = await axios({
+      method: id ? 'put' : 'post',
+      url: id ? `${BASE_URL}/api/alumni/rank-holders/${id}` : `${BASE_URL}/api/alumni/rank-holders`,
+      data: {
+        name: formData.name || '',
+        degree: formData.degree || '',
+        rank: formData.rank || '',
+        year: Number(formData.year) || formData.year
+      }
+    });
+
+    if (!res.data.success) {
+      throw new Error(res.data.message || 'Failed to save Rank Holder');
+    }
     loadData();
   };
 
@@ -82,14 +139,42 @@ const AlumniTab = () => {
         initialFormState={{ name: '', degree: '', video: null }}
         renderForm={(formData, setFormData) => (
           <>
-            <FormInput label="Student Name" value={formData.name || ''} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-            <FormInput label="Degree Name (e.g. B.Com, MBA)" value={formData.degree || ''} onChange={(e) => setFormData({...formData, degree: e.target.value})} required />
+            <FormInput 
+              label="Student Name" 
+              value={formData.name || ''} 
+              onChange={(e) => setFormData({...formData, name: e.target.value})} 
+              required 
+            />
+            <FormInput 
+              label="Degree Name (e.g. B.Com, MBA)" 
+              value={formData.degree || ''} 
+              onChange={(e) => setFormData({...formData, degree: e.target.value})} 
+              required 
+            />
             <FileUploader
-              label="Upload Video"
+              label="Upload Video (MP4 / WebM)"
               accept="video/*"
               onChange={(e) => setFormData({...formData, video: e.target.files[0]})}
               previewUrl={typeof formData.video === 'string' ? (formData.video.startsWith('http') ? formData.video : `${BASE_URL}/${formData.video.replace(/^\/+/, '')}`) : (formData.video ? URL.createObjectURL(formData.video) : null)}
             />
+
+            {/* LIVE VIDEO UPLOAD PROGRESS BAR */}
+            {isUploadingVideo && (
+              <div style={{ marginTop: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '600', color: '#2563eb', marginBottom: '0.3rem' }}>
+                  <span>⚡ Direct Cloudinary Video Uploading...</span>
+                  <span>{videoProgress}%</span>
+                </div>
+                <div style={{ width: '100%', height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{
+                    width: `${videoProgress}%`,
+                    height: '100%',
+                    background: 'linear-gradient(90deg, #3b82f6, #10b981)',
+                    transition: 'width 0.2s ease'
+                  }} />
+                </div>
+              </div>
+            )}
           </>
         )}
       />

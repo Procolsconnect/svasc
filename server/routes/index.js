@@ -17,7 +17,9 @@ const campusLifeRoutes = require('./campus-life.route');
 const pageHeroRoutes = require('./page-hero.route');
 const libraryActivityRoutes = require('./library-activity.route');
 const libraryAwardRoutes = require('./library-award.route');
+const uploadRoutes = require('./upload.route');
 
+router.use('/upload', uploadRoutes);
 router.use('/alumni', alumniRoutes);
 router.use('/home', homeRoutes);
 router.use('/activities', activitiesRoutes);

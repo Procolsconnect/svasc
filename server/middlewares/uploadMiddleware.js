@@ -25,18 +25,21 @@ const upload = multer({
   fileFilter: fileFilter,
 });
 
-const uploadToCloudinary = (fileBuffer, folder = 'svasc') => {
+const uploadToCloudinary = (fileBuffer, folder = 'svasc', resourceType = 'auto') => {
   return new Promise((resolve, reject) => {
     if (!fileBuffer || !Buffer.isBuffer(fileBuffer)) {
       return reject(new Error('Invalid file buffer for upload'));
     }
 
+    const options = {
+      folder: folder,
+      resource_type: resourceType,
+      chunk_size: 6000000, // 6MB chunks for fast video & large media transfer
+      timeout: 300000, // 5 min timeout for high quality videos
+    };
+
     const uploadStream = cloudinary.uploader.upload_stream(
-      {
-        folder: folder,
-        resource_type: 'auto', // Automatically handles image / video / raw (pdf)
-        timeout: 120000,
-      },
+      options,
       (error, result) => {
         if (error) {
           return reject(error);

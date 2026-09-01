@@ -20,7 +20,7 @@ const createStar = async (req, res) => {
         
         let videoUrl = textVideo || '';
         if (req.file) {
-            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/rising-stars');
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/rising-stars', 'video');
             videoUrl = uploadResult.secure_url;
         }
 
@@ -52,7 +52,7 @@ const updateStar = async (req, res) => {
         if (degree) updateData.degree = degree;
 
         if (req.file) {
-            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/rising-stars');
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/rising-stars', 'video');
             updateData.video = uploadResult.secure_url;
         } else if (textVideo !== undefined && textVideo !== '') {
             updateData.video = textVideo;

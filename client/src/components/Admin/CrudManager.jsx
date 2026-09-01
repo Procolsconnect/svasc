@@ -157,9 +157,9 @@ const CrudManager = ({
             <form onSubmit={handleSubmit} className={styles.modalBody}>
               {renderForm(formData, setFormData)}
               <div className={styles.modalFooter}>
-                <button type="button" className={styles.cancelBtn} onClick={handleCloseModal}>Cancel</button>
+                <button type="button" className={styles.cancelBtn} onClick={handleCloseModal} disabled={isSubmitting}>Cancel</button>
                 <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
-                  {isSubmitting ? 'Saving...' : 'Save'}
+                  {isSubmitting ? '⏳ Uploading & Saving...' : 'Save'}
                 </button>
               </div>
             </form>
