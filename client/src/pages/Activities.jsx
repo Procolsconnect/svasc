@@ -7,10 +7,12 @@ import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 import { defaultActivities } from '../data/activitiesData';
+import { getActivities } from '../services/activityService';
 import campusHeroImg from '../assets/campushero.jpg';
 import clubImg from '../assets/club.jpg';
 import cellImg from '../assets/cell.JPG';
 import commitiesImg from '../assets/commities.JPG';
+
 
 const ProjectsPortfolio = () => {
   const navigate = useNavigate();
@@ -41,16 +43,85 @@ const ProjectsPortfolio = () => {
     }).catch(() => {});
   }, []);
 
+  const compileCopyHTML = (item) => {
+    if (item.description && item.description.includes('<h3')) {
+      return item.description;
+    }
+    
+    let html = `<div class="${styles.activitySection}">`;
+    
+    if (item.intro && item.intro.trim()) {
+      html += `<p>${item.intro.trim().replace(/\n/g, '<br/>')}</p>`;
+    }
+    
+    if (item.vision && item.vision.trim()) {
+      html += `<h3>Vision</h3><p>${item.vision.trim().replace(/\n/g, '<br/>')}</p>`;
+    }
+    
+    if (item.mission && item.mission.trim()) {
+      const points = item.mission.split('\n').map(p => p.trim()).filter(Boolean);
+      if (points.length > 0) {
+        html += `<h3>Mission</h3><ul>`;
+        points.forEach(pt => {
+          const cleanPt = pt.replace(/^[•\-\*\d+\.]\s*/, '');
+          html += `<li>${cleanPt}</li>`;
+        });
+        html += `</ul>`;
+      }
+    }
+    
+    if (item.clubsSummary && item.clubsSummary.trim()) {
+      const items = item.clubsSummary.split('\n').map(i => i.trim()).filter(Boolean);
+      if (items.length > 0) {
+        html += `<h3>Our Clubs / Overview</h3><ol>`;
+        items.forEach(it => {
+          const parts = it.split(':');
+          if (parts.length > 1) {
+            html += `<li><strong>${parts[0].trim()}:</strong> ${parts.slice(1).join(':').trim()}</li>`;
+          } else {
+            html += `<li>${it}</li>`;
+          }
+        });
+        html += `</ol>`;
+      }
+    }
+    
+    if (item.objectives) {
+      const points = Array.isArray(item.objectives)
+        ? item.objectives
+        : item.objectives.split('\n').map(p => p.trim()).filter(Boolean);
+      if (points.length > 0) {
+        html += `<h3>Objectives</h3><ol>`;
+        points.forEach(pt => {
+          const cleanPt = pt.replace(/^[•\-\*\d+\.]\s*/, '');
+          html += `<li>${cleanPt}</li>`;
+        });
+        html += `</ol>`;
+      }
+    }
+    
+    html += `</div>`;
+    return html;
+  };
+
+  const resolveImage = (imgSrc) => {
+    if (!imgSrc) return '';
+    if (imgSrc.startsWith('http')) return imgSrc;
+    if (imgSrc.startsWith('/uploads/') || imgSrc.startsWith('uploads/')) {
+      return `${BASE_URL}/${imgSrc.replace(/^\/+/, '')}`;
+    }
+    return imgSrc.startsWith('/') ? imgSrc : `/${imgSrc}`;
+  };
+
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/api/activities`);
-        if (res.data.success && res.data.data.length > 0) {
-          const mapped = res.data.data.map(item => {
-            const cleanImg = item.bannerImage ? item.bannerImage.replace(/^\/+/, '') : '';
-            
+        const res = await getActivities();
+        const activityList = res?.data || res || [];
+        if (Array.isArray(activityList) && activityList.length > 0) {
+          const mapped = activityList.map(item => {
             let overrideImg = null;
-            const catLower = item.category.toLowerCase();
+            const catLower = (item.category || '').toLowerCase();
             if (catLower.includes("svasc cells") || catLower === "svasc cells") overrideImg = clubImg;
             else if (catLower.includes("committee") || catLower === "committee") overrideImg = commitiesImg;
             else if (catLower.includes("college club") || catLower === "college club") overrideImg = cellImg;
@@ -58,14 +129,13 @@ const ProjectsPortfolio = () => {
             return {
               ID: item._id,
               category: item.category,
-              bImage: overrideImg || (item.bannerImage?.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`),
-              copy: item.description,
-              cards: item.cards.map(card => {
-                const cardClean = card.image.replace(/^\/+/, '');
+              bImage: overrideImg || resolveImage(item.bannerImage),
+              copy: compileCopyHTML(item),
+              cards: (item.cards || []).map(card => {
                 return {
                   title: card.title,
                   description: card.description || "No description provided.",
-                  image: card.image.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`,
+                  image: resolveImage(card.image),
                   link: card.link || `/${card.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
                 };
               })
@@ -79,6 +149,9 @@ const ProjectsPortfolio = () => {
     };
     fetchActivities();
   }, []);
+
+
+
 
   const getProjectFromParam = (param) => {
     if (!param) return null;
@@ -132,22 +205,19 @@ const ProjectsPortfolio = () => {
 
   const calculateHeights = () => {
     const winWidth = window.innerWidth;
-    const midRange = winWidth < 920 && winWidth > 620;
-    const smallRange = winWidth < 720;
+    let height;
+
+    if (winWidth < 600) {
+      height = 300;
+    } else if (winWidth < 960) {
+      height = 380;
+    } else {
+      height = 480;
+    }
 
     const heights = {};
-    projects.forEach((project) => {
-      const baseWidth = (winWidth * 0.3133 - 20);
-      let height;
-
-      if (midRange) {
-        height = baseWidth * 0.5;
-      } else if (smallRange) {
-        height = baseWidth;
-      } else {
-        height = (winWidth * 0.23 - 20) * 1.5;
-      }
-      heights[project.ID] = height;
+    (projects || []).forEach((project) => {
+      heights[project.ID] = `${height}px`;
     });
 
     setProjectHeights(heights);
@@ -157,7 +227,8 @@ const ProjectsPortfolio = () => {
     calculateHeights();
     window.addEventListener('resize', calculateHeights);
     return () => window.removeEventListener('resize', calculateHeights);
-  }, []);
+  }, [projects]);
+
 
   useEffect(() => {
     if (selectedProject && selectedAreaRef.current) {
@@ -224,8 +295,9 @@ const ProjectsPortfolio = () => {
             className={getProjectClass(project.ID)}
             style={{
               backgroundImage: `url("${typeof project.bImage === 'string' ? encodeURI(project.bImage) : project.bImage}")`,
-              height: projectHeights[project.ID] || '50px'
+              height: projectHeights[project.ID] || '480px'
             }}
+
             onClick={() => selectProject(project.ID)}
           >
             <h3 className={styles.beforeTitle}>{project.category}</h3>
@@ -272,8 +344,12 @@ const ProjectsPortfolio = () => {
               <div key={index} className={styles.gameCard}>
                 <div
                   className={styles.gameCardCover}
-                  style={{ backgroundImage: `url("${typeof card.image === 'string' ? encodeURI(card.image) : card.image}")`, cursor: 'pointer' }}
+                  style={{ 
+                    backgroundImage: `url("${typeof card.image === 'string' ? encodeURI(card.image).replace(/\(/g, '%28').replace(/\)/g, '%29') : card.image}")`, 
+                    cursor: 'pointer' 
+                  }}
                   onClick={(e) => { 
+
                     e.stopPropagation(); 
                     const targetLink = getCardTargetLink(card);
                     navigate(targetLink);

@@ -103,12 +103,14 @@ const ValuesCarousel = () => {
         }
 
         /* Reduced top padding from 60px to 20px to reduce space */
-        .values-carousel-scope .header {
+        .values-carousel-scope .values-carousel-header {
             text-align: center;
             padding: 0 20px 10px;
+            position: relative;
+            z-index: 1;
         }
 
-        .values-carousel-scope .header h1 {
+        .values-carousel-scope .values-carousel-header h1 {
             font-size: 3em;
             margin: 0 0 15px;
             color: #003366;
@@ -116,7 +118,7 @@ const ValuesCarousel = () => {
             letter-spacing: -0.5px;
         }
 
-        .values-carousel-scope .header h2 {
+        .values-carousel-scope .values-carousel-header h2 {
             font-size: 1.5em;
             margin: 0;
             color: #555;
@@ -174,9 +176,9 @@ const ValuesCarousel = () => {
         .values-carousel-scope .info {
             position: absolute;
             width: 100%;
-            height: 50%;
-            text-align: center;
-            background: linear-gradient(180deg, #fff0 0, #0008 50px), linear-gradient(180deg, #fff0, #0009);
+            height: auto;
+            max-height: 80%;
+            background: linear-gradient(0deg, #000000 0%, #000000dd 60%, #00000000 100%);
             padding: 15px;
             padding-top: 70px;
             left: 0;
@@ -230,10 +232,10 @@ const ValuesCarousel = () => {
 
         /* Responsive adjustments for mobile */
         @media (max-width: 768px) {
-            .values-carousel-scope .header h1 {
+            .values-carousel-scope .values-carousel-header h1 {
                 font-size: 2em;
             }
-            .values-carousel-scope .header h2 {
+            .values-carousel-scope .values-carousel-header h2 {
                 font-size: 1.1em;
             }
             .values-carousel-scope .swiper-slide {
@@ -246,7 +248,7 @@ const ValuesCarousel = () => {
         }
 
         @media (max-width: 480px) {
-             .values-carousel-scope .header h1 {
+             .values-carousel-scope .values-carousel-header h1 {
                 font-size: 1.6em;
             }
             .values-carousel-scope .swiper-slide {
@@ -256,7 +258,7 @@ const ValuesCarousel = () => {
         }
       `}</style>
 
-            <div className="header">
+            <div className="values-carousel-header">
                 <h1>Our Unique Values</h1>
                 <h2>What makes SVASC the Best College of Arts and Science in Erode</h2>
             </div>

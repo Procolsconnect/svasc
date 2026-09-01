@@ -1,4 +1,4 @@
-const mongoose = require('../../fake-mongoose.js');
+const mongoose = require('mongoose');
 
 const examTimeTableSchema = new mongoose.Schema({
     title: {

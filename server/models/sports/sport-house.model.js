@@ -1,4 +1,4 @@
-const mongoose = require('../../fake-mongoose.js');
+const mongoose = require('mongoose');
 
 const sportHouseSchema = new mongoose.Schema({
     name: {

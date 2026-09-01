@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { COLLEGE, pages } from "@/data/site";
+import { COLLEGE, pages } from "@/data/activitiesData";
+
 
 export function SiteFooter() {
   return (

@@ -16,9 +16,11 @@ app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Database Connection 
-// mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/college-website')
-//     .then(() => console.log('MongoDB connected'))
-//     .catch(err => console.error(err));
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/college-website';
+mongoose.connect(MONGO_URI)
+    .then(() => console.log('MongoDB Connected Successfully 🚀'))
+    .catch(err => console.error('MongoDB Connection Error ❌:', err.message));
+
 
 // Routes
 const routes = require('./routes');

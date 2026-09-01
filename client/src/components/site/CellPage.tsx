@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { pages, type PageDef } from "@/data/site";
+import { pages } from "@/data/activitiesData";
 import { Hero } from "./Hero";
 import { BlockRenderer } from "./BlockRenderer";
 import { Reveal } from "./Reveal";
@@ -11,19 +11,22 @@ import seminar from "@/assets/hero-seminar.jpg";
 
 const imgMap = { campus, students, service, seminar };
 
-export function CellPage({ page }: { page: PageDef }) {
-  const idx = pages.findIndex((p) => p.slug === page.slug);
-  const next = pages[(idx + 1) % pages.length] ?? page;
+export function CellPage({ page }: { page: any }) {
+  if (!page) return null;
+  const allPages = Array.isArray(pages) ? pages : [];
+  const idx = allPages.findIndex((p) => p.slug === page.slug);
+  const next = allPages.length > 0 ? (allPages[(idx + 1) % allPages.length] ?? page) : page;
   const pageImg =
     page.customImage ||
     (typeof page.image === "string" && (page.image.startsWith("/") || page.image.startsWith("http"))
       ? page.image
       : imgMap[page.image as keyof typeof imgMap] || students);
   const nextImg =
-    next.customImage ||
-    (typeof next.image === "string" && (next.image.startsWith("/") || next.image.startsWith("http"))
+    next?.customImage ||
+    (typeof next?.image === "string" && (next.image.startsWith("/") || next.image.startsWith("http"))
       ? next.image
-      : imgMap[next.image as keyof typeof imgMap] || campus);
+      : imgMap[next?.image as keyof typeof imgMap] || campus);
+
 
   return (
     <div style={{ fontSize: "16px", fontFamily: "'Jost', system-ui, sans-serif" }}>
@@ -235,9 +238,10 @@ export function CellPage({ page }: { page: PageDef }) {
         </section>
 
         {/* ── Content blocks ────────────────────────────────────── */}
-        {page.blocks.map((b, i) => (
+        {(page.blocks || []).map((b, i) => (
           <BlockRenderer key={i} block={b} index={i} variant={idx} />
         ))}
+
 
         {/* ── Next page CTA ─────────────────────────────────────── */}
         <section style={{ padding: "80px 0", position: "relative", overflow: "hidden" }}>

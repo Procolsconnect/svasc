@@ -1,4 +1,4 @@
-const mongoose = require('../fake-mongoose');
+const mongoose = require('mongoose');
 
 const libraryActivitySchema = new mongoose.Schema({
     title: { type: String, required: true },

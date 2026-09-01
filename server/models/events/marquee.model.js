@@ -1,4 +1,4 @@
-const mongoose = require('../../fake-mongoose.js');
+const mongoose = require('mongoose');
 
 const eventsMarqueeSchema = new mongoose.Schema({
     title: {

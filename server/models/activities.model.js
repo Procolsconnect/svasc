@@ -1,4 +1,4 @@
-const mongoose = require('../fake-mongoose.js');
+const mongoose = require('mongoose');
 
 const memberSchema = new mongoose.Schema({
     name: { type: String, trim: true },

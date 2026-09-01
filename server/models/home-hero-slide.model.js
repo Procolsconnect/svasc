@@ -1,4 +1,4 @@
-const mongoose = require('../fake-mongoose.js');
+const mongoose = require('mongoose');
 
 const homeHeroSlideSchema = new mongoose.Schema({
     type: {

@@ -98,16 +98,17 @@
 
 /* Logo Slider Section */
 .placement-logo-section {
-    padding: 63px 0;
-    border-bottom: 1px solid #ddd;
+    padding: 45px 0;
+    border-bottom: 1px solid #eef2f6;
     overflow: hidden;
-    background: #fff;
+    background: #f8fafc;
     width: 100%;
 }
 
 .placement-logo-slider {
     display: flex;
-    animation: placement-scroll 20s linear infinite;
+    align-items: center;
+    animation: placement-scroll 30s linear infinite;
     width: fit-content;
 }
 
@@ -127,17 +128,34 @@
 
 .placement-logo-item {
     flex-shrink: 0;
-    padding: 0 30px;
+    width: 170px;
+    height: 80px;
+    margin: 0 12px;
+    padding: 10px 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.placement-logo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .placement-logo-item img {
-    height: 60px;
+    max-height: 48px;
+    max-width: 130px;
     width: auto;
+    height: auto;
     object-fit: contain;
+    display: block;
 }
+
 
 /* About Section */
 .placement-about-section {

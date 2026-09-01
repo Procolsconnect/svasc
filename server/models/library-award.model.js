@@ -1,4 +1,4 @@
-const mongoose = require('../fake-mongoose');
+const mongoose = require('mongoose');
 
 const libraryAwardSchema = new mongoose.Schema({
     category: { type: String, required: true }, // Student, Faculty, NonTeaching
