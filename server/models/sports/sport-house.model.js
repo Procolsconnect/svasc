@@ -8,7 +8,7 @@ const sportHouseSchema = new mongoose.Schema({
     },
     subtitle: {
         type: String,
-        required: true,
+        default: '',
         trim: true
     },
     image: {

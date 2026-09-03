@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, ArrowRightCircle } from 'lucide-react';
-import axios from 'axios';
+import { getCertifications, getGroupedTeacherAwards } from '../services/aboutService';
 import styles from './AboutSVASC.module.css';
 import Hero from '../components/Common/Hero';
 import aboutHeroImg from '../assets/Abouthero.jpg';
@@ -279,10 +279,9 @@ const AwardsSection = () => {
     useEffect(() => {
         const fetchCertifications = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}/api/about/certifications`);
-                if (response.data.success) {
-                    setCertifications(response.data.data);
-                }
+                const response = await getCertifications();
+                const certList = response?.data ?? (Array.isArray(response) ? response : []);
+                setCertifications(certList);
             } catch (error) {
                 console.error('Error fetching certifications:', error);
             } finally {
@@ -360,10 +359,11 @@ const TeacherAwardsSection = () => {
     useEffect(() => {
         const fetchTeacherAwards = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}/api/about/teacher-awards/grouped`);
-                if (response.data.success && Object.keys(response.data.data).length > 0) {
-                    setAwardData(response.data.data);
-                    setSelectedYear(parseInt(Object.keys(response.data.data)[0]));
+                const response = await getGroupedTeacherAwards();
+                const grouped = response?.data ?? response;
+                if (grouped && Object.keys(grouped).length > 0) {
+                    setAwardData(grouped);
+                    setSelectedYear(parseInt(Object.keys(grouped)[0]));
                 } else {
                     setAwardData(defaultAwardData);
                     setSelectedYear(2010);

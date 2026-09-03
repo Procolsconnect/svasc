@@ -1,4 +1,5 @@
 const libraryActivityService = require('../../services/library/library-activity.service');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 exports.getAllActivities = async (req, res) => {
     try {
@@ -11,16 +12,18 @@ exports.getAllActivities = async (req, res) => {
 
 exports.createActivity = async (req, res) => {
     try {
-        const { title, date, desc } = req.body;
+        const { title, date, desc, image1: bodyImage1, image2: bodyImage2 } = req.body;
         
-        let image1 = '';
-        let image2 = '';
+        let image1 = bodyImage1 || '';
+        let image2 = bodyImage2 || '';
         
-        if (req.files && req.files.image1) {
-            image1 = `uploads/${req.files.image1[0].filename}`;
+        if (req.files && req.files.image1 && req.files.image1[0]) {
+            const uploadResult = await uploadToCloudinary(req.files.image1[0].buffer, 'svasc/library/activities', 'image');
+            image1 = uploadResult.secure_url;
         }
-        if (req.files && req.files.image2) {
-            image2 = `uploads/${req.files.image2[0].filename}`;
+        if (req.files && req.files.image2 && req.files.image2[0]) {
+            const uploadResult = await uploadToCloudinary(req.files.image2[0].buffer, 'svasc/library/activities', 'image');
+            image2 = uploadResult.secure_url;
         }
 
         const data = { title, date, desc, image1, image2 };
@@ -33,17 +36,25 @@ exports.createActivity = async (req, res) => {
 
 exports.updateActivity = async (req, res) => {
     try {
-        const { title, date, desc } = req.body;
-        const updateData = { title, date, desc };
+        const { title, date, desc, image1: bodyImage1, image2: bodyImage2 } = req.body;
+        const updateData = {};
+        if (title) updateData.title = title;
+        if (date !== undefined) updateData.date = date;
+        if (desc !== undefined) updateData.desc = desc;
 
-        if (req.files && req.files.image1) {
-            updateData.image1 = `uploads/${req.files.image1[0].filename}`;
-        }
-        if (req.files && req.files.image2) {
-            updateData.image2 = `uploads/${req.files.image2[0].filename}`;
+        if (req.files && req.files.image1 && req.files.image1[0]) {
+            const uploadResult = await uploadToCloudinary(req.files.image1[0].buffer, 'svasc/library/activities', 'image');
+            updateData.image1 = uploadResult.secure_url;
+        } else if (bodyImage1 !== undefined && bodyImage1 !== '') {
+            updateData.image1 = bodyImage1;
         }
 
-        Object.keys(updateData).forEach(key => updateData[key] === undefined && delete updateData[key]);
+        if (req.files && req.files.image2 && req.files.image2[0]) {
+            const uploadResult = await uploadToCloudinary(req.files.image2[0].buffer, 'svasc/library/activities', 'image');
+            updateData.image2 = uploadResult.secure_url;
+        } else if (bodyImage2 !== undefined && bodyImage2 !== '') {
+            updateData.image2 = bodyImage2;
+        }
 
         const activity = await libraryActivityService.updateActivity(req.params.id, updateData);
         if (!activity) return res.status(404).json({ success: false, message: 'Activity not found' });

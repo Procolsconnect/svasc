@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import HeroForm from '../HeroForm';
 import CrudManager from '../CrudManager';
 import { FormInput, FileUploader } from '../FormInput';
-import { fetchAdminData, deleteAdminData } from '../../../utils/adminApi';
 import { uploadDirectToCloudinary } from '../../../utils/cloudinaryDirectUpload';
+import {
+  getRisingStars,
+  createRisingStar,
+  updateRisingStar,
+  deleteRisingStar,
+  getSuccessStories,
+  createSuccessStory,
+  updateSuccessStory,
+  deleteSuccessStory,
+  getRankHolders,
+  createRankHolder,
+  updateRankHolder,
+  deleteRankHolder,
+} from '../../../services/alumniService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -18,13 +30,22 @@ const AlumniTab = () => {
   const loadData = async () => {
     try {
       const [rsRes, ssRes, rhRes] = await Promise.allSettled([
-        fetchAdminData('/api/alumni/rising-stars'),
-        fetchAdminData('/api/alumni/success-stories'),
-        fetchAdminData('/api/alumni/rank-holders'),
+        getRisingStars(),
+        getSuccessStories(),
+        getRankHolders(),
       ]);
-      if (rsRes.status === 'fulfilled') setRisingStars(rsRes.value || []);
-      if (ssRes.status === 'fulfilled') setSuccessStories(ssRes.value || []);
-      if (rhRes.status === 'fulfilled') setRankHolders(rhRes.value || []);
+      if (rsRes.status === 'fulfilled') {
+        const val = rsRes.value;
+        setRisingStars(val?.data ?? (Array.isArray(val) ? val : []));
+      }
+      if (ssRes.status === 'fulfilled') {
+        const val = ssRes.value;
+        setSuccessStories(val?.data ?? (Array.isArray(val) ? val : []));
+      }
+      if (rhRes.status === 'fulfilled') {
+        const val = rhRes.value;
+        setRankHolders(val?.data ?? (Array.isArray(val) ? val : []));
+      }
     } catch (err) {
       console.error('Error loading alumni data', err);
     }
@@ -54,18 +75,16 @@ const AlumniTab = () => {
       throw new Error("Please select a video file or provide a video URL.");
     }
 
-    const res = await axios({
-      method: id ? 'put' : 'post',
-      url: id ? `${BASE_URL}/api/alumni/rising-stars/${id}` : `${BASE_URL}/api/alumni/rising-stars`,
-      data: {
-        name: formData.name || '',
-        degree: formData.degree || '',
-        video: videoUrl
-      }
-    });
+    const payload = {
+      name: formData.name || '',
+      degree: formData.degree || '',
+      video: videoUrl
+    };
 
-    if (!res.data.success) {
-      throw new Error(res.data.message || 'Failed to save Rising Star');
+    if (id) {
+      await updateRisingStar(id, payload);
+    } else {
+      await createRisingStar(payload);
     }
     loadData();
   };
@@ -81,44 +100,35 @@ const AlumniTab = () => {
       );
     }
 
-    const res = await axios({
-      method: id ? 'put' : 'post',
-      url: id ? `${BASE_URL}/api/alumni/success-stories/${id}` : `${BASE_URL}/api/alumni/success-stories`,
-      data: {
-        name: formData.name || '',
-        role: formData.role || '',
-        description: formData.description || '',
-        image: imageUrl || ''
-      }
-    });
+    const payload = {
+      name: formData.name || '',
+      role: formData.role || '',
+      description: formData.description || '',
+      image: imageUrl || ''
+    };
 
-    if (!res.data.success) {
-      throw new Error(res.data.message || 'Failed to save Success Story');
+    if (id) {
+      await updateSuccessStory(id, payload);
+    } else {
+      await createSuccessStory(payload);
     }
     loadData();
   };
 
   // Rank Holder: backend uses { name, degree, rank, year }
   const handleSaveRankHolder = async (formData, id) => {
-    const res = await axios({
-      method: id ? 'put' : 'post',
-      url: id ? `${BASE_URL}/api/alumni/rank-holders/${id}` : `${BASE_URL}/api/alumni/rank-holders`,
-      data: {
-        name: formData.name || '',
-        degree: formData.degree || '',
-        rank: formData.rank || '',
-        year: Number(formData.year) || formData.year
-      }
-    });
+    const payload = {
+      name: formData.name || '',
+      degree: formData.degree || '',
+      rank: formData.rank || '',
+      year: Number(formData.year) || formData.year
+    };
 
-    if (!res.data.success) {
-      throw new Error(res.data.message || 'Failed to save Rank Holder');
+    if (id) {
+      await updateRankHolder(id, payload);
+    } else {
+      await createRankHolder(payload);
     }
-    loadData();
-  };
-
-  const handleDelete = async (endpoint, id) => {
-    await deleteAdminData(endpoint, id);
     loadData();
   };
 
@@ -135,7 +145,10 @@ const AlumniTab = () => {
           { key: 'video', label: 'Video', type: 'video' }
         ]}
         onSave={handleSaveRisingStar}
-        onDelete={(id) => handleDelete('/api/alumni/rising-stars', id)}
+        onDelete={async (id) => {
+          await deleteRisingStar(id);
+          loadData();
+        }}
         initialFormState={{ name: '', degree: '', video: null }}
         renderForm={(formData, setFormData) => (
           <>
@@ -188,7 +201,10 @@ const AlumniTab = () => {
           { key: 'image', label: 'Image', type: 'image' }
         ]}
         onSave={handleSaveStory}
-        onDelete={(id) => handleDelete('/api/alumni/success-stories', id)}
+        onDelete={async (id) => {
+          await deleteSuccessStory(id);
+          loadData();
+        }}
         initialFormState={{ name: '', role: '', description: '', image: null }}
         renderForm={(formData, setFormData) => (
           <>
@@ -214,7 +230,10 @@ const AlumniTab = () => {
           { key: 'rank', label: 'Rank', type: 'text' }
         ]}
         onSave={handleSaveRankHolder}
-        onDelete={(id) => handleDelete('/api/alumni/rank-holders', id)}
+        onDelete={async (id) => {
+          await deleteRankHolder(id);
+          loadData();
+        }}
         initialFormState={{ year: '', name: '', degree: '', rank: '' }}
         renderForm={(formData, setFormData) => (
           <>

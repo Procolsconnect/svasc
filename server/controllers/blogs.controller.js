@@ -1,6 +1,5 @@
 const BlogsService = require('../services/blogs.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../middlewares/uploadMiddleware');
 
 const getAllBlogs = async (req, res) => {
     try {
@@ -30,33 +29,54 @@ const getBlogById = async (req, res) => {
 
 const createBlog = async (req, res) => {
     try {
-        const { category, description, cardTitles, cardDescriptions } = req.body;
+        const { category, description, cardTitles, cardDescriptions, bannerImage: textBanner, cards: textCards } = req.body;
 
-        let parsedCardTitles = [];
-        let parsedCardDescriptions = [];
-        if (cardTitles) {
-            try { parsedCardTitles = JSON.parse(cardTitles); } catch (e) { parsedCardTitles = []; }
+        if (!category) {
+            return res.status(400).json({ success: false, message: "Category is required" });
         }
-        if (cardDescriptions) {
-            try { parsedCardDescriptions = JSON.parse(cardDescriptions); } catch (e) { parsedCardDescriptions = []; }
+
+        // 1. Handle Banner Image
+        let bannerImageUrl = textBanner || '';
+        if (req.files && req.files.bannerImage && req.files.bannerImage[0]) {
+            const uploadResult = await uploadToCloudinary(req.files.bannerImage[0].buffer, 'svasc/blogs/banners', 'image');
+            bannerImageUrl = uploadResult.secure_url;
+        }
+
+        // 2. Handle Cards
+        let cards = [];
+        if (textCards) {
+            try {
+                cards = typeof textCards === 'string' ? JSON.parse(textCards) : textCards;
+            } catch (e) {
+                cards = [];
+            }
+        } else if (req.files && req.files.cardImages && req.files.cardImages.length > 0) {
+            let parsedCardTitles = [];
+            let parsedCardDescriptions = [];
+            if (cardTitles) {
+                try { parsedCardTitles = JSON.parse(cardTitles); } catch (e) { parsedCardTitles = []; }
+            }
+            if (cardDescriptions) {
+                try { parsedCardDescriptions = JSON.parse(cardDescriptions); } catch (e) { parsedCardDescriptions = []; }
+            }
+
+            for (let index = 0; index < req.files.cardImages.length; index++) {
+                const file = req.files.cardImages[index];
+                const uploadResult = await uploadToCloudinary(file.buffer, 'svasc/blogs/cards', 'image');
+                cards.push({
+                    title: parsedCardTitles[index] || '',
+                    description: parsedCardDescriptions[index] || '',
+                    image: uploadResult.secure_url
+                });
+            }
         }
 
         const currentCount = await BlogsService.getBlogCount();
 
-        const cards = (req.files && req.files.cardImages) ? req.files.cardImages.map((file, index) => ({
-            title: parsedCardTitles[index] || '',
-            description: parsedCardDescriptions[index] || '',
-            image: `/uploads/${file.filename}`
-        })) : [];
-
-        const bannerImagePath = (req.files && req.files.bannerImage && req.files.bannerImage[0])
-            ? `/uploads/${req.files.bannerImage[0].filename}`
-            : null;
-
         const blog = await BlogsService.createBlog({
             category,
-            description,
-            bannerImage: bannerImagePath,
+            description: description || '',
+            bannerImage: bannerImageUrl || '',
             cards,
             order: currentCount
         });
@@ -70,19 +90,25 @@ const createBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
     try {
         const { id } = req.params;
-        const { category, description, cardTitles, cardDescriptions } = req.body;
-        let updateData = { category, description };
+        const { category, description, cardTitles, cardDescriptions, bannerImage: textBanner, cards: textCards } = req.body;
+        let updateData = {};
+        if (category) updateData.category = category;
+        if (description !== undefined) updateData.description = description;
 
         if (req.files && req.files.bannerImage && req.files.bannerImage.length > 0) {
-            const oldBlog = await BlogsService.getBlogById(id);
-            if (oldBlog && oldBlog.bannerImage) {
-                const oldFilePath = path.join(__dirname, '..', 'uploads', path.basename(oldBlog.bannerImage));
-                if (fs.existsSync(oldFilePath)) fs.unlinkSync(oldFilePath);
-            }
-            updateData.bannerImage = `/uploads/${req.files.bannerImage[0].filename}`;
+            const uploadResult = await uploadToCloudinary(req.files.bannerImage[0].buffer, 'svasc/blogs/banners', 'image');
+            updateData.bannerImage = uploadResult.secure_url;
+        } else if (textBanner !== undefined && textBanner !== '') {
+            updateData.bannerImage = textBanner;
         }
 
-        if (req.files && req.files.cardImages && req.files.cardImages.length > 0) {
+        if (textCards !== undefined) {
+            try {
+                updateData.cards = typeof textCards === 'string' ? JSON.parse(textCards) : textCards;
+            } catch (e) {
+                // Ignore parse error
+            }
+        } else if (req.files && req.files.cardImages && req.files.cardImages.length > 0) {
             let parsedCardTitles = [];
             let parsedCardDescriptions = [];
             if (cardTitles) {
@@ -92,21 +118,17 @@ const updateBlog = async (req, res) => {
                 try { parsedCardDescriptions = JSON.parse(cardDescriptions); } catch (e) { parsedCardDescriptions = []; }
             }
 
-            const oldBlog = await BlogsService.getBlogById(id);
-            if (oldBlog && oldBlog.cards) {
-                oldBlog.cards.forEach(card => {
-                    if (card.image) {
-                        const oldCardPath = path.join(__dirname, '..', 'uploads', path.basename(card.image));
-                        if (fs.existsSync(oldCardPath)) fs.unlinkSync(oldCardPath);
-                    }
+            const uploadedCards = [];
+            for (let index = 0; index < req.files.cardImages.length; index++) {
+                const file = req.files.cardImages[index];
+                const uploadResult = await uploadToCloudinary(file.buffer, 'svasc/blogs/cards', 'image');
+                uploadedCards.push({
+                    title: parsedCardTitles[index] || '',
+                    description: parsedCardDescriptions[index] || '',
+                    image: uploadResult.secure_url
                 });
             }
-
-            updateData.cards = req.files.cardImages.map((file, index) => ({
-                title: parsedCardTitles[index] || '',
-                description: parsedCardDescriptions[index] || '',
-                image: `/uploads/${file.filename}`
-            }));
+            updateData.cards = uploadedCards;
         }
 
         const updatedBlog = await BlogsService.updateBlog(id, updateData);

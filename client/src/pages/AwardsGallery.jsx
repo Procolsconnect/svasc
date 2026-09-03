@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styles from './AwardsGallery.module.css';
 import { ChevronsDown } from 'lucide-react';
 import Hero from '../components/Common/Hero';
-import axios from 'axios';
+import { getAwards } from '../services/awardService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
-const API_URL = `${BASE_URL}/api/awards-gallery`;
 
 const categoryTitles = {
     academic: "Academic Certificates",
@@ -29,11 +28,10 @@ const AwardsGallery = () => {
     const fetchAwards = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(API_URL);
-            if (response.data.success) {
-                const groupedData = groupAwards(response.data.data);
-                setImageCollections(groupedData);
-            }
+            const response = await getAwards();
+            const list = response?.data ?? (Array.isArray(response) ? response : []);
+            const groupedData = groupAwards(list);
+            setImageCollections(groupedData);
         } catch (error) {
             console.error('Error fetching awards:', error);
         } finally {

@@ -1,31 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import CrudManager from '../CrudManager';
 import { FormInput, FileUploader } from '../FormInput';
-import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
+import { uploadDirectToCloudinary } from '../../../utils/cloudinaryDirectUpload';
+import {
+  getLibraryAwards,
+  createLibraryAward,
+  updateLibraryAward,
+  deleteLibraryAward,
+} from '../../../services/libraryService';
+
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const LibraryAwardsTab = () => {
   const [data, setData] = useState([]);
-
-  useEffect(() => {
-    loadData();
-  }, []);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
 
   const loadData = async () => {
     try {
-      const res = await fetchAdminData('/api/library-awards');
-      setData(res || []);
+      const res = await getLibraryAwards();
+      const list = res?.data ?? (Array.isArray(res) ? res : []);
+      setData(list);
     } catch (error) {
       console.error(error);
     }
   };
 
+  useEffect(() => {
+    loadData();
+  }, []);
+
   const handleSave = async (formData, id) => {
-    await saveAdminData('/api/library-awards', id, formData, 'image');
+    let imageUrl = formData.image;
+
+    if (formData.image instanceof File) {
+      setIsUploading(true);
+      setUploadProgress(0);
+      try {
+        imageUrl = await uploadDirectToCloudinary(
+          formData.image,
+          'svasc/library/awards',
+          (pct) => setUploadProgress(pct)
+        );
+      } finally {
+        setIsUploading(false);
+      }
+    }
+
+    const payload = {
+      category: formData.category || 'Student',
+      name: formData.name || '',
+      designation: formData.designation || '',
+      department: formData.department || '',
+      image: imageUrl || ''
+    };
+
+    if (id) {
+      await updateLibraryAward(id, payload);
+    } else {
+      await createLibraryAward(payload);
+    }
     loadData();
   };
 
   const handleDelete = async (id) => {
-    await deleteAdminData('/api/library-awards', id);
+    await deleteLibraryAward(id);
     loadData();
   };
 
@@ -75,9 +114,32 @@ const LibraryAwardsTab = () => {
 
       <FileUploader
         label="Profile Image"
+        accept="image/*"
         onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-        existingUrl={formData.image}
+        previewUrl={
+          typeof formData.image === 'string'
+            ? (formData.image.startsWith('http') ? formData.image : `${BASE_URL}/${formData.image.replace(/^\/+/, '')}`)
+            : (formData.image ? URL.createObjectURL(formData.image) : null)
+        }
       />
+
+      {/* LIVE UPLOAD PROGRESS BAR */}
+      {isUploading && (
+        <div style={{ marginTop: '0.75rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '600', color: '#2563eb', marginBottom: '0.3rem' }}>
+            <span>⚡ Direct Cloudinary Image Uploading...</span>
+            <span>{uploadProgress}%</span>
+          </div>
+          <div style={{ width: '100%', height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
+            <div style={{
+              width: `${uploadProgress}%`,
+              height: '100%',
+              background: 'linear-gradient(90deg, #3b82f6, #10b981)',
+              transition: 'width 0.2s ease'
+            }} />
+          </div>
+        </div>
+      )}
     </>
   );
 
@@ -86,7 +148,7 @@ const LibraryAwardsTab = () => {
       title="Library User Awards"
       data={data}
       columns={columns}
-      onSave={(data, id) => handleSave(data, id)}
+      onSave={handleSave}
       onDelete={handleDelete}
       renderForm={renderForm}
       initialFormState={{ category: 'Student', name: '', designation: '', department: '', image: null }}

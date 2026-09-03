@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './CampusLife.module.css';
 import { useOutletContext } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
-import axios from 'axios';
+import {
+    getCampusLifePageHero,
+    getCampusLifeGallery,
+    getCampusLifeScrollItems
+} from '../services/campusLifeService';
 import heroImage from '../assets/DJI_0595.JPG';
 import campusImage from '../assets/campus.jpg';
 import campusHeroImage from '../assets/campushero.jpg';
@@ -64,14 +68,14 @@ const CampusLife = () => {
             try {
                 // Fetch Hero Config
                 try {
-                    const heroRes = await axios.get(`${BASE_URL}/api/page-heros/campus-life`);
-                    if (heroRes.data.success && heroRes.data.data) {
-                        const data = heroRes.data.data;
-                        const cleanImg = data.image.replace(/^\/+/, '');
+                    const heroRes = await getCampusLifePageHero();
+                    const data = heroRes?.data ?? heroRes;
+                    if (data && data.title) {
+                        const cleanImg = (data.image || '').replace(/^\/+/, '');
                         setHeroData({
                             title: data.title || fallbackHero.title,
                             description: data.description || fallbackHero.description,
-                            image: data.image.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
+                            image: data.image?.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
                         });
                     }
                 } catch (e) {
@@ -80,13 +84,14 @@ const CampusLife = () => {
 
                 // Fetch Gallery Items
                 try {
-                    const galleryRes = await axios.get(`${BASE_URL}/api/campus-life/gallery`);
-                    if (galleryRes.data.success && galleryRes.data.data.length > 0) {
-                        const mapped = galleryRes.data.data.map(item => {
-                            const cleanImg = item.image.replace(/^\/+/, '');
+                    const galleryRes = await getCampusLifeGallery();
+                    const galleryList = galleryRes?.data ?? (Array.isArray(galleryRes) ? galleryRes : []);
+                    if (galleryList.length > 0) {
+                        const mapped = galleryList.map(item => {
+                            const cleanImg = (item.image || '').replace(/^\/+/, '');
                             return {
                                 _id: item._id,
-                                img: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
+                                img: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
                                 title: item.name,
                                 category: item.description
                             };
@@ -101,15 +106,16 @@ const CampusLife = () => {
 
                 // Fetch Scroll Items
                 try {
-                    const scrollRes = await axios.get(`${BASE_URL}/api/campus-life/scroll-items`);
-                    if (scrollRes.data.success && scrollRes.data.data.length > 0) {
-                        const mapped = scrollRes.data.data.map(item => {
-                            const cleanImg = item.image.replace(/^\/+/, '');
+                    const scrollRes = await getCampusLifeScrollItems();
+                    const scrollList = scrollRes?.data ?? (Array.isArray(scrollRes) ? scrollRes : []);
+                    if (scrollList.length > 0) {
+                        const mapped = scrollList.map(item => {
+                            const cleanImg = (item.image || '').replace(/^\/+/, '');
                             return {
-                                img: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
+                                img: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
                                 title: item.title,
-                                text: item.text,
-                                link: item.link
+                                text: item.description || item.text || '',
+                                link: item.link || ''
                             };
                         });
                         setScrollItems(mapped);

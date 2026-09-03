@@ -1,6 +1,5 @@
 const SportHouseService = require('../../services/sports/sport-house.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getAllHouses = async (req, res) => {
     try {
@@ -16,17 +15,36 @@ const getAllHouses = async (req, res) => {
 
 const createHouse = async (req, res) => {
     try {
-        const { name, subtitle, description, offset, custom, order } = req.body;
+        const { name, subtitle, description, offset, custom, order, image: textImage } = req.body;
         
-        const image = req.file ? `/uploads/${req.file.filename}` : null;
+        if (!name) {
+            return res.status(400).json({
+                success: false,
+                message: 'House name is required'
+            });
+        }
+
+        let imageUrl = textImage || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/sports/houses');
+            imageUrl = uploadResult.secure_url;
+        }
+
+        if (!imageUrl) {
+            return res.status(400).json({
+                success: false,
+                message: 'Image is required'
+            });
+        }
+
         const house = await SportHouseService.createHouse({
             name,
-            subtitle,
-            image,
-            description,
-            offset: offset === 'true',
-            custom: custom === 'true',
-            order: order ? parseInt(order) : 0
+            subtitle: subtitle || '',
+            image: imageUrl,
+            description: description || '',
+            offset: offset === true || offset === 'true',
+            custom: custom === true || custom === 'true',
+            order: order !== undefined ? parseInt(order, 10) : 0
         });
 
         res.status(201).json({
@@ -42,24 +60,20 @@ const createHouse = async (req, res) => {
 const updateHouse = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, subtitle, description, offset, custom, order } = req.body;
+        const { name, subtitle, description, offset, custom, order, image: textImage } = req.body;
         const updateData = {};
         if (name) updateData.name = name;
-        if (subtitle) updateData.subtitle = subtitle;
+        if (subtitle !== undefined) updateData.subtitle = subtitle;
         if (description !== undefined) updateData.description = description;
-        if (offset !== undefined) updateData.offset = offset === 'true';
-        if (custom !== undefined) updateData.custom = custom === 'true';
-        if (order !== undefined) updateData.order = parseInt(order);
+        if (offset !== undefined) updateData.offset = offset === true || offset === 'true';
+        if (custom !== undefined) updateData.custom = custom === true || custom === 'true';
+        if (order !== undefined) updateData.order = parseInt(order, 10);
 
         if (req.file) {
-            const oldHouse = await SportHouseService.getHouseById(id);
-            if (oldHouse && oldHouse.image) {
-                const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldHouse.image));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.image = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/sports/houses');
+            updateData.image = uploadResult.secure_url;
+        } else if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
         }
 
         const updatedHouse = await SportHouseService.updateHouse(id, updateData);

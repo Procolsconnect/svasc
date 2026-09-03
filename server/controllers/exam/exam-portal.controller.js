@@ -1,6 +1,5 @@
 const ExamPortalService = require('../../services/exam/exam-portal.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getConfig = async (req, res) => {
     try {
@@ -21,28 +20,32 @@ const updateConfig = async (req, res) => {
         if (floatingStatus !== undefined) updateData.floatingStatus = floatingStatus;
 
         if (schedules) {
-            try {
-                updateData.schedules = JSON.parse(schedules);
-            } catch (e) {
-                return res.status(400).json({ success: false, message: "Schedules must be a valid JSON array" });
+            if (typeof schedules === 'string') {
+                try {
+                    updateData.schedules = JSON.parse(schedules);
+                } catch (e) {
+                    return res.status(400).json({ success: false, message: "Schedules must be a valid JSON array" });
+                }
+            } else if (Array.isArray(schedules)) {
+                updateData.schedules = schedules;
             }
         }
 
-        const oldConfig = await ExamPortalService.getConfig();
+        // Support direct Cloudinary image URLs from req.body
+        ['image1', 'image2', 'image3'].forEach(fieldName => {
+            if (req.body[fieldName] !== undefined && typeof req.body[fieldName] === 'string' && req.body[fieldName] !== '') {
+                updateData[fieldName] = req.body[fieldName];
+            }
+        });
 
+        // Support multipart uploaded files via Cloudinary
         if (req.files) {
-            ['image1', 'image2', 'image3'].forEach(fieldName => {
+            for (const fieldName of ['image1', 'image2', 'image3']) {
                 if (req.files[fieldName] && req.files[fieldName].length > 0) {
-                    // Delete old file if exists
-                    if (oldConfig && oldConfig[fieldName]) {
-                        const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldConfig[fieldName]));
-                        if (fs.existsSync(oldFilePath)) {
-                            fs.unlinkSync(oldFilePath);
-                        }
-                    }
-                    updateData[fieldName] = `/uploads/${req.files[fieldName][0].filename}`;
+                    const uploadResult = await uploadToCloudinary(req.files[fieldName][0].buffer, 'svasc/exam/portal', 'image');
+                    updateData[fieldName] = uploadResult.secure_url;
                 }
-            });
+            }
         }
 
         const config = await ExamPortalService.updateConfig(updateData);

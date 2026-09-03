@@ -1,4 +1,5 @@
 const libraryAwardService = require('../../services/library/library-award.service');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 exports.getAllAwards = async (req, res) => {
     try {
@@ -11,14 +12,20 @@ exports.getAllAwards = async (req, res) => {
 
 exports.createAward = async (req, res) => {
     try {
-        const { category, name, designation, department } = req.body;
+        const { category, name, designation, department, image: bodyImage } = req.body;
         
+        let imageUrl = bodyImage || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/library/awards', 'image');
+            imageUrl = uploadResult.secure_url;
+        }
+
         const data = { 
             category, 
             name, 
             designation, 
-            department,
-            image: req.file ? `uploads/${req.file.filename}` : ''
+            department: department || '',
+            image: imageUrl
         };
         
         const award = await libraryAwardService.createAward(data);
@@ -30,14 +37,19 @@ exports.createAward = async (req, res) => {
 
 exports.updateAward = async (req, res) => {
     try {
-        const { category, name, designation, department } = req.body;
-        const updateData = { category, name, designation, department };
+        const { category, name, designation, department, image: bodyImage } = req.body;
+        const updateData = {};
+        if (category) updateData.category = category;
+        if (name) updateData.name = name;
+        if (designation) updateData.designation = designation;
+        if (department !== undefined) updateData.department = department;
 
         if (req.file) {
-            updateData.image = `uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/library/awards', 'image');
+            updateData.image = uploadResult.secure_url;
+        } else if (bodyImage !== undefined && bodyImage !== '') {
+            updateData.image = bodyImage;
         }
-
-        Object.keys(updateData).forEach(key => updateData[key] === undefined && delete updateData[key]);
 
         const award = await libraryAwardService.updateAward(req.params.id, updateData);
         if (!award) return res.status(404).json({ success: false, message: 'Award not found' });

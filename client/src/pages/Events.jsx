@@ -3,7 +3,11 @@ import styles from './Events.module.css';
 import { ArrowDown, Star, ExternalLink } from 'lucide-react';
 import Eventhero from './Eventhero'
 import Hero from '../components/Common/Hero';
-import axios from 'axios';
+import {
+    getEventsPageHero,
+    getEventsGrid,
+    getEventsMarquee
+} from '../services/eventService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -38,40 +42,48 @@ const Events = () => {
         const fetchEventsData = async () => {
             try {
                 const [heroRes, gridRes, marqueeRes] = await Promise.allSettled([
-                    axios.get(`${BASE_URL}/api/page-heros/events`),
-                    axios.get(`${BASE_URL}/api/events/grid`),
-                    axios.get(`${BASE_URL}/api/events/marquee`)
+                    getEventsPageHero(),
+                    getEventsGrid(),
+                    getEventsMarquee()
                 ]);
 
-                if (heroRes.status === 'fulfilled' && heroRes.value.data.success && heroRes.value.data.data) {
-                    const data = heroRes.value.data.data;
-                    const cleanImg = data.image.replace(/^\/+/, '');
-                    setHeroData({
-                        title: data.title || fallbackHero.title,
-                        description: data.description || fallbackHero.description,
-                        image: data.image.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
-                    });
+                if (heroRes.status === 'fulfilled') {
+                    const data = heroRes.value?.data ?? heroRes.value;
+                    if (data && data.title) {
+                        const cleanImg = (data.image || '').replace(/^\/+/, '');
+                        setHeroData({
+                            title: data.title || fallbackHero.title,
+                            description: data.description || fallbackHero.description,
+                            image: data.image?.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
+                        });
+                    }
                 }
 
-                if (gridRes.status === 'fulfilled' && gridRes.value.data.success && gridRes.value.data.data.length > 0) {
-                    setGridEvents(gridRes.value.data.data.map(item => {
-                        const cleanImg = item.image.replace(/^\/+/, '');
-                        return {
-                            ...item,
-                            image: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`
-                        };
-                    }));
+                if (gridRes.status === 'fulfilled') {
+                    const gridList = gridRes.value?.data ?? (Array.isArray(gridRes.value) ? gridRes.value : []);
+                    if (gridList.length > 0) {
+                        setGridEvents(gridList.map(item => {
+                            const cleanImg = (item.image || '').replace(/^\/+/, '');
+                            return {
+                                ...item,
+                                image: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`
+                            };
+                        }));
+                    }
                 }
 
-                if (marqueeRes.status === 'fulfilled' && marqueeRes.value.data.success && marqueeRes.value.data.data.length > 0) {
-                    setMarqueeEvents(marqueeRes.value.data.data.map(item => {
-                        const cleanImg = item.image.replace(/^\/+/, '');
-                        return {
-                            ...item,
-                            desc: item.description,
-                            image: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`
-                        };
-                    }));
+                if (marqueeRes.status === 'fulfilled') {
+                    const marqueeList = marqueeRes.value?.data ?? (Array.isArray(marqueeRes.value) ? marqueeRes.value : []);
+                    if (marqueeList.length > 0) {
+                        setMarqueeEvents(marqueeList.map(item => {
+                            const cleanImg = (item.image || '').replace(/^\/+/, '');
+                            return {
+                                ...item,
+                                desc: item.description,
+                                image: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`
+                            };
+                        }));
+                    }
                 }
             } catch (err) {
                 console.error("Error fetching events data:", err);

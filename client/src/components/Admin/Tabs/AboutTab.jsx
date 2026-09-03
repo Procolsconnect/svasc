@@ -2,65 +2,110 @@ import React, { useState, useEffect } from 'react';
 import HeroForm from '../HeroForm';
 import CrudManager from '../CrudManager';
 import { FormInput, FileUploader } from '../FormInput';
-import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
-import axios from 'axios';
+import { uploadDirectToCloudinary } from '../../../utils/cloudinaryDirectUpload';
+import {
+  getCertifications,
+  createCertification,
+  updateCertification,
+  deleteCertification,
+  getAllTeacherAwards,
+  createTeacherAward,
+  updateTeacherAward,
+  deleteTeacherAward,
+} from '../../../services/aboutService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const AboutTab = () => {
   const [certifications, setCertifications] = useState([]);
   const [teacherAwards, setTeacherAwards] = useState([]);
+  const [certProgress, setCertProgress] = useState(0);
+  const [isUploadingCert, setIsUploadingCert] = useState(false);
 
   const loadData = async () => {
     try {
       const [certRes, awardsRes] = await Promise.allSettled([
-        fetchAdminData('/api/about/certifications'),
-        fetchAdminData('/api/about/teacher-awards')
+        getCertifications(),
+        getAllTeacherAwards()
       ]);
-      if (certRes.status === 'fulfilled' && certRes.value) setCertifications(certRes.value);
-      if (awardsRes.status === 'fulfilled' && awardsRes.value) setTeacherAwards(awardsRes.value);
-    } catch (e) { console.error(e); }
+      if (certRes.status === 'fulfilled') {
+        const val = certRes.value;
+        setCertifications(val?.data ?? (Array.isArray(val) ? val : []));
+      }
+      if (awardsRes.status === 'fulfilled') {
+        const val = awardsRes.value;
+        setTeacherAwards(val?.data ?? (Array.isArray(val) ? val : []));
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   useEffect(() => { loadData(); }, []);
 
   const handleSaveCert = async (formData, id) => {
-    await saveAdminData('/api/about/certifications', id, formData, 'image');
+    let imageUrl = formData.image;
+
+    if (formData.image instanceof File) {
+      setIsUploadingCert(true);
+      setCertProgress(0);
+      try {
+        imageUrl = await uploadDirectToCloudinary(
+          formData.image,
+          'svasc/about/certifications',
+          (pct) => setCertProgress(pct)
+        );
+      } finally {
+        setIsUploadingCert(false);
+      }
+    }
+
+    if (!imageUrl) {
+      throw new Error("Please select an image file or provide an image URL.");
+    }
+
+    const payload = {
+      order: Number(formData.order) || 0,
+      image: imageUrl
+    };
+
+    if (id) {
+      await updateCertification(id, payload);
+    } else {
+      await createCertification(payload);
+    }
     loadData();
   };
 
   const handleDeleteCert = async (id) => {
-    await deleteAdminData('/api/about/certifications', id);
+    await deleteCertification(id);
     loadData();
   };
 
   const handleSaveAward = async (formData, id) => {
-    try {
-        const payload = {
-            year: formData.year,
-            awardName: formData.awardName,
-            facultyName: formData.facultyName
-        };
-        
-        if (id) {
-            await axios.put(`${BASE_URL}/api/about/teacher-awards/${id}`, payload);
-        } else {
-            await axios.post(`${BASE_URL}/api/about/teacher-awards`, payload);
-        }
-    } catch(err) {
-        console.error(err);
-        alert('Failed to save teacher award');
+    const payload = {
+      year: Number(formData.year) || new Date().getFullYear(),
+      awardName: formData.awardName || '',
+      facultyName: formData.facultyName || ''
+    };
+    
+    if (id) {
+      await updateTeacherAward(id, payload);
+    } else {
+      await createTeacherAward(payload);
     }
     loadData();
   };
 
   const handleDeleteAward = async (id) => {
-    await deleteAdminData('/api/about/teacher-awards', id);
+    await deleteTeacherAward(id);
     loadData();
   };
 
   return (
     <div>
+      <HeroForm pageKey="about" title="About Page Hero Section" />
+
       <CrudManager
         title="Awards & Certifications"
         data={certifications}
@@ -68,17 +113,36 @@ const AboutTab = () => {
           { key: 'order', label: 'Order', type: 'text' },
           { key: 'image', label: 'Certificate Image', type: 'image' }
         ]}
-        onSave={(data, id) => handleSaveCert(data, id)}
-        onDelete={(id) => handleDeleteCert(id)}
+        onSave={handleSaveCert}
+        onDelete={handleDeleteCert}
         initialFormState={{ order: 0, image: null }}
         renderForm={(formData, setFormData) => (
           <>
             <FormInput label="Display Order" type="number" value={formData.order || 0} onChange={(e) => setFormData({...formData, order: e.target.value})} />
             <FileUploader
               label="Certificate Image"
+              accept="image/*"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-              previewUrl={typeof formData.image === 'string' ? `${BASE_URL}/${formData.image.replace(/^\/+/, '')}` : (formData.image ? URL.createObjectURL(formData.image) : null)}
+              previewUrl={typeof formData.image === 'string' ? (formData.image.startsWith('http') ? formData.image : `${BASE_URL}/${formData.image.replace(/^\/+/, '')}`) : (formData.image ? URL.createObjectURL(formData.image) : null)}
             />
+
+            {/* LIVE CERTIFICATE UPLOAD PROGRESS BAR */}
+            {isUploadingCert && (
+              <div style={{ marginTop: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '600', color: '#2563eb', marginBottom: '0.3rem' }}>
+                  <span>⚡ Direct Cloudinary Image Uploading...</span>
+                  <span>{certProgress}%</span>
+                </div>
+                <div style={{ width: '100%', height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{
+                    width: `${certProgress}%`,
+                    height: '100%',
+                    background: 'linear-gradient(90deg, #3b82f6, #10b981)',
+                    transition: 'width 0.2s ease'
+                  }} />
+                </div>
+              </div>
+            )}
           </>
         )}
       />
@@ -91,8 +155,8 @@ const AboutTab = () => {
           { key: 'awardName', label: 'Award Name', type: 'text' },
           { key: 'facultyName', label: 'Faculty Name', type: 'text' }
         ]}
-        onSave={(data, id) => handleSaveAward(data, id)}
-        onDelete={(id) => handleDeleteAward(id)}
+        onSave={handleSaveAward}
+        onDelete={handleDeleteAward}
         initialFormState={{ year: new Date().getFullYear(), awardName: '', facultyName: '' }}
         renderForm={(formData, setFormData) => (
           <>

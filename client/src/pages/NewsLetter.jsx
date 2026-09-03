@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import Hero from '../components/Common/Hero'
-import axios from 'axios'
-import './NewsLetter.css'
+import React, { useState, useEffect } from 'react';
+import Hero from '../components/Common/Hero';
+import { getNewsletters } from '../services/newsletterService';
+import './NewsLetter.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
-const API_URL = `${BASE_URL}/api/newsletter`;
 
 const NewsLetter = () => {
     const [newsletters, setNewsletters] = useState([]);
@@ -14,10 +13,9 @@ const NewsLetter = () => {
         const fetchNewsletters = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(API_URL);
-                if (response.data.success) {
-                    setNewsletters(response.data.data);
-                }
+                const response = await getNewsletters();
+                const list = response?.data ?? (Array.isArray(response) ? response : []);
+                setNewsletters(list);
             } catch (error) {
                 console.error('Error fetching newsletters:', error);
             } finally {
@@ -42,18 +40,22 @@ const NewsLetter = () => {
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {newsletters.length > 0 ? (
-                                newsletters.map((item) => (
-                                    <div key={item._id} className="newsletter-card shadow-lg rounded-lg overflow-hidden border border-gray-100 flex flex-col items-center bg-white">
-                                        <img 
-                                            src={`${BASE_URL}/${item.pdf ? item.pdf.replace(/^\/+/, '') : ''}`} 
-                                            alt={item.title} 
-                                            className="w-full h-auto object-cover max-h-96"
-                                        />
-                                        <div className="p-4 w-full text-center bg-gray-50">
-                                            <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+                                newsletters.map((item) => {
+                                    const cleanPdf = (item.pdf || '').replace(/^\/+/, '');
+                                    const fileSrc = item.pdf?.startsWith('http') ? item.pdf : `${BASE_URL}/${cleanPdf}`;
+                                    return (
+                                        <div key={item._id} className="newsletter-card shadow-lg rounded-lg overflow-hidden border border-gray-100 flex flex-col items-center bg-white">
+                                            <img 
+                                                src={fileSrc} 
+                                                alt={item.title} 
+                                                className="w-full h-auto object-cover max-h-96"
+                                            />
+                                            <div className="p-4 w-full text-center bg-gray-50">
+                                                <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))
+                                    );
+                                })
                             ) : (
                                 <div className="col-span-full text-center py-10 text-gray-500">
                                     No newsletters available at the moment.

@@ -1,14 +1,25 @@
 const awardGalleryService = require('../../services/awards-gallery/award-gallery.service');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 class AwardGalleryController {
     async createAward(req, res) {
         try {
-            const { alt, category } = req.body;
+            const { alt, category, image: bodyImage } = req.body;
             
+            let imageUrl = bodyImage || '';
+            if (req.file) {
+                const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/awards-gallery', 'image');
+                imageUrl = uploadResult.secure_url;
+            }
+
+            if (!imageUrl) {
+                return res.status(400).json({ success: false, message: 'Award image is required' });
+            }
+
             const data = {
-                image: req.file ? `uploads/${req.file.filename}` : '',
-                alt,
-                category
+                image: imageUrl,
+                alt: alt || '',
+                category: (category || 'academic').toLowerCase()
             };
 
             const award = await awardGalleryService.createAward(data);
@@ -30,19 +41,18 @@ class AwardGalleryController {
     async updateAward(req, res) {
         try {
             const { id } = req.params;
-            const { alt, category } = req.body;
+            const { alt, category, image: bodyImage } = req.body;
 
-            const updateData = {
-                alt,
-                category
-            };
+            const updateData = {};
+            if (alt !== undefined) updateData.alt = alt;
+            if (category !== undefined) updateData.category = category.toLowerCase();
 
             if (req.file) {
-                updateData.image = `uploads/${req.file.filename}`;
+                const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/awards-gallery', 'image');
+                updateData.image = uploadResult.secure_url;
+            } else if (bodyImage !== undefined && bodyImage !== '') {
+                updateData.image = bodyImage;
             }
-
-            // Remove undefined fields
-            Object.keys(updateData).forEach(key => updateData[key] === undefined && delete updateData[key]);
 
             const award = await awardGalleryService.updateAward(id, updateData);
             if (!award) {

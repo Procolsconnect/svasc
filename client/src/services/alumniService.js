@@ -1,26 +1,30 @@
 import apiClient from './apiClient';
 
 /**
- * ==============================================================================
- * ALUMNI API SERVICES
- * ==============================================================================
+
  */
+
+const isFormData = (val) => typeof FormData !== 'undefined' && val instanceof FormData;
 
 // 1. RISING STARS
 export const getRisingStars = async () => {
   return await apiClient.get('/alumni/rising-stars');
 };
 
-export const createRisingStar = async (formData) => {
-  return await apiClient.post('/alumni/rising-stars', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
+export const createRisingStar = async (data) => {
+  return await apiClient.post(
+    '/alumni/rising-stars',
+    data,
+    isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
+  );
 };
 
-export const updateRisingStar = async (id, formData) => {
-  return await apiClient.put(`/alumni/rising-stars/${id}`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
+export const updateRisingStar = async (id, data) => {
+  return await apiClient.put(
+    `/alumni/rising-stars/${id}`,
+    data,
+    isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
+  );
 };
 
 export const deleteRisingStar = async (id) => {
@@ -32,16 +36,20 @@ export const getSuccessStories = async () => {
   return await apiClient.get('/alumni/success-stories');
 };
 
-export const createSuccessStory = async (formData) => {
-  return await apiClient.post('/alumni/success-stories', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
+export const createSuccessStory = async (data) => {
+  return await apiClient.post(
+    '/alumni/success-stories',
+    data,
+    isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
+  );
 };
 
-export const updateSuccessStory = async (id, formData) => {
-  return await apiClient.put(`/alumni/success-stories/${id}`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
+export const updateSuccessStory = async (id, data) => {
+  return await apiClient.put(
+    `/alumni/success-stories/${id}`,
+    data,
+    isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
+  );
 };
 
 export const deleteSuccessStory = async (id) => {

@@ -1,6 +1,5 @@
 const ExamTimeTableService = require('../../services/exam/examTimeTable.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getAllExams = async (req, res) => {
     try {
@@ -43,14 +42,24 @@ const getExamById = async (req, res) => {
 
 const createExam = async (req, res) => {
     try {
-        const { title, examType } = req.body;
+        const { title, examType, file: textFile } = req.body;
 
-        
-        const filePath = req.file ? `/uploads/${req.file.filename}` : null;
+        if (!title) {
+            return res.status(400).json({
+                success: false,
+                message: "Timetable title is required"
+            });
+        }
+
+        let filePath = textFile || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/exam/timetables', 'auto');
+            filePath = uploadResult.secure_url;
+        }
 
         const exam = await ExamTimeTableService.createExamTimeTable({
             title,
-            examType,
+            examType: examType || 'Bharathiyar University',
             file: filePath
         });
 
@@ -70,19 +79,16 @@ const createExam = async (req, res) => {
 const updateExam = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, examType } = req.body;
-        let updateData = { title };
+        const { title, examType, file: textFile } = req.body;
+        let updateData = {};
+        if (title) updateData.title = title;
         if (examType) updateData.examType = examType;
 
         if (req.file) {
-            const oldExam = await ExamTimeTableService.getExamTimeTableById(id);
-            if (oldExam && oldExam.file) {
-                const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldExam.file));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.file = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/exam/timetables', 'auto');
+            updateData.file = uploadResult.secure_url;
+        } else if (textFile !== undefined && textFile !== '') {
+            updateData.file = textFile;
         }
 
         const updatedExam = await ExamTimeTableService.updateExamTimeTable(id, updateData);

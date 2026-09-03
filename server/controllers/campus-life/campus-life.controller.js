@@ -1,6 +1,5 @@
 const CampusLifeService = require('../../services/campus-life/campus-life.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 // Gallery Controllers
 const getAllGallery = async (req, res) => {
@@ -14,14 +13,27 @@ const getAllGallery = async (req, res) => {
 
 const createGallery = async (req, res) => {
     try {
-        const { name, description, order } = req.body;
-        // Optionally save the image path if file uploaded
-        const image = req.file ? `/uploads/${req.file.filename}` : null;
+        const { name, description, order, image: textImage } = req.body;
+        
+        if (!name) {
+            return res.status(400).json({ success: false, message: "Gallery item name is required" });
+        }
+
+        let imageUrl = textImage || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/campus-life/gallery', 'image');
+            imageUrl = uploadResult.secure_url;
+        }
+
+        if (!imageUrl) {
+            return res.status(400).json({ success: false, message: "Gallery image is required" });
+        }
+
         const item = await CampusLifeService.createGallery({
             name,
-            description,
-            image,
-            order: order ? parseInt(order) : 0
+            description: description || '',
+            image: imageUrl,
+            order: order !== undefined ? parseInt(order, 10) : 0
         });
         res.status(201).json({ success: true, data: item, message: "Gallery item created successfully" });
     } catch (error) {
@@ -32,21 +44,17 @@ const createGallery = async (req, res) => {
 const updateGallery = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, description, order } = req.body;
+        const { name, description, order, image: textImage } = req.body;
         const updateData = {};
         if (name) updateData.name = name;
-        if (description) updateData.description = description;
-        if (order !== undefined) updateData.order = parseInt(order);
+        if (description !== undefined) updateData.description = description;
+        if (order !== undefined) updateData.order = parseInt(order, 10);
 
         if (req.file) {
-            const oldItem = await CampusLifeService.getGalleryById(id);
-            if (oldItem && oldItem.image) {
-                const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldItem.image));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.image = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/campus-life/gallery', 'image');
+            updateData.image = uploadResult.secure_url;
+        } else if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
         }
 
         const updatedItem = await CampusLifeService.updateGallery(id, updateData);
@@ -84,15 +92,28 @@ const getAllScroll = async (req, res) => {
 
 const createScroll = async (req, res) => {
     try {
-        const { title, description, link, order } = req.body;
-        // Optionally save the image path if file uploaded
-        const image = req.file ? `/uploads/${req.file.filename}` : null;
+        const { title, description, text, link, order, image: textImage } = req.body;
+        
+        if (!title) {
+            return res.status(400).json({ success: false, message: "Scroll item title is required" });
+        }
+
+        let imageUrl = textImage || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/campus-life/scroll', 'image');
+            imageUrl = uploadResult.secure_url;
+        }
+
+        if (!imageUrl) {
+            return res.status(400).json({ success: false, message: "Scroll image is required" });
+        }
+
         const item = await CampusLifeService.createScroll({
             title,
-            description,
-            link,
-            image,
-            order: order ? parseInt(order) : 0
+            description: description || text || '',
+            link: link || '',
+            image: imageUrl,
+            order: order !== undefined ? parseInt(order, 10) : 0
         });
         res.status(201).json({ success: true, data: item, message: "Scroll item created successfully" });
     } catch (error) {
@@ -103,22 +124,18 @@ const createScroll = async (req, res) => {
 const updateScroll = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, description, link, order } = req.body;
+        const { title, description, text, link, order, image: textImage } = req.body;
         const updateData = {};
         if (title) updateData.title = title;
-        if (description) updateData.description = description;
+        if (description !== undefined || text !== undefined) updateData.description = description || text;
         if (link !== undefined) updateData.link = link;
-        if (order !== undefined) updateData.order = parseInt(order);
+        if (order !== undefined) updateData.order = parseInt(order, 10);
 
         if (req.file) {
-            const oldItem = await CampusLifeService.getScrollById(id);
-            if (oldItem && oldItem.image) {
-                const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldItem.image));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.image = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/campus-life/scroll', 'image');
+            updateData.image = uploadResult.secure_url;
+        } else if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
         }
 
         const updatedItem = await CampusLifeService.updateScroll(id, updateData);

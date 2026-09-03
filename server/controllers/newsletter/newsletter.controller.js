@@ -1,15 +1,24 @@
 const newsletterService = require('../../services/newsletter/newsletter.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 class NewsletterController {
     async createNewsletter(req, res) {
         try {
-            const { title } = req.body;
+            const { title, pdf: bodyPdf, file: bodyFile } = req.body;
             
+            let fileUrl = bodyPdf || bodyFile || '';
+            if (req.file) {
+                const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/newsletters', 'auto');
+                fileUrl = uploadResult.secure_url;
+            }
+
+            if (!fileUrl) {
+                return res.status(400).json({ success: false, message: 'Newsletter file is required' });
+            }
+
             const data = {
                 title,
-                pdf: req.file ? `uploads/${req.file.filename}` : ''
+                pdf: fileUrl
             };
 
             const newsletter = await newsletterService.createNewsletter(data);
@@ -35,19 +44,16 @@ class NewsletterController {
     async updateNewsletter(req, res) {
         try {
             const { id } = req.params;
-            const { title } = req.body;
+            const { title, pdf: bodyPdf, file: bodyFile } = req.body;
 
-            const updateData = { title };
+            const updateData = {};
+            if (title) updateData.title = title;
 
             if (req.file) {
-                const oldNewsletter = await newsletterService.getNewsletterById(id);
-                if (oldNewsletter && oldNewsletter.pdf) {
-                    const oldFilePath = path.join(__dirname, '..', '..', 'uploads', path.basename(oldNewsletter.pdf));
-                    if (fs.existsSync(oldFilePath)) {
-                        fs.unlinkSync(oldFilePath);
-                    }
-                }
-                updateData.pdf = `uploads/${req.file.filename}`;
+                const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/newsletters', 'auto');
+                updateData.pdf = uploadResult.secure_url;
+            } else if (bodyPdf || bodyFile) {
+                updateData.pdf = bodyPdf || bodyFile;
             }
 
             const newsletter = await newsletterService.updateNewsletter(id, updateData);
@@ -64,20 +70,10 @@ class NewsletterController {
     async deleteNewsletter(req, res) {
         try {
             const { id } = req.params;
-            const newsletter = await newsletterService.getNewsletterById(id);
-
-            if (!newsletter) {
+            const deleted = await newsletterService.deleteNewsletter(id);
+            if (!deleted) {
                 return res.status(404).json({ success: false, message: 'Newsletter not found' });
             }
-
-            if (newsletter.pdf) {
-                const filePath = path.join(__dirname, '..', '..', 'uploads', path.basename(newsletter.pdf));
-                if (fs.existsSync(filePath)) {
-                    fs.unlinkSync(filePath);
-                }
-            }
-
-            await newsletterService.deleteNewsletter(id);
             res.status(200).json({ success: true, message: 'Newsletter deleted successfully' });
         } catch (error) {
             res.status(500).json({ success: false, message: error.message });

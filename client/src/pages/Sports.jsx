@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../components/Common/Hero';
 import styles from './Sports.module.css';
-import axios from 'axios';
 import sportsHeroImage from '../assets/sporthero1.jpg';
+import { getSportHouses, getSportsPageHero } from '../services/sportsService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -63,14 +63,14 @@ const SVASCSports = () => {
             try {
                 // Fetch Page Hero
                 try {
-                    const heroRes = await axios.get(`${BASE_URL}/api/page-heros/sports`);
-                    if (heroRes.data.success && heroRes.data.data) {
-                        const data = heroRes.data.data;
-                        const cleanImg = data.image.replace(/^\/+/, '');
+                    const heroRes = await getSportsPageHero();
+                    const data = heroRes?.data ?? heroRes;
+                    if (data && data.title) {
+                        const cleanImg = (data.image || '').replace(/^\/+/, '');
                         setHeroData({
                             title: data.title || fallbackHero.title,
                             description: data.description || fallbackHero.description,
-                            image: data.image.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
+                            image: data.image?.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
                         });
                     }
                 } catch (e) {
@@ -79,13 +79,14 @@ const SVASCSports = () => {
 
                 // Fetch Houses
                 try {
-                    const housesRes = await axios.get(`${BASE_URL}/api/sports/houses`);
-                    if (housesRes.data.success && housesRes.data.data.length > 0) {
-                        const mapped = housesRes.data.data.map(house => {
-                            const cleanImg = house.image.replace(/^\/+/, '');
+                    const housesRes = await getSportHouses();
+                    const housesList = housesRes?.data ?? (Array.isArray(housesRes) ? housesRes : []);
+                    if (housesList.length > 0) {
+                        const mapped = housesList.map(house => {
+                            const cleanImg = (house.image || '').replace(/^\/+/, '');
                             return {
                                 ...house,
-                                image: house.image.startsWith('http') ? house.image : `${BASE_URL}/${cleanImg}`
+                                image: house.image?.startsWith('http') ? house.image : `${BASE_URL}/${cleanImg}`
                             };
                         });
                         setSportHouses(mapped);

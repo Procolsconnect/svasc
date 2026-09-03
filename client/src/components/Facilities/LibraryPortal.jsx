@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ArrowRight, ChevronRight, BookOpen, Clock, Award, ShieldAlert, Users, Image as ImageIcon } from 'lucide-react';
 import styles from './LibraryPortal.module.css';
 import Hero from '../Common/Hero';
+import { getLibraryActivities, getLibraryAwards } from '../../services/libraryService';
 import libraryImg from '../../assets/library.JPG';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
@@ -27,22 +28,24 @@ const LibraryPortal = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const activitiesRes = await axios.get(`${BASE_URL}/api/library-activities`);
-                if (activitiesRes.data.data && activitiesRes.data.data.length > 0) {
-                    setActivities(activitiesRes.data.data.map(a => ({
+                const activitiesRes = await getLibraryActivities();
+                const actList = activitiesRes?.data ?? (Array.isArray(activitiesRes) ? activitiesRes : []);
+                if (actList.length > 0) {
+                    setActivities(actList.map(a => ({
                         ...a,
                         images: [
-                            a.image1 && a.image1.startsWith('http') ? a.image1 : `${BASE_URL}/${a.image1?.replace(/^\/+/, '')}`,
-                            a.image2 && a.image2.startsWith('http') ? a.image2 : `${BASE_URL}/${a.image2?.replace(/^\/+/, '')}`
+                            a.image1 && (a.image1.startsWith('http') ? a.image1 : `${BASE_URL}/${a.image1?.replace(/^\/+/, '')}`),
+                            a.image2 && (a.image2.startsWith('http') ? a.image2 : `${BASE_URL}/${a.image2?.replace(/^\/+/, '')}`)
                         ].filter(Boolean)
                     })));
                 }
 
-                const awardsRes = await axios.get(`${BASE_URL}/api/library-awards`);
-                if (awardsRes.data.data && awardsRes.data.data.length > 0) {
-                    const awards = awardsRes.data.data.map(a => ({
+                const awardsRes = await getLibraryAwards();
+                const awardsList = awardsRes?.data ?? (Array.isArray(awardsRes) ? awardsRes : []);
+                if (awardsList.length > 0) {
+                    const awards = awardsList.map(a => ({
                         ...a,
-                        src: a.image && a.image.startsWith('http') ? a.image : `${BASE_URL}/${a.image?.replace(/^\/+/, '')}`
+                        src: a.image && (a.image.startsWith('http') ? a.image : `${BASE_URL}/${a.image?.replace(/^\/+/, '')}`)
                     }));
                     
                     setStudents(awards.filter(a => a.category === 'Student').map(a => ({ ...a, class: a.designation })));

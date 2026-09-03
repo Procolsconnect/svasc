@@ -1,6 +1,5 @@
 const EventsMarqueeService = require('../../services/events/marquee.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getAllEventsMarquee = async (req, res) => {
     try {
@@ -43,20 +42,31 @@ const getEventMarqueeById = async (req, res) => {
 
 const createEventMarquee = async (req, res) => {
     try {
-        const { title, day, month, description, url, youtubeUrl } = req.body;
+        const { title, day, month, description, url, youtubeUrl, image: textImage } = req.body;
+
+        if (!title) {
+            return res.status(400).json({
+                success: false,
+                message: "Event title is required"
+            });
+        }
+
+        let imageUrl = textImage || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/events/marquee', 'image');
+            imageUrl = uploadResult.secure_url;
+        }
 
         const currentCount = await EventsMarqueeService.getEventMarqueeCount();
 
-        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
-
         const event = await EventsMarqueeService.createEventMarquee({
             title,
-            day,
-            month,
-            description,
+            day: day || '',
+            month: month || '',
+            description: description || '',
             url: url || '#',
             youtubeLink: youtubeUrl || '',
-            image: imagePath,
+            image: imageUrl,
             order: currentCount
         });
 
@@ -76,22 +86,20 @@ const createEventMarquee = async (req, res) => {
 const updateEventMarquee = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, day, month, description, url, youtubeUrl } = req.body;
-        let updateData = { title, day, month, description };
-
+        const { title, day, month, description, url, youtubeUrl, image: textImage } = req.body;
+        let updateData = {};
+        if (title) updateData.title = title;
+        if (day !== undefined) updateData.day = day;
+        if (month !== undefined) updateData.month = month;
+        if (description !== undefined) updateData.description = description;
         if (url !== undefined) updateData.url = url;
         if (youtubeUrl !== undefined) updateData.youtubeLink = youtubeUrl;
 
-        // Handle image update
         if (req.file) {
-            const oldEvent = await EventsMarqueeService.getEventMarqueeById(id);
-            if (oldEvent && oldEvent.image) {
-                const oldFilePath = path.join(__dirname, '../..', 'uploads', path.basename(oldEvent.image));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.image = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/events/marquee', 'image');
+            updateData.image = uploadResult.secure_url;
+        } else if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
         }
 
         const updatedEvent = await EventsMarqueeService.updateEventMarquee(id, updateData);

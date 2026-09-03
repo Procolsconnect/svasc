@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Blogs.module.css';
 import Hero from '../components/Common/Hero';
-import axios from 'axios';
+import { getBlogsPageHero, getBlogs } from '../services/blogService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -94,9 +94,9 @@ const ProjectsPortfolio = () => {
   const selectedAreaRef = useRef(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/api/page-heros/blogs`).then(res => {
-      if (res.data.success && res.data.data) {
-        const d = res.data.data;
+    getBlogsPageHero().then(res => {
+      const d = res?.data ?? res;
+      if (d && d.title) {
         const cleanImg = d.image ? d.image.replace(/^\/+/, '') : '';
         setHeroData({
           title: d.title || heroData.title,
@@ -110,21 +110,22 @@ const ProjectsPortfolio = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/api/blogs`);
-        if (res.data.success && res.data.data.length > 0) {
-          const mapped = res.data.data.map(item => {
-            const cleanImg = item.bannerImage.replace(/^\/+/, '');
+        const res = await getBlogs();
+        const data = res?.data ?? (Array.isArray(res) ? res : []);
+        if (data.length > 0) {
+          const mapped = data.map(item => {
+            const cleanImg = (item.bannerImage || '').replace(/^\/+/, '');
             return {
               ID: item._id,
               category: item.category,
-              bImage: item.bannerImage.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
+              bImage: item.bannerImage?.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
               copy: item.description,
-              cards: item.cards.map(card => {
-                const cardClean = card.image.replace(/^\/+/, '');
+              cards: (item.cards || []).map(card => {
+                const cardClean = (card.image || '').replace(/^\/+/, '');
                 return {
                   title: card.title,
                   description: card.description || "No description provided.",
-                  image: card.image.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`
+                  image: card.image?.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`
                 };
               })
             };

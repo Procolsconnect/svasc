@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, CheckCircle2, MoreHorizontal, ArrowUpRight, X } from 'lucide-react';
 import './Exam.css';
 import Hero from '../components/Common/Hero';
-import axios from 'axios';
+import { getExamPageHero, getExamPortalConfig, getExamTimeTables } from '../services/examService';
 import examHeroImage from '../assets/exam hero.JPG';
 import exam1Image from '../assets/exam1.jpg';
 import exam3Image from '../assets/exam3.jpg';
@@ -58,14 +58,14 @@ const SVASCExamination = () => {
             try {
                 // 1. Fetch Page Hero
                 try {
-                    const heroRes = await axios.get(`${BASE_URL}/api/page-heros/exam`);
-                    if (heroRes.data.success && heroRes.data.data) {
-                        const data = heroRes.data.data;
-                        const cleanImg = data.image.replace(/^\/+/, '');
+                    const heroRes = await getExamPageHero();
+                    const data = heroRes?.data ?? heroRes;
+                    if (data && data.title) {
+                        const cleanImg = (data.image || '').replace(/^\/+/, '');
                         setHeroData({
                             title: data.title || fallbackHero.title,
                             description: data.description || fallbackHero.description,
-                            image: data.image.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
+                            image: data.image?.startsWith('http') ? data.image : `${BASE_URL}/${cleanImg}`
                         });
                     }
                 } catch (e) {
@@ -74,9 +74,9 @@ const SVASCExamination = () => {
 
                 // 2. Fetch Portal Config
                 try {
-                    const configRes = await axios.get(`${BASE_URL}/api/exam/portal-config`);
-                    if (configRes.data.success && configRes.data.data) {
-                        const data = configRes.data.data;
+                    const configRes = await getExamPortalConfig();
+                    const data = configRes?.data ?? configRes;
+                    if (data) {
                         const resolveImg = (img, fallback) => {
                             if (!img) return fallback;
                             const clean = img.replace(/^\/+/, '');
@@ -99,15 +99,16 @@ const SVASCExamination = () => {
 
                 // 3. Fetch Time Tables
                 try {
-                    const timetableRes = await axios.get(`${BASE_URL}/api/exam`);
-                    if (timetableRes.data.success && timetableRes.data.data.length > 0) {
-                        const allExams = timetableRes.data.data.map(exam => {
-                            const cleanFile = exam.file.replace(/^\/+/, '');
+                    const timetableRes = await getExamTimeTables();
+                    const timetables = timetableRes?.data ?? (Array.isArray(timetableRes) ? timetableRes : []);
+                    if (timetables.length > 0) {
+                        const allExams = timetables.map(exam => {
+                            const cleanFile = (exam.file || '').replace(/^\/+/, '');
                             return {
                                 id: exam._id,
                                 icon: '📄',
                                 title: exam.title,
-                                file: exam.file.startsWith('http') ? exam.file : `${BASE_URL}/${cleanFile}`,
+                                file: exam.file?.startsWith('http') ? exam.file : `${BASE_URL}/${cleanFile}`,
                                 category: exam.examType
                             };
                         });

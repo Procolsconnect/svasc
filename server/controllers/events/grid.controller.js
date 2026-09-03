@@ -1,6 +1,5 @@
 const EventsGridService = require('../../services/events/grid.service');
-const path = require('path');
-const fs = require('fs');
+const { uploadToCloudinary } = require('../../middlewares/uploadMiddleware');
 
 const getAllEventsGrid = async (req, res) => {
     try {
@@ -43,20 +42,28 @@ const getEventGridById = async (req, res) => {
 
 const createEventGrid = async (req, res) => {
     try {
-        const { title, date, description, spanTwoCols } = req.body;
+        const { title, date, description, spanTwoCols, image: textImage } = req.body;
 
-        // Validate image upload
-        
-        // Automatically assign order based on current count
+        if (!title) {
+            return res.status(400).json({
+                success: false,
+                message: "Event title is required"
+            });
+        }
+
+        let imageUrl = textImage || '';
+        if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/events/grid', 'image');
+            imageUrl = uploadResult.secure_url;
+        }
+
         const currentCount = await EventsGridService.getEventGridCount();
-
-        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
 
         const event = await EventsGridService.createEventGrid({
             title,
             date,
-            description,
-            image: imagePath,
+            description: description || '',
+            image: imageUrl,
             spanTwoCols: spanTwoCols === 'true' || spanTwoCols === true,
             order: currentCount
         });
@@ -77,24 +84,21 @@ const createEventGrid = async (req, res) => {
 const updateEventGrid = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, date, description, spanTwoCols } = req.body;
-        let updateData = { title, date, description };
+        const { title, date, description, spanTwoCols, image: textImage } = req.body;
+        let updateData = {};
+        if (title) updateData.title = title;
+        if (date !== undefined) updateData.date = date;
+        if (description !== undefined) updateData.description = description;
 
         if (spanTwoCols !== undefined) {
             updateData.spanTwoCols = spanTwoCols === 'true' || spanTwoCols === true;
         }
 
-        // Handle image update
         if (req.file) {
-            const oldEvent = await EventsGridService.getEventGridById(id);
-            if (oldEvent && oldEvent.image) {
-                // Updated path to step back two levels to reach uploads
-                const oldFilePath = path.join(__dirname, '../..', 'uploads', path.basename(oldEvent.image));
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-            updateData.image = `/uploads/${req.file.filename}`;
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/events/grid', 'image');
+            updateData.image = uploadResult.secure_url;
+        } else if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
         }
 
         const updatedEvent = await EventsGridService.updateEventGrid(id, updateData);
